@@ -2,7 +2,7 @@ FROM mambaorg/micromamba:0.25.1
 
 USER root
 
-COPY ./container/viroprofiler-taxa/env_*.yml /tmp
+COPY ./docker/viroprofiler-taxa/env_*.yml /tmp
 
 # Install packages into `base` env, because nextflow can't use other envs.
 RUN --mount=type=cache,target=/opt/conda/pkgs micromamba install -n base -f /tmp/env_taxa.yml -y && \

@@ -14,18 +14,18 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          # - dockerfile: ./docker/viroprofiler_phamb/Dockerfile
-          #   image: jinlongru/viroprofiler_phamb
-          # - dockerfile: ./docker/viroprofiler_dram/Dockerfile
-          #   image: jinlongru/viroprofiler_dram
-          # - dockerfile: ./docker/viroprofiler_vrhyme/Dockerfile
-          #   image: jinlongru/viroprofiler_vrhyme
-          # - dockerfile: ./docker/viroprofiler_annotation/Dockerfile
-          #   image: jinlongru/viroprofiler_annotation
-          # - dockerfile: ./docker/viroprofiler_abricate/Dockerfile
-          #   image: jinlongru/viroprofiler_abricate
-          # - dockerfile: ./docker/viroprofiler_vcontact2/Dockerfile
-          #   image: jinlongru/viroprofiler_vcontact2
+          - dockerfile: ./docker/viroprofiler-base/Dockerfile
+            image: denglab/viroprofiler-base
+          - dockerfile: ./docker/viroprofiler-binning/Dockerfile
+            image: denglab/viroprofiler-binning
+          - dockerfile: ./docker/viroprofiler-geneannot/Dockerfile
+            image: denglab/viroprofiler-geneannot
+          - dockerfile: ./docker/viroprofiler-host/Dockerfile
+            image: denglab/viroprofiler-host
+          - dockerfile: ./docker/viroprofiler-replicyc/Dockerfile
+            image: denglab/viroprofiler-replicyc
+          - dockerfile: ./docker/viroprofiler-taxa/Dockerfile
+            image: denglab/viroprofiler-taxa
     permissions:
       contents: read
       packages: write
