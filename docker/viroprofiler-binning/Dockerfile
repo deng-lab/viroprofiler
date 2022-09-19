@@ -7,7 +7,7 @@ USER root
 ARG MAMBA_DOCKERFILE_ACTIVATE=1
 ENV PATH=/opt/conda/bin:/opt/conda/envs/viroprofiler-dvf/bin:$PATH
 
-COPY container/viroprofiler-binning/env_*.yml /tmp
+COPY docker/viroprofiler-binning/env_*.yml /tmp
 
 # Install packages into `base` env, because nextflow can't use other envs.
 # Phamb is installed in `base` env.

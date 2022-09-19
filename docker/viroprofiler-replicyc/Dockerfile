@@ -8,7 +8,7 @@ USER root
 ARG MAMBA_DOCKERFILE_ACTIVATE=1
 ENV PATH=/opt/conda/bin:/opt/conda/envs/viroprofiler-bacphlip/bin:$PATH
 
-COPY container/viroprofiler-replicyc/env_*.yml /tmp
+COPY docker/viroprofiler-replicyc/env_*.yml /tmp
 
 # Install packages into `base` env
 RUN --mount=type=cache,target=/opt/conda/pkgs micromamba install -n base -f /tmp/env_replidec.yml -y
