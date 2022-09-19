@@ -1,0 +1,25 @@
+name: viroprofiler-binning
+channels:
+    - conda-forge
+    - bioconda
+    - hcc
+dependencies:
+    - conda-forge::procps-ng=4.0.0
+    - pip
+    - gcc
+    - metabat2
+    - python=3.9
+    - cython
+    - pygraphviz
+    - scikit-learn=1.0.2
+    - git
+    - csvtk
+    - biopython
+    - bioconda::vrhyme=1.1.0
+    - numpy>=1.17
+    - numba>=0.50.0
+    - pandas>=1.0.0
+    - pysam>=0.15
+    - networkx>=2.0
+    - seqkit
+    - click

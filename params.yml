@@ -1,0 +1,46 @@
+outdir: "output"
+
+# =============================  Database  ====================================
+db: "/project/genomics/jru/data2/db/vpftest"
+
+# =============================  Decontamination  =============================
+decontam: null
+decontam_min_similarity: 0.95
+contamref_idx: "/project/genomics/jru/data2/db/viroprofiler/contamination_refs/hg19/ref"
+
+
+# =============================  Contig library  ==============================
+assembler: "spades"
+assemblies: "scaffolds"  # [contigs, scaffolds]
+contig_minlen: 1000
+contig_cluster_min_similarity: 0.95
+contig_cluster_min_coverage: 0.85
+
+
+# =============================   Gene library   ==============================
+prot_cluster_min_similarity: 0.7    # Minimum similarity of protein AA seqs in the same cluster
+prot_cluster_min_coverage: 0.9    # Minimum similarity of protein AA seqs in the same cluster
+gene_cluster_min_similarity: 0.9    # Minimum similarity of gene DNA seqs in the same cluster
+gene_cluster_min_coverage: 0.9   # Minimum similarity of gene DNA seqs in the same cluster
+
+# =============================  Binning  =====================================
+binning: null   # "phamb", "vrhyme" or false
+binning_minlen_contig: 2000
+binning_minlen_bin: 2000
+dvf_qvalue: 0.1
+
+
+# =============================  Viral detection  =============================
+# virsorter2_groups: "dsDNAphage,NCLDV,RNA,ssDNA,lavidaviridae"
+virsorter2_groups: "dsDNAphage"
+
+
+# =============================  Taxonomy  ====================================
+contig_minlen_vcontact2: 10000
+pc_inflation: 1.5
+vc_inflation: 1.5
+taxa_db_source: "NCBI"
+
+
+# =============================  Replication cycle  ===========================
+replicyc: "bacphlip"    # "replidec" or "bacphlip"

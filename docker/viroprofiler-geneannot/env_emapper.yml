@@ -1,0 +1,9 @@
+name: viroprofiler-emapper
+channels:
+  - conda-forge
+  - bioconda
+dependencies:
+  - conda-forge::procps-ng=4.0.0
+  - bioconda::eggnog-mapper=2.1.9
+  - pandas
+  - click

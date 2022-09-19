@@ -1,0 +1,18 @@
+name: viroprofiler-base
+channels:
+    - conda-forge
+    - bioconda
+dependencies:
+    - conda-forge::procps-ng=4.0.0
+    - bbmap
+    - bioconda::seqkit
+    - samtools
+    - blast
+    - click
+    - pandas
+    - biopython
+    - csvtk
+    - wget
+    - pigz
+    - coverm
+    - mmseqs2

@@ -1,0 +1,16 @@
+name: viroprofiler-vrhyme
+channels:
+    - conda-forge
+    - bioconda
+dependencies:
+    - conda-forge::procps-ng
+    - bioconda::vrhyme=1.1.0
+    - scikit-learn>=0.23
+    - numpy>=1.17
+    - numba>=0.50.0
+    - pandas>=1.0.0
+    - pysam>=0.15
+    - networkx>=2.0
+    - seqkit
+    - click
+    - biopython

@@ -1,0 +1,7 @@
+name: viroprofiler-abricate
+channels:
+  - conda-forge
+  - bioconda
+dependencies:
+  - conda-forge::procps-ng=4.0.0
+  - bioconda::abricate=1.0.1

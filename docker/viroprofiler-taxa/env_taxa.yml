@@ -1,0 +1,26 @@
+name: viroprofiler-taxa
+channels:
+    - conda-forge
+    - bioconda
+dependencies:
+    - conda-forge::procps-ng=4.0.0
+    - conda-forge::git
+    - conda-forge::make
+    - conda-forge::cmake
+    - conda-forge::gcc
+    - conda-forge::cxx-compiler
+    - bioconda::mmseqs2
+    - bioconda::vcontact2=0.11.1
+    - bioconda::diamond=2.0.6
+    - bioconda::mcl=14.137
+    - bioconda::java-jdk=8.0.112
+    - bioconda::clusterone=1.0
+    - conda-forge::wget
+    - conda-forge::numpy=1.19.5
+    - conda-forge::scipy=1.8.1
+    - conda-forge::click
+    - bioconda::taxonkit=0.12.0
+    - bioconda::csvtk=0.23.0
+    - bioconda::prodigal-gv
+    - biopython
+    - seqkit

@@ -1,0 +1,10 @@
+name: viroprofiler-dvf
+channels:
+    - conda-forge
+    - bioconda
+    - hcc
+dependencies:
+    - deepvirfinder
+    - bioconductor-qvalue
+    - seqkit
+    - gxx
