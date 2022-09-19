@@ -11,7 +11,7 @@ ENV PATH=/opt/conda/bin:/opt/conda/envs/viroprofiler-checkv/bin:/opt/conda/envs/
 ENV CHECKVDB="/db/checkv-db-v1.2"
 
 # Copy conda env files
-COPY docker/viroprofiler-base/env_*.yml /tmp
+COPY ./docker/viroprofiler-base/env_*.yml /tmp
 
 # Install packages
 RUN --mount=type=cache,target=/opt/conda/pkgs micromamba install -n base -f /tmp/env_base.yml -y
