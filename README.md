@@ -48,7 +48,7 @@ The pipeline is built using [Nextflow](https://www.nextflow.io), a workflow tool
 4. Test the pipeline on a minimal dataset,
 
    ```bash
-   nextflow run deng-lab/viroprofiler -profile test,YOURPROFILE --outdir <OUTDIR>
+   nextflow run deng-lab/viroprofiler -profile test,YOURPROFILE
    ```
 
    Note that some form of configuration will be needed so that Nextflow knows how to fetch the required software. This is usually done in the form of a config profile (`YOURPROFILE` in the example command above). You can chain multiple config profiles in a comma-separated string.
@@ -59,7 +59,7 @@ The pipeline is built using [Nextflow](https://www.nextflow.io), a workflow tool
 5. Start running your own analysis!
 
    ```bash
-   nextflow run deng-lab/viroprofiler --input samplesheet.csv --outdir output -params-file params.yml -profile <docker/singularity/podman/shifter/charliecloud/conda/institute>
+   nextflow run deng-lab/viroprofiler --input samplesheet.csv -params-file params.yml -profile <docker/singularity/podman/shifter/charliecloud/conda/institute>
    ```
 
 ## Updating the pipeline

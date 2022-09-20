@@ -12,21 +12,21 @@ The input samplesheet is a comma-separated file like the following:
 
 ```csv
 sample,fastq_1,fastq_2
-HT01,${HOME}/viroprofiler/db/testdata/viroprofiler-test/HT01_R1.fq.gz,${HOME}/viroprofiler/db/testdata/viroprofiler-test/HT01_R2.fq.gz
-HT02,${HOME}/viroprofiler/db/testdata/viroprofiler-test/HT02_R1.fq.gz,${HOME}/viroprofiler/db/testdata/viroprofiler-test/HT02_R2.fq.gz
-HT04,${HOME}/viroprofiler/db/testdata/viroprofiler-test/HT04_R1.fq.gz,${HOME}/viroprofiler/db/testdata/viroprofiler-test/HT04_R2.fq.gz
-HT05,${HOME}/viroprofiler/db/testdata/viroprofiler-test/HT05_R1.fq.gz,${HOME}/viroprofiler/db/testdata/viroprofiler-test/HT05_R2.fq.gz
-HT23,${HOME}/viroprofiler/db/testdata/viroprofiler-test/HT23_R1.fq.gz,${HOME}/viroprofiler/db/testdata/viroprofiler-test/HT23_R2.fq.gz
-HT24,${HOME}/viroprofiler/db/testdata/viroprofiler-test/HT24_R1.fq.gz,${HOME}/viroprofiler/db/testdata/viroprofiler-test/HT24_R2.fq.gz
-UC20,${HOME}/viroprofiler/db/testdata/viroprofiler-test/UC20_R1.fq.gz,${HOME}/viroprofiler/db/testdata/viroprofiler-test/UC20_R2.fq.gz
-UC21,${HOME}/viroprofiler/db/testdata/viroprofiler-test/UC21_R1.fq.gz,${HOME}/viroprofiler/db/testdata/viroprofiler-test/UC21_R2.fq.gz
-UC24,${HOME}/viroprofiler/db/testdata/viroprofiler-test/UC24_R1.fq.gz,${HOME}/viroprofiler/db/testdata/viroprofiler-test/UC24_R2.fq.gz
-UC26,${HOME}/viroprofiler/db/testdata/viroprofiler-test/UC26_R1.fq.gz,${HOME}/viroprofiler/db/testdata/viroprofiler-test/UC26_R2.fq.gz
-UC28,${HOME}/viroprofiler/db/testdata/viroprofiler-test/UC28_R1.fq.gz,${HOME}/viroprofiler/db/testdata/viroprofiler-test/UC28_R2.fq.gz
-UC29,${HOME}/viroprofiler/db/testdata/viroprofiler-test/UC29_R1.fq.gz,${HOME}/viroprofiler/db/testdata/viroprofiler-test/UC29_R2.fq.gz
-UC30,${HOME}/viroprofiler/db/testdata/viroprofiler-test/UC30_R1.fq.gz,${HOME}/viroprofiler/db/testdata/viroprofiler-test/UC30_R2.fq.gz
-UC31,${HOME}/viroprofiler/db/testdata/viroprofiler-test/UC31_R1.fq.gz,${HOME}/viroprofiler/db/testdata/viroprofiler-test/UC31_R2.fq.gz
-UC32,${HOME}/viroprofiler/db/testdata/viroprofiler-test/UC32_R1.fq.gz,${HOME}/viroprofiler/db/testdata/viroprofiler-test/UC32_R2.fq.gz
+HT01,${HOME}/viroprofiler/testdata/viroprofiler-test/HT01_R1.fq.gz,${HOME}/viroprofiler/testdata/viroprofiler-test/HT01_R2.fq.gz
+HT02,${HOME}/viroprofiler/testdata/viroprofiler-test/HT02_R1.fq.gz,${HOME}/viroprofiler/testdata/viroprofiler-test/HT02_R2.fq.gz
+HT04,${HOME}/viroprofiler/testdata/viroprofiler-test/HT04_R1.fq.gz,${HOME}/viroprofiler/testdata/viroprofiler-test/HT04_R2.fq.gz
+HT05,${HOME}/viroprofiler/testdata/viroprofiler-test/HT05_R1.fq.gz,${HOME}/viroprofiler/testdata/viroprofiler-test/HT05_R2.fq.gz
+HT23,${HOME}/viroprofiler/testdata/viroprofiler-test/HT23_R1.fq.gz,${HOME}/viroprofiler/testdata/viroprofiler-test/HT23_R2.fq.gz
+HT24,${HOME}/viroprofiler/testdata/viroprofiler-test/HT24_R1.fq.gz,${HOME}/viroprofiler/testdata/viroprofiler-test/HT24_R2.fq.gz
+UC20,${HOME}/viroprofiler/testdata/viroprofiler-test/UC20_R1.fq.gz,${HOME}/viroprofiler/testdata/viroprofiler-test/UC20_R2.fq.gz
+UC21,${HOME}/viroprofiler/testdata/viroprofiler-test/UC21_R1.fq.gz,${HOME}/viroprofiler/testdata/viroprofiler-test/UC21_R2.fq.gz
+UC24,${HOME}/viroprofiler/testdata/viroprofiler-test/UC24_R1.fq.gz,${HOME}/viroprofiler/testdata/viroprofiler-test/UC24_R2.fq.gz
+UC26,${HOME}/viroprofiler/testdata/viroprofiler-test/UC26_R1.fq.gz,${HOME}/viroprofiler/testdata/viroprofiler-test/UC26_R2.fq.gz
+UC28,${HOME}/viroprofiler/testdata/viroprofiler-test/UC28_R1.fq.gz,${HOME}/viroprofiler/testdata/viroprofiler-test/UC28_R2.fq.gz
+UC29,${HOME}/viroprofiler/testdata/viroprofiler-test/UC29_R1.fq.gz,${HOME}/viroprofiler/testdata/viroprofiler-test/UC29_R2.fq.gz
+UC30,${HOME}/viroprofiler/testdata/viroprofiler-test/UC30_R1.fq.gz,${HOME}/viroprofiler/testdata/viroprofiler-test/UC30_R2.fq.gz
+UC31,${HOME}/viroprofiler/testdata/viroprofiler-test/UC31_R1.fq.gz,${HOME}/viroprofiler/testdata/viroprofiler-test/UC31_R2.fq.gz
+UC32,${HOME}/viroprofiler/testdata/viroprofiler-test/UC32_R1.fq.gz,${HOME}/viroprofiler/testdata/viroprofiler-test/UC32_R2.fq.gz
 ```
 
 The first line is the header and the following lines are the samples to be analysed. The first column is the sample name, the second and third columns are the paths to the forward and reverse reads, respectively.

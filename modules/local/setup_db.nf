@@ -7,10 +7,11 @@ process TEST_DATA {
 
     """
     if [ ! -d ${params.db}/testdata ]; then
-        mkdir -p $params.db/testdata
-        wget -O $params.db/testdata/viroprofiler-test.tar "https://sandbox.zenodo.org/record/1106391/files/viroprofiler-test.tar"
-        tar -xvf $params.db/testdata/viroprofiler-test.tar -C $params.db/testdata
-        rm $params.db/testdata/viroprofiler-test.tar
+        mkdir -p $params.db
+        wget -O $params.db/viroprofiler-test.tar "https://sandbox.zenodo.org/record/1106391/files/viroprofiler-test.tar"
+        tar -xvf $params.db/viroprofiler-test.tar -C $params.db
+        mv $params.db/viroprofiler-test $params.db/testdata
+        rm $params.db/viroprofiler-test.tar
     else
         echo "Test data already exists"
     fi

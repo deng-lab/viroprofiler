@@ -1,6 +1,6 @@
 # Configuration File
 
-To download a configuration file template users just use `--get_config` parameter. Using a config file your code is lot more clean and concise.
+The config file is a simple text file with a list of key-value pairs. You can use the config file to set the pipeline's parameters. The config file is optional, but it is recommended to use it to avoid typing the same parameters over and over again. The config file is specified with the `-c` option. For example:
 
 ```bash
 # get an example config file
