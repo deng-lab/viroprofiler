@@ -2,11 +2,38 @@
 
 ## Introduction
 
-This document describes the output produced by the pipeline. Most of the plots are taken from the MultiQC report, which summarises results at the end of the pipeline.
+This document describes the output produced by the pipeline. Most of the plots are taken from the MultiQC report, which summarises results at the end of the pipeline. The output data is also stored in a `TreeSummarizedExperiment` object in file `viroprofiler_output.RData`, which can be uploaded to [ViroProfiler-viewer](https://github.com/deng-lab/viroprofiler-viewer) for interactive visualization, or imported into R for further analysis.
 
 The directories listed below will be created in the `output` directory after the pipeline has finished. All paths are relative to the top-level `output` directory.
 
+## Output directory structure
+
+```text
+output
+├── abundance
+├── bacphlip
+├── checkv
+├── contiglib
+├── dramv
+├── dvf
+├── emapper
+├── fastp
+├── fastqc
+├── genepred4ctg
+├── mapping2contigs
+├── multiqc
+├── nrgene
+├── nrprot
+├── pipeline_info
+├── spades
+├── taxonomy
+├── viralhost
+├── vircontigs
+└── virsorter2
+```
+
 <!-- TODO nf-core: Add a brief overview of what the output is and how it is generated -->
+
 ## Pipeline overview
 
 The pipeline is built using [Nextflow](https://www.nextflow.io/) and processes data using the following steps:
