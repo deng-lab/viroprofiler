@@ -3,10 +3,12 @@
 To download a configuration file template users just use `--get_config` parameter. Using a config file your code is lot more clean and concise.
 
 ```bash
-# get config
-nextflow run deng-lab/viroprofiler --get_config
+# get an example config file
+wget -O example_custom.config "https://raw.githubusercontent.com/deng-lab/viroprofiler/main/custom.config"
+
+# modify the config file using your favorite text editor ...
 # run with config
-nextflow run deng-lab/viroprofiler -c [path-to-config]
+nextflow run deng-lab/viroprofiler -c example_custom.config
 ```
 
 Default configuration
@@ -16,15 +18,16 @@ Default configuration
 profiles {
     singularity {
         // Please modify this singularity run options to fit your needs
-        singularity.runOptions = "--writable-tmpfs -B /project/genomics/jru/data2:/project/genomics/jru/data2"
+        // If your data or database is stored in a different disk, you may need to mount it to the container using the `-B /path/to/data:/path/to/data` option
+        // singularity.runOptions = "--writable-tmpfs -B /path/to/data:/path/to/data"
     }
     
     // `slurm_denglab` is the default profile used in DengLab at HMGU
     slurm_denglab {
-        process.executor       = 'slurm'
+        process.executor       = 'slurm'    // change this to your cluster executor
         process.cpus           = 1
         process.memory         = '8 GB'
-        process.queue          = 'normal_q'
+        process.queue          = 'normal_q'  // change this to your queue
         process.time           = '120 h'
     }
     // Please specify your own profile here

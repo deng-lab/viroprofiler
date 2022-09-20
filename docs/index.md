@@ -2,7 +2,7 @@
 
 ## About
 
-[ViroProfiler](https://github.com/deng-lab/viroprofiler) is a pipeline designed to provide an easy-to-use framework for performing a comprehensive analyses of viral metagenomics data. It is developed with [Nextflow](https://www.nextflow.io/docs/latest/index.html) and [Docker](https://www.docker.com/). It can detect and characterize viral communities and sequences recovered from metagenomics data.
+[ViroProfiler](https://github.com/deng-lab/viroprofiler) is a pipeline designed to provide an easy-to-use framework for performing a comprehensive analyses of viral metagenomics data. It is developed with [Nextflow](https://www.nextflow.io/docs/latest/index.html) and [Docker](https://www.docker.com/). It can detect and characterize viral sequences and communities recovered from metagenomics data.
 
 ## Workflow
 
@@ -31,7 +31,7 @@ The pipeline's common usage is very simple as shown below:
 ```bash
 # usual command-line
 nextflow run deng-lab/viroprofiler \
-    --viroprofiler_db "./viroprofiler_databases" \
+    --db "/path/to/db" \
     --input "samplesheet.csv"
 ```
 

@@ -6,11 +6,17 @@ The pipeline require only a UNIX system, [Nextflow](https://www.nextflow.io/docs
 
 ## Downloading the pipeline
 
-You can easily get a copy of the pipeline with:
+You can easily get a copy of the pipeline or update with:
 
 ```bash
-# nextflow pull
+# download the latest version
 nextflow pull deng-lab/viroprofiler
+
+# download a specific version (ex. 1.0)
+nextflow pull deng-lab/viroprofiler -r v1.0
+
+# download a specific branch (ex. dev)
+nextflow pull deng-lab/viroprofiler -r dev
 ```
 
 !!! warning
@@ -23,26 +29,23 @@ The docker images used by the pipeline are:
 
 ```bash
 docker pull denglab/viroprofiler-base        ;
-docker pull denglab/viroprofiler-iphop       ;
-docker pull denglab/viroprofiler-dram        ;
-docker pull denglab/viroprofiler-vrhyme      ;
-docker pull denglab/viroprofiler-annotation  ;
-docker pull denglab/viroprofiler-abricate    ;
-docker pull denglab/viroprofiler-phamb       ;
-docker pull denglab/viroprofiler-replidec    ;
-docker pull denglab/viroprofiler-vcontact2   ;
+docker pull denglab/viroprofiler-binning     ;
+docker pull denglab/viroprofiler-geneannot   ;
+docker pull denglab/viroprofiler-taxa        ;
+docker pull denglab/viroprofiler-host        ;
+docker pull denglab/viroprofiler-replicyc    ;
 ```
 
 !!! info "Using singularity"
 
     Docker and singularity images are downloaded on the fly. Be sure to properly set `NXF_SINGULARITY_LIBRARYDIR` env variable to a writable directory if using Singularity. This will make that the downloaded images are resuable through different executions. Read more at: https://www.nextflow.io/docs/latest/singularity.html#singularity-docker-hub
 
-    For example, to download the images for docker you may:
+    For example, to download the images for singularity you may:
 
     ```bash
     # apply this command to each image
-    # just change the "/" and ":" for "-".
-    # E.g. Image denglab/viroprofiler-base becomes denglab-viroprofiler-base.img
+    # just change the "/" and ":" to "-".
+    # ex. Image denglab/viroprofiler-base becomes denglab-viroprofiler-base.img
     singularity pull --dir $NXF_SINGULARITY_LIBRARYDIR denglab-viroprofiler-base.img docker://denglab/viroprofiler-base
     ```
 

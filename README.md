@@ -4,6 +4,7 @@
 [![run with conda](http://img.shields.io/badge/run%20with-conda-3EB049?logo=anaconda)](https://docs.conda.io/en/latest/)
 [![run with docker](https://img.shields.io/badge/run%20with-docker-0db7ed?logo=docker)](https://www.docker.com/)
 [![run with singularity](https://img.shields.io/badge/run%20with-singularity-1d355c.svg)](https://sylabs.io/docs/)
+[![DOI](https://zenodo.org/badge/537899739.svg)](https://zenodo.org/badge/latestdoi/537899739)
 
 ```
                                         __
@@ -21,12 +22,9 @@ oooooo     oooo oo                    88  88                    .o8o.  oo  ooo
 
 ViroProfiler is a bioinformatics best-practice analysis pipeline for viral metagenomics data analyses.
 
-The pipeline is built using [Nextflow](https://www.nextflow.io), a workflow tool to run tasks across multiple compute infrastructures in a very portable manner. It uses Docker/Singularity containers making installation trivial and results highly reproducible. The [Nextflow DSL2](https://www.nextflow.io/docs/latest/dsl2.html) implementation of this pipeline uses one container per process which makes it much easier to maintain and update software dependencies. Where possible, these processes have been submitted to and installed from [nf-core/modules](https://github.com/nf-core/modules) in order to make them available to all nf-core pipelines, and to everyone within the Nextflow community!
+The pipeline is built using [Nextflow](https://www.nextflow.io), a workflow tool to run tasks across multiple compute infrastructures in a very portable manner. It uses Docker/Singularity containers making installation trivial and results highly reproducible.
 
-<!-- TODO nf-core: Add full-sized test dataset and amend the paragraph below if applicable -->
-
-On release, automated continuous integration tests run the pipeline on a full-sized dataset on the AWS cloud infrastructure. This ensures that the pipeline runs on AWS, has sensible resource allocation defaults set to run on real-world datasets, and permits the persistent storage of results to benchmark between pipeline releases and other analysis sources. The results obtained from the full-sized test can be viewed from [here](docs/results.html).
-
+![viroprofiler workflow](docs/images/viroprofiler.png)
 
 ## Quick Start
 
@@ -37,7 +35,10 @@ On release, automated continuous integration tests run the pipeline on a full-si
 3. Download the pipeline and database.
 
    ```bash
-   nextflow run deng-lab/viroprofiler -profile singularity
+   nextflow run deng-lab/viroprofiler -profile <YOURPROFILE>
+
+   # ex.
+   # nextflow run deng-lab/viroprofiler -profile singularity
    ```
 
    > - If you are using `Singularity`, please set the [`NXF_SINGULARITY_CACHEDIR` or `singularity.cacheDir`](https://www.nextflow.io/docs/latest/singularity.html?#singularity-docker-hub) Nextflow options enables you to store and re-use the images from a central location for future pipeline runs.
@@ -57,8 +58,14 @@ On release, automated continuous integration tests run the pipeline on a full-si
 
 5. Start running your own analysis!
 
-   ```console
+   ```bash
    nextflow run deng-lab/viroprofiler --input samplesheet.csv --outdir output -params-file params.yml -profile <docker/singularity/podman/shifter/charliecloud/conda/institute>
+   ```
+
+## Updating the pipeline
+
+   ```bash
+   nextflow pull deng-lab/viroprofiler
    ```
 
 ## Documentation

@@ -1,4 +1,22 @@
-// TODO
+process TEST_DATA {
+    label "viroprofiler_base"
+    label "setup"
+
+    when:
+    params.mode == "setup" | params.mode == "test"
+
+    """
+    if [ ! -d ${params.db}/testdata ]; then
+        mkdir -p $params.db/testdata
+        wget -O $params.db/testdata/viroprofiler-test.tar "https://sandbox.zenodo.org/record/1106391/files/viroprofiler-test.tar"
+        tar -xvf $params.db/testdata/viroprofiler-test.tar -C $params.db/testdata
+        rm $params.db/testdata/viroprofiler-test.tar
+    else
+        echo "Test data already exists"
+    fi
+    """
+}
+
 process DB_VIROPROFILER {
     label "viroprofiler_base"
     label "setup"
