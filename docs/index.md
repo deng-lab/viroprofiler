@@ -38,7 +38,3 @@ nextflow run deng-lab/viroprofiler \
 !!! quote
 
     Some parameters are required, some are not. Please read the pipeline's manual reference to understand each parameter.
-
-## Support contact
-
-Whenever a doubt arise feel free to contact me at jinlong.ru@gmail.com
