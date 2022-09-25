@@ -86,7 +86,7 @@ The pipeline is built using [Nextflow](https://www.nextflow.io), a workflow tool
 
 ## Documentation
 
-The ViroProfiler pipeline comes with documentation about the pipeline [usage](docs/usage.md), [parameters](params.yml) and [output](docs/output.md).
+Please refer to the [documentation](https://deng-lab.github.io/viroprofiler) page.
 
 ## Credits
 
