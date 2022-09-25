@@ -1,7 +1,7 @@
 outdir: "output"
 
 # =============================  Database  ====================================
-db: "/project/genomics/jru/viroprofiler"
+db: "/project/genomics/jru/data2/db/viroprofiler"
 
 # =============================  Decontamination  =============================
 decontam: null
