@@ -9,7 +9,7 @@ The pipeline require only a UNIX system, [Nextflow](https://www.nextflow.io/docs
 You can easily get a copy of the pipeline or update with:
 
 ```bash
-# download the latest version
+# download or update to the latest version
 nextflow pull deng-lab/viroprofiler
 
 # download a specific version (ex. 1.0)
