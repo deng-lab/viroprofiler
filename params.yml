@@ -1,7 +1,7 @@
 outdir: "output"
 
 # =============================  Database  ====================================
-db: "/project/genomics/jru/viroprofiler"
+db: "/home/viro/jinlong.ru/viroprofiler"
 
 # =============================  Decontamination  =============================
 decontam: null
@@ -16,6 +16,10 @@ contig_minlen: 1000
 contig_cluster_min_similarity: 0.95
 contig_cluster_min_coverage: 0.85
 
+# =============================  Abundance: kraken + bracken  ==================
+save_output_fastqs : false
+save_reads_assignment : false
+
 
 # =============================   Gene library   ==============================
 prot_cluster_min_similarity: 0.7    # Minimum similarity of protein AA seqs in the same cluster
@@ -24,9 +28,9 @@ gene_cluster_min_similarity: 0.9    # Minimum similarity of gene DNA seqs in the
 gene_cluster_min_coverage: 0.9   # Minimum similarity of gene DNA seqs in the same cluster
 
 # =============================  Binning  =====================================
-binning: null   # "phamb", "vrhyme" or false
-binning_minlen_contig: 2000
-binning_minlen_bin: 2000
+binning: "vrhyme"   # "phamb", "vrhyme" or false
+binning_minlen_contig: 3000
+binning_minlen_bin: 5000
 dvf_qvalue: 0.1
 
 
@@ -43,4 +47,4 @@ taxa_db_source: "NCBI"
 
 
 # =============================  Replication cycle  ===========================
-replicyc: "replidec"    # "replidec" or "bacphlip"
+replicyc: "bacphlip"    # "replidec" or "bacphlip"

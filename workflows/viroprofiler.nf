@@ -57,11 +57,12 @@ include { BBMAP_ALIGN                  } from '../modules/nf-core/modules/bbmap/
 // local modules
 include { DECONTAM                     } from '../modules/local/decontam'
 include { CONTIGLIB; CONTIGLIB_CLUSTER } from '../modules/local/contig_library'
-include { MAPPING2CONTIGS; ABUNDANCE   } from '../modules/local/abundance'
+include { MAPPING2CONTIGS; CONTIGINDEX; MAPPING2CONTIGS2; ABUNDANCE   } from '../modules/local/abundance'
+include { KRAKEN2_KRAKEN2; BRACKEN_BRACKEN; BRACKEN_COMBINEBRACKENOUTPUTS } from '../modules/local/bracken'
 include { DRAMV; EMAPPER; ABRICATE     } from '../modules/local/annotation'
 include { VIRALHOST_IPHOP              } from '../modules/local/viral_host'
 include { BACPHLIP; REPLIDEC           } from '../modules/local/replicyc'
-include { CHECKV; VIRSORTER2; DVF; VIRCONTIGS_PREF1                    } from '../modules/local/viral_detection'
+include { CHECKV; VIRSORTER2; DVF; VIRCONTIGS_PREF1; VIBRANT           } from '../modules/local/viral_detection'
 include { GENEPRED as GENEPRED4CTG; NRSEQS as NRPROT; NRSEQS as NRGENE } from '../modules/local/gene_library'
 include { TAXONOMY_VCONTACT; TAXONOMY_MMSEQS; TAXONOMY_MERGE           } from '../modules/local/taxonomy'
 
@@ -161,17 +162,28 @@ workflow VIROPROFILER {
         EMAPPER (ch_nr_prot)
         // ABRICATE (ch_nr_gene)
 
-        // Abundance
-        MAPPING2CONTIGS (
+        // TODO: Abundance (but in minimap2, replace with bowtie2)
+        // MAPPING2CONTIGS (
+        //     ch_clean_reads,
+        //     ch_nrclib,
+        //     CONTIGLIB_CLUSTER.out.nrclib_dict
+        // )
+        // ch_bams = MAPPING2CONTIGS.out.bams_ch.collect()
+        // ch_versions = ch_versions.mix(MAPPING2CONTIGS.out.versions.first())
+
+        CONTIGINDEX (ch_nrclib)
+        MAPPING2CONTIGS2 (
             ch_clean_reads,
-            ch_nrclib,
-            CONTIGLIB_CLUSTER.out.nrclib_dict
+            CONTIGINDEX.out.bowtie2idx_ch
         )
-        ch_bams = MAPPING2CONTIGS.out.bams_ch.collect()
-        ch_versions = ch_versions.mix(MAPPING2CONTIGS.out.versions.first())
+        ch_bams = MAPPING2CONTIGS2.out.bams_ch.collect()
+        ch_versions = ch_versions.mix(MAPPING2CONTIGS2.out.versions.first())
         
         ABUNDANCE (ch_bams)
         ch_versions = ch_versions.mix(ABUNDANCE.out.versions)
+
+        // Using kraken2 and bracken
+        // KRAKEN2_KRAKEN2 (ch_clean_reads)
 
         // Viral detection: DVF + CheckV MQ, HQ, Complete + VirSorter2
         DVF(ch_nrclib)
@@ -183,6 +195,7 @@ workflow VIROPROFILER {
         ch_putative_vList =  VIRCONTIGS_PREF1.out.putative_vList_ch
         ch_putative_vContigs =  VIRCONTIGS_PREF1.out.putative_vContigs_ch
 
+        // TODO: add back after fix bug in abundance.
         // Binning (optional)
         if ( params.binning ) {
             if ( params.binning == "phamb" ) {
@@ -200,10 +213,8 @@ workflow VIROPROFILER {
         ch_vs2contigs = VIRSORTER2.out.vs2_contigs_ch
 
         // ANNOTATION (AMG)
-        DRAMV (
-            ch_vs2contigs,
-            VIRSORTER2.out.vs2_affi_ch
-        )
+        DRAMV (ch_vs2contigs, VIRSORTER2.out.vs2_affi_ch)
+        VIBRANT(ch_vs2contigs)
 
         // Taxonomy
         TAXONOMY_VCONTACT(vContigs_and_vMAGs)

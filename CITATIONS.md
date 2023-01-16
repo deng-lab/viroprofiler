@@ -15,8 +15,16 @@
 - [fastp](https://)
   > Chen, Shifu, et al. "fastp: an ultra-fast all-in-one FASTQ preprocessor." Bioinformatics 34.17 (2018): i884-i890.
 
+- [BBMap](https://jgi.doe.gov/data-and-tools/software-tools/bbtools/bb-tools-user-guide/bbmap-guide/)
+  > Bushnell, Brian. BBMap: a fast, accurate, splice-aware aligner. No. LBNL-7065E. Lawrence Berkeley National Lab.(LBNL), Berkeley, CA (United States), 2014.
+
 - [metaSPAdes](https://github.com/ablab/spades)
   > Nurk, Sergey, et al. "metaSPAdes: a new versatile metagenomic assembler." Genome research 27.5 (2017): 824-834.
+
+- [Bowtie 2](https://github.com/BenLangmead/bowtie2)
+ > Langmead, Ben, and Steven L. Salzberg. "Fast gapped-read alignment with Bowtie 2." Nature methods 9.4 (2012): 357-359.
+
+- [CoverM](https://github.com/wwood/CoverM)
 
 - [CheckV](https://bitbucket.org/berkeleylab/CheckV)
   > Nayfach, Stephen, et al. "CheckV assesses the quality and completeness of metagenome-assembled viral genomes." Nature biotechnology 39.5 (2021): 578-585.
@@ -27,8 +35,14 @@
 - [DeepVirFinder](https://github.com/jessieren/DeepVirFinder)
   > Ren, Jie, et al. "Identifying viruses from metagenomic data using deep learning." Quantitative Biology 8.1 (2020): 64-77.
 
+- [VIBRANT](https://github.com/AnantharamanLab/VIBRANT)
+  > Kieft, Kristopher, Zhichao Zhou, and Karthik Anantharaman. "VIBRANT: automated recovery, annotation and curation of microbial viruses, and evaluation of viral community function from genomic sequences." Microbiome 8.1 (2020): 1-23.
+
 - [vRhyme](https://github.com/AnantharamanLab/vRhyme)
   > Kieft K, Adams A, Salamzade R, et al. vRhyme enables binning of viral genomes from metagenomes[J]. Nucleic Acids Research, 2022, 50(14): e83-e83.
+
+- [Phamb](https://github.com/RasmussenLab/phamb)
+  > Johansen, Joachim, et al. "Genome binning of viral entities from bulk metagenomics data." Nature communications 13.1 (2022): 1-12.
 
 - [vConTACT2](https://bitbucket.org/MAVERICLab/vcontact2)
   > Bin Jang, Ho, et al. "Taxonomic assignment of uncultivated prokaryotic virus genomes is enabled by gene-sharing networks." Nature biotechnology 37.6 (2019): 632-639.
@@ -40,13 +54,16 @@
 - [eggNOG-mapper](https://github.com/eggnogdb/eggnog-mapper)
   > Cantalapiedra C P, Hernández-Plaza A, Letunic I, et al. eggNOG-mapper v2: functional annotation, orthology assignments, and domain prediction at the metagenomic scale[J]. Molecular biology and evolution, 2021, 38(12): 5825-5829.
 
+- [abricate](https://github.com/tseemann/abricate)
+
 - [iPHoP](https://bitbucket.org/srouxjgi/iphop/src/main/)
   > Roux S, Camargo A P, Coutinho F H, et al. iPHoP: an integrated machine-learning framework to maximize host prediction for metagenome-assembled virus genomes[J]. bioRxiv, 2022.
 
 - [bacphlip](https://github.com/adamhockenberry/bacphlip)
   > Hockenberry A J, Wilke C O. BACPHLIP: predicting bacteriophage lifestyle from conserved protein domains[J]. PeerJ, 2021, 9: e11396.
 
-- [abricate](https://github.com/tseemann/abricate)
+- [Replidec](https://github.com/deng-lab/Replidec)
+  > Peng, Xue, et al. "Replidec-Use naive Bayes classifier to identify virus lifecycle from metagenomics data." bioRxiv (2022): 2022-07.
 
 - [MultiQC](https://pubmed.ncbi.nlm.nih.gov/27312411/)
   > Ewels, Philip, et al. "MultiQC: summarize analysis results for multiple tools and samples in a single report." Bioinformatics 32.19 (2016): 3047-3048.

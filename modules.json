@@ -6,6 +6,12 @@
             "bbmap/align": {
                 "git_sha": "848ee9a215d02d80be033bfa60881700f2bd914c"
             },
+            "bracken/bracken": {
+                "git_sha": "c8e35eb2055c099720a75538d1b8adb3fb5a464c"
+            },
+            "bracken/combinebrackenoutputs": {
+                "git_sha": "c8e35eb2055c099720a75538d1b8adb3fb5a464c"
+            },
             "custom/dumpsoftwareversions": {
                 "git_sha": "e745e167c1020928ef20ea1397b6b4d230681b4d"
             },
@@ -17,6 +23,9 @@
             },
             "multiqc": {
                 "git_sha": "e745e167c1020928ef20ea1397b6b4d230681b4d"
+            },
+            "kraken2/kraken2": {
+                "git_sha": "c8e35eb2055c099720a75538d1b8adb3fb5a464c"
             },
             "spades": {
                 "git_sha": "682f789f93070bd047868300dd018faf3d434e7c"
