@@ -41,6 +41,12 @@ The pipeline is built using [Nextflow](https://www.nextflow.io), a workflow tool
    # nextflow run deng-lab/viroprofiler -profile singularity
    ```
 
+   By default, database will be downloaded to the `$HOME/viroprofiler` directory. You can change database path using the `--db` parameter. For example, if you want to download the database to `/db/path` directory, you can run the pipeline as follows:
+
+   ```bash
+   nextflow run deng-lab/viroprofiler -profile <YOURPROFILE> --db /db/path
+   ```
+
    > - If you are using `Singularity`, please set the [`NXF_SINGULARITY_CACHEDIR` or `singularity.cacheDir`](https://www.nextflow.io/docs/latest/singularity.html?#singularity-docker-hub) Nextflow options enables you to store and re-use the images from a central location for future pipeline runs.
    > - If you are using `Docker`, please replace the profile with `docker`: `-profile docker`.
    <!-- > - If you are using `conda`, it is highly recommended to use the [`NXF_CONDA_CACHEDIR` or `conda.cacheDir`](https://www.nextflow.io/docs/latest/conda.html) settings to store the environments in a central location for future pipeline runs. -->
@@ -48,7 +54,10 @@ The pipeline is built using [Nextflow](https://www.nextflow.io), a workflow tool
 4. Test the pipeline on a minimal dataset,
 
    ```bash
-   nextflow run deng-lab/viroprofiler -profile test,YOURPROFILE
+   nextflow run deng-lab/viroprofiler -profile test,<YOURPROFILE>
+
+   # ex.
+   # nextflow run deng-lab/viroprofiler -profile test,singularity
    ```
 
    Note that some form of configuration will be needed so that Nextflow knows how to fetch the required software. This is usually done in the form of a config profile (`YOURPROFILE` in the example command above). You can chain multiple config profiles in a comma-separated string.
@@ -58,8 +67,15 @@ The pipeline is built using [Nextflow](https://www.nextflow.io), a workflow tool
 
 5. Start running your own analysis!
 
+   You may create a config file to customize the parameters of the pipeline and use `-c` to load the config. Please check [custom.config](https://github.com/deng-lab/viroprofiler/blob/main/custom.config) for an example.
+   
+   You can also specify the parameters in a file and use `-params-file` to load the parameters. Please check [params.yml](https://github.com/deng-lab/viroprofiler/blob/main/params.yml) for an example.
+
    ```bash
-   nextflow run deng-lab/viroprofiler --input samplesheet.csv -params-file params.yml -profile <docker/singularity/podman/shifter/charliecloud/conda/institute>
+   nextflow run deng-lab/viroprofiler --input samplesheet.csv -c custom.config -params-file params.yml -profile <docker/singularity/podman/shifter/charliecloud/conda/institute>
+
+   # ex.
+   # nextflow run deng-lab/viroprofiler --input samplesheet.csv -c custom.config -params-file params.yml -profile slurm,singularity
    ```
 
 ## Updating the pipeline
@@ -70,7 +86,7 @@ The pipeline is built using [Nextflow](https://www.nextflow.io), a workflow tool
 
 ## Documentation
 
-The ViroProfiler pipeline comes with documentation about the pipeline [usage](docs/usage.md), [parameters](params.yml) and [output](docs/output.md).
+Please refer to the [documentation](https://deng-lab.github.io/viroprofiler) page.
 
 ## Credits
 
