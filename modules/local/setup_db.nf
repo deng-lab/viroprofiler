@@ -82,6 +82,22 @@ process DB_DRAM {
     """
 }
 
+process DB_VIBRANT {
+    label "viroprofiler_vibrant"
+    label "setup"
+
+    when:
+    params.mode == "setup"
+
+    """
+    if [ ! -d ${params.db}/vibrant ]; then
+        download-db.sh $params.db/vibrant
+    else
+        echo "VIBRANT database already exists"
+    fi
+    """
+}
+
 
 process DB_VREFSEQ {
     label "viroprofiler_base"

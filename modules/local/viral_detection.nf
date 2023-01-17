@@ -103,6 +103,24 @@ process DVF {
     """
 }
 
+process VIBRANT {
+    label "viroprofiler_vibrant"
+
+    input:
+    path(contigs)
+
+    output:
+    path("VIBRANT_*"), emit: vibrant_ch
+
+    when:
+    task.ext.when == null || task.ext.when
+
+    """
+    ln -s $contigs contigs.fasta
+    VIBRANT_run.py -i contigs.fasta -d $params.db/vibrant/databases -m $params.db/vibrant/files -t $task.cpus -virome
+    """
+}
+
 
 process VIRCONTIGS_PREF1 {
     label "viroprofiler_base"
