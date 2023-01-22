@@ -1,0 +1,7 @@
+name: viroprofiler-bracken
+channels:
+    - conda-forge
+    - bioconda
+dependencies:
+    - conda-forge::procps-ng=4.0.0
+    - bracken

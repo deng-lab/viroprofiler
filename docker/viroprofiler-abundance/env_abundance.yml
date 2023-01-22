@@ -1,0 +1,9 @@
+name: viroprofiler-abundance
+channels:
+    - conda-forge
+    - bioconda
+dependencies:
+    - conda-forge::procps-ng=4.0.0
+    - bowtie2
+    - samtools
+    - coverm
