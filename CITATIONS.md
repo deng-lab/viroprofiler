@@ -1,5 +1,25 @@
 # deng-lab/viroprofiler: Citations
 
+| Software      | Module                              | License     | Reference                            |
+| ------------- | ----------------------------------- | ----------- | ------------------------------------ |
+| metaSPAdes    | Assembly                            | NA          | [@2012-SPAdes_Bankevich]             |
+| vRhyme        | Binning                             | GPL v3      | [@2022-VRhyme_Kieft]                 |
+| Phamb         | Binning                             | MIT License | [@2022-Genome_Johansen]              |
+| CheckV        | Virus detection and QC              | BSD license | [@2020-CheckV_Nayfach]               |
+| VirSorter2    | Virus detection                     | GPL v2      | [@2021-VirSorter2_Guo]               |
+| DeepVirFinder | Virus detection                     | USC-RL v1.0 | [@2020-Identifying_Ren]              |
+| VIBRANT       | Virus detection and gene annotation | GPL v3      | [@2020-VIBRANT_Kieft]                |
+| DRAM          | Gene annotation                     | GPL v3      | [@2020-DRAM_Shaffer]                 |
+| eggnog-mapper | Gene annotation                     | GPL v3      | [@2021-EggNOGmapper_Cantalapiedra]   |
+| abricate      | Gene annotation                     | GPL v2      | https://github.com/tseemann/abricate |
+| MMseqs2       | Taxonomy assignment                 | GPL v3      | [@2021-Fast_Mirdita]                 |
+| vConTACT2     | Taxonomy assignment                 | GPL v3      | [@2019-Taxonomic_BinJang]            |
+| Bacphlip      | Lifestyle prediction                | MIT License | [@2021-BACPHLIP_Hockenberry]         |
+| Replidec      | Lifestyle prediction                | MIT License | [@2022-Replidec_Peng]                |
+| iPHoP         | Host prediction                     | GPL v3      | [@2022-IPHoP_Roux]                   |
+| CoverM        | Abundance estimation                | GPL v3      | https://github.com/wwood/CoverM      |
+
+
 ## [nf-core](https://pubmed.ncbi.nlm.nih.gov/32055031/)
 
 > Ewels, Philip A., et al. "The nf-core framework for community-curated bioinformatics pipelines." Nature biotechnology 38.3 (2020): 276-278.
@@ -22,7 +42,7 @@
   > Nurk, Sergey, et al. "metaSPAdes: a new versatile metagenomic assembler." Genome research 27.5 (2017): 824-834.
 
 - [Bowtie 2](https://github.com/BenLangmead/bowtie2)
- > Langmead, Ben, and Steven L. Salzberg. "Fast gapped-read alignment with Bowtie 2." Nature methods 9.4 (2012): 357-359.
+  > Langmead, Ben, and Steven L. Salzberg. "Fast gapped-read alignment with Bowtie 2." Nature methods 9.4 (2012): 357-359.
 
 - [CoverM](https://github.com/wwood/CoverM)
 
@@ -43,6 +63,9 @@
 
 - [Phamb](https://github.com/RasmussenLab/phamb)
   > Johansen, Joachim, et al. "Genome binning of viral entities from bulk metagenomics data." Nature communications 13.1 (2022): 1-12.
+
+- [DRAM-v](https://github.com/WrightonLabCSU/DRAM)
+  > Shaffer, Michael, et al. "DRAM for distilling microbial metabolism to automate the curation of microbiome function." Nucleic acids research 48.16 (2020): 8883-8900.
 
 - [vConTACT2](https://bitbucket.org/MAVERICLab/vcontact2)
   > Bin Jang, Ho, et al. "Taxonomic assignment of uncultivated prokaryotic virus genomes is enabled by gene-sharing networks." Nature biotechnology 37.6 (2019): 632-639.
@@ -84,3 +107,4 @@
 
 - [Singularity](https://pubmed.ncbi.nlm.nih.gov/28494014/)
   > Kurtzer G M, Sochat V, Bauer M W. Singularity: Scientific containers for mobility of compute[J]. PloS one, 2017, 12(5): e0177459.
+

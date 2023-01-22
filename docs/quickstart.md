@@ -43,20 +43,3 @@ nextflow run deng-lab/viroprofiler \
     
     Users **must** select one of the available profiles: `docker`, `singularity`, `podman`, `shifter` or `charliecloud`. `conda` may come in near future. Please read more about how to [proper select NF profiles](profiles.md#)
 
-## Run the pipeline
-
-In this step we will get a major overview of the main pipeline's steps. To run it, we will use the databases (`db`) downloaded in the previous step.
-
-```bash
-# Run the pipeline using the test viromics dataset
-nextflow run deng-lab/viroprofiler \
-    --input samplesheet.csv \
-    --output output \
-    --db ${HOME}/viroprofiler \
-    --max_cpus 10 \
-    -profile singularity
-```
-
-### Outputs
-
-A glimpse over the main outputs produced by ViroProfiler is given at [outputs](outputs.md#) section.

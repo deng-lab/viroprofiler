@@ -1,7 +1,6 @@
 # ViroProfiler: a containerized bioinformatics pipeline for viral metagenomic data analysis
 
 [![Nextflow](https://img.shields.io/badge/nextflow%20DSL2-%E2%89%A521.10.3-23aa62.svg)](https://www.nextflow.io/)
-[![run with conda](http://img.shields.io/badge/run%20with-conda-3EB049?logo=anaconda)](https://docs.conda.io/en/latest/)
 [![run with docker](https://img.shields.io/badge/run%20with-docker-0db7ed?logo=docker)](https://www.docker.com/)
 [![run with singularity](https://img.shields.io/badge/run%20with-singularity-1d355c.svg)](https://sylabs.io/docs/)
 [![DOI](https://zenodo.org/badge/537899739.svg)](https://zenodo.org/badge/latestdoi/537899739)
@@ -28,73 +27,32 @@ The pipeline is built using [Nextflow](https://www.nextflow.io), a workflow tool
 
 ## Quick Start
 
-1. Install [`Nextflow`](https://www.nextflow.io/docs/latest/getstarted.html#installation) (`>=21.10.3`)
+1. Install [Miniconda3](https://docs.conda.io/en/latest/miniconda.html) (`>=21.10.3`).
 
-2. Install [`Singularity`](https://www.sylabs.io/guides/3.0/user-guide/) (you can follow [this tutorial](https://singularity-tutorial.github.io/01-installation/)) or [`Docker`](https://docs.docker.com/engine/installation/). Other  [`Podman`](https://podman.io/), [`Shifter`](https://nersc.gitlab.io/development/shifter/how-to-use/) or [`Charliecloud`](https://hpc.github.io/charliecloud/) for full pipeline reproducibility. However, only `Docker` and `Singularity` were tested. _(you can use [`Conda/Mamba`](https://mamba.readthedocs.io/en/latest/installation.html) both to install Nextflow itself and also to manage software within pipelines. Please only use it within pipelines as a last resort; see [docs](https://nf-co.re/usage/configuration#basic-configuration-profiles))_.
+2. Install Nextflow and Singularity using conda:
+
+   ```bash
+   # You may need to restart your terminal before running the following commands
+   conda install -c conda-forge -c bioconda nextflow singularity
+   ```
 
 3. Download the pipeline and database.
 
    ```bash
-   nextflow run deng-lab/viroprofiler -profile <YOURPROFILE>
-
-   # ex.
-   # nextflow run deng-lab/viroprofiler -profile singularity
+   nextflow run deng-lab/viroprofiler -profile singularity
    ```
 
-   By default, database will be downloaded to the `$HOME/viroprofiler` directory. You can change database path using the `--db` parameter. For example, if you want to download the database to `/db/path` directory, you can run the pipeline as follows:
+4. Run the pipeline,
 
    ```bash
-   nextflow run deng-lab/viroprofiler -profile <YOURPROFILE> --db /db/path
+   nextflow run deng-lab/viroprofiler -profile singularity --input samplesheet.csv
    ```
 
-   > - If you are using `Singularity`, please set the [`NXF_SINGULARITY_CACHEDIR` or `singularity.cacheDir`](https://www.nextflow.io/docs/latest/singularity.html?#singularity-docker-hub) Nextflow options enables you to store and re-use the images from a central location for future pipeline runs.
-   > - If you are using `Docker`, please replace the profile with `docker`: `-profile docker`.
-   <!-- > - If you are using `conda`, it is highly recommended to use the [`NXF_CONDA_CACHEDIR` or `conda.cacheDir`](https://www.nextflow.io/docs/latest/conda.html) settings to store the environments in a central location for future pipeline runs. -->
-
-4. Test the pipeline on a minimal dataset,
-
-   ```bash
-   nextflow run deng-lab/viroprofiler -profile test,<YOURPROFILE>
-
-   # ex.
-   # nextflow run deng-lab/viroprofiler -profile test,singularity
-   ```
-
-   Note that some form of configuration will be needed so that Nextflow knows how to fetch the required software. This is usually done in the form of a config profile (`YOURPROFILE` in the example command above). You can chain multiple config profiles in a comma-separated string.
-
-   > - The pipeline comes with config profiles called `docker`, `singularity`, `podman`, `shifter`, `charliecloud` and `conda` which instruct the pipeline to use the named tool for software management. For example, `-profile test,docker`.
-   > - Please check [nf-core/configs](https://github.com/nf-core/configs#documentation) to see if a custom config file to run nf-core pipelines already exists for your Institute. If so, you can simply use `-profile <institute>` in your command. This will enable either `docker` or `singularity` and set the appropriate execution settings for your local compute environment.
-
-5. Start running your own analysis!
-
-   You may create a config file to customize the parameters of the pipeline and use `-c` to load the config. Please check [custom.config](https://github.com/deng-lab/viroprofiler/blob/main/custom.config) for an example.
-   
-   You can also specify the parameters in a file and use `-params-file` to load the parameters. Please check [params.yml](https://github.com/deng-lab/viroprofiler/blob/main/params.yml) for an example.
-
-   ```bash
-   nextflow run deng-lab/viroprofiler --input samplesheet.csv -c custom.config -params-file params.yml -profile <docker/singularity/podman/shifter/charliecloud/conda/institute>
-
-   # ex.
-   # nextflow run deng-lab/viroprofiler --input samplesheet.csv -c custom.config -params-file params.yml -profile slurm,singularity
-   ```
-
-## Updating the pipeline
-
-   ```bash
-   nextflow pull deng-lab/viroprofiler
-   ```
+   Please refer to the [tutorial](https://deng-lab.github.io/viroprofiler/tutorial) for more information on how to run the pipeline with customized parameters and options.
 
 ## Documentation
 
-Please refer to the [documentation](https://deng-lab.github.io/viroprofiler) page.
-
-## Credits
-
-ViroProfiler was originally written by Jinlong Ru.
-
-We thank the following people for their extensive assistance in the development of this pipeline:
-
-- ...
+Please refer to the [documentation](https://deng-lab.github.io/viroprofiler).
 
 ## Contributions and Support
 
@@ -104,20 +62,4 @@ For further information or help, please [open an issue](https://github.com/deng-
 
 ## Citations
 
-If you use  ViroProfiler for your analysis, please cite the publication as follows:
-
-> ViroProfiler: a containerized bioinformatics pipeline for viral metagenomic data analysis
->
-> *Jinlong Ru, Mohammadali Khan Mirzaei, Jinling Xue, Xue Peng, Li Deng*
->
-> [journal]
-
-An extensive list of references for the tools and data used by the pipeline can be found in the [`CITATIONS.md`](CITATIONS.md) file.
-
-This pipeline uses code and infrastructure developed and maintained by the [nf-core](https://nf-co.re) initative, and reused here under the [MIT license](https://github.com/nf-core/tools/blob/master/LICENSE). You can cite the `nf-core` publication as follows:
-
-> The nf-core framework for community-curated bioinformatics pipelines.
->
-> *Philip Ewels, Alexander Peltzer, Sven Fillinger, Harshil Patel, Johannes Alneberg, Andreas Wilm, Maxime Ulysse Garcia, Paolo Di Tommaso & Sven Nahnsen.*
->
-> *Nat Biotechnol. 2020 Feb 13. doi: [10.1038/s41587-020-0439-x](https://dx.doi.org/10.1038/s41587-020-0439-x).*
+An extensive list of references for the tools and data used by the pipeline can be found in the [`CITATIONS.md`](CITATIONS.md) file. If you use ViroProfiler for your work, please cite the relevant references.

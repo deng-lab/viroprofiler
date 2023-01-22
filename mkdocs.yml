@@ -6,8 +6,7 @@ repo_name: deng-lab/viroprofiler
 nav:
     - Home: index.md
     - Installation: installation.md
-    - Quickstart: quickstart.md
-    - Manual: manual.md
+    - Tutorial: tutorial.md
     - Outputs: output.md
     - Config template: config.md
     - Selecting NF profiles: profiles.md
