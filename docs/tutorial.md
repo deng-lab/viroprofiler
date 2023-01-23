@@ -1,30 +1,31 @@
 # Tutorial
 
-This tutorial will walk you through the installation and usage of ViroProfiler. ViroProfiler is containerized with [Docker](https://www.docker.com/), and can be used with multiple container engines, including [Docker](https://www.docker.com), [Singularity](https://sylabs.io/singularity/), [`Podman`](https://podman.io/), [`Shifter`](https://nersc.gitlab.io/development/shifter/how-to-use/) and [`Charliecloud`](https://hpc.github.io/charliecloud/) (see [docs](https://www.nextflow.io/docs/latest/container.html)). In this tutorial, we will use [Singularity](https://sylabs.io/singularity/) as an example.
+This tutorial will walk you through the installation and usage of ViroProfiler. ViroProfiler is containerized with [Docker](https://www.docker.com/), and can be used with multiple container engines, including [Docker](https://www.docker.com), [Singularity](https://sylabs.io/singularity/), [Podman](https://podman.io/), [Shifter](https://nersc.gitlab.io/development/shifter/how-to-use/) and [Charliecloud](https://hpc.github.io/charliecloud/) (see [docs](https://www.nextflow.io/docs/latest/container.html)). In this tutorial, we will use [Singularity](https://sylabs.io/singularity/) as an example.
 
 ## Install dependencies
 
-1. Install [Miniconda3](https://docs.conda.io/en/latest/miniconda.html) (`>=21.10.3`).
+1. Install [Miniconda3](https://docs.conda.io/en/latest/miniconda.html).
 
 2. Install Nextflow and Singularity using conda:
 
-```bash
-# You may need to restart your terminal before running the following commands
-conda install -c conda-forge -c bioconda nextflow singularity
-```
+    ```bash
+    # You may need to restart your terminal before running the following commands
+    conda install -c conda-forge -c bioconda nextflow singularity
+    ```
 
 ## Install ViroProfiler
 
 ViroProfiler is built on Nextflow, which means it is very easy to install with a single command:
 
 ```bash
-nextflow run deng-lab/viroprofiler -profile singularity
+# Install ViroProfiler and set up the database
+nextflow run deng-lab/viroprofiler -profile singularity --mode "setup"
 ```
 
 By default, database will be downloaded to the `$HOME/viroprofiler` directory. You can change database path using the `--db` parameter. For example, if you want to download the database to `/db/path` directory, you can run the following command,
 
 ```bash
-nextflow run deng-lab/viroprofiler -profile singularity --db "/db/path"
+nextflow run deng-lab/viroprofiler -profile singularity --mode "setup" --db "/db/path"
 ```
 
 > - It is recommended to set the [`NXF_SINGULARITY_CACHEDIR` or `singularity.cacheDir`](https://www.nextflow.io/docs/latest/singularity.html?#singularity-docker-hub) Nextflow options when using the Singularity profile, so that singularity images can be stored and re-used from a central location for future pipeline runs.

@@ -27,7 +27,7 @@ The pipeline is built using [Nextflow](https://www.nextflow.io), a workflow tool
 
 ## Quick Start
 
-1. Install [Miniconda3](https://docs.conda.io/en/latest/miniconda.html) (`>=21.10.3`).
+1. Install [Miniconda3](https://docs.conda.io/en/latest/miniconda.html).
 
 2. Install Nextflow and Singularity using conda:
 

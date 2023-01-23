@@ -37,4 +37,4 @@ Pipeline Configuration:
 
 --
 ViroProfiler
-https://github.com/rujinlong/viroprofiler
+https://github.com/deng-lab/viroprofiler

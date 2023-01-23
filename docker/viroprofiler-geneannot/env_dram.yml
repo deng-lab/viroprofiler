@@ -4,17 +4,17 @@ channels:
   - bioconda
 dependencies:
   - conda-forge::procps-ng=4.0.0
-  - python>=3.6
+  - python>=3.7
   - pandas
   - pytest
   - scikit-bio
   - prodigal
-  - mmseqs2!=10.6d92c
+  - mmseqs2==13.45111
   - hmmer!=3.3.1
-  - trnascan-se >=2
+  - trnascan-se>=2
   - sqlalchemy
   - barrnap
-  - altair >=4
+  - altair>=4
   - openpyxl
   - networkx
   - ruby

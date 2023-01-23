@@ -5,7 +5,6 @@ repo_name: deng-lab/viroprofiler
 #   - stylesheets/extra.css
 nav:
     - Home: index.md
-    - Installation: installation.md
     - Tutorial: tutorial.md
     - Outputs: output.md
     - Config template: config.md

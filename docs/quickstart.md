@@ -36,7 +36,8 @@ The first line is the header and the following lines are the samples to be analy
 ```{bash .annotate hl_lines="3"}
 nextflow run deng-lab/viroprofiler \
     --db ${HOME}/viroprofiler \
-    -profile singularity
+    -profile singularity \
+    --mode "setup"
 ```
 
 !!! important "About profiles"

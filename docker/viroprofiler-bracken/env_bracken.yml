@@ -5,3 +5,5 @@ channels:
 dependencies:
     - conda-forge::procps-ng=4.0.0
     - bracken
+    - csvtk
+    - seqkit

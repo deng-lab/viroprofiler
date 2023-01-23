@@ -58,7 +58,7 @@ include { BBMAP_ALIGN                  } from '../modules/nf-core/modules/bbmap/
 include { DECONTAM                     } from '../modules/local/decontam'
 include { CONTIGLIB; CONTIGLIB_CLUSTER } from '../modules/local/contig_library'
 include { MAPPING2CONTIGS; CONTIGINDEX; MAPPING2CONTIGS2; ABUNDANCE   } from '../modules/local/abundance'
-include { KRAKEN2; BRACKEN; BRACKEN_COMBINEBRACKENOUTPUTS } from '../modules/local/bracken'
+include { BRACKEN_DB; BRACKEN; BRACKEN_COMBINEBRACKENOUTPUTS } from '../modules/local/bracken'
 include { DRAMV; EMAPPER; ABRICATE     } from '../modules/local/annotation'
 include { VIRALHOST_IPHOP              } from '../modules/local/viral_host'
 include { BACPHLIP; REPLIDEC           } from '../modules/local/replicyc'
@@ -106,7 +106,7 @@ workflow VIROPROFILER {
 
 
         // Decontamination
-        if (params.decontam) {
+        if (params.use_decontam) {
             ch_contamref = Channel.fromPath("${params.contamref_idx}", checkIfExists: true).first()
             DECONTAM (FASTP.out.reads, ch_contamref)
             ch_clean_reads = DECONTAM.out.reads
@@ -182,10 +182,6 @@ workflow VIROPROFILER {
         ABUNDANCE (ch_bams)
         ch_versions = ch_versions.mix(ABUNDANCE.out.versions)
 
-        // Using kraken2 and bracken
-        KRAKEN2 (ch_clean_reads)
-        BRACKEN (KRAKEN2.out.report)
-        BRACKEN_COMBINEBRACKENOUTPUTS (BRACKEN.out.reports.collect())
 
         // Viral detection: DVF + CheckV MQ, HQ, Complete + VirSorter2
         DVF(ch_nrclib)
@@ -223,16 +219,21 @@ workflow VIROPROFILER {
         TAXONOMY_MMSEQS(vContigs_and_vMAGs)
         TAXONOMY_MERGE(TAXONOMY_VCONTACT.out.taxa_vc_ch, TAXONOMY_MMSEQS.out.taxa_mmseqs_ch)
 
-        // Viral host
-        VIRALHOST_IPHOP (vContigs_and_vMAGs)
+        // Using kraken2 and bracken
+        BRACKEN_DB(TAXONOMY_MMSEQS.out.taxa_mmseqs_ch, vContigs_and_vMAGs)
+        BRACKEN(ch_clean_reads, BRACKEN_DB.out.ch_brackenDB_for_bracken)
+        BRACKEN_COMBINEBRACKENOUTPUTS(BRACKEN.out.ch_reports.collect())
 
+        // Viral host
+        // VIRALHOST_IPHOP (vContigs_and_vMAGs)
 
         ch_versions = ch_versions.mix(VIRSORTER2.out.versions)
         ch_versions = ch_versions.mix(DRAMV.out.versions)
         ch_versions = ch_versions.mix(TAXONOMY_VCONTACT.out.versions)
         ch_versions = ch_versions.mix(TAXONOMY_MMSEQS.out.versions)
         ch_versions = ch_versions.mix(TAXONOMY_MERGE.out.versions)
-        ch_versions = ch_versions.mix(VIRALHOST_IPHOP.out.versions)
+        ch_versions = ch_versions.mix(BRACKEN.out.versions)
+        // ch_versions = ch_versions.mix(VIRALHOST_IPHOP.out.versions)
 
         // Replication cycle
         if ( params.replicyc == "bacphlip" ) {

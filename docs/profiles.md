@@ -1,4 +1,4 @@
-# Selecting between profiles
+# Selecting profiles
 
 ## What are profiles?
 

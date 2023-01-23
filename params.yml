@@ -3,11 +3,24 @@ outdir: "output"
 # =============================  Database  ====================================
 db: "/home/viro/jinlong.ru/viroprofiler"
 
-# =============================  Decontamination  =============================
-decontam: null
+# =============================  Optional steps switch  =======================================
+use_kraken2: false
+use_iphop: false
+use_eggnog: false
+use_dram: false
+use_phamb: false
+use_decontam: false
+
+# =============================  Optional steps parameters  =======================================
+# kraken2 + bracken
+kraken2_db: "viral"
+kraken2_clean: true
+save_output_fastqs : false
+save_reads_assignment : false
+
+# Decontamination
 decontam_min_similarity: 0.95
 contamref_idx: "/project/genomics/jru/data2/db/viroprofiler/contamination_refs/hg19/ref"
-
 
 # =============================  Contig library  ==============================
 assembler: "spades"
@@ -15,11 +28,6 @@ assemblies: "scaffolds"  # [contigs, scaffolds]
 contig_minlen: 1000
 contig_cluster_min_similarity: 0.95
 contig_cluster_min_coverage: 0.85
-
-# =============================  Abundance: kraken + bracken  ==================
-save_output_fastqs : false
-save_reads_assignment : false
-
 
 # =============================   Gene library   ==============================
 prot_cluster_min_similarity: 0.7    # Minimum similarity of protein AA seqs in the same cluster

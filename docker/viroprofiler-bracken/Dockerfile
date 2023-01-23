@@ -17,3 +17,6 @@ RUN --mount=type=cache,target=/opt/conda/pkgs micromamba install -n base -f /tmp
 
 # clean
 RUN micromamba clean --all --yes
+
+COPY ./docker/viroprofiler-bracken/rsync_from_ncbi.pl /opt/conda/libexec
+

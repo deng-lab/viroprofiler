@@ -38,7 +38,8 @@ process DB_PHAMB {
     """
     if [ ! -d ${params.db}/phamb ]; then
         mkdir -p $params.db/phamb
-        wget -O $params.db/phamb/RF_model.sav "https://github.com/RasmussenLab/phamb/raw/master/workflows/mag_annotation/dbs/RF_model.sav"
+        # wget -O $params.db/phamb/RF_model.sav "https://github.com/RasmussenLab/phamb/raw/master/workflows/mag_annotation/dbs/RF_model.sav"
+        wget -O $params.db/phamb/RF_model.sav "https://raw.githubusercontent.com/RasmussenLab/phamb/master/phamb/dbs/RF_model.sav"
     else
         echo "PHAMB database already exists"
     fi
@@ -91,7 +92,8 @@ process DB_VIBRANT {
 
     """
     if [ ! -d ${params.db}/vibrant ]; then
-        download-db.sh $params.db/vibrant
+        export VIBRANT_DATA_PATH="/opt/conda/share/vibrant-1.2.1/db"
+        download-db.sh ${params.db}/vibrant
     else
         echo "VIBRANT database already exists"
     fi
@@ -149,6 +151,10 @@ process DB_IPHOP {
     if [ ! -d ${params.db}/iphop ]; then
         mkdir -p ${params.db}/iphop
         iphop download -d $params.db/iphop -n
+        
+        # Remove the tar.gz file to save space
+        sleep 10
+        rm -rf ${params.db}/iphop/iPHoP_db_Sept21.tar.gz
     else
         echo "iPHOP database already exists"
     fi
@@ -209,6 +215,42 @@ process DB_MICOMPLETEDB {
         wget -O ${params.db}/micomplete/Bact105.hmm "https://bitbucket.org/evolegiolab/micomplete/raw/165fea13201922f23fecb0e3c17e8e2cb07dae2d/micomplete/share/Bact105.hmm"
     else
         echo "Micomplete database already exists"
+    fi
+    """
+}
+
+
+process DB_KRAKEN2 {
+    label 'viroprofiler_bracken'
+    label "setup"
+
+    when:
+    params.mode == "setup"
+
+    """
+    # Download Kraken2 taxonomy database
+    if [ ! -d ${params.db}/kraken2/taxonomy ]; then
+        mkdir -p ${params.db}/kraken2
+        cd ${params.db}/kraken2
+        kraken2-build --download-taxonomy --db taxonomy --threads $task.cpus
+    else
+        echo "Kraken2 taxonomy already exists"
+    fi
+
+    # Download user-defined Kraken2 database
+    if [ ! -d ${params.db}/kraken2/${params.kraken2_db} ]; then
+        kraken2-build --download-library ${params.kraken2_db} --db ${params.kraken2_db} --threads $task.cpus
+        ln -s ../taxonomy/taxonomy ${params.kraken2_db}
+        kraken2-build --build --db ${params.kraken2_db}
+        rm ${params.kraken2_db}/taxonomy
+        kraken2-build --clean --db ${params.kraken2_db}
+    else
+        echo "Kraken2 ${params.kraken2_db} database already exists"
+    fi
+
+    # If set params.kraken2_clean, remove the taxonomy folder to save ~39 GB storage space
+    if [ "${params.kraken2_clean}" == "true" ]; then
+        rm -rf ${params.db}/kraken2/taxonomy
     fi
     """
 }

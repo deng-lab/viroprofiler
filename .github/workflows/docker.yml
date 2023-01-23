@@ -18,8 +18,8 @@ jobs:
           #   image: denglab/viroprofiler-base
           # - dockerfile: ./docker/viroprofiler-binning/Dockerfile
           #   image: denglab/viroprofiler-binning
-          # - dockerfile: ./docker/viroprofiler-geneannot/Dockerfile
-          #   image: denglab/viroprofiler-geneannot
+          - dockerfile: ./docker/viroprofiler-geneannot/Dockerfile
+            image: denglab/viroprofiler-geneannot
           # - dockerfile: ./docker/viroprofiler-host/Dockerfile
           #   image: denglab/viroprofiler-host
           # - dockerfile: ./docker/viroprofiler-replicyc/Dockerfile
@@ -30,32 +30,38 @@ jobs:
           #   image: denglab/viroprofiler-abundance
           # - dockerfile: ./docker/viroprofiler-vibrant/Dockerfile
           #   image: denglab/viroprofiler-vibrant
-          - dockerfile: ./docker/viroprofiler-bracken/Dockerfile
-            image: denglab/viroprofiler-bracken
+          # - dockerfile: ./docker/viroprofiler-bracken/Dockerfile
+          #   image: denglab/viroprofiler-bracken
     permissions:
       contents: read
       packages: write
     steps:
       - name: Check out the repo
         uses: actions/checkout@v3
+
+      # Docker Buildx
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
       
       - name: Log in to Docker Hub
-        uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
+        uses: docker/login-action@v2
         with:
           username: ${{ secrets.DOCKER_USER }}
           password: ${{ secrets.DOCKER_PASSWORD }}
       
       - name: Extract metadata (tags, labels) for Docker
         id: meta
-        uses: docker/metadata-action@98669ae865ea3cffbcbaa878cf57c20bbf1c6c38
+        uses: docker/metadata-action@v4
         with:
           images: ${{ matrix.image }}
       
       - name: Build and push Docker image
-        uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
+        uses: docker/build-push-action@v4
         with:
           context: "."
           file: ${{ matrix.dockerfile }}
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
