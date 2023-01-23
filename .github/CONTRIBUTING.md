@@ -31,7 +31,7 @@ If you're not used to this workflow with git, you can start with some [docs from
 
 ## Getting help
 
-For further information/help, please consult the [ViroProfiler documentation](https://rujinlong.github.io/viroprofiler) and [issues](https://github.com/rujinlong/ViroProfiler/issues).
+For further information/help, please consult the [ViroProfiler documentation](https://deng-lab.github.io/viroprofiler/) and [issues](https://github.com/deng-lab/viroprofiler/issues).
 
 ## Pipeline contribution conventions
 

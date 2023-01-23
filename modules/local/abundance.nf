@@ -58,6 +58,7 @@ process CONTIGINDEX {
     """
 }
 
+
 process MAPPING2CONTIGS2 {
     label "viroprofiler_abundance"
     tag "$meta.id"
@@ -115,6 +116,8 @@ process ABUNDANCE {
     sed -i '1 s/ Trimmed Mean//g' abundance_contigs_trimmed_mean.tsv
     coverm contig --methods covered_fraction --bam-files $bams -t $task.cpus --min-read-percent-identity 0.95 1> abundance_contigs_covered_fraction.tsv 2> log_contig_covered_fraction.txt
     sed -i '1 s/ Covered Fraction//g' abundance_contigs_covered_fraction.tsv
+    coverm contig --methods tpm --bam-files $bams -t $task.cpus --min-read-percent-identity 0.95 1> abundance_contigs_tpm.tsv 2> log_contig_tpm.txt
+    sed -i '1 s/ Covered Fraction//g' abundance_contigs_tpm.tsv
     
     # compresss count table
     pigz -p $task.cpus abundance_contigs_*.tsv

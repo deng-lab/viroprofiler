@@ -1,10 +1,9 @@
-process KRAKEN2_KRAKEN2 {
+process KRAKEN2 {
     tag "$meta.id"
     label 'viroprofiler_bracken'
 
     input:
     tuple val(meta), path(reads)
-    path db
 
     output:
     tuple val(meta), path('*.classified{.,_}*')     , optional:true, emit: classified_reads_fastq
@@ -28,7 +27,7 @@ process KRAKEN2_KRAKEN2 {
 
     """
     kraken2 \\
-        --db ${db} \\
+        --db ${params.db}/kraken2 \\
         --threads $task.cpus \\
         --report ${prefix}.kraken2.report.txt \\
         --gzip-compressed \\
@@ -47,16 +46,15 @@ process KRAKEN2_KRAKEN2 {
 }
 
 
-process BRACKEN_BRACKEN {
+process BRACKEN {
     tag "$meta.id"
     label 'viroprofiler_bracken'
 
     input:
     tuple val(meta), path(kraken_report)
-    path db
 
     output:
-    tuple val(meta), path(bracken_report), emit: reports
+    path("*.tsv"), emit: reports
     path "versions.yml"          , emit: versions
 
     when:
@@ -65,16 +63,15 @@ process BRACKEN_BRACKEN {
     script:
     def args = task.ext.args ?: ""
     def prefix = task.ext.prefix ?: "${meta.id}"
-    bracken_report = "${prefix}.tsv"
     // WARN: Version information not provided by tool on CLI.
     // Please update version string below when bumping container versions.
     def VERSION = '2.8'
     """
     bracken \\
         ${args} \\
-        -d '${db}' \\
+        -d ${params.db}/kraken2 \\
         -i '${kraken_report}' \\
-        -o '${bracken_report}'
+        -o "${prefix}.tsv"
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
@@ -85,14 +82,13 @@ process BRACKEN_BRACKEN {
 
 
 process BRACKEN_COMBINEBRACKENOUTPUTS {
-    tag "$meta.id"
     label 'viroprofiler_bracken'
 
     input:
-    tuple val(meta), path(input)
+    path(input)
 
     output:
-    tuple val(meta), path("*.txt"), emit: txt
+    path("abundance_bracken.txt"), emit: abundance_bracken_ch
     path "versions.yml"           , emit: versions
 
     when:
@@ -100,15 +96,13 @@ process BRACKEN_COMBINEBRACKENOUTPUTS {
 
     script:
     def args = task.ext.args ?: ''
-    def prefix = task.ext.prefix ?: "${meta.id}"
     // WARN: Version information not provided by tool on CLI.
     // Please update version string below when bumping container versions.
     def VERSION = '2.8'
     """
     combine_bracken_outputs.py \\
-        $args \\
         --files ${input} \\
-        -o ${prefix}.txt
+        -o abundance_bracken.txt
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
