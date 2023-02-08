@@ -1,24 +1,25 @@
 # deng-lab/viroprofiler: Citations
 
-| Software      | Module                              | License     | Reference                            |
-| ------------- | ----------------------------------- | ----------- | ------------------------------------ |
-| metaSPAdes    | Assembly                            | NA          | [@2012-SPAdes_Bankevich]             |
-| vRhyme        | Binning                             | GPL v3      | [@2022-VRhyme_Kieft]                 |
-| Phamb         | Binning                             | MIT License | [@2022-Genome_Johansen]              |
-| CheckV        | Virus detection and QC              | BSD license | [@2020-CheckV_Nayfach]               |
-| VirSorter2    | Virus detection                     | GPL v2      | [@2021-VirSorter2_Guo]               |
-| DeepVirFinder | Virus detection                     | USC-RL v1.0 | [@2020-Identifying_Ren]              |
-| VIBRANT       | Virus detection and gene annotation | GPL v3      | [@2020-VIBRANT_Kieft]                |
-| DRAM          | Gene annotation                     | GPL v3      | [@2020-DRAM_Shaffer]                 |
-| eggnog-mapper | Gene annotation                     | GPL v3      | [@2021-EggNOGmapper_Cantalapiedra]   |
-| abricate      | Gene annotation                     | GPL v2      | https://github.com/tseemann/abricate |
-| MMseqs2       | Taxonomy assignment                 | GPL v3      | [@2021-Fast_Mirdita]                 |
-| vConTACT2     | Taxonomy assignment                 | GPL v3      | [@2019-Taxonomic_BinJang]            |
-| Bacphlip      | Lifestyle prediction                | MIT License | [@2021-BACPHLIP_Hockenberry]         |
-| Replidec      | Lifestyle prediction                | MIT License | [@2022-Replidec_Peng]                |
-| iPHoP         | Host prediction                     | GPL v3      | [@2022-IPHoP_Roux]                   |
-| CoverM        | Abundance estimation                | GPL v3      | https://github.com/wwood/CoverM      |
-
+| Software      | Module                              | License     |
+| ------------- | ----------------------------------- | ----------- |
+| metaSPAdes    | Assembly                            | NA          |
+| vRhyme        | Binning                             | GPL v3      |
+| Phamb         | Binning                             | MIT License |
+| CheckV        | Virus detection and QC              | BSD license |
+| VirSorter2    | Virus detection                     | GPL v2      |
+| DeepVirFinder | Virus detection                     | USC-RL v1.0 |
+| VIBRANT       | Virus detection and gene annotation | GPL v3      |
+| DRAM          | Gene annotation                     | GPL v3      |
+| eggnog-mapper | Gene annotation                     | GPL v3      |
+| abricate      | Gene annotation                     | GPL v2      |
+| MMseqs2       | Taxonomy assignment                 | GPL v3      |
+| vConTACT2     | Taxonomy assignment                 | GPL v3      |
+| Bacphlip      | Lifestyle prediction                | MIT License |
+| Replidec      | Lifestyle prediction                | MIT License |
+| iPHoP         | Host prediction                     | GPL v3      |
+| CoverM        | Abundance estimation                | GPL v3      |
+| Kraken2       | Taxonomy assignment                 | MIT License |
+| Bracken       | Abundance estimation                | GPL v3      |
 
 ## [nf-core](https://pubmed.ncbi.nlm.nih.gov/32055031/)
 
@@ -87,6 +88,12 @@
 
 - [Replidec](https://github.com/deng-lab/Replidec)
   > Peng, Xue, et al. "Replidec-Use naive Bayes classifier to identify virus lifecycle from metagenomics data." bioRxiv (2022): 2022-07.
+
+- [Kraken2](https://github.com/DerrickWood/kraken2)
+  > Wood, Derrick E., Jennifer Lu, and Ben Langmead. "Improved metagenomic analysis with Kraken 2." Genome biology 20 (2019): 1-13.
+
+- [Bracken](https://github.com/jenniferlu717/Bracken)
+  > Lu, Jennifer, et al. "Bracken: estimating species abundance in metagenomics data." PeerJ Computer Science 3 (2017): e104.
 
 - [MultiQC](https://pubmed.ncbi.nlm.nih.gov/27312411/)
   > Ewels, Philip, et al. "MultiQC: summarize analysis results for multiple tools and samples in a single report." Bioinformatics 32.19 (2016): 3047-3048.

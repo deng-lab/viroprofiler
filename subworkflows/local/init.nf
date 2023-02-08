@@ -4,7 +4,7 @@ workflow SETUP {
     main:
     // viral detection
     // DB_VIBRANT()
-    // DB_CHECKV()
+    DB_CHECKV()
     // DB_VIRSORTER2()
 
     // binning

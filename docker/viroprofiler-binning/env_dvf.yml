@@ -8,3 +8,9 @@ dependencies:
     - bioconductor-qvalue
     - seqkit
     - gxx
+    - numpy
+    - theano=1.0.3
+    - keras=2.2.4
+    - scikit-learn
+    - Biopython
+    - h5py

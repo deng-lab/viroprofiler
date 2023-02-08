@@ -16,10 +16,10 @@ jobs:
         include:
           # - dockerfile: ./docker/viroprofiler-base/Dockerfile
           #   image: denglab/viroprofiler-base
-          # - dockerfile: ./docker/viroprofiler-binning/Dockerfile
-          #   image: denglab/viroprofiler-binning
-          - dockerfile: ./docker/viroprofiler-geneannot/Dockerfile
-            image: denglab/viroprofiler-geneannot
+          - dockerfile: ./docker/viroprofiler-binning/Dockerfile
+            image: denglab/viroprofiler-binning
+          # - dockerfile: ./docker/viroprofiler-geneannot/Dockerfile
+          #   image: denglab/viroprofiler-geneannot
           # - dockerfile: ./docker/viroprofiler-host/Dockerfile
           #   image: denglab/viroprofiler-host
           # - dockerfile: ./docker/viroprofiler-replicyc/Dockerfile
@@ -32,6 +32,10 @@ jobs:
           #   image: denglab/viroprofiler-vibrant
           # - dockerfile: ./docker/viroprofiler-bracken/Dockerfile
           #   image: denglab/viroprofiler-bracken
+          # - dockerfile: ./docker/viroprofiler-phamb/Dockerfile
+          #   image: denglab/viroprofiler-phamb
+          # - dockerfile: ./docker/viroprofiler-dvf/Dockerfile
+          #   image: denglab/viroprofiler-dvf
     permissions:
       contents: read
       packages: write

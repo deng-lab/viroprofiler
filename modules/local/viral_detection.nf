@@ -95,6 +95,7 @@ process DVF {
 
     """
     export OMP_NUM_THREADS=$task.cpus
+    
     dvf.py -i $contigs -o . -c $task.cpus
     dvf_output=\$(ls *_dvfpred.txt)
     calc_qvalue.r \${dvf_output} $params.dvf_qvalue dvf_virus.tsv

@@ -25,7 +25,7 @@ contamref_idx: "/project/genomics/jru/data2/db/viroprofiler/contamination_refs/h
 # =============================  Contig library  ==============================
 assembler: "spades"
 assemblies: "scaffolds"  # [contigs, scaffolds]
-contig_minlen: 1000
+contig_minlen: 5000
 contig_cluster_min_similarity: 0.95
 contig_cluster_min_coverage: 0.85
 
@@ -36,8 +36,8 @@ gene_cluster_min_similarity: 0.9    # Minimum similarity of gene DNA seqs in the
 gene_cluster_min_coverage: 0.9   # Minimum similarity of gene DNA seqs in the same cluster
 
 # =============================  Binning  =====================================
-binning: "vrhyme"   # "phamb", "vrhyme" or false
-binning_minlen_contig: 3000
+binning: false   # "phamb", "vrhyme" or false
+binning_minlen_contig: 5000
 binning_minlen_bin: 5000
 dvf_qvalue: 0.1
 

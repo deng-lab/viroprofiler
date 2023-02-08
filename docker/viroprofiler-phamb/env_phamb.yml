@@ -1,4 +1,4 @@
-name: viroprofiler-binning
+name: viroprofiler-phamb
 channels:
     - conda-forge
     - bioconda
@@ -8,10 +8,10 @@ dependencies:
     - pip
     - gcc
     - metabat2
-    - python
+    - python=3.9
     - cython
     - pygraphviz
-    - scikit-learn
+    - scikit-learn=1.0.2
     - git
     - csvtk
     - biopython

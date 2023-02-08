@@ -159,7 +159,7 @@ workflow VIROPROFILER {
         ch_nr_gene = NRGENE.out.cluster_rep_ch
 
         // Gene/Protein annotation
-        EMAPPER (ch_nr_prot)
+        // EMAPPER (ch_nr_prot)
         // ABRICATE (ch_nr_gene)
 
         // TODO: Abundance (but in minimap2, replace with bowtie2)
@@ -220,9 +220,9 @@ workflow VIROPROFILER {
         TAXONOMY_MERGE(TAXONOMY_VCONTACT.out.taxa_vc_ch, TAXONOMY_MMSEQS.out.taxa_mmseqs_ch)
 
         // Using kraken2 and bracken
-        BRACKEN_DB(TAXONOMY_MMSEQS.out.taxa_mmseqs_ch, vContigs_and_vMAGs)
-        BRACKEN(ch_clean_reads, BRACKEN_DB.out.ch_brackenDB_for_bracken)
-        BRACKEN_COMBINEBRACKENOUTPUTS(BRACKEN.out.ch_reports.collect())
+        // BRACKEN_DB(TAXONOMY_MMSEQS.out.taxa_mmseqs_ch, vContigs_and_vMAGs)
+        // BRACKEN(ch_clean_reads, BRACKEN_DB.out.ch_brackenDB_for_bracken)
+        // BRACKEN_COMBINEBRACKENOUTPUTS(BRACKEN.out.ch_reports.collect())
 
         // Viral host
         // VIRALHOST_IPHOP (vContigs_and_vMAGs)
@@ -232,7 +232,7 @@ workflow VIROPROFILER {
         ch_versions = ch_versions.mix(TAXONOMY_VCONTACT.out.versions)
         ch_versions = ch_versions.mix(TAXONOMY_MMSEQS.out.versions)
         ch_versions = ch_versions.mix(TAXONOMY_MERGE.out.versions)
-        ch_versions = ch_versions.mix(BRACKEN.out.versions)
+        // ch_versions = ch_versions.mix(BRACKEN.out.versions)
         // ch_versions = ch_versions.mix(VIRALHOST_IPHOP.out.versions)
 
         // Replication cycle
