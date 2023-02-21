@@ -82,6 +82,11 @@ process EMAPPER {
     """
     emapper.py -i $prot_faa -o eggnog --cpu $task.cpus --no_file_comments -m diamond --data_dir ${params.db}/eggnog
     parse_eggnog.py -i eggnog.emapper.annotations -o anno_eggnog.tsv
+
+    cat <<-END_VERSIONS > versions.yml
+    "${task.process}":
+        emapper: \$(echo \$(emapper.py -v) | grep version | cut -d' ' -f1 | sed 's/emapper-/v/g')
+    END_VERSIONS
     """
 }
 
@@ -138,7 +143,7 @@ process ABRICATE {
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
-        abricate: \$(echo \$(abricate -v) | sed 's/^abricate  //' ))
+        abricate: \$(echo \$(abricate -v) | sed 's/^abricate  //' )
     END_VERSIONS
     """
 }

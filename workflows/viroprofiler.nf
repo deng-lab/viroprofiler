@@ -62,7 +62,7 @@ include { BRACKEN_DB; BRACKEN; BRACKEN_COMBINEBRACKENOUTPUTS } from '../modules/
 include { DRAMV; EMAPPER; ABRICATE     } from '../modules/local/annotation'
 include { VIRALHOST_IPHOP              } from '../modules/local/viral_host'
 include { BACPHLIP; REPLIDEC           } from '../modules/local/replicyc'
-include { CHECKV; VIRSORTER2; DVF; VIRCONTIGS_PREF1; VIBRANT           } from '../modules/local/viral_detection'
+include { CHECKV; VIRSORTER2; DVF; VIRCONTIGS_PRE; VIBRANT           } from '../modules/local/viral_detection'
 include { GENEPRED as GENEPRED4CTG; NRSEQS as NRPROT; NRSEQS as NRGENE } from '../modules/local/gene_library'
 include { TAXONOMY_VCONTACT; TAXONOMY_MMSEQS; TAXONOMY_MERGE           } from '../modules/local/taxonomy'
 
@@ -159,8 +159,14 @@ workflow VIROPROFILER {
         ch_nr_gene = NRGENE.out.cluster_rep_ch
 
         // Gene/Protein annotation
-        // EMAPPER (ch_nr_prot)
-        // ABRICATE (ch_nr_gene)
+        if (params.use_eggnog) {
+            EMAPPER (ch_nr_prot)
+            // ch_versions = ch_versions.mix(EMAPPER.out.versions)
+        }
+        if (params.use_abricate) {
+            ABRICATE (ch_nr_gene)
+            ch_versions = ch_versions.mix(ABRICATE.out.versions)
+        }
 
         // TODO: Abundance (but in minimap2, replace with bowtie2)
         // MAPPING2CONTIGS (
@@ -183,15 +189,16 @@ workflow VIROPROFILER {
         ch_versions = ch_versions.mix(ABUNDANCE.out.versions)
 
 
-        // Viral detection: DVF + CheckV MQ, HQ, Complete + VirSorter2
+        // Viral detection: DVF + CheckV MQ, HQ, Complete + VirSorter2 + VIBRANT
+        VIBRANT(ch_nrclib)
         DVF(ch_nrclib)
         ch_dvfscore = DVF.out.dvfscore_ch
         ch_dvfseq = DVF.out.dvfseq_ch
         ch_dvflist = DVF.out.dvflist_ch
 
-        VIRCONTIGS_PREF1(ch_nrclib, ch_dvflist, CHECKV.out.checkv2vContigs_ch)
-        ch_putative_vList =  VIRCONTIGS_PREF1.out.putative_vList_ch
-        ch_putative_vContigs =  VIRCONTIGS_PREF1.out.putative_vContigs_ch
+        VIRCONTIGS_PRE(ch_nrclib, ch_dvflist, CHECKV.out.checkv2vContigs_ch, VIBRANT.out.vibrant_ch)
+        ch_putative_vList =  VIRCONTIGS_PRE.out.putative_vList_ch
+        ch_putative_vContigs =  VIRCONTIGS_PRE.out.putative_vContigs_ch
 
         // TODO: add back after fix bug in abundance.
         // Binning (optional)
@@ -211,8 +218,10 @@ workflow VIROPROFILER {
         ch_vs2contigs = VIRSORTER2.out.vs2_contigs_ch
 
         // ANNOTATION (AMG)
-        DRAMV (ch_vs2contigs, VIRSORTER2.out.vs2_affi_ch)
-        VIBRANT(ch_vs2contigs)
+        if ( params.use_dram ) {
+            DRAMV (ch_vs2contigs, VIRSORTER2.out.vs2_affi_ch)
+            ch_versions = ch_versions.mix(DRAMV.out.versions)
+        }
 
         // Taxonomy
         TAXONOMY_VCONTACT(vContigs_and_vMAGs)
@@ -225,15 +234,16 @@ workflow VIROPROFILER {
         // BRACKEN_COMBINEBRACKENOUTPUTS(BRACKEN.out.ch_reports.collect())
 
         // Viral host
-        // VIRALHOST_IPHOP (vContigs_and_vMAGs)
+        if ( params.use_iphop ) {
+            VIRALHOST_IPHOP(vContigs_and_vMAGs)
+            ch_versions = ch_versions.mix(VIRALHOST_IPHOP.out.versions)
+        }
 
         ch_versions = ch_versions.mix(VIRSORTER2.out.versions)
-        ch_versions = ch_versions.mix(DRAMV.out.versions)
         ch_versions = ch_versions.mix(TAXONOMY_VCONTACT.out.versions)
         ch_versions = ch_versions.mix(TAXONOMY_MMSEQS.out.versions)
         ch_versions = ch_versions.mix(TAXONOMY_MERGE.out.versions)
         // ch_versions = ch_versions.mix(BRACKEN.out.versions)
-        // ch_versions = ch_versions.mix(VIRALHOST_IPHOP.out.versions)
 
         // Replication cycle
         if ( params.replicyc == "bacphlip" ) {

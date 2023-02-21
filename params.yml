@@ -5,9 +5,10 @@ db: "/home/viro/jinlong.ru/viroprofiler"
 
 # =============================  Optional steps switch  =======================================
 use_kraken2: false
-use_iphop: false
+use_iphop: true
 use_eggnog: false
-use_dram: false
+use_abricate: false
+use_dram: true
 use_phamb: false
 use_decontam: false
 

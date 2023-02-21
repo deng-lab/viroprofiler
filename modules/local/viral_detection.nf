@@ -123,13 +123,14 @@ process VIBRANT {
 }
 
 
-process VIRCONTIGS_PREF1 {
+process VIRCONTIGS_PRE {
     label "viroprofiler_base"
 
     input:
     path(nrclib)
     path(dvflist)
     path(checkv_quality)
+    path(vibrant_dir)
 
     output:
     path("putative_vcontigs_pref1.fasta"), emit: putative_vContigs_ch
@@ -139,8 +140,9 @@ process VIRCONTIGS_PREF1 {
     task.ext.when == null || task.ext.when
 
     """
+    cat ${vibrant_dir}/VIBRANT_phages_contigs/contigs.phages_combined.fna | seqkit fx2tab -n > vibrant_vcontigs.list
     csvtk grep -t -r -f checkv_quality -p 'Complete|High-quality|Medium-quality|Low-quality' $checkv_quality | cut -f1 | sed 1d > checkv_vcontigs.list
-    cat $dvflist checkv_vcontigs.list | sort -u > putative_vcontigs_pref1.list
+    cat $dvflist checkv_vcontigs.list vibrant_vcontigs.list | sort -u > putative_vcontigs_pref1.list
     seqkit grep -f putative_vcontigs_pref1.list $nrclib > putative_vcontigs_pref1.fasta
     """
 }

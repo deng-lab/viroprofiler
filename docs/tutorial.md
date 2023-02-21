@@ -175,7 +175,7 @@ Specify the path to a specific config file (this is a core Nextflow command). Se
 
 | <div style="width:180px">Parameter</div> | Required | Default | Description |
 | :--------------------------------------- | :------- | :------ | :---------- |
-| `--skip_amg_search` | :material-close: | false | Tells whether not to run AMG annotation. It skips both DRAMv annotation |
+| `--skip_amg_search` | :material-close: | false | Tells whether not to run AMG annotation. It skips DRAMv annotation |
 
 
 ##### Other parameters
@@ -212,4 +212,4 @@ Set the top limit for requested resources for any single job. If you are running
 
 ### Outputs
 
-A glimpse over the main outputs produced by ViroProfiler is given at [outputs](outputs.md#) section.
+A glimpse over the main outputs produced by ViroProfiler is given at [output](output.md#) section.
