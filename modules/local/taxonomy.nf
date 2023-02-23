@@ -69,6 +69,7 @@ process TAXONOMY_MERGE {
 
     output:
     path "taxonomy.tsv", emit: taxa2abundance_ch
+    path "taxa_mmseqs_formatted_all.tsv", emit: taxa_mmseqs_ch
     path "versions.yml", emit: versions
 
     when:

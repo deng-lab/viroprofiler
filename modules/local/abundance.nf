@@ -104,6 +104,9 @@ process ABUNDANCE {
 
     output:
     path "*"
+    path "abundance_contigs_count.tsv", emit: ab_count_ch
+    path "abundance_contigs_covered_fraction.tsv", emit: ab_covfrac_ch
+    path "abundance_contigs_tpm.tsv", emit: ab_tpm_ch
     path "versions.yml", emit: versions
 
     when:
@@ -117,7 +120,9 @@ process ABUNDANCE {
     coverm contig --methods covered_fraction --bam-files $bams -t $task.cpus --min-read-percent-identity 0.95 1> abundance_contigs_covered_fraction.tsv 2> log_contig_covered_fraction.txt
     sed -i '1 s/ Covered Fraction//g' abundance_contigs_covered_fraction.tsv
     coverm contig --methods tpm --bam-files $bams -t $task.cpus --min-read-percent-identity 0.95 1> abundance_contigs_tpm.tsv 2> log_contig_tpm.txt
-    sed -i '1 s/ Covered Fraction//g' abundance_contigs_tpm.tsv
+    sed -i '1 s/ TPM//g' abundance_contigs_tpm.tsv
+    coverm contig --methods rpkm --bam-files $bams -t $task.cpus --min-read-percent-identity 0.95 1> abundance_contigs_rpkm.tsv 2> log_contig_rpkm.txt
+    sed -i '1 s/ RPKM//g' abundance_contigs_rpkm.tsv
     
     # compresss count table
     pigz -p $task.cpus abundance_contigs_*.tsv

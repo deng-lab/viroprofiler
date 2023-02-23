@@ -54,7 +54,7 @@ process VIRSORTER2 {
     path "final-viral-combined-for-dramv.fa", emit: vs2_contigs_ch
     path "viral-affi-contigs-for-dramv.tab", emit: vs2_affi_ch
     path "out_vs2/final-viral-combined.fa"
-    path "out_vs2/final-viral-score.tsv"
+    path "out_vs2/final-viral-score.tsv", emit: vs2_score_ch
     path "vs2_category.csv"
     path "versions.yml", emit: versions
 
@@ -112,6 +112,7 @@ process VIBRANT {
 
     output:
     path("VIBRANT_*"), emit: vibrant_ch
+    path("VIBRANT_contigs/VIBRANT_results_contigs/VIBRANT_genome_quality_contigs.tsv"), emit: vibrant_quality_ch
 
     when:
     task.ext.when == null || task.ext.when

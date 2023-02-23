@@ -65,6 +65,7 @@ include { BACPHLIP; REPLIDEC           } from '../modules/local/replicyc'
 include { CHECKV; VIRSORTER2; DVF; VIRCONTIGS_PRE; VIBRANT           } from '../modules/local/viral_detection'
 include { GENEPRED as GENEPRED4CTG; NRSEQS as NRPROT; NRSEQS as NRGENE } from '../modules/local/gene_library'
 include { TAXONOMY_VCONTACT; TAXONOMY_MMSEQS; TAXONOMY_MERGE           } from '../modules/local/taxonomy'
+include { RESULTS_TSE                  } from '../modules/local/base'
 
 /*
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -100,7 +101,7 @@ workflow VIROPROFILER {
         // MODULE: Run fastp
         //
         FASTP (
-            INPUT_CHECK.out.reads, true, true
+            INPUT_CHECK.out.reads, false, false 
         )
         ch_versions = ch_versions.mix(FASTP.out.versions.first())
 
@@ -253,6 +254,9 @@ workflow VIROPROFILER {
             REPLIDEC (vContigs_and_vMAGs)
             ch_versions = ch_versions.mix(REPLIDEC.out.versions)
         }
+
+        // TreeSummarizedExperiment
+        RESULTS_TSE (ABUNDANCE.out.ab_count_ch, ABUNDANCE.out.ab_tpm_ch, ABUNDANCE.out.ab_covfrac_ch, TAXONOMY_MERGE.out.taxa_mmseqs_ch, CHECKV.out.checkv2vContigs_ch, VIRSORTER2.out.vs2_score_ch, VIBRANT.out.vibrant_quality_ch, DVF.out.dvf2vContigs_ch, BACPHLIP.out.repcyc_ch)
 
         CUSTOM_DUMPSOFTWAREVERSIONS (
             ch_versions.unique().collectFile(name: 'collated_versions.yml')
