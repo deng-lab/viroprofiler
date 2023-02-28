@@ -95,7 +95,7 @@ The representative contigs of each cluster were can be binned into different bin
 
 Abundance of contigs or bins were estimated using the clean reads mapped to the contigs or bins. There are multiple abundance metrics available, including raw counts, TPM, and RPKM. In addition, the mapped BAM files can be imported into other tools such as MetaPop (https://github.com/metaGmetapop/metapop) for macro- and micro-diversity analyses of viruses and visualization of metagenomic-derived populations.
 
-### Viral sequence identification (VirSorter2 and DeepVirfinder)
+### Viral sequence identification
 
 Viral sequences were identified using multiple tools in ViroProfiler. Results of each tools were saved to separate files, and be merged into a final annotation file in the end.
 
