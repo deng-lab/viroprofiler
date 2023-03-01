@@ -3,11 +3,15 @@ outdir: "output"
 # =============================  Database  ====================================
 db: "/home/viro/jinlong.ru/viroprofiler"
 
+# =============================  Input  =======================================
+reads_type: "raw"  # "raw" or "clean"
+input_contigs: false  # false or path to contigs file
+
 # =============================  Optional steps switch  =======================================
 use_kraken2: false
 use_iphop: true
 use_eggnog: false
-use_abricate: false
+use_abricate: true
 use_dram: true
 use_phamb: false
 use_decontam: false
@@ -27,8 +31,8 @@ contamref_idx: "/project/genomics/jru/data2/db/viroprofiler/contamination_refs/h
 assembler: "spades"
 assemblies: "scaffolds"  # [contigs, scaffolds]
 contig_minlen: 5000
-contig_cluster_min_similarity: 0.95
-contig_cluster_min_coverage: 0.85
+contig_cluster_min_similarity: 95       # 0-100
+contig_cluster_min_coverage: 85         # 0-100
 
 # =============================   Gene library   ==============================
 prot_cluster_min_similarity: 0.7    # Minimum similarity of protein AA seqs in the same cluster

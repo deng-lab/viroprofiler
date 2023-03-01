@@ -20,15 +20,15 @@ process RESULTS_TSE {
     task.ext.when == null || task.ext.when
 
     """
-    create_tse.r --fin_abcount abundance_count \\
-                 --fin_abtpm abundance_tpm \\
-                 --fin_abcov abundance_covfrac \\
-                 --fin_taxa taxa \\
-                 --fin_checkv checkv_quality \\
-                 --fin_virsorter2 virsorter2_score \\
-                 --fin_vibrant vibrant_quality \\
-                 --fin_dvf dvf_score \\
-                 --fin_replicyc replicyc_type
+    create_tse.r --fin_abcount $abundance_count \\
+                 --fin_abtpm $abundance_tpm \\
+                 --fin_abcov $abundance_covfrac \\
+                 --fin_taxa $taxa \\
+                 --fin_checkv $checkv_quality \\
+                 --fin_virsorter2 $virsorter2_score \\
+                 --fin_vibrant $vibrant_quality \\
+                 --fin_dvf $dvf_score \\
+                 --fin_replicyc $replicyc_type
     """
 }
 

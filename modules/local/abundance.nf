@@ -104,10 +104,10 @@ process ABUNDANCE {
 
     output:
     path "*"
-    path "abundance_contigs_count.tsv", emit: ab_count_ch
-    path "abundance_contigs_covered_fraction.tsv", emit: ab_covfrac_ch
-    path "abundance_contigs_tpm.tsv", emit: ab_tpm_ch
-    path "versions.yml", emit: versions
+    path "abundance_contigs_count.tsv.gz", emit: ab_count_ch
+    path "abundance_contigs_covered_fraction.tsv.gz", emit: ab_covfrac_ch
+    path "abundance_contigs_tpm.tsv.gz", emit: ab_tpm_ch
+    path "abundance_contigs_rpkm.tsv.gz", emit: ab_rpkm_ch
 
     when:
     task.ext.when == null || task.ext.when
@@ -126,10 +126,5 @@ process ABUNDANCE {
     
     # compresss count table
     pigz -p $task.cpus abundance_contigs_*.tsv
-
-    cat <<-END_VERSIONS > versions.yml
-    "${task.process}":
-        coverm: \$(coverm 0.6.1 | sed 's/.* //g')
-    END_VERSIONS
     """
 }

@@ -80,6 +80,8 @@ workflow VIROPROFILER {
     if (params.mode == "setup") {
         SETUP()
     } else {
+        ch_multiqc_files = Channel.empty()
+
         // Check mandatory parameters
         if (params.input) { ch_input = file(params.input) } else { exit 1, 'Input samplesheet not specified!' }
         ch_versions = Channel.empty()
@@ -89,57 +91,70 @@ workflow VIROPROFILER {
         //
         INPUT_CHECK ( ch_input )
 
-        //
-        // MODULE: Run FastQC
-        //
-        FASTQC (
-            INPUT_CHECK.out.reads
-        )
-        ch_versions = ch_versions.mix(FASTQC.out.versions.first())
-
-        //
-        // MODULE: Run fastp
-        //
-        FASTP (
-            INPUT_CHECK.out.reads, false, false 
-        )
-        ch_versions = ch_versions.mix(FASTP.out.versions.first())
-
-
-        // Decontamination
-        if (params.use_decontam) {
-            ch_contamref = Channel.fromPath("${params.contamref_idx}", checkIfExists: true).first()
-            DECONTAM (FASTP.out.reads, ch_contamref)
-            ch_clean_reads = DECONTAM.out.reads
-            ch_versions = ch_versions.mix(DECONTAM.out.versions.first())
+        // if input_type is "clean", set ch_clean_reads to input_reads, otherwise set to FASTP.out.reads
+        if (params.reads_type == "clean") {
+            ch_clean_reads = INPUT_CHECK.out.reads
         } else {
+            // MODULE: Run FastQC
+            FASTQC (
+                INPUT_CHECK.out.reads
+            )
+            ch_versions = ch_versions.mix(FASTQC.out.versions.first())
+
+            // MODULE: Run fastp
+            FASTP (
+                INPUT_CHECK.out.reads, false, false 
+            )
+            ch_versions = ch_versions.mix(FASTP.out.versions.first())
+
+            // Decontamination
+            if (params.use_decontam) {
+                ch_contamref = Channel.fromPath("${params.contamref_idx}", checkIfExists: true).first()
+                DECONTAM (FASTP.out.reads, ch_contamref)
+                ch_clean_reads = DECONTAM.out.reads
+                ch_versions = ch_versions.mix(DECONTAM.out.versions.first())
+            } else {
+                ch_clean_reads = FASTP.out.reads
+            }
+
+            ch_multiqc_files = ch_multiqc_files.mix(FASTQC.out.zip.collect{it[1]}.ifEmpty([]))
+            ch_multiqc_files = ch_multiqc_files.mix(FASTP.out.json.collect{it[1]}.ifEmpty([]))
+
             ch_clean_reads = FASTP.out.reads
         }
 
-        //
-        // MODULE: Run spades
-        //
-        SPADES (
-            ch_clean_reads.map { meta, fastq -> [ meta, fastq, [], [] ] },
-            []
-        )
-        ch_versions = ch_versions.mix(SPADES.out.versions.first())
 
-        // MODULE: 
-        if ( params.assemblies == "contigs") {
-            assemblies = SPADES.out.contigs
+
+        // if input_contigs is specified, set ch_cclib to input_contigs, otherwise set to CONTIGLIB.out.cclib_long_ch
+        if (params.input_contigs) {
+            ch_cclib = Channel.fromPath("${params.input_contigs}", checkIfExists: true).first()
         } else {
-            assemblies = SPADES.out.scaffolds
+            // Run spades
+            SPADES (
+                ch_clean_reads.map { meta, fastq -> [ meta, fastq, [], [] ] },
+                []
+            )
+
+            // Use contigs or scaffolds
+            if ( params.assemblies == "contigs") {
+                assemblies = SPADES.out.contigs
+            } else {
+                assemblies = SPADES.out.scaffolds
+            }
+
+            // Create contig library
+            CONTIGLIB(
+                assemblies.map { meta, fasta -> [fasta] }.collect()
+            )
+            ch_cclib = CONTIGLIB.out.cclib_long_ch
+
+            // Extract versions
+            ch_versions = ch_versions.mix(SPADES.out.versions.first())
+            ch_versions = ch_versions.mix(CONTIGLIB.out.versions)
         }
-        CONTIGLIB(
-            assemblies.map { meta, fasta -> [fasta] }.collect()
-        )
-        ch_versions = ch_versions.mix(CONTIGLIB.out.versions)
 
         // MODULE: CheckV
-        CHECKV (
-            CONTIGLIB.out.cclib_long_ch
-        )
+        CHECKV(ch_cclib)
         clean_cclib_long = CHECKV.out.checkv_qc_ch
         ch_versions = ch_versions.mix(CHECKV.out.versions)
 
@@ -187,7 +202,7 @@ workflow VIROPROFILER {
         ch_versions = ch_versions.mix(MAPPING2CONTIGS2.out.versions.first())
         
         ABUNDANCE (ch_bams)
-        ch_versions = ch_versions.mix(ABUNDANCE.out.versions)
+        // ch_versions = ch_versions.mix(ABUNDANCE.out.versions)
 
 
         // Viral detection: DVF + CheckV MQ, HQ, Complete + VirSorter2 + VIBRANT
@@ -268,12 +283,9 @@ workflow VIROPROFILER {
         workflow_summary    = WorkflowViroprofiler.paramsSummaryMultiqc(workflow, summary_params)
         ch_workflow_summary = Channel.value(workflow_summary)
 
-        ch_multiqc_files = Channel.empty()
         ch_multiqc_files = ch_multiqc_files.mix(Channel.from(ch_multiqc_config))
         ch_multiqc_files = ch_multiqc_files.mix(ch_multiqc_custom_config.collect().ifEmpty([]))
         ch_multiqc_files = ch_multiqc_files.mix(ch_workflow_summary.collectFile(name: 'workflow_summary_mqc.yaml'))
-        ch_multiqc_files = ch_multiqc_files.mix(FASTQC.out.zip.collect{it[1]}.ifEmpty([]))
-        ch_multiqc_files = ch_multiqc_files.mix(FASTP.out.json.collect{it[1]}.ifEmpty([]))
         ch_multiqc_files = ch_multiqc_files.mix(CUSTOM_DUMPSOFTWAREVERSIONS.out.mqc_yml.collect())
 
         MULTIQC (

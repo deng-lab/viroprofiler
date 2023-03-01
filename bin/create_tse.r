@@ -1,6 +1,7 @@
 #!/usr/bin/env Rscript
 
 library(argparser)
+library(TreeSummarizedExperiment)
 library(vpfkit)
 
 p <- arg_parser("Create ViroProfiler TSE object")

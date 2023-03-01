@@ -44,38 +44,15 @@ nextflow pull deng-lab/viroprofiler
 
 #### Samplesheet input
 
-To execute the pipeline users **must** provide raw sequencing reads as input. You will need to create a samplesheet with information about the samples you would like to analyse before running the pipeline. Use this parameter to specify its location. It has to be a comma-separated file with 3 columns, and a header row as shown in the examples below.
+To execute the pipeline users **must** provide sequencing reads as input. You will need to create a samplesheet with information about the samples you would like to analyse before running the pipeline.
 
-```console
---input "[path to samplesheet file]"
-```
-
-#### Multiple runs of the same sample
-
-The `sample` identifiers have to be the same when you have re-sequenced the same sample more than once e.g. to increase sequencing depth. The pipeline will concatenate the raw reads before performing any downstream analysis. Below is an example for the same sample sequenced across 3 lanes:
+The samplesheet is a comma-separated file with 3 columns. The first column is the sample name, the second column is the full path to the first read file, and the third column is the full path to the second read file. The sample name can be any string, but it is recommended to use the sample ID. The sample name will be used as the prefix of the output files. The following is an example of a samplesheet with three samples:
 
 ```console
 sample,fastq_1,fastq_2
-CONTROL_REP1,AEG588A1_S1_L002_R1_001.fastq.gz,AEG588A1_S1_L002_R2_001.fastq.gz
-CONTROL_REP1,AEG588A1_S1_L003_R1_001.fastq.gz,AEG588A1_S1_L003_R2_001.fastq.gz
-CONTROL_REP1,AEG588A1_S1_L004_R1_001.fastq.gz,AEG588A1_S1_L004_R2_001.fastq.gz
-```
-
-#### Full samplesheet
-
-The pipeline will auto-detect whether a sample is single- or paired-end using the information provided in the samplesheet. The samplesheet can have as many columns as you desire, however, there is a strict requirement for the first 3 columns to match those defined in the table below.
-
-A final samplesheet file consisting of both single- and paired-end data may look something like the one below. This is for 6 samples, where `TREATMENT_REP3` has been sequenced twice.
-
-```console
-sample,fastq_1,fastq_2
-CONTROL_REP1,AEG588A1_S1_L002_R1_001.fastq.gz,AEG588A1_S1_L002_R2_001.fastq.gz
-CONTROL_REP2,AEG588A2_S2_L002_R1_001.fastq.gz,AEG588A2_S2_L002_R2_001.fastq.gz
-CONTROL_REP3,AEG588A3_S3_L002_R1_001.fastq.gz,AEG588A3_S3_L002_R2_001.fastq.gz
-TREATMENT_REP1,AEG588A4_S4_L003_R1_001.fastq.gz,
-TREATMENT_REP2,AEG588A5_S5_L003_R1_001.fastq.gz,
-TREATMENT_REP3,AEG588A6_S6_L003_R1_001.fastq.gz,
-TREATMENT_REP3,AEG588A6_S6_L004_R1_001.fastq.gz,
+sampleID1,AEG588A1_S1_L002_R1_001.fastq.gz,AEG588A1_S1_L002_R2_001.fastq.gz
+sampleID2,AEG588A2_S2_L002_R1_001.fastq.gz,AEG588A2_S2_L002_R2_001.fastq.gz
+sampleID3,AEG588A3_S3_L002_R1_001.fastq.gz,AEG588A3_S3_L002_R2_001.fastq.gz
 ```
 
 | Column    | Description |
@@ -86,6 +63,12 @@ TREATMENT_REP3,AEG588A6_S6_L004_R1_001.fastq.gz,
 
 An [example samplesheet](../assets/samplesheet.csv) has been provided with the pipeline.
 
+Use the `--input` parameter to specify its location, or set `input` in the [params.yml](https://github.com/deng-lab/viroprofiler/blob/main/params.yml) file.
+
+The sequencing reads can be raw reads or cleaned reads. By default, ViroProfiler will assume the input reads are raw reads. If you want to use cleaned reads, you can set parameter `--reads_type "clean"` in command line, or set `reads_type: "clean"` in the [params.yml](https://github.com/deng-lab/viroprofiler/blob/main/params.yml) file. If the input reads are cleaned reads, the pipeline will skip the cleaning step (removing adapters, low quality reads and contaminant reads).
+
+If you already have assembled contigs, you can skip the assembly step by setting `--input_contigs` parameter to specify the path to the contigs file. The contigs file should be in FASTA format.
+
 ### Run the pipeline
 
 The typical command for running the pipeline is as follows:
@@ -93,7 +76,7 @@ The typical command for running the pipeline is as follows:
 ```console
 nextflow run deng-lab/viroprofiler \
     --input samplesheet.csv \
-    -profile singularity
+    -profile singularity \
 ```
 
 This will launch the pipeline with the `singularity` configuration profile. See [Selecting NF profiles](profiles.md#) for more information about profiles.
@@ -103,18 +86,16 @@ You may create a config file to customize the parameters of the pipeline and use
 ```console
 nextflow run deng-lab/viroprofiler \
     --input samplesheet.csv \
-    --output output \
-    --db ${HOME}/viroprofiler \
+    -profile singularity \
     -c custom.config \
-    -params-file params.yml \
-    -profile singularity
+    -params-file params.yml
 ```
 
 Note that the pipeline will create the following files in your working directory:
 
 ```console
 work                # Directory containing the nextflow working files
-output              # Finished results in specified location (defined with --outdir)
+output              # Output folder (can be modified with `--outdir` parameter)
 .nextflow_log       # Log file from Nextflow
 # Other nextflow hidden files, eg. history of pipeline runs and old logs.
 ```
@@ -125,6 +106,12 @@ For reproducibility, we recommend using a specific version of ViroProfiler. You 
 
 ```bash
 nextflow run deng-lab/viroprofiler -r v0.1 -profile singularity
+```
+
+If the pipeline fails, you can resume the pipeline from the last successful step by adding `-resume` to the command. For example:
+
+```bash
+nextflow run deng-lab/viroprofiler -r v0.1 -profile singularity -resume
 ```
 
 ### Description of pipeline options and parameters

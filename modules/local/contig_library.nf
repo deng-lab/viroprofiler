@@ -58,7 +58,7 @@ process CONTIGLIB_CLUSTER {
     script: // This script is bundled with the pipeline, in nf-core/viroprofiler/bin/
     """
     makeblastdb -in $contigs -dbtype nucl -out db
-    blastn -query $contigs -db db -outfmt '6 std qlen slen' -max_target_seqs 20000 -num_threads $task.cpus > blast_all2all.tsv
+    blastn -query $contigs -db db -outfmt '6 std qlen slen' -max_target_seqs 25000 -perc_identity 90 -num_threads $task.cpus > blast_all2all.tsv
     anicalc.py -i blast_all2all.tsv -o contigs_ani.tsv
     aniclust.py --fna $contigs --ani contigs_ani.tsv --out contigs_ANIclst.map --min_ani $params.contig_cluster_min_similarity --min_tcov $params.contig_cluster_min_coverage --min_qcov 0
     cut -f1 contigs_ANIclst.map | sort -u > contigs_nrclib_ani.list

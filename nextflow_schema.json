@@ -111,17 +111,17 @@
                 "contig_cluster_min_similarity": {
                     "type": "number",
                     "description": "Minimum similarity of contigs in a contig cluster",
-                    "default": 0.95,
-                    "minimum": 0.3,
-                    "maximum": 1,
+                    "default": 95,
+                    "minimum": 70,
+                    "maximum": 100,
                     "hidden": true
                 },
                 "contig_cluster_min_coverage": {
                     "type": "number",
                     "description": "Minimum coverage of the shorter contig in a contig cluster",
-                    "default": 0.85,
-                    "minimum": 0.3,
-                    "maximum": 1,
+                    "default": 85,
+                    "minimum": 30,
+                    "maximum": 100,
                     "hidden": true
                 }
             }
