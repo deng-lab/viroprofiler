@@ -62,4 +62,8 @@ For further information or help, please [open an issue](https://github.com/deng-
 
 ## Citations
 
+If you use  ViroProfiler for your analysis, please cite the publication as follows:
+
+> *Jinlong Ru, Mohammadali Khan Mirzaei, Jinling Xue, Xue Peng, Li Deng*. **ViroProfiler: a containerized bioinformatics pipeline for viral metagenomic data analysis**. *Gut Microbes* (2023); doi: https://doi.org/10.1080/19490976.2023.2192522
+
 An extensive list of references for the tools and data used by the pipeline can be found in the [`CITATIONS.md`](CITATIONS.md) file. If you use ViroProfiler for your work, please cite the relevant references.

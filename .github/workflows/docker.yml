@@ -5,6 +5,7 @@ on:
     tags:
       - 'v*'
       - 'docker*'
+      - 'doc*'       # for both docker and documentation
 
 jobs:
   push_to_registry:
@@ -14,28 +15,26 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          # - dockerfile: ./docker/viroprofiler-base/Dockerfile
-          #   image: denglab/viroprofiler-base
+          - dockerfile: ./docker/viroprofiler-base/Dockerfile
+            image: denglab/viroprofiler-base
           - dockerfile: ./docker/viroprofiler-binning/Dockerfile
             image: denglab/viroprofiler-binning
-          # - dockerfile: ./docker/viroprofiler-geneannot/Dockerfile
-          #   image: denglab/viroprofiler-geneannot
-          # - dockerfile: ./docker/viroprofiler-host/Dockerfile
-          #   image: denglab/viroprofiler-host
-          # - dockerfile: ./docker/viroprofiler-replicyc/Dockerfile
-          #   image: denglab/viroprofiler-replicyc
-          # - dockerfile: ./docker/viroprofiler-taxa/Dockerfile
-          #   image: denglab/viroprofiler-taxa
-          # - dockerfile: ./docker/viroprofiler-abundance/Dockerfile
-          #   image: denglab/viroprofiler-abundance
-          # - dockerfile: ./docker/viroprofiler-vibrant/Dockerfile
-          #   image: denglab/viroprofiler-vibrant
-          # - dockerfile: ./docker/viroprofiler-bracken/Dockerfile
-          #   image: denglab/viroprofiler-bracken
-          # - dockerfile: ./docker/viroprofiler-phamb/Dockerfile
-          #   image: denglab/viroprofiler-phamb
-          # - dockerfile: ./docker/viroprofiler-dvf/Dockerfile
-          #   image: denglab/viroprofiler-dvf
+          - dockerfile: ./docker/viroprofiler-geneannot/Dockerfile
+            image: denglab/viroprofiler-geneannot
+          - dockerfile: ./docker/viroprofiler-host/Dockerfile
+            image: denglab/viroprofiler-host
+          - dockerfile: ./docker/viroprofiler-replicyc/Dockerfile
+            image: denglab/viroprofiler-replicyc
+          - dockerfile: ./docker/viroprofiler-taxa/Dockerfile
+            image: denglab/viroprofiler-taxa
+          - dockerfile: ./docker/viroprofiler-abundance/Dockerfile
+            image: denglab/viroprofiler-abundance
+          - dockerfile: ./docker/viroprofiler-vibrant/Dockerfile
+            image: denglab/viroprofiler-vibrant
+          - dockerfile: ./docker/viroprofiler-bracken/Dockerfile
+            image: denglab/viroprofiler-bracken
+          - dockerfile: ./docker/viroprofiler-phamb/Dockerfile
+            image: denglab/viroprofiler-phamb
     permissions:
       contents: read
       packages: write

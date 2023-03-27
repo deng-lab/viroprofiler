@@ -6,6 +6,7 @@ process DB_VIROPROFILER {
     params.mode == "setup"
 
     """
+    # TODO
     echo "Please download checkv database manually"
     """
 }
@@ -92,6 +93,7 @@ process DB_VIBRANT {
 
     """
     if [ ! -d ${params.db}/vibrant ]; then
+        mkdir -p ${params.db}/vibrant
         export VIBRANT_DATA_PATH="/opt/conda/share/vibrant-1.2.1/db"
         download-db.sh ${params.db}/vibrant
     else
@@ -113,8 +115,10 @@ process DB_VREFSEQ {
     if [ ! -d ${params.db}/taxonomy/taxdump ]; then
         mkdir dl_taxdump
         cd dl_taxdump
-        wget ftp://ftp.ncbi.nih.gov/pub/taxonomy/taxdump.tar.gz
-        tar -zxvf taxdump.tar.gz
+        wget -O taxdump.zip https://ftp.ncbi.nih.gov/pub/taxonomy/taxdump_archive/taxdmp_2022-08-01.zip
+        unzip taxdump.zip
+        # wget ftp://ftp.ncbi.nih.gov/pub/taxonomy/taxdump.tar.gz
+        #tar -zxvf taxdump.tar.gz
         mkdir -p ${params.db}/taxonomy/taxdump
         mv names.dmp nodes.dmp delnodes.dmp merged.dmp ${params.db}/taxonomy/taxdump
         cd ..
@@ -137,7 +141,6 @@ process DB_VREFSEQ {
     fi
     """
 }
-
 
 
 process DB_IPHOP {

@@ -2,19 +2,10 @@ include { DB_CHECKV; DB_PHAMB; DB_VIRSORTER2; DB_DRAM; DB_VIBRANT; DB_IPHOP; DB_
 
 workflow SETUP {
     main:
-    // viral detection
-    // DB_VIBRANT()
     DB_CHECKV()
-    // DB_VIRSORTER2()
+    DB_VIBRANT()
+    DB_VIRSORTER2()
 
-    // binning
-    if (params.use_phamb) {
-        DB_PHAMB()
-        DB_VOGDB()
-        DB_MICOMPLETEDB()
-    }
-
-    // gene annotation
     if (params.use_dram) {
         DB_DRAM()
     }
@@ -22,14 +13,21 @@ workflow SETUP {
         DB_EGGNOG()
     }
 
+    // contig annotation
+    if (params.use_iphop) {
+        DB_IPHOP()
+    }
+
     // taxonomy
-    // DB_VREFSEQ()
+    DB_VREFSEQ()
     if (params.use_kraken2) {
         DB_KRAKEN2()
     }
 
-    // contig annotation
-    if (params.use_iphop) {
-        DB_IPHOP()
+    // binning
+    if (params.use_phamb) {
+        DB_PHAMB()
+        DB_VOGDB()
+        DB_MICOMPLETEDB()
     }
 }

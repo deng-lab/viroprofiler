@@ -6,6 +6,7 @@ on:
       # - dev
     tags:
       - 'docs*'
+      - 'v*'
 
 jobs:
   build:

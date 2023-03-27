@@ -15,4 +15,5 @@ dependencies:
     - wget
     - pigz
     - coverm
-    - mmseqs2
+    - mmseqs2=13
+    - unzip

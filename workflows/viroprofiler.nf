@@ -244,10 +244,17 @@ workflow VIROPROFILER {
         TAXONOMY_MMSEQS(vContigs_and_vMAGs)
         TAXONOMY_MERGE(TAXONOMY_VCONTACT.out.taxa_vc_ch, TAXONOMY_MMSEQS.out.taxa_mmseqs_ch)
 
-        // Using kraken2 and bracken
+        // for testing only
         // BRACKEN_DB(TAXONOMY_MMSEQS.out.taxa_mmseqs_ch, vContigs_and_vMAGs)
         // BRACKEN(ch_clean_reads, BRACKEN_DB.out.ch_brackenDB_for_bracken)
         // BRACKEN_COMBINEBRACKENOUTPUTS(BRACKEN.out.ch_reports.collect())
+
+
+        // Using kraken2 and bracken
+        if ( params.use_kraken2 ) {
+            BRACKEN(ch_clean_reads, ${params.db}/kraken2)
+            BRACKEN_COMBINEBRACKENOUTPUTS(BRACKEN.out.ch_reports.collect())
+        }
 
         // Viral host
         if ( params.use_iphop ) {

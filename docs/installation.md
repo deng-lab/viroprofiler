@@ -30,7 +30,9 @@ The docker images used by the pipeline are:
 ```bash
 docker pull denglab/viroprofiler-base        ;
 docker pull denglab/viroprofiler-binning     ;
+docker pull denglab/viroprofiler-abundance   ;
 docker pull denglab/viroprofiler-geneannot   ;
+docker pull denglab/viroprofiler-vibrant     ;
 docker pull denglab/viroprofiler-taxa        ;
 docker pull denglab/viroprofiler-host        ;
 docker pull denglab/viroprofiler-replicyc    ;
@@ -46,7 +48,14 @@ docker pull denglab/viroprofiler-replicyc    ;
     # apply this command to each image
     # just change the "/" and ":" to "-".
     # ex. Image denglab/viroprofiler-base becomes denglab-viroprofiler-base.img
-    singularity pull --dir $NXF_SINGULARITY_LIBRARYDIR denglab-viroprofiler-base.img docker://denglab/viroprofiler-base
+    singularity pull --dir $NXF_SINGULARITY_LIBRARYDIR denglab-viroprofiler-base.img docker://denglab/viroprofiler-base:latest
+    singularity pull --dir $NXF_SINGULARITY_LIBRARYDIR denglab-viroprofiler-binning.img docker://denglab/viroprofiler-binning:latest
+    singularity pull --dir $NXF_SINGULARITY_LIBRARYDIR denglab-viroprofiler-abundance.img docker://denglab/viroprofiler-abundance:latest
+    singularity pull --dir $NXF_SINGULARITY_LIBRARYDIR denglab-viroprofiler-geneannot.img docker://denglab/viroprofiler-geneannot:latest
+    singularity pull --dir $NXF_SINGULARITY_LIBRARYDIR denglab-viroprofiler-vibrant.img docker://denglab/viroprofiler-vibrant:latest
+    singularity pull --dir $NXF_SINGULARITY_LIBRARYDIR denglab-viroprofiler-taxa.img docker://denglab/viroprofiler-taxa:latest
+    singularity pull --dir $NXF_SINGULARITY_LIBRARYDIR denglab-viroprofiler-host.img docker://denglab/viroprofiler-host:latest
+    singularity pull --dir $NXF_SINGULARITY_LIBRARYDIR denglab-viroprofiler-replicyc.img docker://denglab/viroprofiler-replicyc:latest
     ```
 
 ## Testing your installation

@@ -235,6 +235,41 @@
                         "replidec",
                         "bacphlip"
                     ]
+                },
+                "use_phamb": {
+                    "type": "boolean",
+                    "description": "Use phamb for binning",
+                    "default": false
+                },
+                "use_kraken2": {
+                    "type": "boolean",
+                    "description": "Use kraken2 for taxonomy assignment",
+                    "default": false
+                },
+                "use_iphop": {
+                    "type": "boolean",
+                    "description": "Use iPhOP for phage host prediction",
+                    "default": false
+                },
+                "use_decontam": {
+                    "type": "boolean",
+                    "description": "Use decontam for contamination removal",
+                    "default": false
+                },
+                "use_abricate": {
+                    "type": "boolean",
+                    "description": "Use abricate for antimicrobial resistance gene detection",
+                    "default": false
+                },
+                "use_eggnog": {
+                    "type": "boolean",
+                    "description": "Use eggNOG for functional annotation",
+                    "default": false
+                },
+                "use_dram": {
+                    "type": "boolean",
+                    "description": "Use DRAM for metabolic reconstruction",
+                    "default": false
                 }
             }
         },

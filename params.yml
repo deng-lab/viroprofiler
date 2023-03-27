@@ -1,20 +1,18 @@
-outdir: "output"
-
-# =============================  Database  ====================================
-db: "/home/viro/jinlong.ru/viroprofiler"
-
 # =============================  Input  =======================================
 reads_type: "raw"  # "raw" or "clean"
 input_contigs: false  # false or path to contigs file
 
+# =============================  Output  ======================================
+outdir: "output"
+
 # =============================  Optional steps switch  =======================================
-use_kraken2: false
-use_iphop: true
-use_eggnog: false
-use_abricate: true
-use_dram: true
-use_phamb: false
+use_abricate: false
 use_decontam: false
+use_dram: false
+use_eggnog: false
+use_iphop: false
+use_kraken2: false
+use_phamb: false
 
 # =============================  Optional steps parameters  =======================================
 # kraken2 + bracken
@@ -57,7 +55,6 @@ contig_minlen_vcontact2: 10000
 pc_inflation: 1.5
 vc_inflation: 1.5
 taxa_db_source: "NCBI"
-
 
 # =============================  Replication cycle  ===========================
 replicyc: "bacphlip"    # "replidec" or "bacphlip"
