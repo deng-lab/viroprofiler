@@ -39,13 +39,18 @@ The pipeline is built using [Nextflow](https://www.nextflow.io), a workflow tool
 3. Download the pipeline and database.
 
    ```bash
-   nextflow run deng-lab/viroprofiler -profile singularity
+   # setup database
+   nextflow run deng-lab/viroprofiler -r main -profile singularity --mode "setup"
    ```
 
 4. Run the pipeline,
 
    ```bash
-   nextflow run deng-lab/viroprofiler -profile singularity --input samplesheet.csv
+   # run test
+   nextflow run deng-lab/viroprofiler -r main -profile singularity,test
+
+   # run your own data
+   nextflow run deng-lab/viroprofiler -r main -profile singularity --input samplesheet.csv
    ```
 
    Please refer to the [tutorial](https://deng-lab.github.io/viroprofiler/tutorial) for more information on how to run the pipeline with customized parameters and options.

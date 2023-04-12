@@ -19,13 +19,13 @@ ViroProfiler is built on Nextflow, which means it is very easy to install with a
 
 ```bash
 # Install ViroProfiler and set up the database
-nextflow run deng-lab/viroprofiler -profile singularity --mode "setup"
+nextflow run deng-lab/viroprofiler -r main -profile singularity --mode "setup"
 ```
 
 By default, database will be downloaded to the `$HOME/viroprofiler` directory. You can change database path using the `--db` parameter. For example, if you want to download the database to `/db/path` directory, you can run the following command,
 
 ```bash
-nextflow run deng-lab/viroprofiler -profile singularity --mode "setup" --db "/db/path"
+nextflow run deng-lab/viroprofiler -r main -profile singularity --mode "setup" --db "/db/path"
 ```
 
 > - It is recommended to set the [`NXF_SINGULARITY_CACHEDIR` or `singularity.cacheDir`](https://www.nextflow.io/docs/latest/singularity.html?#singularity-docker-hub) Nextflow options when using the Singularity profile, so that singularity images can be stored and re-used from a central location for future pipeline runs.
@@ -76,7 +76,7 @@ The typical command for running the pipeline is as follows:
 ```console
 nextflow run deng-lab/viroprofiler \
     --input samplesheet.csv \
-    -profile singularity \
+    -profile singularity
 ```
 
 This will launch the pipeline with the `singularity` configuration profile. See [Selecting NF profiles](profiles.md#) for more information about profiles.
@@ -102,16 +102,16 @@ output              # Output folder (can be modified with `--outdir` parameter)
 
 ### Reproducible data analysis
 
-For reproducibility, we recommend using a specific version of ViroProfiler. You can always run a specific version of ViroProfiler by specifying the version number. This ensures that a specific version of the pipeline code and software are used when you run your pipeline. If you keep using the same tag, you'll be running the same version of the pipeline, even if there have been changes to the code since. First, go to the [deng-lab/viroprofiler releases page](https://github.com/deng-lab/viroprofiler/releases) and find the latest version number (eg. `v0.1`). Then specify this when running the pipeline with `-r` (one hyphen) - eg. `-r v0.1`. This version number will be logged in reports when you run the pipeline, so that you'll know what you used when you look back in the future. For example, to run version `v0.1` of the pipeline:
+For reproducibility, we recommend using a specific version of ViroProfiler. You can always run a specific version of ViroProfiler by specifying the version number. This ensures that a specific version of the pipeline code and software are used when you run your pipeline. If you keep using the same tag, you'll be running the same version of the pipeline, even if there have been changes to the code since. First, go to the [deng-lab/viroprofiler releases page](https://github.com/deng-lab/viroprofiler/releases) and find the latest version number (eg. `v0.2`). Then specify this when running the pipeline with `-r` (one hyphen) - eg. `-r v0.2`. This version number will be logged in reports when you run the pipeline, so that you'll know what you used when you look back in the future. For example, to run version `v0.2` of the pipeline:
 
 ```bash
-nextflow run deng-lab/viroprofiler -r v0.1 -profile singularity
+nextflow run deng-lab/viroprofiler -r v0.2 -profile singularity
 ```
 
 If the pipeline fails, you can resume the pipeline from the last successful step by adding `-resume` to the command. For example:
 
 ```bash
-nextflow run deng-lab/viroprofiler -r v0.1 -profile singularity -resume
+nextflow run deng-lab/viroprofiler -r v0.2 -profile singularity -resume
 ```
 
 ### Description of pipeline options and parameters
@@ -162,7 +162,13 @@ Specify the path to a specific config file (this is a core Nextflow command). Se
 
 | <div style="width:180px">Parameter</div> | Required | Default | Description |
 | :--------------------------------------- | :------- | :------ | :---------- |
-| `--skip_amg_search` | :material-close: | false | Tells whether not to run AMG annotation. It skips DRAMv annotation |
+| `--use_dram` | :material-close: | false | Use DRAM or not |
+| `--use_abricate` | :material-close: | false | Use abricate or not |
+| `--use_decontam` | :material-close: | false | Remove host contamination from reads or not |
+| `--use_eggnog` | :material-close: | false | Use eggnog-mapper to annotate proteins or not |
+| `--use_iphop` | :material-close: | false | Use iPhOP to predict host or not |
+| `--use_kraken2` | :material-close: | false | Use kraken2 to classify reads or not |
+| `--use_phamb` | :material-close: | false | Use phamb to bin contigs or not |
 
 
 ##### Other parameters
