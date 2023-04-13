@@ -126,10 +126,10 @@
                 }
             }
         },
-        "gene_library_parameters": {
-            "title": "Gene library parameters",
+        "prot_library_parameters": {
+            "title": "Protein library parameters",
             "type": "object",
-            "description": "Parameters for creating gene library",
+            "description": "Parameters for creating protein library",
             "default": "",
             "properties": {
                 "prot_cluster_min_similarity": {
@@ -140,6 +140,24 @@
                 "prot_cluster_min_coverage": {
                     "type": "number",
                     "description": "Minimum coverage of the shorter protein in a protein cluster",
+                    "default": 0.9
+                }
+            }
+        },
+        "gene_library_parameters": {
+            "title": "Gene library parameters",
+            "type": "object",
+            "description": "Parameters for creating gene library",
+            "default": "",
+            "properties": {
+                "gene_cluster_min_similarity": {
+                    "type": "number",
+                    "description": "Minimum similarity of genes in a gene cluster",
+                    "default": 0.9
+                },
+                "gene_cluster_min_coverage": {
+                    "type": "number",
+                    "description": "Minimum coverage of the shorter gene in a gene cluster",
                     "default": 0.9
                 }
             }
@@ -270,6 +288,25 @@
                     "type": "boolean",
                     "description": "Use DRAM for metabolic reconstruction",
                     "default": false
+                },
+                "input_contigs": {
+                    "type": "string",
+                    "description": "Input contigs file",
+                    "default": null
+                },
+                "decontam": {
+                    "type": "string",
+                    "description": "Input contigs file",
+                    "default": null
+                },
+                "reads_type": {
+                    "type": "string",
+                    "description": "Type of reads",
+                    "default": "raw",
+                    "enum": [
+                        "raw",
+                        "clean"
+                    ]
                 }
             }
         },
