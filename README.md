@@ -53,6 +53,12 @@ The pipeline is built using [Nextflow](https://www.nextflow.io), a workflow tool
    nextflow run deng-lab/viroprofiler -r main -profile singularity --input samplesheet.csv
    ```
 
+5. Update the pipeline,
+
+   ```bash
+   nextflow pull deng-lab/viroprofiler
+   ```
+
    Please refer to the [tutorial](https://deng-lab.github.io/viroprofiler/tutorial) for more information on how to run the pipeline with customized parameters and options.
 
 ## Documentation

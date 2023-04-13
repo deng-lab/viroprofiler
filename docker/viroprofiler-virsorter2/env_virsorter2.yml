@@ -1,0 +1,10 @@
+name: viroprofiler-virsorter2
+channels:
+    - conda-forge
+    - bioconda
+dependencies:
+    - conda-forge::procps-ng
+    - virsorter=2.2.4
+    - seqkit
+    - csvtk
+    - conda-forge::glpk

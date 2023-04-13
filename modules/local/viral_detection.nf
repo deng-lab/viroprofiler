@@ -45,7 +45,7 @@ process CHECKV {
 
 
 process VIRSORTER2 {
-    label "viroprofiler_base"
+    label "viroprofiler_virsorter2"
 
     input:
     path contigs

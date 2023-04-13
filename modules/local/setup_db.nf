@@ -49,7 +49,7 @@ process DB_PHAMB {
 
 
 process DB_VIRSORTER2 {
-    label "viroprofiler_base"
+    label "viroprofiler_virsorter2"
     label "setup"
 
     when:
