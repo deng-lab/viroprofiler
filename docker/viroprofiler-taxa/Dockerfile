@@ -28,3 +28,7 @@ RUN cd /opt/conda/lib/python3.8/site-packages/vcontact2/data && \
     /opt/conda/bin/wget https://bitbucket.org/MAVERICLab/vcontact2/raw/6089ed83fd03a844de3140c442863c7b29881d43/vcontact2/data/ViralRefSeq-prokaryotes-v211.Merged-reference.csv && \
     /opt/conda/bin/wget https://bitbucket.org/MAVERICLab/vcontact2/raw/6089ed83fd03a844de3140c442863c7b29881d43/vcontact2/data/ViralRefSeq-prokaryotes-v211.faa.gz && \
     /opt/conda/bin/wget https://bitbucket.org/MAVERICLab/vcontact2/raw/6089ed83fd03a844de3140c442863c7b29881d43/vcontact2/data/ViralRefSeq-prokaryotes-v211.protein2contig.csv
+
+
+COPY ./docker/viroprofiler-taxa/mmseqs /opt/conda/bin
+RUN chmod +x /opt/conda/bin/mmseqs
