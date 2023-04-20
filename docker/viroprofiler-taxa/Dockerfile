@@ -22,7 +22,7 @@ RUN cd /opt/conda/lib/python3.8/site-packages/vcontact2/data && \
 ENV PATH=/opt/mmseqs/bin:/opt/MMseqs2/build/bin:/opt/conda/bin:$PATH
 
 RUN cd /opt && \
-    git clone --depth=1 https://github.com/soedinglab/MMseqs2.git && \
+    git clone https://github.com/soedinglab/MMseqs2.git && \
     cd /opt/MMseqs2 && \
     git checkout 3b9cf88 && \
     mkdir build && \
