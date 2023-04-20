@@ -9,7 +9,7 @@ dependencies:
     - conda-forge::cmake
     - conda-forge::gcc
     - conda-forge::cxx-compiler
-    - bioconda::mmseqs2
+    # - bioconda::mmseqs2=13.45111
     - bioconda::vcontact2=0.11.1
     - bioconda::diamond=2.0.6
     - bioconda::mcl=14.137
