@@ -1,4 +1,4 @@
-FROM mambaorg/micromamba:0.25.1
+FROM --platform=linux/amd64 mambaorg/micromamba:0.25.1
 
 USER root
 

@@ -24,8 +24,8 @@ jobs:
           #   image: denglab/viroprofiler-host
           # - dockerfile: ./docker/viroprofiler-replicyc/Dockerfile
           #   image: denglab/viroprofiler-replicyc
-          # - dockerfile: ./docker/viroprofiler-taxa/Dockerfile
-          #   image: denglab/viroprofiler-taxa
+          - dockerfile: ./docker/viroprofiler-taxa/Dockerfile
+            image: denglab/viroprofiler-taxa
           # - dockerfile: ./docker/viroprofiler-abundance/Dockerfile
           #   image: denglab/viroprofiler-abundance
           # - dockerfile: ./docker/viroprofiler-vibrant/Dockerfile
@@ -34,8 +34,8 @@ jobs:
           #   image: denglab/viroprofiler-bracken
           # - dockerfile: ./docker/viroprofiler-phamb/Dockerfile
           #   image: denglab/viroprofiler-phamb
-          - dockerfile: ./docker/viroprofiler-virsorter2/Dockerfile
-            image: denglab/viroprofiler-virsorter2
+          # - dockerfile: ./docker/viroprofiler-virsorter2/Dockerfile
+          #   image: denglab/viroprofiler-virsorter2
     permissions:
       contents: read
       packages: write
