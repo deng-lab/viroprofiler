@@ -30,7 +30,7 @@ process TAXONOMY_VCONTACT {
 }
 
 process TAXONOMY_MMSEQS {
-    label "viroprofiler_taxa"
+    label "viroprofiler_base"
 
     input:
     path contigs
@@ -46,7 +46,7 @@ process TAXONOMY_MMSEQS {
     """
     # Run mmseqs taxonomy
     mmseqs createdb $contigs qry
-    mmseqs taxonomy qry ${params.db}/taxonomy/mmseqs_vrefseq/refseq_viral mmseqsTaxaRst tmp --tax-lineage 1 --majority 0.4 --vote-mode 1 --lca-mode 3 --orf-filter 1 --threads $task.cpus
+    mmseqs taxonomy qry ${params.db}/taxonomy/mmseqs_vrefseq/refseq_viral mmseqsTaxaRst tmp --tax-lineage 1 --majority 0.4 --vote-mode 1 --lca-mode 3 --orf-filter 0 --threads $task.cpus
 
     # report
     mmseqs createtsv qry mmseqsTaxaRst mmseqsTaxaRst.tsv
