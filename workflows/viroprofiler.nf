@@ -272,13 +272,15 @@ workflow VIROPROFILER {
         if ( params.replicyc == "bacphlip" ) {
             BACPHLIP (vContigs_and_vMAGs)
             ch_versions = ch_versions.mix(BACPHLIP.out.versions)
+            ch_replicyc = BACPHLIP.out.bacphlip_ch
         } else if ( params.replicyc == "replidec" ) {
             REPLIDEC (vContigs_and_vMAGs)
             ch_versions = ch_versions.mix(REPLIDEC.out.versions)
+            ch_replicyc = REPLIDEC.out.replidec_ch
         }
 
         // TreeSummarizedExperiment
-        RESULTS_TSE (ABUNDANCE.out.ab_count_ch, ABUNDANCE.out.ab_tpm_ch, ABUNDANCE.out.ab_covfrac_ch, TAXONOMY_MERGE.out.taxa_mmseqs_ch, CHECKV.out.checkv2vContigs_ch, VIRSORTER2.out.vs2_score_ch, VIBRANT.out.vibrant_quality_ch, DVF.out.dvf2vContigs_ch, BACPHLIP.out.repcyc_ch)
+        RESULTS_TSE (ABUNDANCE.out.ab_count_ch, ABUNDANCE.out.ab_tpm_ch, ABUNDANCE.out.ab_covfrac_ch, TAXONOMY_MERGE.out.taxa_mmseqs_ch, CHECKV.out.checkv2vContigs_ch, VIRSORTER2.out.vs2_score_ch, VIBRANT.out.vibrant_quality_ch, DVF.out.dvf2vContigs_ch, ch_replicyc)
 
         CUSTOM_DUMPSOFTWAREVERSIONS (
             ch_versions.unique().collectFile(name: 'collated_versions.yml')

@@ -34,7 +34,7 @@ process BACPHLIP {
 
     output:
     // TODO nf-core: Named file extensions MUST be emitted for ALL output channels
-    path "*.bacphlip", emit: repcyc_ch
+    path "*.bacphlip", emit: bacphlip_ch
     path "*.hmmsearch.tsv"
     path "versions.yml", emit: versions
     // TODO nf-core: List additional required output channels/values here
@@ -73,7 +73,7 @@ process REPLIDEC {
     path(contigs)
 
     output:
-    path("out_replidec.tsv"), emit: gene_fna_ch
+    path("out_replidec.tsv"), emit: replidec_ch
     path "versions.yml", emit: versions
 
     when:
