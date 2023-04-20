@@ -30,7 +30,7 @@ process TAXONOMY_VCONTACT {
 }
 
 process TAXONOMY_MMSEQS {
-    label "viroprofiler_base"
+    label "viroprofiler_taxa"
 
     input:
     path contigs
