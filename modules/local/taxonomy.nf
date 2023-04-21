@@ -30,7 +30,7 @@ process TAXONOMY_VCONTACT {
 }
 
 process TAXONOMY_MMSEQS {
-    label "viroprofiler_taxa"
+    label "viroprofiler_base"
 
     input:
     path contigs
@@ -74,7 +74,7 @@ process TAXONOMY_MERGE {
 
     when:
     task.ext.when == null || task.ext.when
-    
+
     """
     parse_vContact2_vc.py -i $taxa_vc -o taxa_vc2 -a $params.assembler
     parse_mmseqsTaxa.py -i $taxa_mmseqs -o taxa_mmseqs -u "" -s $params.taxa_db_source
