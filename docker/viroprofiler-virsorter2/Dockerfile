@@ -15,5 +15,7 @@ COPY ./docker/viroprofiler-virsorter2/env_*.yml /tmp
 # Install packages
 RUN --mount=type=cache,target=/opt/conda/pkgs micromamba install -n base -f /tmp/env_virsorter2.yml -y
 
+RUN apt-get update && apt-get install git -y && cd / && git clone https://github.com/jiarong/VirSorter2.git && cd VirSorter2 && pip install -e .
+
 # clean
-RUN micromamba clean --all --yes
+#RUN micromamba clean --all --yes
