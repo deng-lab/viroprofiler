@@ -81,7 +81,7 @@
 - [abricate](https://github.com/tseemann/abricate)
 
 - [iPHoP](https://bitbucket.org/srouxjgi/iphop/src/main/)
-  > Roux S, Camargo A P, Coutinho F H, et al. iPHoP: an integrated machine-learning framework to maximize host prediction for metagenome-assembled virus genomes[J]. bioRxiv, 2022.
+  > Roux S, Camargo AP, Coutinho FH, Dabdoub SM, Dutilh BE, Nayfach S, Tritt A. iPHoP: An integrated machine learning framework to maximize host prediction for metagenome-derived viruses of archaea and bacteria. PLoS biology. 2023 Apr 21;21(4):e3002083.
 
 - [bacphlip](https://github.com/adamhockenberry/bacphlip)
   > Hockenberry A J, Wilke C O. BACPHLIP: predicting bacteriophage lifestyle from conserved protein domains[J]. PeerJ, 2021, 9: e11396.
