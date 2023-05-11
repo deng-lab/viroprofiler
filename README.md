@@ -27,23 +27,33 @@ The pipeline is built using [Nextflow](https://www.nextflow.io), a workflow tool
 
 ## Quick Start
 
-1. Install [Miniconda3](https://docs.conda.io/en/latest/miniconda.html).
+1. Install one of the supported container engines using **root** privileges:
 
-2. Install Nextflow and Singularity using conda:
+   - [Singularity](https://sylabs.io/guides/3.0/user-guide/quick_start.html#quick-installation-steps)
+   - [Charliecloud](https://hpc.github.io/charliecloud/install.html)
+   - [Docker](https://docs.docker.com/install/)
+   - [Podman](https://podman.io/getting-started/installation)
+   - [Shifter](https://github.com/NERSC/shifter)
+
+2. Install [Miniconda3](https://docs.conda.io/en/latest/miniconda.html).
+
+3. Install Nextflow using conda:
 
    ```bash
    # You may need to restart your terminal before running the following commands
-   conda install -c conda-forge -c bioconda nextflow singularity
+   conda install -c bioconda nextflow
    ```
 
-3. Download the pipeline and database.
+4. Download the pipeline and database.
 
    ```bash
    # setup database
    nextflow run deng-lab/viroprofiler -r main -profile singularity --mode "setup"
    ```
 
-4. Run the pipeline,
+   `-profile` specifies the container engine to use. You can use `singularity`, `charliecloud`, `docker`, `podman`, or `shifter`. You can also use `test` to run the pipeline with test data after setting up the database.
+
+5. Run the pipeline,
 
    ```bash
    # run test
@@ -53,7 +63,7 @@ The pipeline is built using [Nextflow](https://www.nextflow.io), a workflow tool
    nextflow run deng-lab/viroprofiler -r main -profile singularity --input samplesheet.csv
    ```
 
-5. Update the pipeline,
+6. Update the pipeline,
 
    ```bash
    nextflow pull deng-lab/viroprofiler

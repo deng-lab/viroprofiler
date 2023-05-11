@@ -108,11 +108,15 @@ process ABUNDANCE {
     path "abundance_contigs_covered_fraction.tsv.gz", emit: ab_covfrac_ch
     path "abundance_contigs_tpm.tsv.gz", emit: ab_tpm_ch
     path "abundance_contigs_rpkm.tsv.gz", emit: ab_rpkm_ch
+    path "abundance_contigs_trimmed_mean.tsv.gz", emit: ab_trmean_ch
+    path "abundance_contigs_reads_per_base.tsv.gz", emit: ab_rpb_ch
 
     when:
     task.ext.when == null || task.ext.when
 
     """
+    coverm contig --methods reads_per_base --bam-files $bams -t $task.cpus --min-read-percent-identity 0.95 1> abundance_contigs_reads_per_base.tsv 2> log_contig_reads_per_base.txt
+    sed -i '1 s/ Reads per base//g' abundance_contigs_reads_per_base.tsv
     coverm contig --methods count --bam-files $bams -t $task.cpus --min-read-percent-identity 0.95 1> abundance_contigs_count.tsv 2> log_contig_count.txt
     sed -i '1 s/ Read Count//g' abundance_contigs_count.tsv
     coverm contig --methods trimmed_mean --bam-files $bams -t $task.cpus --min-read-percent-identity 0.95 1> abundance_contigs_trimmed_mean.tsv 2> log_contig_trimmed_mean.txt

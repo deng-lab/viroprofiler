@@ -2,17 +2,6 @@
 
 This tutorial will walk you through the installation and usage of ViroProfiler. ViroProfiler is containerized with [Docker](https://www.docker.com/), and can be used with multiple container engines, including [Docker](https://www.docker.com), [Singularity](https://sylabs.io/singularity/), [Podman](https://podman.io/), [Shifter](https://nersc.gitlab.io/development/shifter/how-to-use/) and [Charliecloud](https://hpc.github.io/charliecloud/) (see [docs](https://www.nextflow.io/docs/latest/container.html)). In this tutorial, we will use [Singularity](https://sylabs.io/singularity/) as an example.
 
-## Install dependencies
-
-1. Install [Miniconda3](https://docs.conda.io/en/latest/miniconda.html).
-
-2. Install Nextflow and Singularity using conda:
-
-    ```bash
-    # You may need to restart your terminal before running the following commands
-    conda install -c conda-forge -c bioconda nextflow singularity
-    ```
-
 ## Install ViroProfiler
 
 ViroProfiler is built on Nextflow, which means it is very easy to install with a single command:

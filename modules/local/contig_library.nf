@@ -34,7 +34,7 @@ process CONTIGLIB {
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
-        bbmap: \$(bbversion.sh)
+        bbmap: \$(bbversion.sh | grep -v "Duplicate")
         seqkit: \$( seqkit | sed '3!d; s/Version: //' )
         samtools: \$(echo \$(samtools --version 2>&1) | sed 's/^.*samtools //; s/Using.*\$//')
     END_VERSIONS

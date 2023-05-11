@@ -34,7 +34,7 @@
                 "db": {
                     "type": "string",
                     "description": "Directory of ViroProfiler database",
-                    "default": "~/.nextflow/assets/deng-lab/db",
+                    "default": "~/.nextflow/assets/deng-lab/viroprofiler/db",
                     "fa_icon": "fas fa-database"
                 },
                 "outdir": {
@@ -180,12 +180,12 @@
                 "binning_minlen_contig": {
                     "type": "integer",
                     "description": "Minimum contig length for binning",
-                    "default": 3000
+                    "default": 5000
                 },
                 "binning_minlen_bin": {
                     "type": "integer",
                     "description": "Minimum bin length",
-                    "default": 3000
+                    "default": 5000
                 }
             }
         },
@@ -204,6 +204,34 @@
                     "type": "string",
                     "description": "Category of viruses, can be one or multiple of \"dsDNAphage,NCLDV,RNA,ssDNA,lavidaviridae\"",
                     "default": "dsDNAphage"
+                }
+            }
+        },
+        "kraken2": {
+            "title": "Kraken2 parameters",
+            "type": "object",
+            "description": "Parameters for Kraken2",
+            "default": "",
+            "properties": {
+                "kraken2_db": {
+                    "type": "string",
+                    "description": "Kraken2 database",
+                    "default": "viral"
+                },
+                "kraken2_clean": {
+                    "type": "boolean",
+                    "description": "Clean Kraken2 database",
+                    "default": true
+                },
+                "save_output_fastqs": {
+                    "type": "boolean",
+                    "description": "Save output fastqs from viral detection softwares",
+                    "default": false
+                },
+                "save_reads_assignment": {
+                    "type": "boolean",
+                    "description": "Save reads assignment from viral detection softwares",
+                    "default": false
                 }
             }
         },
@@ -248,7 +276,7 @@
                 "replicyc": {
                     "type": "string",
                     "description": "Reprecation cycle prediction software",
-                    "default": "replidec",
+                    "default": "bacphlip",
                     "enum": [
                         "replidec",
                         "bacphlip"

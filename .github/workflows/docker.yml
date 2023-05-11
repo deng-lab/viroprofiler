@@ -34,8 +34,8 @@ jobs:
           #   image: denglab/viroprofiler-bracken
           # - dockerfile: ./docker/viroprofiler-phamb/Dockerfile
           #   image: denglab/viroprofiler-phamb
-          - dockerfile: ./docker/viroprofiler-virsorter2/Dockerfile
-            image: denglab/viroprofiler-virsorter2
+          # - dockerfile: ./docker/viroprofiler-virsorter2/Dockerfile
+          #   image: denglab/viroprofiler-virsorter2
     permissions:
       contents: read
       packages: write

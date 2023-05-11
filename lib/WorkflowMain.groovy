@@ -11,9 +11,9 @@ class WorkflowMain {
         return "If you use ${workflow.manifest.name} for your analysis please cite:\n\n" +
             // TODO nf-core: Add Zenodo DOI for pipeline after first release
             "* The ViroProfiler pipeline\n" +
-            "  https://doi.org/10.1080/19490976.2023.2192522\n\n" +
+            ' Ru, Jinlong, et al. "ViroProfiler: a containerized bioinformatics pipeline for viral metagenomic data analysis."\n Gut Microbes 15.1 (2023): 2192522. https://doi.org/10.1080/19490976.2023.2192522\n\n' +
             "* The nf-core framework\n" +
-            "  https://doi.org/10.1038/s41587-020-0439-x\n\n" +
+            ' Ewels, Philip A., et al. "The nf-core framework for community-curated bioinformatics pipelines."\n Nature biotechnology 38.3 (2020): 276-278. https://doi.org/10.1038/s41587-020-0439-x\n\n' +
             "* Software dependencies\n" +
             "  https://github.com/deng-lab/viroprofiler/blob/main/CITATIONS.md"
     }
