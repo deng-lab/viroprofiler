@@ -19,4 +19,5 @@ dependencies:
     - seqkit
     - csvtk
     - conda-forge::glpk
+    - wget
 
