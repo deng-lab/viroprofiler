@@ -17,7 +17,7 @@ def read_coverm(fin):
 @click.option("--fout", '-o', default='abundance_normalized.tsv', help="output file name, ends with .gz for compressed file")
 @click.option("--covfrac_cutoff", '-t', default=0.7, help="coverage fraction cutoff")
 @click.option("--reads_length", '-l', default=150, help="length of reads")
-@click.option("--inflation", '-i', default=1000, help="inflation factor")
+@click.option("--inflation", '-i', default=1, help="inflation factor")
 def main(fin_abundance, fin_covfrac, fout, covfrac_cutoff, reads_length, inflation):
     df_abundance = read_coverm(fin_abundance)
     df_covfrac = read_coverm(fin_covfrac)
