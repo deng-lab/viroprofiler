@@ -1,0 +1,432 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.6">
+    
+    
+      
+        <title>Installation - ViroProfiler Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.558e4712.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.2505c338.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="deep-purple">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#installation" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="ViroProfiler Documentation" class="md-header__button md-logo" aria-label="ViroProfiler Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ViroProfiler Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Installation
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/deng-lab/viroprofiler" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    deng-lab/viroprofiler
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="ViroProfiler Documentation" class="md-nav__button md-logo" aria-label="ViroProfiler Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    ViroProfiler Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/deng-lab/viroprofiler" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    deng-lab/viroprofiler
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tutorial/" class="md-nav__link">
+        Tutorial
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../output/" class="md-nav__link">
+        Outputs
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../config/" class="md-nav__link">
+        Config template
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../profiles/" class="md-nav__link">
+        Selecting NF profiles
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#dependencies" class="md-nav__link">
+    Dependencies
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#downloading-the-pipeline" class="md-nav__link">
+    Downloading the pipeline
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#downloading-docker-images" class="md-nav__link">
+    Downloading docker images
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testing-your-installation" class="md-nav__link">
+    Testing your installation
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+
+<h1 id="installation">Installation</h1>
+<h2 id="dependencies">Dependencies</h2>
+<p>The pipeline require only a UNIX system, <a href="https://www.nextflow.io/docs/latest/index.html#">Nextflow</a> and either <a href="https://www.docker.com/">Docker</a> or <a href="https://sylabs.io/docs/">Singularity</a>. Please, for installing these tools refer to their manual.</p>
+<h2 id="downloading-the-pipeline">Downloading the pipeline</h2>
+<p>You can easily get a copy of the pipeline or update with:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># download or update to the latest version</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>nextflow<span class="w"> </span>pull<span class="w"> </span>deng-lab/viroprofiler
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># download a specific version (ex. 1.0)</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>nextflow<span class="w"> </span>pull<span class="w"> </span>deng-lab/viroprofiler<span class="w"> </span>-r<span class="w"> </span>v1.0
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="c1"># download a specific branch (ex. dev)</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>nextflow<span class="w"> </span>pull<span class="w"> </span>deng-lab/viroprofiler<span class="w"> </span>-r<span class="w"> </span>dev
+</code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The pipeline requires a UNIX system, therefore, Windows users may successfully use this pipeline via the <a href="https://docs.microsoft.com/pt-br/windows/wsl/install-win10">Linux subsystem for window</a>. Nextflow team has made available a <a href="https://www.nextflow.io/blog.html">nice tutorial</a> about this issue.</p>
+</div>
+<h2 id="downloading-docker-images">Downloading docker images</h2>
+<p>The docker images used by the pipeline are:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>docker<span class="w"> </span>pull<span class="w"> </span>denglab/viroprofiler-base<span class="w">        </span><span class="p">;</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>docker<span class="w"> </span>pull<span class="w"> </span>denglab/viroprofiler-binning<span class="w">     </span><span class="p">;</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>docker<span class="w"> </span>pull<span class="w"> </span>denglab/viroprofiler-abundance<span class="w">   </span><span class="p">;</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>docker<span class="w"> </span>pull<span class="w"> </span>denglab/viroprofiler-geneannot<span class="w">   </span><span class="p">;</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>docker<span class="w"> </span>pull<span class="w"> </span>denglab/viroprofiler-vibrant<span class="w">     </span><span class="p">;</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>docker<span class="w"> </span>pull<span class="w"> </span>denglab/viroprofiler-taxa<span class="w">        </span><span class="p">;</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>docker<span class="w"> </span>pull<span class="w"> </span>denglab/viroprofiler-host<span class="w">        </span><span class="p">;</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>docker<span class="w"> </span>pull<span class="w"> </span>denglab/viroprofiler-replicyc<span class="w">    </span><span class="p">;</span>
+</code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Using singularity</p>
+<p>Docker and singularity images are downloaded on the fly. Be sure to properly set <code>NXF_SINGULARITY_LIBRARYDIR</code> env variable to a writable directory if using Singularity. This will make that the downloaded images are resuable through different executions. Read more at: https://www.nextflow.io/docs/latest/singularity.html#singularity-docker-hub</p>
+<p>For example, to download the images for singularity you may:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># apply this command to each image</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="c1"># just change the &quot;/&quot; and &quot;:&quot; to &quot;-&quot;.</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="c1"># ex. Image denglab/viroprofiler-base becomes denglab-viroprofiler-base.img</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>singularity<span class="w"> </span>pull<span class="w"> </span>--dir<span class="w"> </span><span class="nv">$NXF_SINGULARITY_LIBRARYDIR</span><span class="w"> </span>denglab-viroprofiler-base.img<span class="w"> </span>docker://denglab/viroprofiler-base:latest
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>singularity<span class="w"> </span>pull<span class="w"> </span>--dir<span class="w"> </span><span class="nv">$NXF_SINGULARITY_LIBRARYDIR</span><span class="w"> </span>denglab-viroprofiler-binning.img<span class="w"> </span>docker://denglab/viroprofiler-binning:latest
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>singularity<span class="w"> </span>pull<span class="w"> </span>--dir<span class="w"> </span><span class="nv">$NXF_SINGULARITY_LIBRARYDIR</span><span class="w"> </span>denglab-viroprofiler-abundance.img<span class="w"> </span>docker://denglab/viroprofiler-abundance:latest
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>singularity<span class="w"> </span>pull<span class="w"> </span>--dir<span class="w"> </span><span class="nv">$NXF_SINGULARITY_LIBRARYDIR</span><span class="w"> </span>denglab-viroprofiler-geneannot.img<span class="w"> </span>docker://denglab/viroprofiler-geneannot:latest
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>singularity<span class="w"> </span>pull<span class="w"> </span>--dir<span class="w"> </span><span class="nv">$NXF_SINGULARITY_LIBRARYDIR</span><span class="w"> </span>denglab-viroprofiler-vibrant.img<span class="w"> </span>docker://denglab/viroprofiler-vibrant:latest
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>singularity<span class="w"> </span>pull<span class="w"> </span>--dir<span class="w"> </span><span class="nv">$NXF_SINGULARITY_LIBRARYDIR</span><span class="w"> </span>denglab-viroprofiler-taxa.img<span class="w"> </span>docker://denglab/viroprofiler-taxa:latest
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>singularity<span class="w"> </span>pull<span class="w"> </span>--dir<span class="w"> </span><span class="nv">$NXF_SINGULARITY_LIBRARYDIR</span><span class="w"> </span>denglab-viroprofiler-host.img<span class="w"> </span>docker://denglab/viroprofiler-host:latest
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>singularity<span class="w"> </span>pull<span class="w"> </span>--dir<span class="w"> </span><span class="nv">$NXF_SINGULARITY_LIBRARYDIR</span><span class="w"> </span>denglab-viroprofiler-replicyc.img<span class="w"> </span>docker://denglab/viroprofiler-replicyc:latest
+</code></pre></div>
+</div>
+<h2 id="testing-your-installation">Testing your installation</h2>
+<p>After that, you can run the pipeline with a testing dataset by selecting one of the available profiles: </p>
+<ol>
+<li>Docker<ul>
+<li><code>nextflow run denglab/viroprofiler -profile docker,test</code></li>
+</ul>
+</li>
+<li>Singularity<ul>
+<li><code>nextflow run denglab/viroprofiler -profile singularity,test</code></li>
+</ul>
+</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">About NF profiles</p>
+<p>Please read more about how to <a href="../profiles/">proper select NF profiles</a> to better understand it.</p>
+</div>
+
+  <hr>
+<div class="md-source-file">
+  <small>
+    
+      Last update:
+      2023-06-14
+    
+  </small>
+</div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.e5c33ebb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.51d95adb.min.js"></script>
+      
+    
+  </body>
+</html>

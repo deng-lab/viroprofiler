@@ -1,0 +1,990 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="..">
+      
+      
+        <link rel="next" href="../output/">
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.6">
+    
+    
+      
+        <title>Tutorial - ViroProfiler Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.558e4712.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.2505c338.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="deep-purple">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#tutorial" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="ViroProfiler Documentation" class="md-header__button md-logo" aria-label="ViroProfiler Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ViroProfiler Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Tutorial
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/deng-lab/viroprofiler" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    deng-lab/viroprofiler
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="ViroProfiler Documentation" class="md-nav__button md-logo" aria-label="ViroProfiler Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    ViroProfiler Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/deng-lab/viroprofiler" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    deng-lab/viroprofiler
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Tutorial
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Tutorial
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#install-viroprofiler" class="md-nav__link">
+    Install ViroProfiler
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#run-the-viroprofiler-pipeline" class="md-nav__link">
+    Run the ViroProfiler pipeline
+  </a>
+  
+    <nav class="md-nav" aria-label="Run the ViroProfiler pipeline">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prepare-input-files" class="md-nav__link">
+    Prepare input files
+  </a>
+  
+    <nav class="md-nav" aria-label="Prepare input files">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#samplesheet-input" class="md-nav__link">
+    Samplesheet input
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-the-pipeline" class="md-nav__link">
+    Run the pipeline
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reproducible-data-analysis" class="md-nav__link">
+    Reproducible data analysis
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#description-of-pipeline-options-and-parameters" class="md-nav__link">
+    Description of pipeline options and parameters
+  </a>
+  
+    <nav class="md-nav" aria-label="Description of pipeline options and parameters">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#core-nextflow-options" class="md-nav__link">
+    Core Nextflow options
+  </a>
+  
+    <nav class="md-nav" aria-label="Core Nextflow options">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#-profile" class="md-nav__link">
+    -profile
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-resume" class="md-nav__link">
+    -resume
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-c" class="md-nav__link">
+    -c
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#custom-pipeline-parameters" class="md-nav__link">
+    Custom pipeline parameters
+  </a>
+  
+    <nav class="md-nav" aria-label="Custom pipeline parameters">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#inputoutput-options" class="md-nav__link">
+    Input/output options
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#onoff-processes" class="md-nav__link">
+    On/Off processes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-parameters" class="md-nav__link">
+    Other parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#max-job-request-options" class="md-nav__link">
+    Max job request options
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#outputs" class="md-nav__link">
+    Outputs
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../output/" class="md-nav__link">
+        Outputs
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../config/" class="md-nav__link">
+        Config template
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../profiles/" class="md-nav__link">
+        Selecting NF profiles
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#install-viroprofiler" class="md-nav__link">
+    Install ViroProfiler
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#run-the-viroprofiler-pipeline" class="md-nav__link">
+    Run the ViroProfiler pipeline
+  </a>
+  
+    <nav class="md-nav" aria-label="Run the ViroProfiler pipeline">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prepare-input-files" class="md-nav__link">
+    Prepare input files
+  </a>
+  
+    <nav class="md-nav" aria-label="Prepare input files">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#samplesheet-input" class="md-nav__link">
+    Samplesheet input
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-the-pipeline" class="md-nav__link">
+    Run the pipeline
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reproducible-data-analysis" class="md-nav__link">
+    Reproducible data analysis
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#description-of-pipeline-options-and-parameters" class="md-nav__link">
+    Description of pipeline options and parameters
+  </a>
+  
+    <nav class="md-nav" aria-label="Description of pipeline options and parameters">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#core-nextflow-options" class="md-nav__link">
+    Core Nextflow options
+  </a>
+  
+    <nav class="md-nav" aria-label="Core Nextflow options">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#-profile" class="md-nav__link">
+    -profile
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-resume" class="md-nav__link">
+    -resume
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-c" class="md-nav__link">
+    -c
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#custom-pipeline-parameters" class="md-nav__link">
+    Custom pipeline parameters
+  </a>
+  
+    <nav class="md-nav" aria-label="Custom pipeline parameters">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#inputoutput-options" class="md-nav__link">
+    Input/output options
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#onoff-processes" class="md-nav__link">
+    On/Off processes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-parameters" class="md-nav__link">
+    Other parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#max-job-request-options" class="md-nav__link">
+    Max job request options
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#outputs" class="md-nav__link">
+    Outputs
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+
+<h1 id="tutorial">Tutorial</h1>
+<p>This tutorial will walk you through the installation and usage of ViroProfiler. ViroProfiler is containerized with <a href="https://www.docker.com/">Docker</a>, and can be used with multiple container engines, including <a href="https://www.docker.com">Docker</a>, <a href="https://sylabs.io/singularity/">Singularity</a>, <a href="https://podman.io/">Podman</a>, <a href="https://nersc.gitlab.io/development/shifter/how-to-use/">Shifter</a> and <a href="https://hpc.github.io/charliecloud/">Charliecloud</a> (see <a href="https://www.nextflow.io/docs/latest/container.html">docs</a>). In this tutorial, we will use <a href="https://sylabs.io/singularity/">Singularity</a> as an example.</p>
+<h2 id="install-viroprofiler">Install ViroProfiler</h2>
+<p>ViroProfiler is built on Nextflow, which means it is very easy to install with a single command:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Install ViroProfiler and set up the database</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>nextflow<span class="w"> </span>run<span class="w"> </span>deng-lab/viroprofiler<span class="w"> </span>-r<span class="w"> </span>main<span class="w"> </span>-profile<span class="w"> </span>singularity<span class="w"> </span>--mode<span class="w"> </span><span class="s2">&quot;setup&quot;</span>
+</code></pre></div>
+<p>By default, database will be downloaded to the <code>$HOME/viroprofiler</code> directory. You can change database path using the <code>--db</code> parameter. For example, if you want to download the database to <code>/db/path</code> directory, you can run the following command,</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>nextflow<span class="w"> </span>run<span class="w"> </span>deng-lab/viroprofiler<span class="w"> </span>-r<span class="w"> </span>main<span class="w"> </span>-profile<span class="w"> </span>singularity<span class="w"> </span>--mode<span class="w"> </span><span class="s2">&quot;setup&quot;</span><span class="w"> </span>--db<span class="w"> </span><span class="s2">&quot;/db/path&quot;</span>
+</code></pre></div>
+<blockquote>
+<ul>
+<li>It is recommended to set the <a href="https://www.nextflow.io/docs/latest/singularity.html?#singularity-docker-hub"><code>NXF_SINGULARITY_CACHEDIR</code> or <code>singularity.cacheDir</code></a> Nextflow options when using the Singularity profile, so that singularity images can be stored and re-used from a central location for future pipeline runs.</li>
+<li>If you are using <code>Docker</code>, please replace the <code>-profile singularity</code> with <code>-profile docker</code>.</li>
+</ul>
+</blockquote>
+<!-- > - If you are using `conda`, it is highly recommended to use the [`NXF_CONDA_CACHEDIR` or `conda.cacheDir`](https://www.nextflow.io/docs/latest/conda.html) settings to store the environments in a central location for future pipeline runs. -->
+
+<p>When you run the above command, Nextflow automatically pulls the pipeline code from GitHub and stores it as a cached version. When running the pipeline after this, it will always use the cached version if available. To make sure that you're running the latest version of the pipeline, make sure that you regularly update the cached version of the pipeline:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>nextflow<span class="w"> </span>pull<span class="w"> </span>deng-lab/viroprofiler
+</code></pre></div>
+<h2 id="run-the-viroprofiler-pipeline">Run the ViroProfiler pipeline</h2>
+<h3 id="prepare-input-files">Prepare input files</h3>
+<h4 id="samplesheet-input">Samplesheet input</h4>
+<p>To execute the pipeline users <strong>must</strong> provide sequencing reads as input. You will need to create a samplesheet with information about the samples you would like to analyse before running the pipeline.</p>
+<p>The samplesheet is a comma-separated file with 3 columns. The first column is the sample name, the second column is the full path to the first read file, and the third column is the full path to the second read file. The sample name can be any string, but it is recommended to use the sample ID. The sample name will be used as the prefix of the output files. The following is an example of a samplesheet with three samples:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="go">sample,fastq_1,fastq_2</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="go">sampleID1,AEG588A1_S1_L002_R1_001.fastq.gz,AEG588A1_S1_L002_R2_001.fastq.gz</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="go">sampleID2,AEG588A2_S2_L002_R1_001.fastq.gz,AEG588A2_S2_L002_R2_001.fastq.gz</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="go">sampleID3,AEG588A3_S3_L002_R1_001.fastq.gz,AEG588A3_S3_L002_R2_001.fastq.gz</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Column</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>sample</code></td>
+<td>Custom sample name. This entry will be identical for multiple sequencing libraries/runs from the same sample. Spaces in sample names are automatically converted to underscores (<code>_</code>).</td>
+</tr>
+<tr>
+<td><code>fastq_1</code></td>
+<td>Full path to FastQ file for Illumina short reads 1. File has to be gzipped and have the extension ".fastq.gz" or ".fq.gz".</td>
+</tr>
+<tr>
+<td><code>fastq_2</code></td>
+<td>Full path to FastQ file for Illumina short reads 2. File has to be gzipped and have the extension ".fastq.gz" or ".fq.gz".</td>
+</tr>
+</tbody>
+</table>
+<p>An <a href="../assets/samplesheet.csv">example samplesheet</a> has been provided with the pipeline.</p>
+<p>Use the <code>--input</code> parameter to specify its location, or set <code>input</code> in the <a href="https://github.com/deng-lab/viroprofiler/blob/main/params.yml">params.yml</a> file.</p>
+<p>The sequencing reads can be raw reads or cleaned reads. By default, ViroProfiler will assume the input reads are raw reads. If you want to use cleaned reads, you can set parameter <code>--reads_type "clean"</code> in command line, or set <code>reads_type: "clean"</code> in the <a href="https://github.com/deng-lab/viroprofiler/blob/main/params.yml">params.yml</a> file. If the input reads are cleaned reads, the pipeline will skip the cleaning step (removing adapters, low quality reads and contaminant reads).</p>
+<p>If you already have assembled contigs, you can skip the assembly step by setting <code>--input_contigs</code> parameter to specify the path to the contigs file. The contigs file should be in FASTA format.</p>
+<h3 id="run-the-pipeline">Run the pipeline</h3>
+<p>The typical command for running the pipeline is as follows:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="go">nextflow run deng-lab/viroprofiler \</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="go">    --input samplesheet.csv \</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="go">    -profile singularity</span>
+</code></pre></div>
+<p>This will launch the pipeline with the <code>singularity</code> configuration profile. See <a href="../profiles/">Selecting NF profiles</a> for more information about profiles.</p>
+<p>You may create a config file to customize the parameters of the pipeline and use <code>-c</code> to load the config. Please check <a href="https://github.com/deng-lab/viroprofiler/blob/main/custom.config">custom.config</a> for an example. You may also specify the parameters in a file and use <code>-params-file</code> to load the parameters. Please check <a href="https://github.com/deng-lab/viroprofiler/blob/main/params.yml">params.yml</a> for an example. Then the command for running the pipeline is as follows:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="go">nextflow run deng-lab/viroprofiler \</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="go">    --input samplesheet.csv \</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="go">    -profile singularity \</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="go">    -c custom.config \</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="go">    -params-file params.yml</span>
+</code></pre></div>
+<p>Note that the pipeline will create the following files in your working directory:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="go">work                # Directory containing the nextflow working files</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="go">output              # Output folder (can be modified with `--outdir` parameter)</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="go">.nextflow_log       # Log file from Nextflow</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="gp"># </span>Other<span class="w"> </span>nextflow<span class="w"> </span>hidden<span class="w"> </span>files,<span class="w"> </span>eg.<span class="w"> </span><span class="nb">history</span><span class="w"> </span>of<span class="w"> </span>pipeline<span class="w"> </span>runs<span class="w"> </span>and<span class="w"> </span>old<span class="w"> </span>logs.
+</code></pre></div>
+<h3 id="reproducible-data-analysis">Reproducible data analysis</h3>
+<p>For reproducibility, we recommend using a specific version of ViroProfiler. You can always run a specific version of ViroProfiler by specifying the version number. This ensures that a specific version of the pipeline code and software are used when you run your pipeline. If you keep using the same tag, you'll be running the same version of the pipeline, even if there have been changes to the code since. First, go to the <a href="https://github.com/deng-lab/viroprofiler/releases">deng-lab/viroprofiler releases page</a> and find the latest version number (eg. <code>v0.2</code>). Then specify this when running the pipeline with <code>-r</code> (one hyphen) - eg. <code>-r v0.2</code>. This version number will be logged in reports when you run the pipeline, so that you'll know what you used when you look back in the future. For example, to run version <code>v0.2</code> of the pipeline:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>nextflow<span class="w"> </span>run<span class="w"> </span>deng-lab/viroprofiler<span class="w"> </span>-r<span class="w"> </span>v0.2<span class="w"> </span>-profile<span class="w"> </span>singularity
+</code></pre></div>
+<p>If the pipeline fails, you can resume the pipeline from the last successful step by adding <code>-resume</code> to the command. For example:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>nextflow<span class="w"> </span>run<span class="w"> </span>deng-lab/viroprofiler<span class="w"> </span>-r<span class="w"> </span>v0.2<span class="w"> </span>-profile<span class="w"> </span>singularity<span class="w"> </span>-resume
+</code></pre></div>
+<h3 id="description-of-pipeline-options-and-parameters">Description of pipeline options and parameters</h3>
+<p>To get a list of pipeline options and parameters, run the pipeline with the <code>--help</code> flag:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>nextflow<span class="w"> </span>run<span class="w"> </span>deng-lab/viroprofiler<span class="w"> </span>--help
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="c1"># get full list of options and parameters</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>nextflow<span class="w"> </span>run<span class="w"> </span>deng-lab/viroprofiler<span class="w"> </span>--help<span class="w"> </span>--show_hidden_params
+</code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>All these parameters are configurable through a configuration file. We encourage users to use the configuration file since it will keep your execution cleaner and more readable. See a <a href="../config/">config example</a>.</p>
+</div>
+<h4 id="core-nextflow-options">Core Nextflow options</h4>
+<blockquote>
+<p><strong>NB:</strong> These options are part of Nextflow and use a <em>single</em> hyphen (pipeline parameters use a double-hyphen).</p>
+</blockquote>
+<h5 id="-profile"><code>-profile</code></h5>
+<p>Use this parameter to choose a configuration profile. Profiles can give configuration presets for different compute environments. See <a href="../profiles/">profile</a> for more information.</p>
+<h5 id="-resume"><code>-resume</code></h5>
+<p>Specify this when restarting a pipeline. Nextflow will use cached results from any pipeline steps where the inputs are the same, continuing from where it got to previously. For input to be considered the same, not only the names must be identical but the files' contents as well. For more info about this parameter, see <a href="https://www.nextflow.io/blog/2019/demystifying-nextflow-resume.html">this blog post</a>.</p>
+<p>You can also supply a run name to resume a specific run: <code>-resume [run-name]</code>. Use the <code>nextflow log</code> command to show previous run names.</p>
+<h5 id="-c"><code>-c</code></h5>
+<p>Specify the path to a specific config file (this is a core Nextflow command). See the <a href="https://nf-co.re/usage/configuration">nf-core website documentation</a> for more information.</p>
+<h4 id="custom-pipeline-parameters">Custom pipeline parameters</h4>
+<h5 id="inputoutput-options">Input/output options</h5>
+<table>
+<thead>
+<tr>
+<th align="left"><div style="width:100px">Parameter</div></th>
+<th align="left">Required</th>
+<th align="left">Default</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>--input</code></td>
+<td align="left"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 7 9 19l-5.5-5.5 1.41-1.41L9 16.17 19.59 5.59 21 7Z"/></svg></span></td>
+<td align="left">NA</td>
+<td align="left">Input samplesheet describing all the samples to be analysed</td>
+</tr>
+<tr>
+<td align="left"><code>--output</code></td>
+<td align="left"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 7 9 19l-5.5-5.5 1.41-1.41L9 16.17 19.59 5.59 21 7Z"/></svg></span></td>
+<td align="left">output</td>
+<td align="left">Name of directory to store output values</td>
+</tr>
+<tr>
+<td align="left"><code>--db</code></td>
+<td align="left"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 7 9 19l-5.5-5.5 1.41-1.41L9 16.17 19.59 5.59 21 7Z"/></svg></span></td>
+<td align="left">${HOME}/viroprofiler</td>
+<td align="left">Path containing required ViroProfiler databases</td>
+</tr>
+</tbody>
+</table>
+<h5 id="onoff-processes">On/Off processes</h5>
+<table>
+<thead>
+<tr>
+<th align="left"><div style="width:180px">Parameter</div></th>
+<th align="left">Required</th>
+<th align="left">Default</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>--use_dram</code></td>
+<td align="left"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg></span></td>
+<td align="left">false</td>
+<td align="left">Use DRAM or not</td>
+</tr>
+<tr>
+<td align="left"><code>--use_abricate</code></td>
+<td align="left"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg></span></td>
+<td align="left">false</td>
+<td align="left">Use abricate or not</td>
+</tr>
+<tr>
+<td align="left"><code>--use_decontam</code></td>
+<td align="left"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg></span></td>
+<td align="left">false</td>
+<td align="left">Remove host contamination from reads or not</td>
+</tr>
+<tr>
+<td align="left"><code>--use_eggnog</code></td>
+<td align="left"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg></span></td>
+<td align="left">false</td>
+<td align="left">Use eggnog-mapper to annotate proteins or not</td>
+</tr>
+<tr>
+<td align="left"><code>--use_iphop</code></td>
+<td align="left"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg></span></td>
+<td align="left">false</td>
+<td align="left">Use iPhOP to predict host or not</td>
+</tr>
+<tr>
+<td align="left"><code>--use_kraken2</code></td>
+<td align="left"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg></span></td>
+<td align="left">false</td>
+<td align="left">Use kraken2 to classify reads or not</td>
+</tr>
+<tr>
+<td align="left"><code>--use_phamb</code></td>
+<td align="left"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg></span></td>
+<td align="left">false</td>
+<td align="left">Use phamb to bin contigs or not</td>
+</tr>
+</tbody>
+</table>
+<h5 id="other-parameters">Other parameters</h5>
+<table>
+<thead>
+<tr>
+<th align="left"><div style="width:249px">Parameter</div></th>
+<th align="left">Required</th>
+<th align="left">Default</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>--prot_cluster_min_similarity</code></td>
+<td align="left"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg></span></td>
+<td align="left">0.7</td>
+<td align="left">Minimum similarity of protein seqs in the same cluster</td>
+</tr>
+<tr>
+<td align="left"><code>--prot_cluster_min_coverage</code></td>
+<td align="left"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg></span></td>
+<td align="left">0.9</td>
+<td align="left">Minimum similarity of protein seqs in the same cluster</td>
+</tr>
+<tr>
+<td align="left"><code>--binning</code></td>
+<td align="left"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg></span></td>
+<td align="left">null</td>
+<td align="left">Which binning tool to use, <code>vRhyme</code>, <code>phamb</code> or <code>false</code></td>
+</tr>
+<tr>
+<td align="left"><code>--binning_minlen_contig</code></td>
+<td align="left"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg></span></td>
+<td align="left">2000</td>
+<td align="left">Congits shorter than this value will not be used for binning</td>
+</tr>
+<tr>
+<td align="left"><code>--binning_minlen_bin</code></td>
+<td align="left"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg></span></td>
+<td align="left">2000</td>
+<td align="left">Bin size shorter than this value will be removed from down-stream analyses</td>
+</tr>
+<tr>
+<td align="left"><code>--dvf_qvalue</code></td>
+<td align="left"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg></span></td>
+<td align="left">0.1</td>
+<td align="left">q-value used in <code>DeepVirFinder</code></td>
+</tr>
+<tr>
+<td align="left"><code>--virsorter2_groups</code></td>
+<td align="left"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg></span></td>
+<td align="left">"dsDNAphage"</td>
+<td align="left">Viral category detected by <code>VirSorter2</code>, could be any combination of <code>dsDNAphage,NCLDV,RNA,ssDNA,lavidaviridae</code></td>
+</tr>
+<tr>
+<td align="left"><code>--contig_minlen_vcontact2</code></td>
+<td align="left"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg></span></td>
+<td align="left">10000</td>
+<td align="left">Contigs/Bins short than this value will not be used in <code>vConTACT2</code></td>
+</tr>
+<tr>
+<td align="left"><code>--pc_inflation</code></td>
+<td align="left"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg></span></td>
+<td align="left">1.5</td>
+<td align="left">Protein cluster inflation value used in <code>vConTACT2</code></td>
+</tr>
+<tr>
+<td align="left"><code>--vc_inflation</code></td>
+<td align="left"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg></span></td>
+<td align="left">1.5</td>
+<td align="left">Viral cluster inflation value used in <code>vConTACT2</code></td>
+</tr>
+<tr>
+<td align="left"><code>--taxa_db_source</code></td>
+<td align="left"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg></span></td>
+<td align="left">"NCBI"</td>
+<td align="left">Taxonomy database, could be either <code>NCBI</code> or <code>ICTV</code></td>
+</tr>
+<tr>
+<td align="left"><code>--replicyc</code></td>
+<td align="left"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg></span></td>
+<td align="left">"replidec"</td>
+<td align="left">Viral replication cycle prediction method, could be either <code>replidec</code> or <code>bacphlip</code></td>
+</tr>
+</tbody>
+</table>
+<h5 id="max-job-request-options">Max job request options</h5>
+<p>Set the top limit for requested resources for any single job. If you are running on a smaller system, a pipeline step requesting more resources than are available may cause the Nextflow to stop the run with an error. These options allow you to cap the maximum resources requested by any single job so that the pipeline will run on your system.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Note that you can not <em>increase</em> the resources requested by any job using these options. For that you will need your own configuration file. See <a href="https://nf-co.re/usage/configuration">the nf-core website</a> for details.</p>
+</div>
+<table>
+<thead>
+<tr>
+<th align="left">Parameter</th>
+<th align="left">Default</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>--max_cpus</code></td>
+<td align="left">4</td>
+<td align="left">Maximum number of CPUs that can be requested for any single job</td>
+</tr>
+<tr>
+<td align="left"><code>--max_memory</code></td>
+<td align="left">20.GB</td>
+<td align="left">Maximum amount of memory that can be requested for any single job</td>
+</tr>
+<tr>
+<td align="left"><code>--max_time</code></td>
+<td align="left">120.h</td>
+<td align="left">Maximum amount of time that can be requested for any single job</td>
+</tr>
+</tbody>
+</table>
+<h3 id="outputs">Outputs</h3>
+<p>A glimpse over the main outputs produced by ViroProfiler is given at <a href="../output/">output</a> section.</p>
+
+  <hr>
+<div class="md-source-file">
+  <small>
+    
+      Last update:
+      2023-06-14
+    
+  </small>
+</div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.e5c33ebb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.51d95adb.min.js"></script>
+      
+    
+  </body>
+</html>
