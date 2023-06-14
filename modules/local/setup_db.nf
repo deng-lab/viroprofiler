@@ -128,7 +128,7 @@ process DB_VREFSEQ {
     fi
 
     if [ ! -d ${params.db}/taxonomy/mmseqs_vrefseq ]; then
-        wget -O ${params.db}/taxonomy/mmseqs_vrefseq.tar.gz "https://sandbox.zenodo.org/record/1098375/files/mmseqs_vrefseq.tar.gz"
+        wget -O ${params.db}/taxonomy/mmseqs_vrefseq.tar.gz "https://zenodo.org/record/7044674/files/mmseqs_vrefseq.tar.gz"
         tar -zxvf ${params.db}/taxonomy/mmseqs_vrefseq.tar.gz -C ${params.db}/taxonomy
         rm ${params.db}/taxonomy/mmseqs_vrefseq.tar.gz
         cd ${params.db}/taxonomy/mmseqs_vrefseq
