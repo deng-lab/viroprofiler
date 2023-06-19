@@ -115,7 +115,7 @@ process DB_VREFSEQ {
     if [ ! -d ${params.db}/taxonomy/taxdump ]; then
         mkdir dl_taxdump
         cd dl_taxdump
-        wget -O taxdump.zip https://ftp.ncbi.nih.gov/pub/taxonomy/taxdump_archive/taxdmp_2022-08-01.zip
+        wget -O taxdump.zip https://ftp.ncbi.nlm.nih.gov/pub/taxonomy/taxdump_archive/taxdmp_2023-06-01.zip
         unzip taxdump.zip
         # wget ftp://ftp.ncbi.nih.gov/pub/taxonomy/taxdump.tar.gz
         #tar -zxvf taxdump.tar.gz
