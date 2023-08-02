@@ -17,6 +17,8 @@
                     "enum": [
                         "setup",
                         "test",
+                        "fastqc",
+                        "fastp",
                         "all"
                     ],
                     "description": "Pipeline running mode"
