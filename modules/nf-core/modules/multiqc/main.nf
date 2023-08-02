@@ -16,7 +16,7 @@ process MULTIQC {
     path "versions.yml"        , emit: versions
 
     when:
-    task.ext.when == null || task.ext.when
+    task.ext.when == null || task.ext.when || params.mode == 'fastqc' || params.mode == 'fastp'
 
     script:
     def args = task.ext.args ?: ''

@@ -22,7 +22,7 @@ process FASTP {
     tuple val(meta), path('*.merged.fastq.gz'), optional:true, emit: reads_merged
 
     when:
-    task.ext.when == null || task.ext.when
+    task.ext.when == null || task.ext.when || params.mode == 'fastp'
 
     script:
     def args = task.ext.args ?: ''
