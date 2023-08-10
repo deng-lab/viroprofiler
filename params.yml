@@ -1,6 +1,6 @@
 # =============================  Input  =======================================
-reads_type: "raw"  # "raw" or "clean"
-input_contigs: false  # false or path to contigs file
+reads_type: "raw" # "raw" or "clean"
+input_contigs: false # false or path to contigs file
 
 # =============================  Output  ======================================
 outdir: "output"
@@ -18,8 +18,8 @@ use_phamb: false
 # kraken2 + bracken
 kraken2_db: "viral"
 kraken2_clean: true
-save_output_fastqs : false
-save_reads_assignment : false
+save_output_fastqs: false
+save_reads_assignment: false
 
 # Decontamination
 decontam_min_similarity: 0.95
@@ -27,28 +27,27 @@ contamref_idx: "/project/genomics/jru/data2/db/viroprofiler/contamination_refs/h
 
 # =============================  Contig library  ==============================
 assembler: "spades"
-assemblies: "scaffolds"  # [contigs, scaffolds]
+assemblies: "scaffolds" # [contigs, scaffolds]
 contig_minlen: 5000
-contig_cluster_min_similarity: 95       # 0-100
-contig_cluster_min_coverage: 85         # 0-100
+contig_cluster_min_similarity: 95 # 0-100
+contig_cluster_min_coverage: 85 # 0-100
 
 # =============================   Gene library   ==============================
-prot_cluster_min_similarity: 0.7    # Minimum similarity of protein AA seqs in the same cluster
-prot_cluster_min_coverage: 0.9    # Minimum similarity of protein AA seqs in the same cluster
-gene_cluster_min_similarity: 0.9    # Minimum similarity of gene DNA seqs in the same cluster
-gene_cluster_min_coverage: 0.9   # Minimum similarity of gene DNA seqs in the same cluster
+prot_cluster_min_similarity: 0.7 # Minimum similarity of protein AA seqs in the same cluster
+prot_cluster_min_coverage: 0.9 # Minimum similarity of protein AA seqs in the same cluster
+gene_cluster_min_similarity: 0.9 # Minimum similarity of gene DNA seqs in the same cluster
+gene_cluster_min_coverage: 0.9 # Minimum similarity of gene DNA seqs in the same cluster
 
 # =============================  Binning  =====================================
-binning: false   # "phamb", "vrhyme" or false
+binning: false # "phamb", "vrhyme" or false
 binning_minlen_contig: 5000
 binning_minlen_bin: 5000
 dvf_qvalue: 0.1
-
+dvf_maxlen: 1000000
 
 # =============================  Viral detection  =============================
 # virsorter2_groups: "dsDNAphage,NCLDV,RNA,ssDNA,lavidaviridae"
 virsorter2_groups: "dsDNAphage"
-
 
 # =============================  Taxonomy  ====================================
 contig_minlen_vcontact2: 10000
@@ -57,4 +56,4 @@ vc_inflation: 1.5
 taxa_db_source: "NCBI"
 
 # =============================  Replication cycle  ===========================
-replicyc: "bacphlip"    # "replidec" or "bacphlip"
+replicyc: "bacphlip" # "replidec" or "bacphlip"
