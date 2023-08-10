@@ -103,7 +103,7 @@ workflow VIROPROFILER {
 
             // MODULE: Run fastp
             FASTP (
-                INPUT_CHECK.out.reads, false, false 
+                INPUT_CHECK.out.reads, false, false
             )
             ch_versions = ch_versions.mix(FASTP.out.versions.first())
 
@@ -120,7 +120,7 @@ workflow VIROPROFILER {
             ch_multiqc_files = ch_multiqc_files.mix(FASTQC.out.zip.collect{it[1]}.ifEmpty([]))
             ch_multiqc_files = ch_multiqc_files.mix(FASTP.out.json.collect{it[1]}.ifEmpty([]))
 
-            ch_clean_reads = FASTP.out.reads
+            // ch_clean_reads = FASTP.out.reads
         }
 
 
@@ -200,7 +200,7 @@ workflow VIROPROFILER {
         )
         ch_bams = MAPPING2CONTIGS2.out.bams_ch.collect()
         ch_versions = ch_versions.mix(MAPPING2CONTIGS2.out.versions.first())
-        
+
         ABUNDANCE (ch_bams)
         // ch_versions = ch_versions.mix(ABUNDANCE.out.versions)
 
@@ -285,7 +285,7 @@ workflow VIROPROFILER {
         CUSTOM_DUMPSOFTWAREVERSIONS (
             ch_versions.unique().collectFile(name: 'collated_versions.yml')
         )
-        
+
         //
         // MODULE: MultiQC
         //
