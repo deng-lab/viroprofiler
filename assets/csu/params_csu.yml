@@ -3,7 +3,7 @@ outdir: "output"
 # =============================  Database  ====================================
 db: "/public/home/hpc4011032/db/viroprofiler"
 reads_type: "raw"  # "raw" or "clean"
-input_contigs: "/public/home/hpc4011032/ICB_viro/viroprofiler/contigs.fasta.gz"
+#input_contigs: "/public/home/hpc4011032/ICB_viro/metagenome_ICI/contigs.fasta"
 # =============================  Optional steps switch  =======================================
 use_kraken2: false
 use_iphop: false
