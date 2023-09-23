@@ -24,6 +24,7 @@ WorkflowMain.initialise(workflow, params, log)
 */
 
 include { VIROPROFILER } from './workflows/viroprofiler'
+include { CONTIGANNO } from './workflows/contig_anno'
 
 
 /*
@@ -36,7 +37,11 @@ include { VIROPROFILER } from './workflows/viroprofiler'
 // WORKFLOW: Run main deng-lab/viroprofiler analysis pipeline
 //
 workflow {
-    VIROPROFILER ()
+    if (params.input_contigs) {
+        CONTIGANNO()
+    } else {
+        VIROPROFILER ()
+    }
 }
 
 /*
