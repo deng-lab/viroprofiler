@@ -1,0 +1,863 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../KNOWN_ISSUES/">
+      
+      
+        <link rel="next" href="../PACKAGING/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.17">
+    
+    
+      
+        <title>Building for arm64 - ViroProfiler Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.bcfcd587.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="deep-purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#running-viroprofiler-on-aarch64" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="ViroProfiler Documentation" class="md-header__button md-logo" aria-label="ViroProfiler Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ViroProfiler Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Building for arm64
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/deng-lab/viroprofiler" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    deng-lab/viroprofiler
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="ViroProfiler Documentation" class="md-nav__button md-logo" aria-label="ViroProfiler Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    ViroProfiler Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/deng-lab/viroprofiler" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    deng-lab/viroprofiler
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../installation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Installation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quickstart/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quick start
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tutorial
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../usage/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Usage
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../output/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Outputs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../profiles/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Selecting NF profiles
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../config/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Config template
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Development
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            Development
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../KNOWN_ISSUES/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Known issues
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Building for arm64
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Building for arm64
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#viroprofiler-host-iphop" class="md-nav__link">
+    <span class="md-ellipsis">
+      viroprofiler-host — iPHoP
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deepvirfinder-removed-replaced-by-genomad" class="md-nav__link">
+    <span class="md-ellipsis">
+      DeepVirFinder — removed, replaced by geNomad
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-binning-phamb-vamb" class="md-nav__link">
+    <span class="md-ellipsis">
+      --binning phamb — VAMB
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#re-checking-these-constraints" class="md-nav__link">
+    <span class="md-ellipsis">
+      Re-checking these constraints
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PACKAGING/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Packaging the images
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#viroprofiler-host-iphop" class="md-nav__link">
+    <span class="md-ellipsis">
+      viroprofiler-host — iPHoP
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deepvirfinder-removed-replaced-by-genomad" class="md-nav__link">
+    <span class="md-ellipsis">
+      DeepVirFinder — removed, replaced by geNomad
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-binning-phamb-vamb" class="md-nav__link">
+    <span class="md-ellipsis">
+      --binning phamb — VAMB
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#re-checking-these-constraints" class="md-nav__link">
+    <span class="md-ellipsis">
+      Re-checking these constraints
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="running-viroprofiler-on-aarch64">Running ViroProfiler on aarch64</h1>
+<p>The container images published on Docker Hub under <code>denglab/</code> are amd64-only
+(<a href="../KNOWN_ISSUES/#i-01">I-01</a>), so on an aarch64 host (Apple silicon, AWS Graviton,
+NVIDIA GB10/GB200, Ampere) the images have to be built locally from <code>docker/</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>bash<span class="w"> </span>docker/build_arm64.sh<span class="w">                  </span><span class="c1"># build + convert to SIF</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>nextflow<span class="w"> </span>run<span class="w"> </span>main.nf<span class="w"> </span>-profile<span class="w"> </span>apptainer,arm64_local<span class="w"> </span>--input<span class="w"> </span>samplesheet.csv<span class="w"> </span>--db<span class="w"> </span>~/viroprofiler
+</code></pre></div>
+<p><code>docker/build_arm64.sh</code> covers <code>base</code>, <code>qc</code>, <code>abundance</code>, <code>replicyc</code>, <code>vibrant</code>, <code>bracken</code>,
+<code>virsorter2</code>, <code>vcontact3</code>, <code>vclust</code>, <code>vitap</code>, <code>genomad</code>, <code>checkamg</code>, <code>geneannot</code>, <code>binning</code>
+and <code>viewer</code>. One image is missing from that list on purpose — <code>host</code>, which cannot be built
+for <code>linux-aarch64</code> at all — and one tool inside <code>binning</code> is likewise unavailable here.</p>
+<p><code>vcontact3</code> is buildable here only because it does not come from conda: <code>fastcluster</code> and
+<code>jenkspy</code> have no <code>linux-aarch64</code> conda build, so <code>pixi global install -c bioconda vcontact3</code>
+and every other conda route fail, while both packages compile from their PyPI sdists. See
+<a href="../KNOWN_ISSUES/#i-32">I-32</a>.</p>
+<p><code>vitap</code> builds natively with no constraint to work around, which is worth recording because
+it is the exception among the taxonomy tools. VITAP itself is pure Python, and all three
+executables it calls have <code>linux-aarch64</code> builds in bioconda:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>python3<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="s2">import json, urllib.request</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="s2">for p in [&#39;diamond&#39;, &#39;seqkit&#39;, &#39;prodigal&#39;]:</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="s2">    d = json.load(urllib.request.urlopen(&#39;https://api.anaconda.org/package/bioconda/&#39; + p))</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="s2">    subs = sorted({f[&#39;attrs&#39;].get(&#39;subdir&#39;) for f in d[&#39;files&#39;] if f[&#39;version&#39;] == d[&#39;latest_version&#39;]})</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="s2">    print(p, d[&#39;latest_version&#39;], subs)</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="s2">&quot;</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="c1"># diamond 2.2.5 [&#39;linux-64&#39;, &#39;linux-aarch64&#39;, &#39;osx-64&#39;, &#39;osx-arm64&#39;]</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="c1"># seqkit 2.13.0 [&#39;linux-64&#39;, &#39;linux-aarch64&#39;, &#39;osx-64&#39;, &#39;osx-arm64&#39;]</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="c1"># prodigal 2.6.3 [&#39;linux-64&#39;, &#39;linux-aarch64&#39;, &#39;osx-64&#39;, &#39;osx-arm64&#39;]</span>
+</code></pre></div>
+<p>The bioconda <code>vitap</code> package is <code>noarch</code>, so the same holds for installing VITAP from
+bioconda rather than from source. What made a source install necessary is a version
+question, not an architecture one: see <code>docker/viroprofiler-vitap/Dockerfile</code> for why the
+image pins 1.7.1 rather than the current 1.12.</p>
+<p>The image was built and its smoke test run on an aarch64 host
+(<code>bash docker/build_arm64.sh vitap</code>, NVIDIA GB10, Apptainer 1.5.2):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>#11 2.864 diamond version 2.1.16
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>#11 2.868 Prodigal V2.6.3: February, 2016
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>#11 2.889 seqkit v2.13.0
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>OK    vitap -&gt; /home/allen/singularity/viroprofiler/viroprofiler-vitap.sif
+</code></pre></div>
+<h2 id="viroprofiler-host-iphop"><code>viroprofiler-host</code> — iPHoP</h2>
+<p>Both halves of the dependency set are x86-64-only.</p>
+<p><strong>conda half.</strong> Solving the fork's <code>iphop_environment.yml</code> for <code>linux-aarch64</code> fails
+(micromamba 1.5.8, 2026-08-12):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>error    libmamba Could not solve for environment specs
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    The following packages are incompatible
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>    ├─ blast 2.12**  does not exist (perhaps a typo or a missing channel);
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    ├─ hmmer 3.3.2**  does not exist (perhaps a typo or a missing channel);
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>    ├─ perl-bioperl 1.7.*  is installable with the potential options
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>    │  ├─ perl-bioperl 1.7.2 would require
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>    │  │  └─ perl-bioperl-core 1.007002 , which requires
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>    │  │     └─ perl-db-file, which does not exist (perhaps a missing channel);
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>    │  └─ perl-bioperl 1.7.8 would require
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>    │     └─ perl-bio-tools-run-alignment-tcoffee ... t-coffee ... pasta
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>    ├─ python 3.8**  is not installable because there are no viable options
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>    ├─ r-ranger 0.13**  does not exist (perhaps a typo or a missing channel);
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>    └─ scikit-learn 0.22.0**  does not exist (perhaps a typo or a missing channel).
+</code></pre></div>
+<p>bioconda does publish <code>linux-aarch64</code> builds of <code>blast</code> and <code>hmmer</code>, but only of versions
+iPHoP does not accept (2.16.0 and 3.4 respectively).</p>
+<p><strong>pip half.</strong> iPHoP's classifier inference engine has no aarch64 Linux wheel in any release:</p>
+<table>
+<thead>
+<tr>
+<th>Package</th>
+<th>Linux wheel platform tags on PyPI</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>tensorflow-decision-forests</code> (all 40 releases)</td>
+<td><code>manylinux_2_12_x86_64</code>, <code>manylinux_2_17_x86_64</code></td>
+</tr>
+<tr>
+<td><code>tensorflow==2.7.0</code></td>
+<td><code>manylinux2010_x86_64</code></td>
+</tr>
+</tbody>
+</table>
+<p>The <code>*_arm64</code> wheels those projects publish are <code>macosx_12_0_arm64</code> / <code>macosx_13_0_arm64</code>,
+i.e. Apple silicon, not Linux.</p>
+<p>Neither constraint can be worked around by relaxing a pin: iPHoP loads Keras models trained
+with TF 2.7 through <code>tensorflow-decision-forests</code> 0.2.2, and that package's Linux build has
+never targeted aarch64.</p>
+<p><strong>Consequence.</strong> <code>conf/arm64_local.config</code> sets <code>use_iphop = false</code>, so host prediction is
+skipped on aarch64. <code>docker/viroprofiler-host/Dockerfile</code> pins
+<code>FROM --platform=linux/amd64</code>, so building it on an aarch64 host requires a registered
+<code>binfmt_misc</code> QEMU interpreter and produces an amd64 image that then has to run under
+emulation.</p>
+<h2 id="deepvirfinder-removed-replaced-by-genomad">DeepVirFinder — removed, replaced by geNomad</h2>
+<p>DeepVirFinder was frozen to a 2018 stack that bioconda/conda-forge never built for
+<code>linux-aarch64</code>. Solving its environment file for that platform failed:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>error    libmamba Could not solve for environment specs
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>    The following packages are incompatible
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>    ├─ deepvirfinder is not installable because it requires
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>    │  └─ keras 2.2.4 , which does not exist (perhaps a missing channel);
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>    ├─ keras 2.2.4**  does not exist (perhaps a typo or a missing channel);
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>    └─ theano 1.0.3**  does not exist (perhaps a typo or a missing channel).
+</code></pre></div>
+<p><code>deepvirfinder</code> was not in bioconda at all; it came from the <code>hcc</code> channel, and it has had
+no release since 2020.</p>
+<p><strong>Resolution.</strong> <code>GENOMAD</code> replaced <code>DVF</code> in both workflows. geNomad does virus
+identification, provirus excision and marker-based gene annotation in one pass, and every
+one of its dependencies — including <code>mmseqs2</code> and <code>aragorn</code> — has a linux-aarch64 conda
+build, so <code>docker/viroprofiler-genomad/</code> builds natively on both architectures.</p>
+<p><code>CHECKAMG</code> was added alongside it and is likewise architecture-neutral, with one caveat
+recorded in <code>docker/viroprofiler-checkamg/Dockerfile</code>: <code>torch_scatter</code> publishes no aarch64
+wheel and compiles from its sdist, and its <code>setup.py</code> imports torch at build time, so torch
+has to be installed before CheckAMG and the compile has to run with <code>--no-build-isolation</code>.</p>
+<p><strong>Consequence for PHAMB.</strong> <code>run_RF.py</code> reads a per-contig virus score in DeepVirFinder's
+format. <code>PHAMB_DVF_TABLE</code> writes geNomad's scores in that layout, so the missing score table
+is no longer what stops PHAMB here — VAMB is. See the next section.</p>
+<h2 id="-binning-phamb-vamb"><code>--binning phamb</code> — VAMB</h2>
+<p>PHAMB classifies VAMB's clusters, and VAMB has no <code>linux-aarch64</code> artifact in any release
+line:</p>
+<table>
+<thead>
+<tr>
+<th>VAMB</th>
+<th>bioconda subdirs</th>
+<th>Blocker on aarch64</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2.0.1 – 4.1.3</td>
+<td><code>linux-64</code>, <code>osx-64</code></td>
+<td>compiled package, never built for aarch64</td>
+</tr>
+<tr>
+<td>5.0.3, 5.0.4</td>
+<td><code>noarch</code></td>
+<td>requires <code>pycoverm</code>, published for <code>linux-64</code>, <code>osx-64</code>, <code>osx-arm64</code> only</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>python3<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="s2">import json, urllib.request, collections</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="s2">for p in [&#39;vamb&#39;, &#39;pycoverm&#39;]:</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="s2">    d = json.load(urllib.request.urlopen(&#39;https://api.anaconda.org/package/bioconda/&#39; + p))</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="s2">    print(p, dict(collections.Counter(f[&#39;attrs&#39;].get(&#39;subdir&#39;) for f in d[&#39;files&#39;])))</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="s2">&quot;</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="c1"># vamb     {&#39;linux-64&#39;: 14, &#39;osx-64&#39;: 14, &#39;noarch&#39;: 2}</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="c1"># pycoverm {&#39;linux-64&#39;: 4, &#39;osx-arm64&#39;: 4, &#39;osx-64&#39;: 4}</span>
+</code></pre></div>
+<p><code>docker/viroprofiler-binning/pixi.toml</code> therefore declares <code>[feature.vamb] platforms =
+["linux-64"]</code>, and the Dockerfile installs that environment only when BuildKit's
+<code>TARGETARCH</code> is <code>amd64</code>. The image still builds on aarch64 and still provides vRhyme and
+PHAMB's scoring code — it simply has no clusterer for PHAMB to classify.</p>
+<p><code>WorkflowViroprofiler.binningIsAvailable()</code> refuses <code>--binning phamb</code> on aarch64 at
+start-up, so the run fails in a second with an explanation instead of hours later on
+<code>vamb: command not found</code>. It reads the architecture Nextflow itself runs on, which is exact
+for a local executor and a guess on a heterogeneous cluster.</p>
+<p><strong><code>--binning vrhyme</code> is unaffected</strong> and is the binner to use on aarch64.</p>
+<p>The version pinned is 3.0.2, and that is a compatibility choice rather than a platform one.
+VAMB 4 removed <code>--jgi</code> outright — it takes only <code>--bamfiles</code> or a <code>.npz</code>, and hashes the BAM
+reference names against the FASTA, so it cannot be handed a contig subset with BAMs mapped
+against the full library, which is exactly this pipeline's arrangement. VAMB 5 additionally
+renamed and restructured the cluster file PHAMB's <code>read_clusters</code> parses. 3.0.2 is the
+release PHAMB was developed against; it runs on Python 3.6, which is why it lives in its own
+pixi environment and why the lockfile matters for keeping it installable.</p>
+<h2 id="re-checking-these-constraints">Re-checking these constraints</h2>
+<p>Package availability changes; both checks are cheap and need no aarch64 hardware, since
+<code>--platform</code> makes the solver work cross-platform.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># conda side. Every image except `host` now declares its platforms in a pixi manifest, so</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="c1"># `pixi lock` reports an unsatisfiable platform at lock time rather than at build time:</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="c1">#     x failed to solve requirements of environment &#39;vamb&#39; for platform &#39;linux-aarch64&#39;</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="c1"># For `host`, whose environment file comes from the iPHoP checkout, use micromamba:</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>-v<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$PWD</span><span class="s2">/iphop_environment.yml:/tmp/e.yml:ro&quot;</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">    </span>mambaorg/micromamba:1.5.8<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">    </span>micromamba<span class="w"> </span>create<span class="w"> </span>--dry-run<span class="w"> </span>--platform<span class="w"> </span>linux-aarch64<span class="w"> </span>-n<span class="w"> </span>t<span class="w"> </span>-f<span class="w"> </span>/tmp/e.yml<span class="w"> </span>-y
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="c1"># pip side</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>curl<span class="w"> </span>-s<span class="w"> </span>https://pypi.org/pypi/tensorflow-decision-forests/json<span class="w"> </span><span class="p">|</span><span class="w"> </span>python3<span class="w"> </span>-c<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="w">  </span><span class="s1">&#39;import json,sys; d=json.load(sys.stdin); print(sorted({f[&quot;filename&quot;].split(&quot;-&quot;)[-1] \</span>
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="s1">   for v in d[&quot;releases&quot;] for f in d[&quot;releases&quot;][v] if f[&quot;filename&quot;].endswith(&quot;.whl&quot;)}))&#39;</span>
+</code></pre></div>
+<p>The same <code>--platform linux-64</code> solve is also the only way to check
+<code>docker/viroprofiler-host/Dockerfile</code> without an amd64 machine: it reports
+<code>Install: 285 packages</code> for the fork's environment file, and <code>Install: 296 packages</code> once
+the <code>typer</code>, <code>seqkit</code> and <code>procps-ng</code> specs the Dockerfile adds are included. Both dry runs
+end with a <code>pip failed to install packages</code> error, which is expected — a dry run has no
+prefix for the trailing <code>pip:</code> section to install into, and the conda solve has already
+completed by then.</p>
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
+    </span>
+    2026-09-20
+  </span>
+
+    
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.1e8ae164.min.js"></script>
+      
+    
+  </body>
+</html>

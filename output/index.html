@@ -1,0 +1,1058 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../usage/">
+      
+      
+        <link rel="next" href="../profiles/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.17">
+    
+    
+      
+        <title>Outputs - ViroProfiler Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.bcfcd587.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="deep-purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#viroprofiler-output" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="ViroProfiler Documentation" class="md-header__button md-logo" aria-label="ViroProfiler Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ViroProfiler Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Outputs
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/deng-lab/viroprofiler" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    deng-lab/viroprofiler
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="ViroProfiler Documentation" class="md-nav__button md-logo" aria-label="ViroProfiler Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    ViroProfiler Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/deng-lab/viroprofiler" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    deng-lab/viroprofiler
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../installation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Installation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quickstart/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quick start
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tutorial/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tutorial
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../usage/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Usage
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Outputs
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Outputs
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Introduction
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#output-directory-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Output directory structure
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pipeline-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pipeline overview
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pipeline overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fastqc" class="md-nav__link">
+    <span class="md-ellipsis">
+      FastQC
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dereplication-of-contigs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dereplication of contigs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#contig-quality-evaluation-and-provirus-detection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Contig quality evaluation and provirus detection
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#contig-clustering-based-on-ani" class="md-nav__link">
+    <span class="md-ellipsis">
+      Contig clustering based on ANI
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#binning-optional-using-phamb-or-vrhyme" class="md-nav__link">
+    <span class="md-ellipsis">
+      Binning (optional, using PHAMB or vRhyme)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#abundance-estimation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Abundance estimation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#viral-sequence-identification" class="md-nav__link">
+    <span class="md-ellipsis">
+      Viral sequence identification
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#functional-annotation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Functional annotation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#taxonomy-assignment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Taxonomy assignment
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#viral-host-prediction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Viral-host prediction
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#viral-replication-cycle-prediction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Viral replication cycle prediction
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#merged-output" class="md-nav__link">
+    <span class="md-ellipsis">
+      Merged output
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multiqc" class="md-nav__link">
+    <span class="md-ellipsis">
+      MultiQC
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pipeline-information" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pipeline information
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../profiles/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Selecting NF profiles
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../config/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Config template
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Development
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            Development
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dev/KNOWN_ISSUES/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Known issues
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dev/ARM64/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Building for arm64
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dev/PACKAGING/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Packaging the images
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Introduction
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#output-directory-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Output directory structure
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pipeline-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pipeline overview
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pipeline overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fastqc" class="md-nav__link">
+    <span class="md-ellipsis">
+      FastQC
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dereplication-of-contigs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dereplication of contigs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#contig-quality-evaluation-and-provirus-detection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Contig quality evaluation and provirus detection
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#contig-clustering-based-on-ani" class="md-nav__link">
+    <span class="md-ellipsis">
+      Contig clustering based on ANI
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#binning-optional-using-phamb-or-vrhyme" class="md-nav__link">
+    <span class="md-ellipsis">
+      Binning (optional, using PHAMB or vRhyme)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#abundance-estimation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Abundance estimation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#viral-sequence-identification" class="md-nav__link">
+    <span class="md-ellipsis">
+      Viral sequence identification
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#functional-annotation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Functional annotation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#taxonomy-assignment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Taxonomy assignment
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#viral-host-prediction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Viral-host prediction
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#viral-replication-cycle-prediction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Viral replication cycle prediction
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#merged-output" class="md-nav__link">
+    <span class="md-ellipsis">
+      Merged output
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multiqc" class="md-nav__link">
+    <span class="md-ellipsis">
+      MultiQC
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pipeline-information" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pipeline information
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="viroprofiler-output">ViroProfiler: Output</h1>
+<h2 id="introduction">Introduction</h2>
+<p>This document describes the output produced by the pipeline. Most of the plots are taken from the MultiQC report, which summarises results at the end of the pipeline. The output data is also stored in a <code>TreeSummarizedExperiment</code> object in file <code>viroprofiler_output.rds</code>, which can be uploaded to <a href="https://github.com/deng-lab/viroprofiler-viewer">ViroProfiler-viewer</a> for interactive visualization, or imported into R for further analysis.</p>
+<p>The directories listed below will be created in the <code>output</code> directory after the pipeline has finished. All paths are relative to the top-level <code>output</code> directory.</p>
+<h2 id="output-directory-structure">Output directory structure</h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>output
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>├── abundance
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>├── bacphlip
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>├── checkv
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>├── contiglib
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>├── checkamg
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>├── dramv
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>├── emapper
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>├── fastp
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>├── fastqc
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>├── genepred4ctg
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>├── genomad
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>├── mapping2contigs
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>├── multiqc
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>├── nrgene
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>├── nrprot
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>├── pipeline_info
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>├── results
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>├── spades
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>├── taxonomy
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>├── viralhost
+<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>├── vircontigs
+<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>└── virsorter2
+</code></pre></div>
+<h2 id="pipeline-overview">Pipeline overview</h2>
+<p>The pipeline is built using <a href="https://www.nextflow.io/">Nextflow</a> and processes data using the following steps:</p>
+<ol>
+<li>Reads QC (<a href="https://www.bioinformatics.babraham.ac.uk/projects/fastqc/"><code>FastQC</code></a>, <a href="https://github.com/OpenGene/fastp"><code>fastp</code></a>)</li>
+<li>Assembly (<a href="https://github.com/ablab/spades"><code>metaSPAdes</code></a>)</li>
+<li>Contig quality evaluation and provirus detection (<a href="https://bitbucket.org/berkeleylab/checkv"><code>CheckV</code></a>)</li>
+<li>Dereplication of the whole contig library at species level (<a href="https://github.com/refresh-bio/vclust"><code>Vclust</code></a>)</li>
+<li>Binning (optional, using vRhyme or PHAMB)</li>
+<li>Abundance estimation (<a href="https://github.com/wwood/CoverM"><code>CoverM</code></a>)</li>
+<li>Viral sequence identification (geNomad, CheckV quality and optionally VIBRANT; VirSorter2 runs afterwards to prepare the table DRAM-v needs)</li>
+<li>Auxiliary gene calling (<a href="https://github.com/AnantharamanLab/CheckAMG"><code>CheckAMG</code></a>) and functional annotation (<a href="https://github.com/WrightonLabCSU/DRAM"><code>DRAM-v</code></a>)</li>
+<li>Taxonomy assignment (<a href="https://github.com/DrKaiyangZheng/VITAP"><code>VITAP</code></a>, <a href="https://bitbucket.org/MAVERICLab/vcontact3"><code>vConTACT3</code></a>)</li>
+<li>Viral-host prediction (<a href="https://bitbucket.org/srouxjgi/iphop"><code>iPHoP</code></a>)</li>
+<li>Viral replication cycle prediction (BACPHLIP or Replidec)</li>
+<li>A TreeSummarizedExperiment gathering all of the above, built by <a href="https://github.com/deng-lab/vpfkit"><code>vpfkit</code></a></li>
+<li>Aggregate report describing results and QC from the whole pipeline (<a href="http://multiqc.info/"><code>MultiQC</code></a>)</li>
+<li><a href="#pipeline-information">Pipeline information</a> - Report metrics generated during the workflow execution</li>
+</ol>
+<h3 id="fastqc">FastQC</h3>
+<details>
+<summary>Output files</summary>
+<ul>
+<li><code>fastqc/</code></li>
+<li><code>*_fastqc.html</code>: FastQC report containing quality metrics.</li>
+<li><code>*_fastqc.zip</code>: Zip archive containing the FastQC report, tab-delimited data file and plot images.</li>
+</ul>
+</details>
+<p><a href="http://www.bioinformatics.babraham.ac.uk/projects/fastqc/">FastQC</a> gives general quality metrics about your sequenced reads. It provides information about the quality score distribution across your reads, per base sequence content (%A/T/G/C), adapter contamination and overrepresented sequences. For further reading and documentation see the <a href="http://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/">FastQC help pages</a>.</p>
+<blockquote>
+<p><strong>Note:</strong> The FastQC plots displayed in the MultiQC report show <em>untrimmed</em> reads. They may contain adapter sequence and potentially regions with low quality.</p>
+</blockquote>
+<h3 id="dereplication-of-contigs">Dereplication of contigs</h3>
+<p>Contigs from all samples are merged into one library, <code>contigs_cclib.fasta.gz</code>, and a second
+library <code>contigs_cclib_long.fasta.gz</code> drops everything below <code>--contig_minlen</code>.</p>
+<p>Dereplication happens after that, in <code>CONTIGLIB_CLUSTER</code>: Vclust removes exact duplicates
+and their reverse complements, then clusters what remains at the MIUViG species thresholds
+(<code>--contig_cluster_min_similarity</code>, <code>--contig_cluster_min_coverage</code>) and keeps one
+representative per cluster as <code>contigs_nrclib.fasta</code>. That file, not either <code>cclib</code>, is the
+reference reads are mapped to, which is why viral identification runs after this step rather
+than before it.</p>
+<h3 id="contig-quality-evaluation-and-provirus-detection">Contig quality evaluation and provirus detection</h3>
+<p>The first step of the long contig library analysis is to evaluate the quality of each contig. The quality of each contig is evaluated using <a href="https://bitbucket.org/berkeleylab/checkv/src/master/">CheckV</a>, which is a tool for evaluating the quality of contigs and predicting the presence of proviruses. We mainly rely on this tool to remove host contamination at the flanking sides of the provirus contigs. However, other metrics such as completeness and contamination are also reported for each contig.</p>
+<h3 id="contig-clustering-based-on-ani">Contig clustering based on ANI</h3>
+<p>The long contig library is then dereplicated with <a href="https://github.com/refresh-bio/vclust">Vclust</a>: exact duplicates are collapsed first, a Kmer-db prefilter narrows the candidate pairs, LZ-ANI aligns the survivors, and the pairs are clustered greedily. Two contigs join the same cluster when they align at <code>--contig_cluster_min_similarity</code> percent identity or better <strong>over the aligned region</strong>, covering at least <code>--contig_cluster_min_coverage</code> percent <strong>of the shorter contig</strong>. Nothing is required of the longer contig, so a short contig contained in a longer one is absorbed by it. At the defaults (95 % and 85 %) this is the MIUViG species criterion, and each cluster is roughly a viral species.</p>
+<p>The representative contig of each cluster — the longest member — is merged into a non-redundant contig library (nrclib), and used for downstream annotation and analysis. This step is to reduce the computational cost of downstream analysis. <code>contigs_ANIclst.tsv</code> maps every contig in the library to the representative of its cluster.</p>
+<h3 id="binning-optional-using-phamb-or-vrhyme">Binning (optional, using PHAMB or vRhyme)</h3>
+<p>The representative contigs of each cluster can be binned into viral MAGs using <a href="https://github.com/RasmussenLab/phamb">phamb</a> or <a href="https://github.com/AnantharamanLab/vRhyme">vRhyme</a>.</p>
+<h3 id="abundance-estimation">Abundance estimation</h3>
+<p>Abundance of contigs or bins is estimated using clean reads mapped to the contigs or bins. Multiple abundance metrics are available, including raw counts, TPM, and RPKM. The mapped BAM files can also be imported into other tools such as <a href="https://github.com/metaGmetapop/metapop">MetaPop</a> for macro- and micro-diversity analyses of viruses and visualization of metagenomic-derived populations.</p>
+<h3 id="viral-sequence-identification">Viral sequence identification</h3>
+<p>Viral sequences are identified by geNomad, by CheckV's quality calls, and -- unless
+<code>--use_vibrant false</code> -- by VIBRANT. Results from each tool are saved to separate files, and
+their union is the candidate-virus set carried forward (<code>vircontigs/</code>). VirSorter2 runs on
+that set rather than contributing to it: it produces the affi-contigs table DRAM-v requires
+plus a per-contig score column. Any detector hit that names a sequence absent from the
+contig library is recorded in <code>vircontigs/putative_vcontigs_unmatched.list</code> instead of being
+dropped silently.</p>
+<h3 id="functional-annotation">Functional annotation</h3>
+<p>Protein sequences of viruses are annotated using multiple tools and databases (DRAM-v, eggNOG-mapper, abricate). Results from each tool are saved to separate files and merged into a final annotation file.</p>
+<h3 id="taxonomy-assignment">Taxonomy assignment</h3>
+<p>Taxonomy is assigned by two independent callers and then merged. VITAP scores each contig
+against ICTV reference genomes on a multipartite graph and is the only caller here that
+reaches species; vConTACT3 clusters the contigs with a reference set by gene sharing and
+predicts a lineage from realm down to genus for each cluster. <code>merge_taxonomy.py</code> resolves
+the two rank by rank, taking the highest-priority caller that made a call at that rank --
+VITAP first, vConTACT3 second -- and skipping a caller at the ranks below any disagreement
+with the lineage already resolved above it, so a merged lineage cannot contradict itself.</p>
+<p>The merged table is <code>taxonomy/taxonomy.tsv</code>: one row per contig, one column per rank
+(<code>Realm</code> ... <code>Species</code>), and beside each rank a <code>&lt;Rank&gt;_source</code> column naming the caller
+the value came from. Ranks vConTACT3 labelled as de novo clusters keep its
+<code>novel_&lt;rank&gt;_&lt;n&gt;_of_&lt;parent&gt;</code> labels, which are stable per cluster and cannot be
+confused with ICTV names. <code>taxonomy/taxonomy_tse.tsv</code> carries the same lineages in the layout <code>RESULTS_TSE</code> reads.
+ViroProfiler also supports the ICTV viral taxonomy nomenclature
+via a separate database built from ICTV sequences and annotations. Results are saved to
+the <code>taxonomy</code> folder.</p>
+<h3 id="viral-host-prediction">Viral-host prediction</h3>
+<p>Viral host prediction is performed using <a href="https://bitbucket.org/srouxjgi/iphop">iPHoP</a>, which integrates signals from multiple viral-host prediction tools. Results are saved to the <code>viralhost</code> folder.</p>
+<h3 id="viral-replication-cycle-prediction">Viral replication cycle prediction</h3>
+<p>The replication cycle of viral contigs or bins is predicted using either <a href="https://github.com/adamhockenberry/bacphlip">BACPHLIP</a> or <a href="https://github.com/deng-lab/Replidec">Replidec</a>. Results are merged into the final annotation file.</p>
+<h3 id="merged-output">Merged output</h3>
+<p>All contig annotation results and the abundance table are merged into a <a href="https://bioconductor.org/packages/TreeSummarizedExperiment/">TreeSummarizedExperiment</a> R object (<code>viroprofiler_output.rds</code>). This object can be imported into R for custom analysis or uploaded to <a href="https://github.com/deng-lab/viroprofiler-viewer">ViroProfiler-viewer</a> for interactive exploration, including diversity analysis and differential abundance analysis.</p>
+<h3 id="multiqc">MultiQC</h3>
+<details>
+<summary>Output files</summary>
+<ul>
+<li><code>multiqc/</code></li>
+<li><code>multiqc_report.html</code>: a standalone HTML file that can be viewed in your web browser.</li>
+<li><code>multiqc_data/</code>: directory containing parsed statistics from the different tools used in the pipeline.</li>
+<li><code>multiqc_plots/</code>: directory containing static images from the report in various formats.</li>
+</ul>
+</details>
+<p><a href="http://multiqc.info">MultiQC</a> is a visualization tool that generates a single HTML report summarising all samples in your project. Most of the pipeline QC results are visualised in the report and further statistics are available in the report data directory.</p>
+<p>Results generated by MultiQC collate pipeline QC from supported tools e.g. FastQC. The pipeline has special steps which also allow the software versions to be reported in the MultiQC output for future traceability. For more information about how to use MultiQC reports, see <a href="http://multiqc.info">http://multiqc.info</a>.</p>
+<h3 id="pipeline-information">Pipeline information</h3>
+<details>
+<summary>Output files</summary>
+<ul>
+<li><code>pipeline_info/</code></li>
+<li>Reports generated by Nextflow, each stamped with the time the run started so that
+    several runs can share an <code>--outdir</code>: <code>execution_report_&lt;timestamp&gt;.html</code>,
+    <code>execution_timeline_&lt;timestamp&gt;.html</code>, <code>execution_trace_&lt;timestamp&gt;.txt</code> and
+    <code>pipeline_dag_&lt;timestamp&gt;.html</code>.</li>
+<li>Reports generated by the pipeline: <code>pipeline_report.html</code>, <code>pipeline_report.txt</code> and <code>software_versions.yml</code>. The <code>pipeline_report*</code> files will only be present if the <code>--email</code> / <code>--email_on_fail</code> parameter's are used when running the pipeline.</li>
+</ul>
+</details>
+<p><a href="https://www.nextflow.io/docs/latest/tracing.html">Nextflow</a> provides excellent functionality for generating various reports relevant to the running and execution of the pipeline. This will allow you to troubleshoot errors with the running of the pipeline, and also provide you with other information such as launch commands, run times and resource usage.</p>
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
+    </span>
+    2026-09-20
+  </span>
+
+    
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.1e8ae164.min.js"></script>
+      
+    
+  </body>
+</html>

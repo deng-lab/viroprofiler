@@ -1,0 +1,3452 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../../config/">
+      
+      
+        <link rel="next" href="../ARM64/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.17">
+    
+    
+      
+        <title>Known issues - ViroProfiler Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.bcfcd587.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="deep-purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#known-issues-2026-modernization-audit" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="ViroProfiler Documentation" class="md-header__button md-logo" aria-label="ViroProfiler Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ViroProfiler Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Known issues
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/deng-lab/viroprofiler" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    deng-lab/viroprofiler
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="ViroProfiler Documentation" class="md-nav__button md-logo" aria-label="ViroProfiler Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    ViroProfiler Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/deng-lab/viroprofiler" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    deng-lab/viroprofiler
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../installation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Installation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quickstart/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quick start
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tutorial
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../usage/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Usage
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../output/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Outputs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../profiles/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Selecting NF profiles
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../config/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Config template
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Development
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            Development
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Known issues
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Known issues
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#i-01-all-11-container-images-are-amd64-only-p0" class="md-nav__link">
+    <span class="md-ellipsis">
+      I-01 — All 11 container images are amd64-only (P0)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-02-viroprofiler-viewer-image-has-no-dockerfile-in-this-repo-p0-for-rebuilds" class="md-nav__link">
+    <span class="md-ellipsis">
+      I-02 — viroprofiler-viewer image has no Dockerfile in this repo (P0 for rebuilds)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-03-paramsdb-is-used-inside-containers-but-never-bind-mounted-p0" class="md-nav__link">
+    <span class="md-ellipsis">
+      I-03 — params.db is used inside containers but never bind-mounted (P0)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-04-stub-samplesheet-paths-resolve-against-the-launch-directory-p1" class="md-nav__link">
+    <span class="md-ellipsis">
+      I-04 — Stub samplesheet paths resolve against the launch directory (P1)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-05-paramstracedir-captures-the-default-outdir-p1" class="md-nav__link">
+    <span class="md-ellipsis">
+      I-05 — params.tracedir captures the default outdir (P1)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-06-iphop-database-directory-name-is-hardcoded-and-inconsistent-p1" class="md-nav__link">
+    <span class="md-ellipsis">
+      I-06 — iPHoP database directory name is hardcoded and inconsistent (P1)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-07-bracken-and-kraken2-database-paths-disagree-p1" class="md-nav__link">
+    <span class="md-ellipsis">
+      I-07 — Bracken and Kraken2 database paths disagree (P1)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-08-ncbi-taxonomy-pinned-to-the-2022-08-01-archive-p2" class="md-nav__link">
+    <span class="md-ellipsis">
+      I-08 — NCBI taxonomy pinned to the 2022-08-01 archive (P2)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-09-vogdb-host-renamed-url-is-plain-http-p2" class="md-nav__link">
+    <span class="md-ellipsis">
+      I-09 — VOGDB host renamed; URL is plain HTTP (P2)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-10-database-setup-is-not-resumable-and-never-verified-p2" class="md-nav__link">
+    <span class="md-ellipsis">
+      I-10 — Database setup is not resumable and never verified (P2)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-11-mode-fastqc-fastp-contiglib-are-not-implemented-p2" class="md-nav__link">
+    <span class="md-ellipsis">
+      I-11 — --mode fastqc / fastp / contiglib are not implemented (P2)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-12-dockeruseremulation-was-removed-from-nextflow-p2" class="md-nav__link">
+    <span class="md-ellipsis">
+      I-12 — docker.userEmulation was removed from Nextflow (P2)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-13-stub-output-directories-are-committed-p3" class="md-nav__link">
+    <span class="md-ellipsis">
+      I-13 — Stub output directories are committed (P3)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-14-claudemd-mandates-an-mcp-server-that-is-not-part-of-the-repo-p3" class="md-nav__link">
+    <span class="md-ellipsis">
+      I-14 — CLAUDE.md mandates an MCP server that is not part of the repo (P3)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-15-contamref_idx-ignores-db-and-nothing-ever-creates-it-p1" class="md-nav__link">
+    <span class="md-ellipsis">
+      I-15 — contamref_idx ignores --db and nothing ever creates it (P1)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-16-confmodulesconfig-was-loaded-after-profiles-p1" class="md-nav__link">
+    <span class="md-ellipsis">
+      I-16 — conf/modules.config was loaded after profiles (P1)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-17-dockerfiles-call-wget-that-was-only-present-transitively-p2" class="md-nav__link">
+    <span class="md-ellipsis">
+      I-17 — Dockerfiles call wget that was only present transitively (P2)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-18-deepvirfinder-was-bundled-into-the-binning-image-p2" class="md-nav__link">
+    <span class="md-ellipsis">
+      I-18 — DeepVirFinder was bundled into the binning image (P2)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-19-vendored-nf-core-modules-and-their-containers-are-from-2022-p2" class="md-nav__link">
+    <span class="md-ellipsis">
+      I-19 — Vendored nf-core modules and their containers are from 2022 (P2)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-20-assetssamplesheet_contigscsv-contains-a-literal-home-p3" class="md-nav__link">
+    <span class="md-ellipsis">
+      I-20 — assets/samplesheet_contigs.csv contains a literal ${HOME} (P3)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-21-2022-era-tools-break-on-a-modern-pythonsetuptools-p1" class="md-nav__link">
+    <span class="md-ellipsis">
+      I-21 — 2022-era tools break on a modern Python/setuptools (P1)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-22-a-dram-14-source-file-was-copied-over-a-dram-135-install-p0" class="md-nav__link">
+    <span class="md-ellipsis">
+      I-22 — A DRAM 1.4 source file was copied over a DRAM 1.3.5 install (P0)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-23-drams-config-was-hand-written-from-2021-filenames-and-todays-date-p1" class="md-nav__link">
+    <span class="md-ellipsis">
+      I-23 — DRAM's CONFIG was hand-written from 2021 filenames and today's date (P1)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-24-dramv-created-a-symlink-inside-the-container-image-p0" class="md-nav__link">
+    <span class="md-ellipsis">
+      I-24 — DRAMV created a symlink inside the container image (P0)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-25-eggnog-mapper-219-needs-distutils-removed-in-python-312-p1" class="md-nav__link">
+    <span class="md-ellipsis">
+      I-25 — eggNOG-mapper 2.1.9 needs distutils, removed in Python 3.12 (P1)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-26-vibrant-setup-reports-success-with-an-unusable-database-p0" class="md-nav__link">
+    <span class="md-ellipsis">
+      I-26 — VIBRANT setup reports success with an unusable database (P0)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-27-iphop-built-from-bioconda-carries-three-known-defects-p1" class="md-nav__link">
+    <span class="md-ellipsis">
+      I-27 — iPHoP built from bioconda carries three known defects (P1)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-28-drams-dbcan-downloads-return-an-html-landing-page-p0" class="md-nav__link">
+    <span class="md-ellipsis">
+      I-28 — DRAM's dbCAN downloads return an HTML landing page (P0)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-29-dram-setup-cannot-tell-a-finished-database-from-an-abandoned-one-p1" class="md-nav__link">
+    <span class="md-ellipsis">
+      I-29 — DRAM setup cannot tell a finished database from an abandoned one (P1)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-30-vogdb-moved-its-profiles-into-a-subdirectory-and-dram-silently-builds-nothing-p0" class="md-nav__link">
+    <span class="md-ellipsis">
+      I-30 — VOGDB moved its profiles into a subdirectory and DRAM silently builds nothing (P0)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-31-files-unpacked-by-tar-can-land-unreadable-by-their-own-owner-p1" class="md-nav__link">
+    <span class="md-ellipsis">
+      I-31 — Files unpacked by tar can land unreadable by their own owner (P1)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-32-vcontact2-replaced-by-vcontact3-p1" class="md-nav__link">
+    <span class="md-ellipsis">
+      I-32 — vConTACT2 replaced by vConTACT3 (P1)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-33-results_tse-cannot-read-its-own-gzipped-abundance-inputs-p0" class="md-nav__link">
+    <span class="md-ellipsis">
+      I-33 — RESULTS_TSE cannot read its own gzipped abundance inputs (P0)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-34-max_target_seqs-makes-contig-dereplication-depend-on-library-size-p2" class="md-nav__link">
+    <span class="md-ellipsis">
+      I-34 — -max_target_seqs makes contig dereplication depend on library size (P2)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-35-exact-duplicate-contigs-entered-the-on2-dereplication-stage-p3" class="md-nav__link">
+    <span class="md-ellipsis">
+      I-35 — Exact duplicate contigs entered the O(n²) dereplication stage (P3)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-36-phamb_rf-calls-a-cli-the-installed-phamb-does-not-have-p1" class="md-nav__link">
+    <span class="md-ellipsis">
+      I-36 — PHAMB_RF calls a CLI the installed phamb does not have (P1)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-37-run_rfpy-copied-onto-path-cannot-find-its-own-model-p0" class="md-nav__link">
+    <span class="md-ellipsis">
+      I-37 — run_RF.py copied onto PATH cannot find its own model (P0)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-38-the-binning-image-never-installed-vamb-p0" class="md-nav__link">
+    <span class="md-ellipsis">
+      I-38 — The binning image never installed VAMB (P0)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-39-the-binning-images-second-vrhyme-prefix-had-drifted-to-python-314-p1" class="md-nav__link">
+    <span class="md-ellipsis">
+      I-39 — The binning image's second vrhyme prefix had drifted to Python 3.14 (P1)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-40-vamb-was-given-a-depth-table-covering-contigs-its-fasta-does-not-contain-p2" class="md-nav__link">
+    <span class="md-ellipsis">
+      I-40 — VAMB was given a depth table covering contigs its FASTA does not contain (P2)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-41-contiglib_cluster-requested-one-cpu-while-vclust-threads-every-stage-p3" class="md-nav__link">
+    <span class="md-ellipsis">
+      I-41 — CONTIGLIB_CLUSTER requested one CPU while Vclust threads every stage (P3)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-42-conda-post-link-scripts-are-not-run-by-pixi-p0" class="md-nav__link">
+    <span class="md-ellipsis">
+      I-42 — conda post-link scripts are not run by pixi (P0)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-43-the-pinned-vamb-has-no-jgi-which-is-the-flag-the-process-passes-p0" class="md-nav__link">
+    <span class="md-ellipsis">
+      I-43 — the pinned VAMB has no --jgi, which is the flag the process passes (P0)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-44-vambs-jgi-pairs-depths-to-contigs-by-row-not-by-name-p1" class="md-nav__link">
+    <span class="md-ellipsis">
+      I-44 — VAMB's --jgi pairs depths to contigs by row, not by name (P1)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-45" class="md-nav__link">
+    <span class="md-ellipsis">
+      I-45
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-46" class="md-nav__link">
+    <span class="md-ellipsis">
+      I-46
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-47" class="md-nav__link">
+    <span class="md-ellipsis">
+      I-47
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-48" class="md-nav__link">
+    <span class="md-ellipsis">
+      I-48
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-49" class="md-nav__link">
+    <span class="md-ellipsis">
+      I-49
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-50" class="md-nav__link">
+    <span class="md-ellipsis">
+      I-50
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-51" class="md-nav__link">
+    <span class="md-ellipsis">
+      I-51
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-52" class="md-nav__link">
+    <span class="md-ellipsis">
+      I-52
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-53" class="md-nav__link">
+    <span class="md-ellipsis">
+      I-53
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-54" class="md-nav__link">
+    <span class="md-ellipsis">
+      I-54
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-55" class="md-nav__link">
+    <span class="md-ellipsis">
+      I-55
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-56" class="md-nav__link">
+    <span class="md-ellipsis">
+      I-56
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="I-56">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#where-the-same-shape-still-is" class="md-nav__link">
+    <span class="md-ellipsis">
+      Where the same shape still is
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-57" class="md-nav__link">
+    <span class="md-ellipsis">
+      I-57
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-58" class="md-nav__link">
+    <span class="md-ellipsis">
+      I-58
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-59" class="md-nav__link">
+    <span class="md-ellipsis">
+      I-59
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ARM64/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Building for arm64
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PACKAGING/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Packaging the images
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#i-01-all-11-container-images-are-amd64-only-p0" class="md-nav__link">
+    <span class="md-ellipsis">
+      I-01 — All 11 container images are amd64-only (P0)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-02-viroprofiler-viewer-image-has-no-dockerfile-in-this-repo-p0-for-rebuilds" class="md-nav__link">
+    <span class="md-ellipsis">
+      I-02 — viroprofiler-viewer image has no Dockerfile in this repo (P0 for rebuilds)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-03-paramsdb-is-used-inside-containers-but-never-bind-mounted-p0" class="md-nav__link">
+    <span class="md-ellipsis">
+      I-03 — params.db is used inside containers but never bind-mounted (P0)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-04-stub-samplesheet-paths-resolve-against-the-launch-directory-p1" class="md-nav__link">
+    <span class="md-ellipsis">
+      I-04 — Stub samplesheet paths resolve against the launch directory (P1)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-05-paramstracedir-captures-the-default-outdir-p1" class="md-nav__link">
+    <span class="md-ellipsis">
+      I-05 — params.tracedir captures the default outdir (P1)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-06-iphop-database-directory-name-is-hardcoded-and-inconsistent-p1" class="md-nav__link">
+    <span class="md-ellipsis">
+      I-06 — iPHoP database directory name is hardcoded and inconsistent (P1)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-07-bracken-and-kraken2-database-paths-disagree-p1" class="md-nav__link">
+    <span class="md-ellipsis">
+      I-07 — Bracken and Kraken2 database paths disagree (P1)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-08-ncbi-taxonomy-pinned-to-the-2022-08-01-archive-p2" class="md-nav__link">
+    <span class="md-ellipsis">
+      I-08 — NCBI taxonomy pinned to the 2022-08-01 archive (P2)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-09-vogdb-host-renamed-url-is-plain-http-p2" class="md-nav__link">
+    <span class="md-ellipsis">
+      I-09 — VOGDB host renamed; URL is plain HTTP (P2)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-10-database-setup-is-not-resumable-and-never-verified-p2" class="md-nav__link">
+    <span class="md-ellipsis">
+      I-10 — Database setup is not resumable and never verified (P2)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-11-mode-fastqc-fastp-contiglib-are-not-implemented-p2" class="md-nav__link">
+    <span class="md-ellipsis">
+      I-11 — --mode fastqc / fastp / contiglib are not implemented (P2)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-12-dockeruseremulation-was-removed-from-nextflow-p2" class="md-nav__link">
+    <span class="md-ellipsis">
+      I-12 — docker.userEmulation was removed from Nextflow (P2)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-13-stub-output-directories-are-committed-p3" class="md-nav__link">
+    <span class="md-ellipsis">
+      I-13 — Stub output directories are committed (P3)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-14-claudemd-mandates-an-mcp-server-that-is-not-part-of-the-repo-p3" class="md-nav__link">
+    <span class="md-ellipsis">
+      I-14 — CLAUDE.md mandates an MCP server that is not part of the repo (P3)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-15-contamref_idx-ignores-db-and-nothing-ever-creates-it-p1" class="md-nav__link">
+    <span class="md-ellipsis">
+      I-15 — contamref_idx ignores --db and nothing ever creates it (P1)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-16-confmodulesconfig-was-loaded-after-profiles-p1" class="md-nav__link">
+    <span class="md-ellipsis">
+      I-16 — conf/modules.config was loaded after profiles (P1)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-17-dockerfiles-call-wget-that-was-only-present-transitively-p2" class="md-nav__link">
+    <span class="md-ellipsis">
+      I-17 — Dockerfiles call wget that was only present transitively (P2)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-18-deepvirfinder-was-bundled-into-the-binning-image-p2" class="md-nav__link">
+    <span class="md-ellipsis">
+      I-18 — DeepVirFinder was bundled into the binning image (P2)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-19-vendored-nf-core-modules-and-their-containers-are-from-2022-p2" class="md-nav__link">
+    <span class="md-ellipsis">
+      I-19 — Vendored nf-core modules and their containers are from 2022 (P2)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-20-assetssamplesheet_contigscsv-contains-a-literal-home-p3" class="md-nav__link">
+    <span class="md-ellipsis">
+      I-20 — assets/samplesheet_contigs.csv contains a literal ${HOME} (P3)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-21-2022-era-tools-break-on-a-modern-pythonsetuptools-p1" class="md-nav__link">
+    <span class="md-ellipsis">
+      I-21 — 2022-era tools break on a modern Python/setuptools (P1)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-22-a-dram-14-source-file-was-copied-over-a-dram-135-install-p0" class="md-nav__link">
+    <span class="md-ellipsis">
+      I-22 — A DRAM 1.4 source file was copied over a DRAM 1.3.5 install (P0)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-23-drams-config-was-hand-written-from-2021-filenames-and-todays-date-p1" class="md-nav__link">
+    <span class="md-ellipsis">
+      I-23 — DRAM's CONFIG was hand-written from 2021 filenames and today's date (P1)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-24-dramv-created-a-symlink-inside-the-container-image-p0" class="md-nav__link">
+    <span class="md-ellipsis">
+      I-24 — DRAMV created a symlink inside the container image (P0)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-25-eggnog-mapper-219-needs-distutils-removed-in-python-312-p1" class="md-nav__link">
+    <span class="md-ellipsis">
+      I-25 — eggNOG-mapper 2.1.9 needs distutils, removed in Python 3.12 (P1)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-26-vibrant-setup-reports-success-with-an-unusable-database-p0" class="md-nav__link">
+    <span class="md-ellipsis">
+      I-26 — VIBRANT setup reports success with an unusable database (P0)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-27-iphop-built-from-bioconda-carries-three-known-defects-p1" class="md-nav__link">
+    <span class="md-ellipsis">
+      I-27 — iPHoP built from bioconda carries three known defects (P1)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-28-drams-dbcan-downloads-return-an-html-landing-page-p0" class="md-nav__link">
+    <span class="md-ellipsis">
+      I-28 — DRAM's dbCAN downloads return an HTML landing page (P0)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-29-dram-setup-cannot-tell-a-finished-database-from-an-abandoned-one-p1" class="md-nav__link">
+    <span class="md-ellipsis">
+      I-29 — DRAM setup cannot tell a finished database from an abandoned one (P1)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-30-vogdb-moved-its-profiles-into-a-subdirectory-and-dram-silently-builds-nothing-p0" class="md-nav__link">
+    <span class="md-ellipsis">
+      I-30 — VOGDB moved its profiles into a subdirectory and DRAM silently builds nothing (P0)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-31-files-unpacked-by-tar-can-land-unreadable-by-their-own-owner-p1" class="md-nav__link">
+    <span class="md-ellipsis">
+      I-31 — Files unpacked by tar can land unreadable by their own owner (P1)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-32-vcontact2-replaced-by-vcontact3-p1" class="md-nav__link">
+    <span class="md-ellipsis">
+      I-32 — vConTACT2 replaced by vConTACT3 (P1)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-33-results_tse-cannot-read-its-own-gzipped-abundance-inputs-p0" class="md-nav__link">
+    <span class="md-ellipsis">
+      I-33 — RESULTS_TSE cannot read its own gzipped abundance inputs (P0)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-34-max_target_seqs-makes-contig-dereplication-depend-on-library-size-p2" class="md-nav__link">
+    <span class="md-ellipsis">
+      I-34 — -max_target_seqs makes contig dereplication depend on library size (P2)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-35-exact-duplicate-contigs-entered-the-on2-dereplication-stage-p3" class="md-nav__link">
+    <span class="md-ellipsis">
+      I-35 — Exact duplicate contigs entered the O(n²) dereplication stage (P3)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-36-phamb_rf-calls-a-cli-the-installed-phamb-does-not-have-p1" class="md-nav__link">
+    <span class="md-ellipsis">
+      I-36 — PHAMB_RF calls a CLI the installed phamb does not have (P1)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-37-run_rfpy-copied-onto-path-cannot-find-its-own-model-p0" class="md-nav__link">
+    <span class="md-ellipsis">
+      I-37 — run_RF.py copied onto PATH cannot find its own model (P0)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-38-the-binning-image-never-installed-vamb-p0" class="md-nav__link">
+    <span class="md-ellipsis">
+      I-38 — The binning image never installed VAMB (P0)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-39-the-binning-images-second-vrhyme-prefix-had-drifted-to-python-314-p1" class="md-nav__link">
+    <span class="md-ellipsis">
+      I-39 — The binning image's second vrhyme prefix had drifted to Python 3.14 (P1)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-40-vamb-was-given-a-depth-table-covering-contigs-its-fasta-does-not-contain-p2" class="md-nav__link">
+    <span class="md-ellipsis">
+      I-40 — VAMB was given a depth table covering contigs its FASTA does not contain (P2)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-41-contiglib_cluster-requested-one-cpu-while-vclust-threads-every-stage-p3" class="md-nav__link">
+    <span class="md-ellipsis">
+      I-41 — CONTIGLIB_CLUSTER requested one CPU while Vclust threads every stage (P3)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-42-conda-post-link-scripts-are-not-run-by-pixi-p0" class="md-nav__link">
+    <span class="md-ellipsis">
+      I-42 — conda post-link scripts are not run by pixi (P0)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-43-the-pinned-vamb-has-no-jgi-which-is-the-flag-the-process-passes-p0" class="md-nav__link">
+    <span class="md-ellipsis">
+      I-43 — the pinned VAMB has no --jgi, which is the flag the process passes (P0)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-44-vambs-jgi-pairs-depths-to-contigs-by-row-not-by-name-p1" class="md-nav__link">
+    <span class="md-ellipsis">
+      I-44 — VAMB's --jgi pairs depths to contigs by row, not by name (P1)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-45" class="md-nav__link">
+    <span class="md-ellipsis">
+      I-45
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-46" class="md-nav__link">
+    <span class="md-ellipsis">
+      I-46
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-47" class="md-nav__link">
+    <span class="md-ellipsis">
+      I-47
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-48" class="md-nav__link">
+    <span class="md-ellipsis">
+      I-48
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-49" class="md-nav__link">
+    <span class="md-ellipsis">
+      I-49
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-50" class="md-nav__link">
+    <span class="md-ellipsis">
+      I-50
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-51" class="md-nav__link">
+    <span class="md-ellipsis">
+      I-51
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-52" class="md-nav__link">
+    <span class="md-ellipsis">
+      I-52
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-53" class="md-nav__link">
+    <span class="md-ellipsis">
+      I-53
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-54" class="md-nav__link">
+    <span class="md-ellipsis">
+      I-54
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-55" class="md-nav__link">
+    <span class="md-ellipsis">
+      I-55
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-56" class="md-nav__link">
+    <span class="md-ellipsis">
+      I-56
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="I-56">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#where-the-same-shape-still-is" class="md-nav__link">
+    <span class="md-ellipsis">
+      Where the same shape still is
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-57" class="md-nav__link">
+    <span class="md-ellipsis">
+      I-57
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-58" class="md-nav__link">
+    <span class="md-ellipsis">
+      I-58
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-59" class="md-nav__link">
+    <span class="md-ellipsis">
+      I-59
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="known-issues-2026-modernization-audit">Known Issues — 2026 Modernization Audit</h1>
+<p>Running log of every defect found while redeploying ViroProfiler <code>dev_ru</code> on a fresh
+machine (NVIDIA DGX Spark, aarch64/GB10, Apptainer 1.5.2, Nextflow 26.04.3, 2026-08-12).</p>
+<p>Bugs are recorded first and fixed in batches; the <code>Status</code> column tracks that.
+Severity: <strong>P0</strong> blocks any run · <strong>P1</strong> blocks a common use case · <strong>P2</strong> correctness or
+usability defect · <strong>P3</strong> hygiene.</p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Severity</th>
+<th>Area</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#i-01">I-01</a></td>
+<td>P0</td>
+<td>Containers — amd64-only images</td>
+<td>Partly fixed — arm64 images build from <code>docker/</code>, except iPHoP. DeepVirFinder was retired in favour of geNomad, which builds on aarch64</td>
+</tr>
+<tr>
+<td><a href="#i-02">I-02</a></td>
+<td>P0</td>
+<td>Containers — <code>viroprofiler-viewer</code> has no Dockerfile</td>
+<td>Fixed</td>
+</tr>
+<tr>
+<td><a href="#i-03">I-03</a></td>
+<td>P0</td>
+<td>Config — <code>params.db</code> never bind-mounted into containers</td>
+<td>Fixed</td>
+</tr>
+<tr>
+<td><a href="#i-04">I-04</a></td>
+<td>P1</td>
+<td>Test data — stub samplesheet uses launch-dir-relative paths</td>
+<td>Fixed</td>
+</tr>
+<tr>
+<td><a href="#i-05">I-05</a></td>
+<td>P1</td>
+<td>Config — <code>params.tracedir</code> frozen to the default <code>outdir</code></td>
+<td>Fixed</td>
+</tr>
+<tr>
+<td><a href="#i-06">I-06</a></td>
+<td>P1</td>
+<td>Databases — iPHoP DB directory name hardcoded and stale</td>
+<td>Fixed</td>
+</tr>
+<tr>
+<td><a href="#i-07">I-07</a></td>
+<td>P1</td>
+<td>Databases — Bracken/Kraken2 DB paths disagree</td>
+<td>Fixed</td>
+</tr>
+<tr>
+<td><a href="#i-08">I-08</a></td>
+<td>P2</td>
+<td>Databases — NCBI taxonomy pinned to a 2022 archive snapshot</td>
+<td>Fixed — its only consumer, the MMseqs2 LCA, was retired and <code>DB_VREFSEQ</code> deleted</td>
+</tr>
+<tr>
+<td><a href="#i-09">I-09</a></td>
+<td>P2</td>
+<td>Databases — VOGDB host renamed; plain-HTTP URL</td>
+<td>Fixed — HTTPS, canonical host, release pinned via <code>--vogdb_version</code></td>
+</tr>
+<tr>
+<td><a href="#i-10">I-10</a></td>
+<td>P2</td>
+<td>Databases — setup steps are not resumable and never verified</td>
+<td>Open</td>
+</tr>
+<tr>
+<td><a href="#i-11">I-11</a></td>
+<td>P2</td>
+<td>Workflow — <code>--mode fastqc</code> / <code>fastp</code> / <code>contiglib</code> not honoured</td>
+<td>Fixed</td>
+</tr>
+<tr>
+<td><a href="#i-12">I-12</a></td>
+<td>P2</td>
+<td>Config — <code>docker.userEmulation</code> removed in modern Nextflow</td>
+<td>Fixed</td>
+</tr>
+<tr>
+<td><a href="#i-13">I-13</a></td>
+<td>P3</td>
+<td>Repo — stub output directories committed despite <code>.gitignore</code></td>
+<td>Fixed</td>
+</tr>
+<tr>
+<td><a href="#i-14">I-14</a></td>
+<td>P3</td>
+<td>Docs — <code>CLAUDE.md</code> references an MCP server that is not part of the repo</td>
+<td>Fixed</td>
+</tr>
+<tr>
+<td><a href="#i-15">I-15</a></td>
+<td>P1</td>
+<td>Config — <code>contamref_idx</code> ignores <code>--db</code> and nothing ever creates it</td>
+<td>Partly fixed — follows <code>--db</code>, still not built by setup</td>
+</tr>
+<tr>
+<td><a href="#i-16">I-16</a></td>
+<td>P1</td>
+<td>Config — <code>modules.config</code> loaded after <code>profiles</code>, so containers were unoverridable</td>
+<td>Fixed</td>
+</tr>
+<tr>
+<td><a href="#i-17">I-17</a></td>
+<td>P2</td>
+<td>Containers — Dockerfiles call <code>wget</code> that is only present transitively</td>
+<td>Fixed</td>
+</tr>
+<tr>
+<td><a href="#i-18">I-18</a></td>
+<td>P2</td>
+<td>Containers — DeepVirFinder bundled into the binning image</td>
+<td>Fixed</td>
+</tr>
+<tr>
+<td><a href="#i-19">I-19</a></td>
+<td>P2</td>
+<td>Modules — vendored nf-core modules and their containers are from 2022</td>
+<td>Open</td>
+</tr>
+<tr>
+<td><a href="#i-20">I-20</a></td>
+<td>P3</td>
+<td>Assets — <code>samplesheet_contigs.csv</code> contains a literal <code>${HOME}</code></td>
+<td>Fixed</td>
+</tr>
+<tr>
+<td><a href="#i-21">I-21</a></td>
+<td>P1</td>
+<td>Containers — 2022-era tools break on modern Python/setuptools</td>
+<td>Fixed</td>
+</tr>
+<tr>
+<td><a href="#i-22">I-22</a></td>
+<td>P0</td>
+<td>Containers — DRAM 1.4 source file copied over a DRAM 1.3.5 install</td>
+<td>Fixed</td>
+</tr>
+<tr>
+<td><a href="#i-23">I-23</a></td>
+<td>P1</td>
+<td>Databases — DRAM <code>CONFIG</code> hand-written from 2021 filenames and today's date</td>
+<td>Fixed</td>
+</tr>
+<tr>
+<td><a href="#i-24">I-24</a></td>
+<td>P0</td>
+<td>Modules — <code>DRAMV</code> writes a symlink into the container image</td>
+<td>Fixed</td>
+</tr>
+<tr>
+<td><a href="#i-25">I-25</a></td>
+<td>P1</td>
+<td>Containers — eggNOG-mapper 2.1.9 needs <code>distutils</code>, gone in Python 3.12</td>
+<td>Fixed</td>
+</tr>
+<tr>
+<td><a href="#i-26">I-26</a></td>
+<td>P0</td>
+<td>Databases — VIBRANT setup reports success with an unusable database</td>
+<td>Fixed</td>
+</tr>
+<tr>
+<td><a href="#i-27">I-27</a></td>
+<td>P1</td>
+<td>Containers — iPHoP built from bioconda carries three known defects</td>
+<td>Fixed</td>
+</tr>
+<tr>
+<td><a href="#i-28">I-28</a></td>
+<td>P0</td>
+<td>Databases — DRAM's dbCAN downloads return an HTML landing page</td>
+<td>Fixed</td>
+</tr>
+<tr>
+<td><a href="#i-29">I-29</a></td>
+<td>P1</td>
+<td>Databases — DRAM setup cannot tell a finished database from an abandoned one</td>
+<td>Fixed</td>
+</tr>
+<tr>
+<td><a href="#i-30">I-30</a></td>
+<td>P0</td>
+<td>Databases — VOGDB moved its profiles into a subdirectory; DRAM builds an empty HMM file</td>
+<td>Fixed</td>
+</tr>
+<tr>
+<td><a href="#i-31">I-31</a></td>
+<td>P1</td>
+<td>Databases — files unpacked by tar can land unreadable by their own owner</td>
+<td>Fixed</td>
+</tr>
+<tr>
+<td><a href="#i-32">I-32</a></td>
+<td>P1</td>
+<td>Modules — vConTACT2 taxonomy derived from a SPAdes naming convention</td>
+<td>Fixed — replaced by vConTACT3</td>
+</tr>
+<tr>
+<td><a href="#i-33">I-33</a></td>
+<td>P0</td>
+<td>Containers — <code>RESULTS_TSE</code> cannot read its own gzipped abundance inputs</td>
+<td>Fixed</td>
+</tr>
+<tr>
+<td><a href="#i-34">I-34</a></td>
+<td>P2</td>
+<td>Modules — <code>-max_target_seqs</code> makes contig dereplication depend on library size</td>
+<td>Fixed — BLAST chain replaced by Vclust</td>
+</tr>
+<tr>
+<td><a href="#i-35">I-35</a></td>
+<td>P3</td>
+<td>Modules — exact duplicate contigs entered the O(n²) dereplication stage</td>
+<td>Fixed</td>
+</tr>
+<tr>
+<td><a href="#i-36">I-36</a></td>
+<td>P1</td>
+<td>Modules — <code>PHAMB_RF</code> calls a CLI the installed phamb does not have</td>
+<td>Fixed</td>
+</tr>
+<tr>
+<td><a href="#i-37">I-37</a></td>
+<td>P0</td>
+<td>Containers — <code>run_RF.py</code> copied onto PATH cannot find its own model</td>
+<td>Fixed</td>
+</tr>
+<tr>
+<td><a href="#i-38">I-38</a></td>
+<td>P0</td>
+<td>Containers — the binning image never installed VAMB</td>
+<td>Fixed on amd64; VAMB has no aarch64 build</td>
+</tr>
+<tr>
+<td><a href="#i-39">I-39</a></td>
+<td>P1</td>
+<td>Containers — the binning image's second <code>vrhyme</code> prefix had drifted to Python 3.14</td>
+<td>Fixed</td>
+</tr>
+<tr>
+<td><a href="#i-40">I-40</a></td>
+<td>P2</td>
+<td>Modules — <code>VAMB</code> was given a depth table covering contigs its FASTA does not contain</td>
+<td>Fixed</td>
+</tr>
+<tr>
+<td><a href="#i-41">I-41</a></td>
+<td>P3</td>
+<td>Config — <code>CONTIGLIB_CLUSTER</code> requested one CPU while Vclust threads every stage</td>
+<td>Fixed</td>
+</tr>
+<tr>
+<td><a href="#i-42">I-42</a></td>
+<td>P0</td>
+<td>Containers — conda post-link scripts are not run by pixi, leaving a data package uninstalled</td>
+<td>Fixed</td>
+</tr>
+<tr>
+<td><a href="#i-43">I-43</a></td>
+<td>P0</td>
+<td>Containers — the VAMB version pinned has no <code>--jgi</code>, the flag the process passes</td>
+<td>Fixed</td>
+</tr>
+<tr>
+<td><a href="#i-44">I-44</a></td>
+<td>P1</td>
+<td>Modules — VAMB's <code>--jgi</code> pairs depths to contigs by row, not by name</td>
+<td>Fixed</td>
+</tr>
+<tr>
+<td><a href="#i-45">I-45</a></td>
+<td>P0</td>
+<td>Config — the pipeline does not parse under Nextflow's default config parser</td>
+<td>Fixed</td>
+</tr>
+<tr>
+<td><a href="#i-46">I-46</a></td>
+<td>P1</td>
+<td>Modules — iPHoP, CheckAMG and DRAM-v results never reached <code>RESULTS_TSE</code></td>
+<td>Fixed</td>
+</tr>
+<tr>
+<td><a href="#i-47">I-47</a></td>
+<td>P2</td>
+<td>Config — 432 lines of iGenomes reference config that nothing reads</td>
+<td>Fixed</td>
+</tr>
+<tr>
+<td><a href="#i-48">I-48</a></td>
+<td>P1</td>
+<td>Config — a scheduler's <code>TMPDIR</code> points outside the container, and DRAM-v dies on it</td>
+<td>Fixed</td>
+</tr>
+<tr>
+<td><a href="#i-49">I-49</a></td>
+<td>P2</td>
+<td>Workflow — the completion summary was printed twice on every run</td>
+<td>Fixed</td>
+</tr>
+<tr>
+<td><a href="#i-50">I-50</a></td>
+<td>P0</td>
+<td>Config — a boolean given on the command line arrived as a string, and <code>"false"</code> is true</td>
+<td>Fixed</td>
+</tr>
+<tr>
+<td><a href="#i-51">I-51</a></td>
+<td>P1</td>
+<td>Config — <code>process.resourceLimits</code> above the <code>profiles</code> block ignores every profile</td>
+<td>Fixed</td>
+</tr>
+<tr>
+<td><a href="#i-52">I-52</a></td>
+<td>P0</td>
+<td>Databases — <code>DB_VCONTACT3</code> cannot download: <code>curl</code> is not in the image</td>
+<td>Fixed</td>
+</tr>
+<tr>
+<td><a href="#i-53">I-53</a></td>
+<td>P2</td>
+<td>Databases — a symlinked database that is not bind-mounted is silently re-downloaded</td>
+<td>Open</td>
+</tr>
+<tr>
+<td><a href="#i-54">I-54</a></td>
+<td>P1</td>
+<td>CI — <code>docker.yml</code> was invalid YAML, so the lockfile gate never ran once</td>
+<td>Fixed</td>
+</tr>
+<tr>
+<td><a href="#i-55">I-55</a></td>
+<td>P2</td>
+<td>Modules — two of <code>ABUNDANCE</code>'s six CoverM passes feed no downstream process</td>
+<td>Closed — kept as published side products, by decision</td>
+</tr>
+<tr>
+<td><a href="#i-56">I-56</a></td>
+<td>P0</td>
+<td>Databases — neither PHAMB database could be built, and the guard hid both</td>
+<td>Fixed</td>
+</tr>
+<tr>
+<td><a href="#i-57">I-57</a></td>
+<td>P1</td>
+<td>Config — Docker creates a missing <code>--db</code> as root, so setup cannot write to it</td>
+<td>Fixed</td>
+</tr>
+<tr>
+<td><a href="#i-58">I-58</a></td>
+<td>P0</td>
+<td>Containers — the viewer image could not install vpfkit on amd64: <code>here</code> undeclared, present on aarch64 only transitively</td>
+<td>Fixed</td>
+</tr>
+<tr>
+<td><a href="#i-59">I-59</a></td>
+<td>P1</td>
+<td>Containers — <code>viroprofiler-host</code> could not be built by CI: the iPHoP fork it installs was private</td>
+<td>Fixed — the fork is public, the image is published</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><a id="i-01"></a></p>
+<h2 id="i-01-all-11-container-images-are-amd64-only-p0">I-01 — All 11 container images are amd64-only (P0)</h2>
+<p><code>docker manifest inspect</code> on every image referenced by <code>conf/modules.config</code> returns a
+single-architecture amd64 manifest:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>denglab/viroprofiler-base:v0.2           amd64
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>denglab/viroprofiler-abundance:v0.2      amd64
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>denglab/viroprofiler-bracken:v0.2        amd64
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>denglab/viroprofiler-vibrant:v0.2        amd64
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>denglab/viroprofiler-binning:v0.2        amd64
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>denglab/viroprofiler-geneannot:v0.2      amd64
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>denglab/viroprofiler-host:v0.2.6         amd64
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>denglab/viroprofiler-replicyc:v0.1       amd64
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>denglab/viroprofiler-taxa:v0.1           amd64
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>denglab/viroprofiler-virsorter2:v0.2.5   amd64
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>denglab/viroprofiler-viewer:v0.2         amd64
+</code></pre></div>
+<p>The four vendored nf-core modules (FASTQC, FASTP, SPADES, MULTIQC) pull
+<code>quay.io/biocontainers/*</code>, which are likewise amd64-only.</p>
+<p><strong>Impact.</strong> The pipeline cannot start on any arm64 host (Apple silicon, AWS Graviton,
+NVIDIA GB10/GB200, Ampere). Apptainer fails with <code>Exec format error</code> unless a
+<code>binfmt_misc</code> QEMU interpreter is registered, and emulation is not a supportable answer for
+multi-threaded native aligners.</p>
+<p><strong>Decision.</strong> Publish arm64 builds from the Dockerfiles already in <code>docker/</code>.</p>
+<p><strong>Known obstacles for the arm64 rebuild</strong> (from <code>api.anaconda.org</code>, 2026-08-12):</p>
+<table>
+<thead>
+<tr>
+<th>Package</th>
+<th>linux-aarch64 in bioconda?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>mmseqs2</code>, <code>spades</code>, <code>fastp</code>, <code>bbmap</code>, <code>seqkit</code>, <code>prodigal-gv</code>, <code>bowtie2</code>, <code>coverm</code></td>
+<td>yes</td>
+</tr>
+<tr>
+<td><code>virsorter</code></td>
+<td>no — <code>linux-64</code> + <code>noarch</code> only</td>
+</tr>
+<tr>
+<td><code>fastqc</code>, <code>abricate</code>, <code>eggnog-mapper</code>, <code>multiqc</code></td>
+<td>no — <code>linux-64</code> + <code>noarch</code> only</td>
+</tr>
+<tr>
+<td><code>checkv</code>, <code>vibrant</code>, <code>iphop</code>, <code>bacphlip</code>, <code>replidec</code>, <code>vrhyme</code></td>
+<td><code>noarch</code> (installable, but their compiled dependencies must resolve)</td>
+</tr>
+<tr>
+<td><code>vcontact3</code></td>
+<td>no — and two of its dependencies have no aarch64 conda build either (<a href="#i-32">I-32</a>)</td>
+</tr>
+<tr>
+<td><code>deepvirfinder</code></td>
+<td>not in bioconda at all (comes from the <code>hcc</code> channel)</td>
+</tr>
+</tbody>
+</table>
+<p>The retired <code>docker/viroprofiler-taxa/Dockerfile</code> additionally downloaded
+<code>mmseqs-linux-avx2.tar.gz</code>, an x86-64 binary that has no arm64 equivalent under that name.</p>
+<p><a id="i-02"></a></p>
+<h2 id="i-02-viroprofiler-viewer-image-has-no-dockerfile-in-this-repo-p0-for-rebuilds">I-02 — <code>viroprofiler-viewer</code> image has no Dockerfile in this repo (P0 for rebuilds)</h2>
+<p><code>conf/modules.config</code> maps <code>withLabel: viroprofiler_vpfkit</code> to
+<code>denglab/viroprofiler-viewer:v0.2</code>, which <code>RESULTS_TSE</code> (<code>modules/local/base.nf</code>) uses to
+build the final TreeSummarizedExperiment. There is no <code>docker/viroprofiler-viewer/</code>
+directory, so the image cannot be rebuilt or audited from this repository. The label name
+(<code>vpfkit</code>) and the image name (<code>viewer</code>) also disagree, which makes the mapping hard to
+follow.</p>
+<p><a id="i-03"></a></p>
+<h2 id="i-03-paramsdb-is-used-inside-containers-but-never-bind-mounted-p0">I-03 — <code>params.db</code> is used inside containers but never bind-mounted (P0)</h2>
+<p>Thirteen call sites reference the database root as a bare path inside a container script,
+for example:</p>
+<ul>
+<li><code>modules/local/viral_detection.nf:22,26,81,160</code></li>
+<li><code>modules/local/annotation.nf:21,22,62,85,107</code></li>
+<li><code>modules/local/taxonomy.nf:61,65,66</code></li>
+<li><code>modules/local/viral_host.nf:18</code></li>
+<li><code>modules/local/bracken.nf:27</code></li>
+</ul>
+<p><code>params.db</code> is a plain string, not a staged Nextflow input, so <code>singularity.autoMounts</code> /
+<code>apptainer.autoMounts</code> do not mount it. Nothing in <code>nextflow.config</code> adds a bind either —
+the only bind directives in the repository live in the untracked, site-specific
+<code>custom.config</code>.</p>
+<p><strong>Impact.</strong> The default <code>--db $HOME/viroprofiler</code> works only by accident, because Apptainer
+mounts <code>$HOME</code> by default. Any user who follows the documentation and puts the databases on
+a scratch or project filesystem (<code>--db /mnt/scratch/db/viroprofiler</code>,
+<code>--db /scratch/$USER/db</code>, …) gets "No such file or directory" from inside every container.
+This is a strong candidate for the failure users have been reporting.</p>
+<p><a id="i-04"></a></p>
+<h2 id="i-04-stub-samplesheet-paths-resolve-against-the-launch-directory-p1">I-04 — Stub samplesheet paths resolve against the launch directory (P1)</h2>
+<p><code>tests/data/samplesheet_stub.csv</code> and <code>samplesheet_stub_se.csv</code> list
+<code>tests/data/stub_R1.fastq.gz</code>. Nextflow resolves a relative <code>file()</code> path against
+<code>launchDir</code>, not <code>projectDir</code>, so the stub test only works when it is launched from the
+repository root:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>ERROR ~ No such file or directory: &lt;launchDir&gt;/tests/data/stub_R1.fastq.gz
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a> -- Check script &#39;subworkflows/local/input_check.nf&#39; at line: 14
+</code></pre></div>
+<p>Introduced by commit <code>b7689d1</code> ("use relative paths in stub samplesheet for local
+compatibility"). The CI workflow happens to run from the repo root, so CI never caught it.</p>
+<p><a id="i-05"></a></p>
+<h2 id="i-05-paramstracedir-captures-the-default-outdir-p1">I-05 — <code>params.tracedir</code> captures the default <code>outdir</code> (P1)</h2>
+<p><code>nextflow.config:88</code> defines <code>tracedir = "${params.outdir}/pipeline_info"</code> inside the same
+<code>params</code> block that defines <code>outdir</code>. The GString is interpolated when the block is parsed,
+before any profile or <code>--outdir</code> on the command line is applied. Running with
+<code>-profile test_stub</code> (which sets <code>outdir = "output_stub"</code>) still reports
+<code>tracedir : output/pipeline_info</code>, and the timeline/report/trace/DAG files are written to
+the wrong tree — or fail to render at all:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>WARN: Failed to render execution report -- see the log file for details
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>WARN: Failed to render execution timeline -- see the log file for details
+</code></pre></div>
+<p><a id="i-06"></a></p>
+<h2 id="i-06-iphop-database-directory-name-is-hardcoded-and-inconsistent-p1">I-06 — iPHoP database directory name is hardcoded and inconsistent (P1)</h2>
+<ul>
+<li><code>modules/local/viral_host.nf:18</code> passes <code>--db_dir ${params.db}/iphop/Aug_2023_pub_rw</code>.</li>
+<li><code>modules/local/setup_db.nf</code> (<code>DB_IPHOP</code>) runs <code>iphop download -d $params.db/iphop -n</code> and
+  then deletes <code>${params.db}/iphop/iPHoP_db_Sept21.tar.gz</code>.</li>
+</ul>
+<p>The setup step therefore cleans up an artefact from the <em>September 2021</em> release while the
+analysis step expects the <em>August 2023</em> directory. Whichever release <code>iphop download</code>
+currently fetches, at most one of the two is right, and the layout is not verified after
+download. iPHoP host prediction is on by default (<code>use_iphop = true</code>), so this breaks the
+default configuration.</p>
+<p><a id="i-07"></a></p>
+<h2 id="i-07-bracken-and-kraken2-database-paths-disagree-p1">I-07 — Bracken and Kraken2 database paths disagree (P1)</h2>
+<p><code>DB_KRAKEN2</code> builds into <code>${params.db}/kraken2/...</code>, <code>workflows/viroprofiler.nf:255</code> passes
+<code>"${params.db}/kraken2"</code> to <code>BRACKEN</code>, but <code>modules/local/bracken.nf:27</code> links
+<code>${params.db}/bracken/taxonomy/*</code>. The <code>bracken</code> subdirectory is never created by any setup
+process. Only reachable with <code>--use_kraken2 true</code>, hence P1 rather than P0.</p>
+<p><a id="i-08"></a></p>
+<h2 id="i-08-ncbi-taxonomy-pinned-to-the-2022-08-01-archive-p2">I-08 — NCBI taxonomy pinned to the 2022-08-01 archive (P2)</h2>
+<p><code>DB_VREFSEQ</code> downloaded
+<code>https://ftp.ncbi.nih.gov/pub/taxonomy/taxdump_archive/taxdmp_2022-08-01.zip</code>. The URL still
+resolves (HTTP 200 as of 2026-08-12), so this was not a dead link, but every ViroProfiler
+installation was silently frozen to a four-year-old taxonomy. Taxa described since 2022 —
+including the entire post-2022 ICTV phage reclassification — could not be assigned.</p>
+<p><strong>Resolution.</strong> The snapshot existed for one consumer: <code>mmseqs createtaxdb</code>, which built the
+LCA database <code>TAXONOMY_MMSEQS</code> searched. That module was the lowest-priority taxonomy source
+of four, behind VITAP, geNomad and vConTACT3, and it has been retired along with
+<code>DB_VREFSEQ</code>, <code>bin/parse_mmseqsTaxa.py</code> and <code>params.taxa_db_source</code>. VITAP and vConTACT3
+carry their own reference sets, so nothing in the pipeline reads an NCBI taxdump any more.</p>
+<p><a id="i-09"></a></p>
+<h2 id="i-09-vogdb-host-renamed-url-is-plain-http-p2">I-09 — VOGDB host renamed; URL is plain HTTP (P2)</h2>
+<p><code>DB_VOGDB</code> fetched <code>http://fileshare.csb.univie.ac.at/vog/latest/vog.hmm.tar.gz</code>. Measured
+2026-08-15, that URL still resolves, through two redirects: plain HTTP to HTTPS, then
+<code>csb.univie.ac.at</code> to <code>fileshare.lisc.univie.ac.at</code>. It worked only because <code>wget</code> follows
+them. <code>latest</code> was also unpinned, so two installations built months apart got different
+databases with nothing recording which.</p>
+<p>Both are fixed: the process now requests
+<code>https://fileshare.lisc.univie.ac.at/vog/vog${params.vogdb_version}/vog.hmm.tar.gz</code> directly,
+with <code>vogdb_version</code> defaulting to 236 — the newest release at the time of writing, 554 MB
+compressed.</p>
+<p>The same download was also broken in a second, worse way; see <a href="#i-56">I-56</a>.</p>
+<p>The other external URLs were re-verified on 2026-08-12 and all return HTTP 200:
+Zenodo record 7044674 (<code>mmseqs_vrefseq.tar.gz</code>), the phamb <code>RF_model.sav</code> on
+<code>raw.githubusercontent.com</code>, and the miComplete <code>Bact105.hmm</code> on Bitbucket.</p>
+<p><a id="i-10"></a></p>
+<h2 id="i-10-database-setup-is-not-resumable-and-never-verified-p2">I-10 — Database setup is not resumable and never verified (P2)</h2>
+<p>Every process in <code>modules/local/setup_db.nf</code> follows the same pattern:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="o">!</span><span class="w"> </span><span class="o">-</span><span class="n">d</span><span class="w"> </span><span class="n">$</span><span class="o">{</span><span class="n">params</span><span class="o">.</span><span class="na">db</span><span class="o">}/&lt;</span><span class="n">tool</span><span class="o">&gt;</span><span class="w"> </span><span class="o">];</span><span class="w"> </span><span class="n">then</span><span class="w"> </span><span class="o">&lt;</span><span class="n">download</span><span class="o">&gt;</span><span class="w"> </span><span class="o">;</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="n">echo</span><span class="w"> </span><span class="s2">&quot;already exists&quot;</span><span class="w"> </span><span class="o">;</span><span class="w"> </span><span class="n">fi</span>
+</code></pre></div>
+<p>Consequences:</p>
+<ol>
+<li><strong>Interrupted downloads are treated as success.</strong> The guard tests only for directory
+   existence. A download killed halfway leaves the directory in place, so every later run
+   skips it and the pipeline fails much later with a confusing tool-level error.</li>
+<li><strong>No checksum or content validation.</strong> Nothing confirms that the expected files landed.</li>
+<li><strong>No declared outputs.</strong> The processes have neither <code>input:</code> nor <code>output:</code> blocks and
+   write outside the task work directory, so <code>-resume</code> cannot reason about them and
+   Nextflow's provenance tracking does not cover the databases.</li>
+<li><strong><code>DB_VIROPROFILER</code> is a stub that prints "Please download checkv database manually".</strong>
+   It is dead code — never included by <code>subworkflows/local/init.nf</code>.</li>
+</ol>
+<p><a id="i-11"></a></p>
+<h2 id="i-11-mode-fastqc-fastp-contiglib-are-not-implemented-p2">I-11 — <code>--mode fastqc</code> / <code>fastp</code> / <code>contiglib</code> are not implemented (P2)</h2>
+<p><code>nextflow.config</code> and the documentation advertised
+<code>mode = ["setup", "fastqc", "fastp", "contiglib", "all"]</code>, but
+<code>workflows/viroprofiler.nf</code> only branched on <code>setup</code> and <code>all</code>. Any other value ran
+everything up to and including <code>CONTIGLIB_CLUSTER</code> and then silently stopped, so
+<code>--mode fastqc</code> still ran assembly and CheckV. The schema also defaulted <code>mode</code> to <code>test</code>,
+a value the workflow never mentions.</p>
+<p><strong>Resolution.</strong> The stages are numbered in <code>WorkflowViroprofiler.MODE_STAGE</code> and each block
+in the workflow is gated on that number, so a mode is a prefix of the pipeline rather than a
+branch. <code>--mode fastqc</code> now runs 3 processes, <code>fastp</code> 4, <code>contiglib</code> 8 and <code>all</code> 26 on the
+stub dataset. Reporting — <code>CUSTOM_DUMPSOFTWAREVERSIONS</code> and <code>MULTIQC</code> — runs in every mode,
+so a run stopped early still says what it did. <code>initialise()</code> rejects an unknown mode, and
+rejects <code>fastqc</code>/<code>fastp</code> together with <code>--reads_type clean</code>, which skips both stages and
+would otherwise produce an empty run.</p>
+<p><a id="i-12"></a></p>
+<h2 id="i-12-dockeruseremulation-was-removed-from-nextflow-p2">I-12 — <code>docker.userEmulation</code> was removed from Nextflow (P2)</h2>
+<p><code>nextflow.config:144</code> sets <code>docker.userEmulation = true</code>. The option was deprecated in
+Nextflow 23.x and removed in 24.x; <code>manifest.nextflowVersion</code> still claims <code>&gt;=22.04.0</code>.
+Users on a current Nextflow release who pick <code>-profile docker</code> hit an unknown-option error.
+The manifest's version floor needs to state a range this pipeline has actually been tested
+against.</p>
+<p><a id="i-13"></a></p>
+<h2 id="i-13-stub-output-directories-are-committed-p3">I-13 — Stub output directories are committed (P3)</h2>
+<p><code>.gitignore</code> lists <code>output_stub*</code>, yet 121 files under <code>output_stub_v2/</code> and
+<code>output_stub_contiganno_v2/</code> are tracked in git — they were added before the ignore rule.
+They are run artefacts, not fixtures, and they inflate every clone.</p>
+<p><a id="i-14"></a></p>
+<h2 id="i-14-claudemd-mandates-an-mcp-server-that-is-not-part-of-the-repo-p3">I-14 — <code>CLAUDE.md</code> mandates an MCP server that is not part of the repo (P3)</h2>
+<p><code>CLAUDE.md</code> instructs assistants to "ALWAYS use the code-review-graph MCP tools BEFORE
+using Grep/Glob/Read". That server is a local, personal setup; it is not configured in this
+repository and is unavailable in a clean checkout, so the instruction misfires for every
+other contributor.</p>
+<p><a id="i-15"></a></p>
+<h2 id="i-15-contamref_idx-ignores-db-and-nothing-ever-creates-it-p1">I-15 — <code>contamref_idx</code> ignores <code>--db</code> and nothing ever creates it (P1)</h2>
+<p><code>nextflow.config</code> defaults <code>contamref_idx = "${HOME}/viroprofiler/contamination_refs/hg19/ref"</code>.
+Two problems:</p>
+<ol>
+<li>The path is anchored to <code>$HOME</code>, not to <code>params.db</code>, so moving the databases with <code>--db</code>
+   leaves the decontamination reference behind.</li>
+<li>No process in <code>modules/local/setup_db.nf</code> builds a <code>contamination_refs</code> index, and
+   <code>--mode setup</code> never mentions it. <code>--use_decontam true</code> therefore fails on a clean
+   installation with a bare Nextflow file-not-found:</li>
+</ol>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>ERROR ~ No such file or directory: /home/&lt;user&gt;/viroprofiler/contamination_refs/hg19/ref
+</code></pre></div>
+<p>The default should follow <code>params.db</code>, resolved lazily, and either a setup process should
+build the index or the failure should carry an actionable message.</p>
+<p><a id="i-16"></a></p>
+<h2 id="i-16-confmodulesconfig-was-loaded-after-profiles-p1">I-16 — <code>conf/modules.config</code> was loaded after <code>profiles</code> (P1)</h2>
+<p><code>includeConfig 'conf/modules.config'</code> sat at the bottom of <code>nextflow.config</code>, after the
+<code>profiles</code> block. In Nextflow the later include wins, so the container assignments in
+<code>modules.config</code> overrode anything a profile set. No profile could redirect the pipeline to
+a different registry, a local mirror, or a locally built image — an offline or
+air-gapped cluster had no supported way to substitute images.</p>
+<p>Moving the include above <code>profiles</code> makes profile overrides possible; <code>conf/arm64_local.config</code>
+relies on it.</p>
+<p><a id="i-17"></a></p>
+<h2 id="i-17-dockerfiles-call-wget-that-was-only-present-transitively-p2">I-17 — Dockerfiles call <code>wget</code> that was only present transitively (P2)</h2>
+<p><code>docker/viroprofiler-taxa/Dockerfile</code> and <code>docker/viroprofiler-binning/Dockerfile</code> download
+reference data with <code>wget</code>, but neither <code>env_taxa.yml</code> nor <code>env_binning.yml</code> listed it — the
+binary arrived as an incidental dependency of a pinned package. As soon as the solve
+changes, the build fails late with <code>wget: command not found</code> (exit 127) after the multi-GB
+conda step. <code>wget</code> is now declared explicitly.</p>
+<p><a id="i-18"></a></p>
+<h2 id="i-18-deepvirfinder-was-bundled-into-the-binning-image-p2">I-18 — DeepVirFinder was bundled into the binning image (P2)</h2>
+<p><code>docker/viroprofiler-binning/Dockerfile</code> created a second conda environment from
+<code>env_dvf.yml</code>, which pins <code>theano=1.0.3</code> and <code>keras=2.2.4</code> — both frozen to 2018, and
+<code>theano</code> has no <code>linux-aarch64</code> build at all. One unmaintained tool therefore made the whole
+binning image (metabat2, vRhyme, phamb) unbuildable on arm64.</p>
+<p>DeepVirFinder now lives in <code>docker/viroprofiler-dvf/</code>, and the <code>DVF</code> process carries its own
+<code>viroprofiler_dvf</code> label. This changes nothing for amd64 users beyond one extra image.</p>
+<p><a id="i-19"></a></p>
+<h2 id="i-19-vendored-nf-core-modules-and-their-containers-are-from-2022-p2">I-19 — Vendored nf-core modules and their containers are from 2022 (P2)</h2>
+<p><code>modules/nf-core/modules/</code> pins FastQC 0.11.9, fastp 0.23.2, SPAdes 3.15.4 and MultiQC 1.12
+against <code>quay.io/biocontainers</code>, which publishes amd64 only. They also use the pre-nf-core-3
+<code>conda (params.enable_conda ? ... : null)</code> idiom, and <code>params.enable_conda</code> is itself
+deprecated. Current bioconda has FastQC 0.12.1, fastp 1.3.6, SPAdes 4.3.0 and MultiQC 1.35,
+all with <code>linux-aarch64</code> builds.</p>
+<p><a id="i-20"></a></p>
+<h2 id="i-20-assetssamplesheet_contigscsv-contains-a-literal-home-p3">I-20 — <code>assets/samplesheet_contigs.csv</code> contains a literal <code>${HOME}</code> (P3)</h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>sample,contigs
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>contigs,${HOME}/viroprofiler/testdata/viroprofiler-test/contigs.fasta
+</code></pre></div>
+<p><code>splitCsv</code> does no shell expansion, so this resolves to a directory literally named <code>${HOME}</code>.
+The file is also unused: contig-only runs are driven by <code>--input_contigs</code>, not by a
+samplesheet.</p>
+<p><strong>Resolution.</strong> The path is <code>/path/to/contigs.fasta</code>. <code>docs/quickstart.md</code> had the same
+<code>${HOME}</code> in its example samplesheet and got the same substitution.</p>
+<p><a id="i-21"></a></p>
+<h2 id="i-21-2022-era-tools-break-on-a-modern-pythonsetuptools-p1">I-21 — 2022-era tools break on a modern Python/setuptools (P1)</h2>
+<p>Loosening the conda pins so the environments solve on <code>linux-aarch64</code> also lets the solver
+pick current Python and setuptools, and three tools break there:</p>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Failure</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>VirSorter2 2.2.4</td>
+<td><code>ImportError: cannot import name 'load_configfile' from 'snakemake'</code> — removed in snakemake 8</td>
+</tr>
+<tr>
+<td>DRAM 1.3.5</td>
+<td><code>ModuleNotFoundError: No module named 'pkg_resources'</code> on Python 3.14</td>
+</tr>
+<tr>
+<td>vConTACT2 0.11.3</td>
+<td>same <code>pkg_resources</code> failure</td>
+</tr>
+</tbody>
+</table>
+<p><code>pkg_resources</code> cannot be restored just by adding <code>setuptools</code>: setuptools 81 dropped it, and
+the solver picks 84 by default. The environments therefore pin <code>python=3.10</code> and
+<code>setuptools&lt;81</code>, and VirSorter2 now comes from bioconda instead of a <code>pip install -e</code> of git
+master, so its recipe constrains snakemake for us.</p>
+<p>Upgrading DRAM to 1.4.6 does not lift its half of this: <code>mag_annotator/database_handler.py</code>
+still opens with <code>from pkg_resources import resource_filename</code>, so <code>setuptools&lt;81</code> stays.</p>
+<p>This is the general hazard when reviving a pipeline whose environments were captured in
+2022: an unpinned solve is not a "newer, better" environment, it is an untested one.</p>
+<p><a id="i-22"></a></p>
+<h2 id="i-22-a-dram-14-source-file-was-copied-over-a-dram-135-install-p0">I-22 — A DRAM 1.4 source file was copied over a DRAM 1.3.5 install (P0)</h2>
+<p><code>docker/viroprofiler-geneannot/Dockerfile</code> copied a vendored <code>database_handler.py</code> over
+<code>mag_annotator/database_handler.py</code>, but <code>env_dram.yml</code> left <code>dram</code> unpinned and the solver
+resolved 1.3.5. The vendored file is from 1.4.x and imports a helper that does not exist in
+1.3.5, so every <code>DRAM-setup.py</code> invocation died on import:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>File &quot;.../mag_annotator/database_handler.py&quot;, line 17, in &lt;module&gt;
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>    from mag_annotator.utils import divide_chunks, setup_logger
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>ImportError: cannot import name &#39;setup_logger&#39; from &#39;mag_annotator.utils&#39;
+</code></pre></div>
+<p>The environment now pins DRAM 1.4.6, whose own <code>database_handler.py</code> is byte-identical to
+the vendored copy (<code>diff</code> reports only a missing trailing newline). Both the overlay file
+and its <code>database_handler_bak.py</code> sibling are deleted along with the <code>COPY</code>/<code>cp</code> steps.</p>
+<p>DRAM 1.4.6 is installed with <code>pip install --no-deps DRAM-bio==1.4.6</code> rather than from
+bioconda: every bioconda build of <code>dram 1.4.6</code> constrains <code>scikit-bio</code> to <code>&lt;0.6</code>, and
+conda-forge publishes no <code>scikit-bio</code> below 0.6.0 for <code>linux-aarch64</code>, so the conda solve is
+unsatisfiable on arm64. bioconda builds that package from the same PyPI sdist, so the
+installed code is identical; <code>env_dram.yml</code> now lists the run dependencies explicitly.</p>
+<p><a id="i-23"></a></p>
+<h2 id="i-23-drams-config-was-hand-written-from-2021-filenames-and-todays-date-p1">I-23 — DRAM's <code>CONFIG</code> was hand-written from 2021 filenames and today's date (P1)</h2>
+<p><code>bin/create_dram_config.py</code> wrote DRAM's <code>CONFIG</code> by hand before <code>DRAM-setup.py
+prepare_databases</code> ran. It was wrong in three independent ways:</p>
+<ul>
+<li><strong>Stale filenames.</strong> <code>dbCAN-HMMdb-V10.txt</code>, <code>CAZyDB.07292021.fam-activities.txt</code>,
+  <code>vog_latest_hmms.txt</code> and friends are 2021 release names that DRAM 1.4 no longer produces.</li>
+<li><strong>Today's date baked into paths.</strong> Entries such as <code>refseq_viral.{today}.mmsdb</code> only line
+  up if <code>prepare_databases</code> finishes on the same calendar day the config was written.</li>
+<li><strong>Wrong schema.</strong> DRAM 1.3 read a flat <code>{key: path}</code> dict; 1.4 uses a nested document with
+  <code>search_databases</code> / <code>database_descriptions</code> / <code>dram_sheets</code> / <code>description_db</code> /
+  <code>dram_version</code> keys. A flat file is routed through
+  <code>DatabaseHandler.__construct_from_dram_pre_1_4_0()</code>, a legacy import path.</li>
+</ul>
+<p>None of it is needed. <code>prepare_databases</code> builds a <code>DatabaseHandler</code>, calls <code>clear_config()</code>
+and then <code>set_database_paths()</code> / <code>write_config()</code> after every single database it processes,
+recording each <code>path.realpath()</code> as it goes. The only thing it cannot do is create the file:
+<code>DatabaseHandler.load_config()</code> opens it unconditionally, so a missing
+<code>DRAM_CONFIG_LOCATION</code> is a <code>FileNotFoundError</code>. <code>DB_DRAM</code> therefore seeds the file with
+DRAM's own <code>DRAM-setup.py export_config --output_file</code>, which copies the empty template that
+ships inside <code>mag_annotator</code>, and <code>bin/create_dram_config.py</code> is deleted.</p>
+<p><code>export_config</code> has to run with <code>DRAM_CONFIG_LOCATION</code> unset — it resolves its <em>source</em>
+through the same <code>get_config_loc()</code>, so with the variable already exported it would try to
+read the file it is supposed to create.</p>
+<p><a id="i-24"></a></p>
+<h2 id="i-24-dramv-created-a-symlink-inside-the-container-image-p0">I-24 — <code>DRAMV</code> created a symlink inside the container image (P0)</h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a># Due to limitation of container, DRAM database path is hardset to /opt/conda/db2
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>ln -s ${params.db} /opt/conda/db2
+</code></pre></div>
+<p>Writing into <code>/opt/conda</code> needs a writable container filesystem. Under Apptainer and
+Singularity that means <code>--writable-tmpfs</code>, which was only ever set in the untracked,
+site-specific <code>custom.config</code>, so <code>DRAMV</code> could not run for anybody else.</p>
+<p>The symlink is not needed at all. The <code>CONFIG</code> that <code>prepare_databases</code> writes holds
+absolute paths under <code>--db</code>, and <code>--db</code> is bind-mounted into every task at the identical
+path (see <a href="#i-03">I-03</a>), so exporting <code>DRAM_CONFIG_LOCATION</code> is sufficient. Verified by
+replaying the setup and annotate config paths in a <code>docker run --read-only</code> container: the
+<code>ln -s</code> fails with <code>Read-only file system</code> while the rest of the chain succeeds and leaves
+the in-image <code>mag_annotator/CONFIG</code> untouched.</p>
+<p>One residual sharp edge: <code>set_database_paths()</code> stores <code>path.realpath()</code>, whereas the bind
+mount is computed with Groovy's <code>getAbsolutePath()</code>, which does not resolve symlinks. A
+<code>--db</code> that is itself a symlink will therefore be recorded under its resolved name and that
+name will not be mounted.</p>
+<p><a id="i-25"></a></p>
+<h2 id="i-25-eggnog-mapper-219-needs-distutils-removed-in-python-312-p1">I-25 — eggNOG-mapper 2.1.9 needs <code>distutils</code>, removed in Python 3.12 (P1)</h2>
+<p><code>env_emapper.yml</code> pinned only <code>eggnog-mapper=2.1.9</code>, so the solver picked Python 3.14 and
+<code>emapper.py</code> could not start:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>File &quot;.../eggnogmapper/common.py&quot;, line 6, in &lt;module&gt;
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>    from distutils.spawn import find_executable
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>ModuleNotFoundError: No module named &#39;distutils&#39;
+</code></pre></div>
+<p><code>distutils</code> left the standard library in Python 3.12. The environment now pins
+<code>python&lt;3.12</code>. Same class of defect as <a href="#i-21">I-21</a>, in a second environment of the same
+image.</p>
+<p><a id="i-26"></a></p>
+<h2 id="i-26-vibrant-setup-reports-success-with-an-unusable-database-p0">I-26 — VIBRANT setup reports success with an unusable database (P0)</h2>
+<p><code>DB_VIBRANT</code> calls <code>download-db.sh</code>, whose last two lines are:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;VIBRANT databases are downloaded successfully. Please see log file for any error messages.&quot;</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="nb">exit</span><span class="w"> </span><span class="m">0</span>
+</code></pre></div>
+<p>The exit status is unconditional. On a first run against a filesystem that applies a
+default ACL, the files <code>download-db.sh</code> copies out of the image land without owner read
+permission, so <code>python VIBRANT_setup.py</code> never starts:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>Set VIBRANT_DATA_PATH to &lt;db&gt;/vibrant
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>Downloading VIBRANT databases to &lt;db&gt;/vibrant...
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>python: can&#39;t open file &#39;VIBRANT_setup.py&#39;: [Errno 13] Permission denied
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>VIBRANT databases are downloaded successfully. Please see log file for any error messages.
+</code></pre></div>
+<p>The process exits 0 with a 4 MB directory instead of the expected ~11 GB of pressed HMM
+profiles. Because the guard is <code>if [ ! -d &lt;db&gt;/vibrant ]</code>, every later run then skips the
+step, and the pipeline fails much later inside VIBRANT itself with an unrelated-looking
+error.</p>
+<p>The setup step now builds into the task work directory, fixes permissions, asserts that
+<code>VOGDB94_phage</code>, <code>KEGG_profiles_prokaryotes</code> and <code>Pfam-A_v32</code> all have a non-empty
+<code>hmmpress</code> index, and only then publishes the directory.</p>
+<p>The three sources <code>VIBRANT_setup.py</code> downloads from were re-checked on 2026-08-12 and all
+resolve: the VOG host redirects <code>fileshare.csb.univie.ac.at</code> to
+<code>fileshare.lisc.univie.ac.at</code>, and the Pfam and KEGG profile archives are reachable. Both
+of the latter are fetched over <code>ftp://</code>, however, which many clusters block outbound; the
+HTTPS mirrors <code>https://ftp.ebi.ac.uk/...</code> and <code>https://www.genome.jp/ftp/...</code> serve the
+same files.</p>
+<p><a id="i-27"></a></p>
+<h2 id="i-27-iphop-built-from-bioconda-carries-three-known-defects-p1">I-27 — iPHoP built from bioconda carries three known defects (P1)</h2>
+<p><code>docker/viroprofiler-host/</code> installed the bioconda <code>iphop</code> package, which ships:</p>
+<ol>
+<li><code>perl-bioperl&lt;=1.7</code>, which excludes every build bioconda actually publishes (1.7.x). The
+   solver silently skipped the package and RaFAH crashed at run time with
+   <code>Can't locate Bio/SeqIO.pm in @INC</code>.</li>
+<li>an unpinned <code>protobuf</code>, so pip resolves 5.x and TensorFlow 2.7 fails at import with
+   <code>TypeError: Descriptors cannot be created directly</code>.</li>
+<li>classifier weights tracked with Git LFS, so a plain checkout yields ~130-byte pointer
+   files and the step-8 integrator dies in <code>tf.saved_model.load()</code>.</li>
+</ol>
+<p>The image is now built from the hardened fork at <code>github.com/rujinlong/iphop</code>, pinned by
+<code>ARG IPHOP_REF</code>, which fixes all three. It is amd64-only; see
+<a href="../ARM64/">ARM64.md</a>.</p>
+<p>Separately, <code>iphop --version</code> does not exist in any iPHoP release, so <code>versions.yml</code>
+recorded an empty iPHoP version. The process now reads <code>iphop.__version__</code> instead.</p>
+<p><a id="i-28"></a></p>
+<h2 id="i-28-drams-dbcan-downloads-return-an-html-landing-page-p0">I-28 — DRAM's dbCAN downloads return an HTML landing page (P0)</h2>
+<p><code>mag_annotator/database_processing.py</code> fetches all three dbCAN files from <code>bcb.unl.edu</code>.
+That host now redirects every path below <code>/dbCAN2/download/</code> to the dbCAN home page and
+answers <code>200</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>$ curl -sIL -o /dev/null -w &#39;%{http_code} %{content_type} %{url_effective}\n&#39; \
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>    http://bcb.unl.edu/dbCAN2/download/dbCAN-HMMdb-V11.txt
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>200 text/html; charset=UTF-8 https://pro.unl.edu/dbCAN2/
+</code></pre></div>
+<p><code>download_file()</code> uses <code>urlretrieve</code>, which treats that as a successful download and writes
+the 8 KB landing page to <code>dbCAN-HMMdb-V11.txt</code>, <code>CAZyDB.08062022.fam-activities.txt</code> and
+<code>CAZyDB.08062022.fam.subfam.ec.txt</code>. <code>hmmpress</code> at least rejects the first one; the other two
+are description files that nothing validates, so they are parsed straight into
+<code>description_db.sqlite</code> and every dbCAN annotation comes out as fragments of HTML.</p>
+<p>The files themselves are unchanged and still published — only the host moved:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>$ curl -sIL -o /dev/null -w &#39;%{http_code} %{content_type}\n&#39; \
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>    https://pro.unl.edu/dbCAN2/download/dbCAN-HMMdb-V11.txt
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>200 text/plain
+</code></pre></div>
+<p><code>docker/viroprofiler-geneannot/Dockerfile</code> therefore rewrites the host in the installed
+<code>mag_annotator</code>, and the same <code>RUN</code> asserts that the rewrite matched so a future DRAM
+release cannot silently skip it. Patching the library is the last resort, but it is the only
+option here: <code>prepare_databases()</code> collects user-supplied files with</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="n">locs</span> <span class="o">=</span> <span class="p">{</span><span class="n">remove_suffix</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="s1">&#39;_loc&#39;</span><span class="p">):</span> <span class="n">j</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">locals</span><span class="p">()</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">i</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;_loc&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="n">j</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">}</span>
+</code></pre></div>
+<p>and neither <code>dbcan_fam_activities</code> nor <code>dbcan_subfam_ec</code> carries the <code>_loc</code> suffix, so
+<code>--dbcan_fam_activities</code> is accepted and then ignored, and the sub-family EC file has no
+command-line option at all. The same defect makes <code>--vog_annotations</code> a no-op.</p>
+<p>Every other source DRAM 1.4.6 uses was re-checked at the same time and is alive
+(2026-08-12). All of them are tried over <code>ftp://</code> first with an <code>http(s)://</code> fallback, and on
+this network FTP is reachable for all three hosts, so both routes work:</p>
+<table>
+<thead>
+<tr>
+<th>Database</th>
+<th>URL</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>KOfam profiles, KO list</td>
+<td><code>ftp.genome.jp/pub/db/kofam/</code></td>
+<td>200, ~8 MB/s over FTP</td>
+</tr>
+<tr>
+<td>Pfam-A.full, Pfam-A.hmm.dat</td>
+<td><code>ftp.ebi.ac.uk/pub/databases/Pfam/current_release/</code></td>
+<td>200, ~3 MB/s; <code>Pfam-A.full.gz</code> is 22.3 GiB</td>
+</tr>
+<tr>
+<td>MEROPS pepunit.lib</td>
+<td><code>ftp.ebi.ac.uk/pub/databases/merops/current_release/</code></td>
+<td>200, 436 MiB</td>
+</tr>
+<tr>
+<td>RefSeq viral proteins</td>
+<td><code>ftp.ncbi.nlm.nih.gov/refseq/release/viral/</code></td>
+<td>200; one <code>viral.N.protein.faa.gz</code> exists, which is what <code>NUMBER_OF_VIRAL_FILES = 1</code> expects</td>
+</tr>
+<tr>
+<td>VOGDB hmms, annotations</td>
+<td><code>fileshare.csb.univie.ac.at/vog/latest/</code></td>
+<td>301 to <code>fileshare.lisc.univie.ac.at</code>, followed automatically</td>
+</tr>
+<tr>
+<td>DRAM distillation sheets</td>
+<td><code>raw.githubusercontent.com/WrightonLabCSU/DRAM/master/data/</code></td>
+<td>200</td>
+</tr>
+<tr>
+<td>dbCAN HMMs, family activities, sub-family EC</td>
+<td><code>bcb.unl.edu/dbCAN2/download/</code></td>
+<td><strong>dead</strong>, see above</td>
+</tr>
+</tbody>
+</table>
+<p><code>DB_VOGDB</code> reaches the same VOGDB host over plain HTTP; that is tracked separately as
+<a href="#i-09">I-09</a>.</p>
+<p><a id="i-29"></a></p>
+<h2 id="i-29-dram-setup-cannot-tell-a-finished-database-from-an-abandoned-one-p1">I-29 — DRAM setup cannot tell a finished database from an abandoned one (P1)</h2>
+<p><code>DB_DRAM</code> guarded its work with <code>[ ! -d ${params.db}/dram ]</code>. <code>prepare_databases</code> downloads
+and processes sixteen databases over several hours and cannot resume, so any interruption
+leaves a directory that satisfies the guard forever: the next run prints "DRAM database
+already exists", the pipeline reports success, and <code>DRAM-v.py annotate</code> fails much later
+against a database that was never finished.</p>
+<p>The guard is now a completeness check of the <code>CONFIG</code> that DRAM will actually read. Every
+path it names must exist and be non-empty; none may begin with an HTML document (the failure
+mode in <a href="#i-28">I-28</a>); the sidecar files that mmseqs and HMMER need but the <code>CONFIG</code> does not
+name must be present — <code>.h3f</code>/<code>.h3i</code>/<code>.h3m</code>/<code>.h3p</code> for the HMM databases, and for the mmseqs
+ones both the <code>.idx*</code> k-mer index that <code>mmseqs search</code> needs and the <code>_h*</code> header database
+that DRAM opens directly to turn a hit into a description; and every description table in
+<code>description_db.sqlite</code> must have rows. The same check runs after the
+build, so a database that fails it makes the process exit non-zero instead of being
+published. An incomplete directory is deleted and rebuilt rather than reused.</p>
+<p>The build now runs in the task work directory and is published to <code>${params.db}/dram</code> only
+once it is complete, which is what <code>DB_VIBRANT</code> and <code>DB_VREFSEQ</code> already do and what
+<a href="#i-31">I-31</a> requires. Because <code>set_database_paths()</code> records every database under the path
+it was built at, the <code>CONFIG</code> is repointed at the published location afterwards and then
+re-checked.</p>
+<p>That needs room: <code>mmseqs convertmsa</code> turns the 22.3 GiB <code>Pfam-A.full.gz</code> into a 143 GB
+intermediate, and with the 25 GB of downloads and 25 GB of finished databases alongside it
+the build peaks at about 190 GB. <code>DB_DRAM</code> refuses to start below 250 GB rather than fill the
+filesystem two hours in.</p>
+<p><code>prepare_databases</code> never deletes the intermediates it feeds to a step that has finished, and
+the <code>CONFIG</code> never refers to them, so <code>DB_DRAM</code> removes <code>pfam.mmsmsa</code>, the mmseqs <code>tmp</code>
+directory and the unpacked KOfam and VOGDB profile trees before publishing. They are larger
+than everything the build publishes put together.</p>
+<p><code>--skip_uniref</code> is kept: UniRef90 adds several hundred GB and DRAM's own documentation states
+it does not affect distillation. KEGG is licensed and cannot be downloaded, so <code>kegg</code> and
+<code>gene_ko_link</code> stay unset; DRAM substitutes KOfam for KEGG orthology.</p>
+<p><a id="i-30"></a></p>
+<h2 id="i-30-vogdb-moved-its-profiles-into-a-subdirectory-and-dram-silently-builds-nothing-p0">I-30 — VOGDB moved its profiles into a subdirectory and DRAM silently builds nothing (P0)</h2>
+<p><code>vog.hmm.tar.gz</code> used to hold its profiles at the root of the archive. It now nests them:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>$ tar -tzf vog.hmm.tar.gz | head -2
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>hmm/VOG00001.hmm
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>hmm/VOG00003.hmm
+</code></pre></div>
+<p><code>process_vogdb()</code> unpacks the archive and then collects the profiles with
+<code>glob(path.join(hmm_dir, 'VOG*.hmm'))</code>, which matches the top level only. It finds none of
+the 49116 files, <code>merge_files()</code> writes a zero-byte <code>vog_latest_hmms.txt</code>, and <code>hmmpress</code>
+stops with "File exists, but appears to be empty?" — two hours into the build, after Pfam has
+been processed and with no way to resume.</p>
+<p><code>docker/viroprofiler-geneannot/Dockerfile</code> makes the glob recursive, so it no longer depends
+on the archive's internal layout. <code>--vogdb_loc</code> is not a way out: DRAM unpacks whatever file
+it is handed and then applies the same glob, so the pipeline would have to download and
+repack the archive purely to satisfy a hardcoded path.</p>
+<p><a id="i-31"></a></p>
+<h2 id="i-31-files-unpacked-by-tar-can-land-unreadable-by-their-own-owner-p1">I-31 — Files unpacked by tar can land unreadable by their own owner (P1)</h2>
+<p>On a filesystem whose default ACL leaves the owner class empty — access being granted through
+a named entry instead — GNU tar restores each member's stored mode and produces files that
+their owner cannot open:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>$ getfacl -p /mnt/scratch/db
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>user::---
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>user:allen:rwx
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>default:user::---
+<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>default:user:allen:rwx
+<a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>
+<a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a>$ tar xzf probe.tar.gz -C /mnt/scratch/db/probe &amp;&amp; ls -l /mnt/scratch/db/probe
+<a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a>**Resolution.** `output_stub_v2/` and `output_stub_contiganno_v2/` are untracked and
+<a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a>deleted; `.gitignore` already carried `output_stub*`, which is why they were invisible
+<a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a>after the first commit that added them.
+<a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a>
+<a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a>----rw---- 1 allen uucp 1 probe          # archived as -rw-rw-r--
+</code></pre></div>
+<p>Only tar is affected: <code>open()</code>, <code>touch</code> + <code>chmod</code>, <code>install -m</code> and <code>cp</code> all produce the mode
+they asked for on the same directory. DRAM unpacks the KOfam profiles with tar and then opens
+all 26000 of them, so the build dies with <code>PermissionError</code> an hour in. <code>DB_VREFSEQ</code> hits the
+same thing when it unpacks <code>mmseqs_vrefseq.tar.gz</code> and works around it with an explicit
+<code>chmod</code>, attributing it there to the archive's stored modes.</p>
+<p>Two things in <code>DB_DRAM</code> follow from this. The build happens in the task work directory rather
+than under <code>--db</code>, so the databases are assembled where the pipeline computes rather than
+wherever the user keeps storage; and before any of it starts, the process unpacks a one-file
+archive and checks that it can read the result, so an unsuitable work directory is reported in
+seconds with the reason and the fix (<code>-w</code>) instead of an hour later as a bare <code>PermissionError</code>.
+The published database is then made owner-readable explicitly, and <code>check_dram_db.py</code> opens
+every file the <code>CONFIG</code> names rather than trusting its mode bits.</p>
+<p><a id="i-32"></a></p>
+<h2 id="i-32-vcontact2-replaced-by-vcontact3-p1">I-32 — vConTACT2 replaced by vConTACT3 (P1)</h2>
+<p>vConTACT2 clusters contigs but does not assign taxonomy, so <code>bin/parse_vContact2_vc.py</code>
+had to derive one: it split <code>genome_by_genome_overview.csv</code> into query contigs and
+reference genomes <strong>by testing whether the contig name contains <code>NODE_</code></strong>, computed a
+per-cluster LCA over the reference genomes, and transferred it to the queries. That test
+is a SPAdes naming convention, so the whole taxonomy assignment silently produced nothing
+for MEGAHIT, Flye or any pre-assembled contig set, and <code>--assembler other</code> only inverted
+the test rather than fixing it. vConTACT3 predicts taxonomy natively and marks reference
+genomes with a <code>Reference</code> boolean, so both the guess and the hand-rolled LCA are gone,
+along with <code>bin/parse_vContact2_vc.py</code> and <code>bin/combine_taxa.py</code>.</p>
+<p>Four things about vConTACT3 are not obvious and each one costs a build or a wrong result.</p>
+<p><strong>It cannot be installed from conda on aarch64, and there is no PyPI package.</strong>
+<code>pixi global install -c bioconda vcontact3</code> and every other conda route fail because
+<code>fastcluster</code> and <code>jenkspy</code> have no <code>linux-aarch64</code> conda build. There is no <code>vcontact3</code>
+distribution on PyPI at all, so the Bitbucket source is the only option — and the source
+tree is 3.2.4 against bioconda's 3.0.3. Both blocking packages build from their PyPI
+sdists, which is why <code>docker/viroprofiler-vcontact3/Dockerfile</code> installs <code>build-essential</code>
+and pins the source by commit (the project publishes no tags).</p>
+<p><strong>Exactly one database version works per release.</strong> 3.2.4 accepts version 232 and rejects
+223, 228 and 230 outright. <code>--db-version</code> is therefore passed explicitly by
+<code>TAXONOMY_VCONTACT3</code>; without it vConTACT3 globs <code>--db-path</code> and takes whatever is
+numerically newest, which on a host that has ever held another release is the wrong one.
+The version lives in <code>params.vcontact3_db_version</code> so that both <code>DB_VCONTACT3</code> and
+<code>TAXONOMY_VCONTACT3</code> read the same value.</p>
+<p><strong><code>prepare_databases</code> prints <code>[ERROR] Unable to retrieve database 232 ...</code> on runs that
+succeed.</strong> Its exit status is not evidence either way. <code>DB_VCONTACT3</code> ignores both and
+checks the artifact instead: <code>mmseqs dbtype &lt;dir&gt;/v232/RefSeq.232.0.3.mmseq_0.3_clu</code> must
+print <code>Clustering</code>, which a truncated download, an HTML error page or a directory that
+only got as far as being created cannot do. The database is built in the task work
+directory and moved into <code>--db</code> only after that check passes.</p>
+<p><strong>Its <code>pandas&gt;=2.1.1</code> has no upper bound.</strong> A fresh resolve installs pandas 3.x, published
+years after this commit and changing copy-on-write and string-dtype semantics throughout —
+the same trap that broke vConTACT2 with numpy 1.24 and scipy's COO refactor (<a href="#i-21">I-21</a>).
+The Dockerfile pins <code>pandas&gt;=2.1.1,&lt;3</code>.</p>
+<p>Two smaller findings. vConTACT3 3.2.4 never invokes <code>diamond</code>: <code>find_tools</code> looks up only
+<code>mmseqs</code> (required) and <code>vclust</code> (optional, and it gates only the <code>ani</code> export this
+pipeline does not request). And it bundles <code>pyrodigal</code> and <code>pyrodigal-gv</code>, so the external
+gene caller and <code>bin/gene_to_genome.py</code> that vConTACT2 needed are gone too.</p>
+<p><code>docker/viroprofiler-taxa</code> is retired with vConTACT2; <code>TAXONOMY_MERGE</code> is pure Python over
+the callers' tables and runs in <code>viroprofiler-base</code>, which already carries pandas and click.</p>
+<p><a id="i-33"></a></p>
+<h2 id="i-33-results_tse-cannot-read-its-own-gzipped-abundance-inputs-p0">I-33 — <code>RESULTS_TSE</code> cannot read its own gzipped abundance inputs (P0)</h2>
+<p>Unrelated to taxonomy, but it is what the pipeline now fails on once taxonomy
+completes, and it had never been reached before: no run in this repository has
+ever produced an <code>.rds</code>, because every earlier one stopped at vConTACT2.</p>
+<p><code>ABUNDANCE</code> writes <code>abundance_contigs_{count,tpm,covered_fraction}.tsv.gz</code>, and
+<code>vpfkit::read_coverm()</code> opens them with <code>data.table::fread()</code>. <code>fread()</code> cannot
+decompress a <code>.gz</code> without the <code>R.utils</code> package, and <code>denglab/viroprofiler-viewer</code>
+does not have it:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>$ apptainer exec viroprofiler-viewer.sif Rscript -e &#39;requireNamespace(&quot;R.utils&quot;)&#39;
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>FALSE
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>Error in fread(fpath) :
+<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>  To read gz files directly, fread() requires &#39;R.utils&#39; package which cannot be
+<a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a>  found. Please install &#39;R.utils&#39; using &#39;install.packages(&#39;R.utils&#39;)&#39;.
+<a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a>Calls: &lt;Anonymous&gt; ... read_coverm -&gt; fread -&gt; stopf -&gt; raise_condition -&gt; signal
+</code></pre></div>
+<p>The taxonomy input is unaffected: <code>taxa_mmseqs_formatted_all.tsv</code> is not
+compressed, and <code>read_coverm</code> never opens it.</p>
+<p>This cannot be fixed from this repository as it stands, which is the point of
+<a href="#i-02">I-02</a>: the viewer image has no Dockerfile here, so <code>R.utils</code> cannot be
+added to it. Either that image gains a Dockerfile and the package, or
+<code>RESULTS_TSE</code> decompresses the three files before calling <code>create_tse.r</code>.</p>
+<p><strong>Resolution.</strong> <code>R.utils</code> is in the viewer image and <code>vpfkit</code> lists it under <code>Imports</code>.
+Verified in the pixi-built image, and end to end: the sixteen-sample run reads the gzipped
+abundance tables and writes its <code>.rds</code>.</p>
+<p><a id="i-34"></a></p>
+<h2 id="i-34-max_target_seqs-makes-contig-dereplication-depend-on-library-size-p2">I-34 — <code>-max_target_seqs</code> makes contig dereplication depend on library size (P2)</h2>
+<p><code>CONTIGLIB_CLUSTER</code> dereplicated the pooled contig library with the MIUViG recipe: an
+all-vs-all <code>blastn</code>, <code>anicalc.py</code> to turn the HSPs into ANI and coverage, and
+<code>aniclust.py</code> to cluster them greedily. The <code>blastn</code> call carried
+<code>-max_target_seqs 25000</code>, which reads like "keep the best 25000 hits" and is not that.
+It is a cutoff applied <em>during</em> the search, and NCBI documents that the hits it keeps are
+not guaranteed to be the best ones — the point of Shah <em>et al.</em>, "Misunderstood parameter
+of NCBI BLAST impacts the correctness of bioinformatics workflows", <em>Bioinformatics</em>
+35(9):1613–1614 (2019).</p>
+<p>The consequence for this pipeline is that a contig pair can stop being reported because of
+sequences that have nothing to do with either contig. A query, a 98%-identity full-length
+partner and <code>-max_target_seqs 5</code> (the same mechanism as 25000, at a size that is quick to
+run):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>$ blastn -query q.fasta -db db_small -perc_identity 90 -max_target_seqs 5 ...
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>library=small subjects=1  reported=1 partner_reported=1
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>
+<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>$ blastn -query q.fasta -db db_big   -perc_identity 90 -max_target_seqs 5 ...
+<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>library=big   subjects=31 reported=5 partner_reported=0
+</code></pre></div>
+<p>The 30 sequences added to <code>db_big</code> are unrelated to the query–partner relationship, yet
+the partner is no longer reported at all, so <code>aniclust.py</code> never sees the edge and the two
+contigs land in different clusters. Representatives are the read-mapping reference for
+abundance and the input to viral detection, so a pair silently lost this way propagates
+into apparent abundance and viral calls. Nothing in the outputs records that it happened,
+and the effect grows with the number of samples pooled.</p>
+<p><strong>Fixed.</strong> The chain is now Vclust 1.3.1 — a Kmer-db prefilter, LZ-ANI alignment, and
+greedy clustering — which has no equivalent per-query cap, so the result no longer depends
+on how many other contigs are in the library. <code>bin/anicalc.py</code>, <code>bin/aniclust.py</code> and
+<code>bin/parse_NRCLib_clusters.py</code> are deleted; <code>bin/parse_vclust_clusters.py</code> writes the same
+<code>repid</code>/<code>ctgid</code> table the pipeline published before. The thresholds keep their names and
+their meaning:</p>
+<table>
+<thead>
+<tr>
+<th>Old</th>
+<th>New</th>
+<th>Measure</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--min_ani 95</code></td>
+<td><code>--ani 0.95</code></td>
+<td>Vclust <code>ani</code> — identical nucleotides over the aligned region only</td>
+</tr>
+<tr>
+<td><code>--min_tcov 85</code>, <code>--min_qcov 0</code></td>
+<td><code>--qcov 0.85</code></td>
+<td>Vclust <code>qcov</code> — aligned fraction of the shorter contig, longer one unconstrained</td>
+</tr>
+</tbody>
+</table>
+<p><code>gani</code> and <code>tani</code> are the wrong measures here: <code>gani</code> divides by the whole query length, so
+it scores a contained contig as poorly as a diverged one, and <code>tani</code> is symmetric, so it
+cannot express containment at all. Setting <code>--rcov</code> alongside <code>--qcov</code> would demand that
+both sequences be covered, which is reciprocal-overlap clustering rather than containment.
+<code>--algorithm cd-hit</code> is used rather than Vclust's default <code>leiden</code> because it is the same
+greedy longest-first centroid scheme <code>aniclust.py</code> implemented.</p>
+<p>One class of representative does change. When two contigs in a cluster are exactly the same
+length, <code>aniclust.py</code> kept whichever came first in the FASTA, so the representative followed
+the order the samples happened to be pooled in; Vclust breaks the tie the same way every
+time. Both contigs are equally valid representatives, and the new choice is the reproducible
+one:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>input order alpha,beta : aniclust -&gt; alpha_first   vclust -&gt; alpha_first
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>input order beta,alpha : aniclust -&gt; beta_second   vclust -&gt; alpha_first
+</code></pre></div>
+<p>On the contig library of the two-sample run in this repository (23 contigs, 22 clusters),
+the substitution reproduces <code>contigs_nrclib.fasta</code> and <code>contigs_nrclib.dict</code> byte for byte
+and <code>contigs_ANIclst.tsv</code> row for row. That library is far too small to bound the change on
+its own, so it was repeated on 1600 sequences — 800 CheckV reference genomes plus derived
+fragments placed on both sides of the 95 %/85 % boundary: 824 of 825 clusters identical,
+1599 of 1600 contigs assigned the same representative, and the single disagreement a pair
+whose identity the two aligners estimate as 0.9507 (BLAST) and 0.9496 (LZ-ANI), i.e. astride
+the threshold rather than a difference in what the threshold means.</p>
+<p>End to end, the two-sample run (<code>-profile apptainer,arm64_local --use_dram false</code>) still
+completes and its two TreeSummarizedExperiment objects are byte identical to the ones the
+BLAST chain produced:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>$ cmp &lt;blast-run&gt;/results/viroprofiler_output.rds &lt;vclust-run&gt;/results/viroprofiler_output.rds
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>$ cmp &lt;blast-run&gt;/results/viroprofiler_output_all_contigs.rds &lt;vclust-run&gt;/results/viroprofiler_output_all_contigs.rds
+</code></pre></div>
+<p><code>CONTIGLIB_CLUSTER</code> itself went from 3.3 s to 1.5 s on that library, which is far too small
+to say anything about how the two scale.</p>
+<p><a id="i-35"></a></p>
+<h2 id="i-35-exact-duplicate-contigs-entered-the-on2-dereplication-stage-p3">I-35 — Exact duplicate contigs entered the O(n²) dereplication stage (P3)</h2>
+<p><code>CONTIGLIB</code> pools the contigs of every sample into one library, so a contig that several
+samples assembled identically appears once per sample. The all-vs-all <code>blastn</code> compared each
+of those copies against everything else, and <code>aniclust.py</code> then collapsed them again at the
+end.</p>
+<p><code>CONTIGLIB_CLUSTER</code> now runs <code>vclust deduplicate</code> first, which drops contigs whose sequence
+is identical to another contig's, in either orientation, before the prefilter sees them. On
+the 1600-sequence set above that removed 115 sequences (7 %) with no change to the clustering.
+The ids it drops are not lost: <code>vclust deduplicate</code> writes a <code>.duplicates.txt</code> companion file,
+and <code>bin/parse_vclust_clusters.py</code> reads it back so that every contig in the library still
+appears in <code>contigs_ANIclst.tsv</code> under the representative of its cluster.</p>
+<p><a id="i-36"></a></p>
+<h2 id="i-36-phamb_rf-calls-a-cli-the-installed-phamb-does-not-have-p1">I-36 — <code>PHAMB_RF</code> calls a CLI the installed phamb does not have (P1)</h2>
+<p>The process invoked</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>run_RF.py -f &lt;contigs&gt; -d &lt;dvf&gt; -p &lt;micomplete&gt; -g &lt;vog&gt; -c &lt;clusters&gt; \
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>          -l &lt;minlen&gt; -m /opt/phamb/workflows/mag_annotation/dbs/RF_model.python39.sav \
+<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>          -s &lt;minbin&gt; -o .
+</code></pre></div>
+<p>but the phamb the image installs takes four positional arguments and two options:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>run_RF.py &lt;fastafile&gt; &lt;clusterspath&gt; &lt;annotationdir&gt; &lt;directoryout&gt; [-m MIN_BIN_SIZE] [-s SEPARATOR]
+</code></pre></div>
+<p>Every flag was wrong, and two were actively dangerous: <code>-m</code> had become an <code>int</code> minimum bin
+size and was being handed a filesystem path, while <code>-s</code> had become a binsplit separator and
+was being handed a size in bases. The model path did not exist either — phamb moved its
+<code>dbs/</code> from <code>workflows/mag_annotation/</code> into the package itself.</p>
+<p>The three annotation files are also not passed individually any more. <code>run_RF.py</code> looks them
+up by fixed name inside <code>annotationdir</code>: <code>all.DVF.predictions.txt</code>, <code>all.hmmVOG.tbl</code> and
+<code>all.hmmMiComplete105.tbl</code> — none of which matches what <code>MICOMPLETEDB</code> and <code>VOGDB</code> emit
+(<code>hmmMiComplete.tbl</code>, <code>hmmVOG.tbl</code>).</p>
+<p><strong>Resolution.</strong> <code>PHAMB_RF</code> builds the annotation directory under the expected names and calls
+the current CLI. Nothing was passing before, so <code>--binning phamb</code> had been broken for longer
+than the missing DeepVirFinder table alone would explain.</p>
+<p><a id="i-37"></a></p>
+<h2 id="i-37-run_rfpy-copied-onto-path-cannot-find-its-own-model-p0">I-37 — <code>run_RF.py</code> copied onto PATH cannot find its own model (P0)</h2>
+<p><code>run_RF.py</code> loads the random forest from a path relative to its own source file:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="n">rf_model_file</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span><span class="o">.</span><span class="n">parent</span> <span class="o">/</span> <span class="s2">&quot;dbs/RF_model.python39.sav&quot;</span>
+</code></pre></div>
+<p>The binning Dockerfile did <code>cp /opt/phamb/phamb/*.py /opt/conda/bin/</code>, so the copy that PATH
+resolves has <code>__file__</code> in <code>/opt/conda/bin</code>, where there is no <code>dbs/</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>$ command -v run_RF.py               -&gt; /opt/conda/bin/run_RF.py
+<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>$ ls /opt/conda/bin/dbs/             -&gt; No such file or directory
+<a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a>$ ls /opt/phamb/phamb/dbs/           -&gt; RF_model.python39.sav
+</code></pre></div>
+<p><code>joblib.load</code> would therefore have failed with <code>FileNotFoundError</code> — after VAMB and both HMM
+searches had already run.</p>
+<p><strong>Resolution.</strong> The image installs a wrapper at <code>/usr/local/bin/run_RF.py</code> that executes the
+file in its installed location, so <code>__file__</code> still resolves beside the model. The Dockerfile
+asserts both the script and the model exist, and the smoke test deserialises the forest.</p>
+<p><a id="i-38"></a></p>
+<h2 id="i-38-the-binning-image-never-installed-vamb-p0">I-38 — The binning image never installed VAMB (P0)</h2>
+<p><code>vMAG_PHAMB</code> runs <code>VAMB</code> before <code>PHAMB_RF</code>, but <code>vamb</code> was not in <code>env_binning.yml</code> and not
+in the image:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>$ apptainer exec viroprofiler-binning.sif vamb --version
+<a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>/bin/bash: line 1: vamb: command not found
+</code></pre></div>
+<p>So <code>--binning phamb</code> could not have worked on any architecture, independently of I-36 and
+I-37.</p>
+<p><strong>Resolution on amd64.</strong> <code>vamb 4.1.3</code> is declared in <code>docker/viroprofiler-binning/pixi.toml</code>
+as a <code>linux-64</code>-only feature and installed when BuildKit's <code>TARGETARCH</code> is <code>amd64</code>.</p>
+<p><strong>Not resolvable on aarch64.</strong> VAMB has no <code>linux-aarch64</code> artifact in any release line, and
+5.x depends on <code>pycoverm</code>, which has none either. <code>WorkflowViroprofiler.binningIsAvailable()</code>
+refuses <code>--binning phamb</code> on aarch64 at start-up rather than letting the run reach VAMB. See
+<a href="../ARM64/">ARM64.md</a>.</p>
+<p><a id="i-39"></a></p>
+<h2 id="i-39-the-binning-images-second-vrhyme-prefix-had-drifted-to-python-314-p1">I-39 — The binning image's second <code>vrhyme</code> prefix had drifted to Python 3.14 (P1)</h2>
+<p>The image built two prefixes containing vRhyme: the base environment, and a separate
+<code>viroprofiler-vrhyme</code> one from <code>env_vrhyme.yml</code>. Only the base environment was on <code>PATH</code>, so
+the second was never used — and its unpinned solve had drifted far enough to stop working:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>$ /opt/conda/envs/viroprofiler-vrhyme/bin/vRhyme --version
+<a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a>  File &quot;/opt/conda/envs/viroprofiler-vrhyme/bin/vRhyme&quot;, line 16, in &lt;module&gt;
+<a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a>    import pkg_resources
+<a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a>ModuleNotFoundError: No module named &#39;pkg_resources&#39;
+</code></pre></div>
+<p>It had resolved to Python 3.14, numpy 2.4.6, pandas 3.0.5 and setuptools ≥81, which no longer
+ships <code>pkg_resources</code>. The vRhyme that VRHYME actually runs, from the base environment, was
+on Python 3.10 with scikit-learn 1.0.2 and works.</p>
+<p><strong>Resolution.</strong> There is one environment now, <code>binning</code>, and <code>vrhyme</code> is declared in it —
+which is where the working executable always came from. Its Python and scikit-learn are
+pinned, the latter because PHAMB's forest is a joblib-serialised scikit-learn estimator and
+phamb's own <code>setup.py</code> requires exactly 1.0.2.</p>
+<p><a id="i-40"></a></p>
+<h2 id="i-40-vamb-was-given-a-depth-table-covering-contigs-its-fasta-does-not-contain-p2">I-40 — <code>VAMB</code> was given a depth table covering contigs its FASTA does not contain (P2)</h2>
+<p><code>vMAG_PHAMB</code> passes the viral subset as <code>--fasta</code> but the BAMs are mapped against the whole
+dereplicated library, and <code>jgi_summarize_bam_contig_depths</code> summarises whatever the BAMs
+contain. VAMB pairs <code>--jgi</code> with <code>--fasta</code> by row, so every contig after the first extra one
+would have been given another contig's abundance.</p>
+<p>The two <code>cut</code>/<code>paste</code> lines that preceded the filter were a no-op: <code>cut -f1-3</code> and
+<code>cut -f1-3 --complement</code> pasted back together reproduce the input table exactly.</p>
+<p><strong>Resolution.</strong> The depth table is restricted to the names in the FASTA before the length
+filter is applied.</p>
+<p><a id="i-41"></a></p>
+<h2 id="i-41-contiglib_cluster-requested-one-cpu-while-vclust-threads-every-stage-p3">I-41 — <code>CONTIGLIB_CLUSTER</code> requested one CPU while Vclust threads every stage (P3)</h2>
+<p><code>vclust deduplicate</code>, <code>prefilter</code>, <code>align</code> and <code>cluster</code> all take <code>-t $task.cpus</code>, and the
+process passed <code>task.cpus</code> to each of them, but <code>nextflow.config</code> requested
+<code>cpus = 1 * task.attempt</code>. The Kmer-db prefilter and the LZ-ANI alignment — the two stages
+that dominate the runtime — ran single-threaded.</p>
+<p>Memory was also sized for the viral subset rather than for what this process actually sees:
+it dereplicates the whole pooled contig library, because its output is the read-mapping
+reference for abundance.</p>
+<p><strong>Resolution.</strong> 4 CPUs and 12 GB, both scaled by <code>task.attempt</code> and still bounded by
+<code>check_max</code>.</p>
+<p><a id="i-42"></a></p>
+<h2 id="i-42-conda-post-link-scripts-are-not-run-by-pixi-p0">I-42 — conda post-link scripts are not run by pixi (P0)</h2>
+<p><code>bioconductor-genomeinfodbdata</code> ships no R package. Its conda artifact contains exactly two
+files, both shell scripts:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>$ python3 -c &quot;import json; print(json.load(open(&#39;conda-meta/bioconductor-genomeinfodbdata-1.2.11-r43hdfd78af_1.json&#39;))[&#39;files&#39;])&quot;
+<a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a>[&#39;bin/.bioconductor-genomeinfodbdata-post-link.sh&#39;, &#39;bin/.bioconductor-genomeinfodbdata-pre-unlink.sh&#39;]
+<a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a>
+<a id="__codelineno-26-4" name="__codelineno-26-4" href="#__codelineno-26-4"></a>$ cat bin/.bioconductor-genomeinfodbdata-post-link.sh
+<a id="__codelineno-26-5" name="__codelineno-26-5" href="#__codelineno-26-5"></a>#!/bin/bash
+<a id="__codelineno-26-6" name="__codelineno-26-6" href="#__codelineno-26-6"></a>installBiocDataPackage.sh &quot;genomeinfodbdata-1.2.11&quot;
+</code></pre></div>
+<p>The data package itself is downloaded and installed by that post-link script. micromamba runs
+post-link scripts; pixi does not, and says so only as a build-time notice. So the environment
+solved and installed cleanly while <code>GenomeInfoDb</code> — a dependency of every
+SummarizedExperiment package — could not be loaded, and <code>library(vpfkit)</code> failed with</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>Error in loadNamespace(i, ...) : there is no package called &#39;GenomeInfoDbData&#39;
+<a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a>ERROR: lazy loading failed for package &#39;vpfkit&#39;
+</code></pre></div>
+<p>several layers below the package that was actually missing.</p>
+<p><strong>Resolution.</strong> <code>docker/viroprofiler-viewer/Dockerfile</code> runs that one script explicitly and
+asserts the resulting directory exists, rather than setting <code>run-post-link-scripts insecure</code>,
+which would silently execute any post-link script any future dependency brings in. A second
+step fails the build if a package other than <code>bioconductor-genomeinfodbdata</code> ever ships one,
+so the next occurrence is found at build time rather than in a run.</p>
+<p>This is a general hazard of the micromamba-to-pixi move, not a defect in either tool: it is
+invisible in the solve, invisible in the lockfile, and only shows up when something tries to
+load the package.</p>
+<p><a id="i-43"></a></p>
+<h2 id="i-43-the-pinned-vamb-has-no-jgi-which-is-the-flag-the-process-passes-p0">I-43 — the pinned VAMB has no <code>--jgi</code>, which is the flag the process passes (P0)</h2>
+<p><code>VAMB</code> runs</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>vamb --outdir out_vamb --fasta $contigs -m ... --jgi depth_clean.txt -o __ --minfasta ...
+</code></pre></div>
+<p>but the version first pinned in <code>docker/viroprofiler-binning/pixi.toml</code> was 4.1.3, and VAMB 4
+removed <code>--jgi</code> entirely. Its argument parser offers only <code>--bamfiles</code> and <code>--rpkm</code>; the word
+<code>jgi</code> does not appear anywhere in the 4.1.3 package. The process would have died on
+<code>unrecognized arguments: --jgi</code>.</p>
+<p>Nor is 4.x a matter of renaming the flag. It computes depths from BAMs itself and hashes the
+BAM reference names against the FASTA, refusing a mismatch — and this pipeline deliberately
+hands it a <em>viral subset</em> FASTA with BAMs mapped against the <em>whole</em> dereplicated library.
+VAMB 5 goes further and restructures the cluster file <code>phamb.vambtools.read_clusters</code> parses.</p>
+<p><strong>Resolution.</strong> Pinned to <code>vamb 3.0.2</code>, the release PHAMB was developed against: it has
+<code>--jgi</code>, and its <code>write_clusters</code> emits the two-column <code>clustername&lt;TAB&gt;contigname</code> file phamb
+reads. It runs on Python 3.6, which is why it stays in its own pixi environment with its own
+solve group; the lockfile is what keeps a Python 3.6 environment installable at all.</p>
+<p><a id="i-44"></a></p>
+<h2 id="i-44-vambs-jgi-pairs-depths-to-contigs-by-row-not-by-name-p1">I-44 — VAMB's <code>--jgi</code> pairs depths to contigs by row, not by name (P1)</h2>
+<p><code>vamb.vambtools.load_jgi</code> discards the contig names:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a><span class="n">header</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">filehandle</span><span class="p">)</span>
+<a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a><span class="o">...</span>
+<a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a><span class="n">columns</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">([</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">fields</span><span class="p">))</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">fields</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;-var&quot;</span><span class="p">)])</span>
+<a id="__codelineno-29-4" name="__codelineno-29-4" href="#__codelineno-29-4"></a><span class="n">array</span> <span class="o">=</span> <span class="n">_np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">filehandle</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">_np</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="n">usecols</span><span class="o">=</span><span class="n">columns</span><span class="p">)</span>
+<a id="__codelineno-29-5" name="__codelineno-29-5" href="#__codelineno-29-5"></a><span class="k">return</span> <span class="n">validate_input_array</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
+</code></pre></div>
+<p>It returns an <code>N_contigs x N_samples</code> matrix that VAMB then pairs with <code>--fasta</code> <strong>by row</strong>.
+So the depth table must hold exactly the sequences of the FASTA, in exactly their order.
+Anything else silently gives each contig another contig's abundance, and the clustering is
+computed on the wrong numbers with no error anywhere.</p>
+<p>The process filtered the table with <code>csvtk grep -f contigName -P &lt;list&gt;</code>, which preserves the
+order of the <em>depth file</em> — the BAM reference order — not the order of the FASTA. Those two
+happen to agree today, because the viral subset is produced by <code>seqkit grep</code> from the same
+library the bowtie2 index was built from, and both preserve input order. That is a property
+of the tools involved, not a guarantee either makes.</p>
+<p><strong>Resolution.</strong> The table is now built in FASTA order explicitly, by looking each sequence up
+by name, and two assertions follow it: a contig absent from the depth table is fatal (it would
+mean the BAMs were built against a different library), and the emitted row count must equal
+the number of FASTA sequences that pass VAMB's own <code>-m</code> length filter.</p>
+<p>Two related hardenings went in with it, neither of which had produced a wrong answer yet:
+<code>bin/genomad_to_dvf.py</code> now passes geNomad's score through as the source text rather than
+re-formatting it with <code>%.4f</code>, because PHAMB applies <code>round(x, 2)</code> to whatever it reads and
+0.00499 re-emitted as 0.0050 rounds to 0.01 instead of 0.00; and the vRhyme model download is
+checked against a pinned SHA-256 rather than trusted because its URL carries a commit.</p>
+<hr />
+<h2 id="i-45">I-45</h2>
+<p><strong>Config — the pipeline does not parse under Nextflow's default config parser.</strong> P0. Fixed.</p>
+<p>Nextflow 25.x made a new, restricted config language the default. <code>nextflow.config</code> is not
+written in it, and a run dies before the first process with a message that points at a line
+of config rather than at the cause:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>Error nextflow.config:286:27: Unexpected input: &#39;\n&#39;
+<a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a> 286 |             case &#39;docker&#39;:
+<a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a>ERROR ~ Config parsing failed
+</code></pre></div>
+<p>Four constructs are rejected, each independently fatal:</p>
+<ul>
+<li>the <code>switch</code> in the <code>containerOptions</code> closure;</li>
+<li><code>def check_max(obj, type)</code>, a function definition, used at 133 call sites;</li>
+<li>the top-level <code>if (!params.igenomes_ignore)</code> — <em>"If statements cannot be mixed with config
+  statements"</em>, so a conditional <code>includeConfig</code> has no v2 spelling at all;</li>
+<li><code>def trace_timestamp = ...</code>, a variable declaration.</li>
+</ul>
+<p>The script parser is stricter too: <code>for</code> loops are gone (<code>workflows/viroprofiler.nf:15</code>), and
+a top-level statement such as <code>WorkflowMain.initialise(...)</code> in <code>main.nf</code> must move inside a
+<code>workflow</code> block.</p>
+<p><strong>Why it has been invisible.</strong> <code>NXF_SYNTAX_PARSER=v1</code> happens to be set in the interactive
+shell on the development machine. Every run to date inherited it. A <code>sbatch --export=NIL</code> job
+does not, which is how it surfaced, and neither does a new user's shell.</p>
+<p><strong>The two parsers cannot both be satisfied.</strong> Moving the Groovy into <code>lib/</code> fixes the config
+under v2 — and breaks it under v1, where an unknown identifier in a config closure resolves
+to a <code>ConfigObject</code> instead of the class: <code>Unknown method invocation 'checkMax' on ConfigObject
+type</code>. Likewise <code>env('HOME')</code> is v2-only. So this cannot be done incrementally: config and
+scripts have to migrate together, in one change, and the pipeline then requires a Nextflow new
+enough to have the v2 parser. <code>manifest.nextflowVersion</code> would move from <code>&gt;=22.04.0</code>
+accordingly.</p>
+<p><strong>Resolution.</strong> Config and scripts migrated together, and <code>manifest.nextflowVersion</code> is now
+<code>&gt;=26.04.0</code>. <code>NXF_SYNTAX_PARSER</code> must not be set at all.</p>
+<ul>
+<li><code>check_max()</code> and its 137 call sites are gone, replaced by <code>process.resourceLimits</code>.
+  Moving the helper into <code>lib/</code> was tried first and does not work: a config closure resolves
+  <code>Utils</code> to a <code>ConfigObject</code>, so the call fails with <code>No signature of method:
+  groovy.util.ConfigObject.checkMax()</code>. The assignment sits below the <code>profiles</code> block —
+  see <a href="#i-51">I-51</a> for what happens when it does not.</li>
+<li>The <code>switch</code> is an if/else chain. <code>def</code> and <code>if</code> inside a config closure remain legal.</li>
+<li>The report file names use <code>params.trace_timestamp</code>, assigned by <code>nextflow.config</code> itself
+  from <code>new java.util.Date().format(...)</code>. The earlier note here — that the timestamp would
+  have to come from the command line — was wrong: an arbitrary expression is a legal
+  assignment value, and <code>params</code> is what carries it into the four reporting scopes. It is in
+  <code>schema_ignore_params</code>, being an implementation detail rather than an option.</li>
+<li><code>"${HOME}"</code> is <code>"${env('HOME')}"</code>, which is what makes the legacy parser unusable.</li>
+<li>Statements at file scope moved into the workflow bodies, <code>for</code> became <code>.each</code>, and the
+  <code>no_file</code> closure became a function — the strict parser resolves <code>no_file(...)</code> as a
+  function name.</li>
+</ul>
+<p>Two further defects surfaced during the migration and have their own entries: the completion
+summary was being printed twice (<a href="#i-49">I-49</a>), and command-line booleans stopped being
+coerced (<a href="#i-50">I-50</a>).</p>
+<p>Verified with the default parser: <code>nextflow lint</code> reports no errors where it reported 54, and
+all five CI stub jobs, the four-mode ladder and both negative tests pass.</p>
+<hr />
+<h2 id="i-46">I-46</h2>
+<p><strong>iPHoP, CheckAMG and DRAM-v results never reached <code>RESULTS_TSE</code>.</strong> P1. Fixed.</p>
+<p>All three ran, all three published their tables under <code>--outdir</code>, and none of them was wired
+into the process that builds the TreeSummarizedExperiment. The R object that is the pipeline's
+headline output therefore carried no host prediction, no auxiliary-gene calls and no per-gene
+annotation. On the two-sample test CheckAMG produced 210 curated protein calls that nothing
+downstream could see.</p>
+<p><code>DRAMV</code> did not even emit its annotation table as a named channel — only <code>genes.faa</code> and
+<code>scaffolds.fna</code> — and <code>ABUNDANCE</code> did not emit <code>log_contig_count.txt</code>, the only place CoverM
+records each sample's library size.</p>
+<p><strong>Resolution.</strong> <code>RESULTS_TSE</code> takes eight optional inputs: VIBRANT, geNomad, CheckAMG, iPHoP,
+DRAM-v, the candidate contig list, the CoverM log and a sample metadata table. When a tool did
+not run its slot carries an empty placeholder from <code>assets/optional/</code> and the corresponding
+<code>create_tse.r</code> argument is omitted, so vpfkit leaves those columns out of <code>rowData</code> rather
+than joining an empty table — which keeps "switched off" distinguishable from "found nothing".</p>
+<p>Sample metadata needs <code>--sample_metadata</code> rather than extra samplesheet columns:
+<code>INPUT_CHECK</code> rejects a samplesheet that is not exactly three columns. Until this, <code>colData</code>
+held nothing but the sample name, so no group-wise analysis was possible on the pipeline's own
+output at all.</p>
+<p>The two placeholder tables with fabricated header rows (<code>assets/no_dvf_scores.tsv</code>,
+<code>assets/no_vibrant_quality.tsv</code>) are gone. They existed only because <code>create_vpftse()</code> indexed
+columns without checking for them; vpfkit now treats both inputs as optional.</p>
+<hr />
+<h2 id="i-47">I-47</h2>
+<p><strong>432 lines of iGenomes reference config that nothing reads.</strong> P2. Fixed.</p>
+<p><code>conf/igenomes.config</code>, <code>params.genome</code>, <code>params.igenomes_base</code>, <code>params.igenomes_ignore</code>,
+<code>WorkflowMain.getGenomeAttribute()</code> and <code>WorkflowViroprofiler.genomeExistsError()</code> were
+nf-core template scaffolding. No process reads <code>params.genome</code> or <code>params.fasta</code>;
+<code>getGenomeAttribute</code> is defined and never called. <code>genomeExistsError</code> validated <code>--genome</code> on
+every run, against a table only it consulted.</p>
+<p>Removed. <code>workflows/contig_anno.nf</code> also imported <code>RESULTS_TSE</code> without ever calling it; that
+import is gone too.</p>
+<hr />
+<h2 id="i-48">I-48</h2>
+<p><strong>A scheduler's <code>TMPDIR</code> points outside the container, and DRAM-v dies on it.</strong> P1. Fixed.</p>
+<p><code>TMPDIR</code> is inherited from whatever launched the pipeline. Under a batch scheduler it
+normally names node-local scratch — <code>/localscratch/&lt;user&gt;/slurm/&lt;jobid&gt;/tmp</code> here. Nextflow
+binds the task directory into the container and nothing else, so a tool that writes to
+<code>$TMPDIR</code> by absolute path finds no such directory:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>tRNAscan-SE ... experienced an error: Unable to open
+<a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a>/localscratch/allen/slurm/2615/tmp/tscan87374.fpass for writing.  Aborting program.
+</code></pre></div>
+<p>DRAM-v reached that call <strong>nine minutes in</strong>, after kofam, viral, peptidase, pfam, dbCAN and
+VOGDB had all completed, and the whole process was lost. Only tRNAscan-SE was affected
+because it is the one tool in this pipeline that builds an absolute scratch path from
+<code>TMPDIR</code>; the rest write relative paths into the task directory and never noticed.</p>
+<p>It does not reproduce interactively, where <code>TMPDIR</code> is <code>/tmp</code> and Apptainer provides one.</p>
+<p><strong>Resolution.</strong> <code>conf/base.config</code> sets <code>beforeScript = 'export TMPDIR="$PWD"'</code> for every
+process. The task directory is bound by definition and lives on the work filesystem, which
+is where large scratch files belong. Verified by checking that the export reaches all 26
+task scripts in a stub run, rather than by assuming a directive took effect.</p>
+<hr />
+<p><a id="i-49"></a></p>
+<h2 id="i-49">I-49</h2>
+<p><strong>The completion summary was printed twice on every run.</strong> P2. Fixed.</p>
+<p><code>workflows/viroprofiler.nf</code> and <code>workflows/contig_anno.nf</code> each ended in a file-scope
+<code>workflow.onComplete { ... NfcoreTemplate.summary(...) }</code>. <code>main.nf</code> includes both entry
+workflows and invokes one of them, but a module's file-scope statements run at <em>include</em>
+time, not at invocation — so both handlers were registered and both fired. Every run
+printed the completion summary twice, and with <code>--email</code> set would have tried to send two
+e-mails.</p>
+<p>Confirmed in isolation: two modules, one file-scope handler each, only one workflow
+invoked, both handlers ran.</p>
+<p><strong>Resolution.</strong> There is one handler, in <code>main.nf</code>'s entry workflow, and it is registered
+once. See <a href="#i-45">I-45</a> for why it is an <code>onComplete:</code> section rather than a closure.</p>
+<hr />
+<p><a id="i-50"></a></p>
+<h2 id="i-50">I-50</h2>
+<p><strong>A boolean given on the command line arrived as a string, and <code>"false"</code> is true.</strong> P0. Fixed.</p>
+<p>Under the strict parser Nextflow no longer infers a parameter's type from its default, so
+<code>--use_dram false</code> reaches the pipeline as the String <code>"false"</code>. Groovy treats any non-empty
+string as true, so <code>if (params.use_dram)</code> is true and DRAM-v runs when the user asked for it
+not to. The same applies to all 19 boolean, 7 integer and 8 number parameters —
+<code>--max_cpus 4</code> arrives as <code>"4"</code>.</p>
+<p>What made this survivable is accidental: JSON-schema validation rejects the run with
+<code>expected type: Boolean, found: String (false)</code> before the workflow starts. Switch
+<code>validate_params</code> off and the inversion is silent.</p>
+<p><strong>Resolution.</strong> <code>main.nf</code> declares the types of all 34 non-string parameters in a <code>params { }</code>
+block, which is where the strict language expects a parameter's type; values stay in
+<code>nextflow.config</code>, which still overrides the declaration, and a profile and then the command
+line override that in turn. Only <code>Boolean</code>, <code>Integer</code> and <code>Float</code> convert a command-line
+string — <code>Number</code>, <code>Double</code> and <code>BigDecimal</code> reject it outright. <code>Float</code> is the right choice
+for the schema's <code>number</code> parameters even where the value is a whole number: it leaves 95 an
+<code>Integer</code> rather than rendering it into a tool's command line as <code>95.0</code>.</p>
+<p>The declaration mirrors <code>"type"</code> in <code>nextflow_schema.json</code>. A new non-string parameter has
+to be added to both.</p>
+<p>Verified: <code>--use_dram false</code> now leaves DRAMV out of the run rather than failing validation.</p>
+<hr />
+<p><a id="i-51"></a></p>
+<h2 id="i-51">I-51</h2>
+<p><strong><code>process.resourceLimits</code> above the <code>profiles</code> block ignores every profile.</strong> P1. Fixed.</p>
+<p><code>resourceLimits</code> replaced <code>check_max()</code> (<a href="#i-45">I-45</a>), but the two are not evaluated at the
+same time. <code>check_max()</code> ran inside a per-task closure and read <code>params.max_cpus</code> at
+submission; <code>resourceLimits</code> is a plain map, evaluated where it is written. Written in
+<code>conf/base.config</code> — the natural home, next to the resource defaults — it freezes to the
+values in the <code>params</code> block of <code>nextflow.config</code>, because that file is included before
+<code>profiles</code> is applied.</p>
+<p>The effect is silent and specific: <code>--max_cpus</code> on the command line still works, because
+command-line parameters are resolved before the config is, but <code>test</code> (2 cpus, 6.GB),
+<code>test_stub</code> (2 cpus, 4.GB) and <code>custom.config</code> (4 cpus, 20.GB) are all ignored, and every
+process runs at the unrestricted defaults.</p>
+<p><strong>Resolution.</strong> The assignment lives in <code>nextflow.config</code> below <code>profiles</code>, next to the
+reporting scopes that are placed there for the same reason. Verified per profile with
+<code>nextflow config -flat</code>, and end to end: <code>process_high</code> requests 12 cpus, 72.GB and 16.h,
+and under <code>-profile test_stub</code> no task received more than 2 cpus, 4 GB and 1h.</p>
+<p><strong>What that placement still cannot reach.</strong> A <code>-c</code> file is applied after the project
+config, so one that sets only <code>params.max_cpus</code> moves the number the parameter summary
+prints without moving the cap. Measured: <code>-c</code> with <code>max_cpus = 7</code> against <code>-profile
+test_stub</code>, whose ceiling is 2, leaves every task at 2 while the summary says 7. The
+routes that do work are a profile, <code>-params-file</code>, <code>--max_cpus</code> on the command line, and
+setting <code>process.resourceLimits</code> directly in the <code>-c</code> file.</p>
+<p><code>WorkflowMain.resourceLimitsAgree()</code> warns at startup when <code>params.max_*</code> and the effective
+<code>process.resourceLimits</code> disagree, naming both values and the fix. It warns rather than
+fails because overriding <code>process.resourceLimits</code> in a <code>-c</code> file is the supported route and
+makes the two disagree by design.</p>
+<hr />
+<p><a id="i-52"></a></p>
+<h2 id="i-52">I-52</h2>
+<p><strong><code>DB_VCONTACT3</code> cannot download: <code>curl</code> is not in the image.</strong> P0. Fixed.</p>
+<p><code>vcontact3 prepare_databases</code> does not fetch anything itself; it shells out to <code>curl</code>, and
+<code>denglab/viroprofiler-vcontact3</code> has neither <code>curl</code> nor <code>wget</code>. The download therefore dies
+inside vConTACT3's own downloader:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>File &quot;.../vcontact3/databases.py&quot;, line 103, in download_version
+<a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a>    version_dl_res = utils.execute_stdout([&#39;curl&#39;, &#39;-s&#39;, &#39;-o&#39;, str(dest_path), src_path])
+<a id="__codelineno-32-3" name="__codelineno-32-3" href="#__codelineno-32-3"></a>FileNotFoundError: [Errno 2] No such file or directory: &#39;curl&#39;
+</code></pre></div>
+<p>The path had never been run. Every database on the development host was built or copied by
+hand, and <code>--mode setup</code> had only ever been exercised against a <code>--db</code> that already held one.</p>
+<p>What kept it from shipping a broken database is the process's own check, which is the shape
+<a href="#i-10">I-10</a> and the verification discipline exist for. <code>prepare_databases</code> returned
+non-zero, the process said so and carried on to verify anyway, and the verification failed on
+content rather than on status:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>prepare_databases returned non-zero; verifying the result anyway
+<a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a>The vConTACT3 database in .../vcontact3_db is unusable:
+<a id="__codelineno-33-3" name="__codelineno-33-3" href="#__codelineno-33-3"></a>v232/RefSeq.232.0.3.mmseq_0.3_clu is not an mmseqs clustering database.
+</code></pre></div>
+<p><strong>Resolution.</strong> <code>curl</code> is in <code>docker/viroprofiler-vcontact3/pixi.toml</code> and the lockfile is
+regenerated. The re-lock added <code>curl</code> and its dependency chain — <code>libcurl</code>, <code>krb5</code>,
+<code>libnghttp2</code>, <code>libpsl</code>, <code>libedit</code>, <code>libev</code>, <code>icu</code>, <code>keyutils</code> — and moved no package that was
+already pinned. Verified end to end with the rebuilt image: <code>DB_VCONTACT3</code> downloads,
+verifies and publishes 14 GB. <code>DB_GENOMAD</code>, which the failure had stopped from running at
+all, publishes 1.4 GB in the same run.</p>
+<hr />
+<p><a id="i-53"></a></p>
+<h2 id="i-53">I-53</h2>
+<p><strong>A symlinked database that is not bind-mounted is silently re-downloaded.</strong> P2. Open.</p>
+<p>Every <code>DB_*</code> process skips its work when the database is already there:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a>if [ ! -d ${params.db}/checkv ]; then
+<a id="__codelineno-34-2" name="__codelineno-34-2" href="#__codelineno-34-2"></a>    checkv download_database ${params.db}
+<a id="__codelineno-34-3" name="__codelineno-34-3" href="#__codelineno-34-3"></a>    ...
+</code></pre></div>
+<p>That test runs <em>inside the container</em>. A <code>--db</code> entry that is a symlink to a path outside it
+— which is how the databases on the development host are arranged, and what
+<code>--container_binds</code> exists for — is a dangling link in there, so <code>-d</code> is false and the
+download starts. <code>DB_CHECKV</code> re-fetched 6.4 GB this way, then failed when its <code>mv</code> landed on
+the symlink that was there all along.</p>
+<p>The failure is loud, but it names the wrong thing: an <code>mv</code> collision rather than a missing
+bind. Passing <code>--container_binds</code> with the symlink targets avoids it, which is the documented
+requirement for a <em>run</em> and is just as necessary for <code>--mode setup</code>.</p>
+<p>Passing <code>--container_binds</code> with the symlink targets makes every guard fire correctly, which
+is how the three already-built databases were skipped on the second attempt. That is the
+workaround, not the fix.</p>
+<p>Worth fixing by testing the path on the host side instead — a <code>when:</code> clause reading
+<code>file("${params.db}/checkv").exists()</code> — so that the guard sees what the user sees.</p>
+<hr />
+<p><a id="i-54"></a></p>
+<h2 id="i-54">I-54</h2>
+<p><strong><code>docker.yml</code> was invalid YAML for GitHub, so the lockfile gate never ran once.</strong> P1. Fixed.</p>
+<p><code>PACKAGING.md</code>, <code>CLAUDE.md</code> and <code>HANDOFF.md</code> all describe <code>pixi lock --check --dry-run</code> as the
+CI gate that keeps an image's lockfile honest. It had never executed. Two independent faults,
+either of which alone was enough:</p>
+<ol>
+<li>The <code>push_to_registry</code> job's <code>matrix.include</code> had every entry commented out. YAML parses
+   that as <code>include: null</code>, and GitHub rejects an empty matrix <em>at parse time</em> — so the whole
+   workflow file was invalid, <code>check_locks</code> included, even though nothing was wrong with it.
+   The symptom is a run with <code>conclusion: failure</code> and an empty <code>jobs</code> array, which reads like
+   an infrastructure hiccup rather than a syntax error.</li>
+<li><code>on:</code> listed only <code>push: tags: [v*, docker*]</code>. The images and their lockfiles are edited on
+   branches; by the time a tag exists, any drift is already released.</li>
+</ol>
+<p>Found by pushing <code>dev_ru</code> and noticing the failed run: <code>gh run list --workflow docker.yml</code>
+returned exactly one entry, that push, failed. Every earlier commit that touched <code>docker/</code>
+had gone through with no lockfile check at all.</p>
+<p>The job was removed rather than repaired, because restoring it is a larger piece of work than
+making the file valid — see <code>HANDOFF.md</code>, "Not done yet" item 3 — and its commented-out matrix
+is stale in its own right: ten images listed, sixteen present under <code>docker/</code>. <code>on:</code> now fires
+on pushes and pull requests that touch <code>docker/</code>. All fifteen lockfiles pass.</p>
+<p>The general shape is worth keeping in mind: <strong>a CI gate that cannot be parsed fails in the
+same direction as one that passes.</strong> Nothing goes red on the branch that broke it, the
+repository keeps documenting a guarantee it stopped providing, and the only way to notice is
+to ask when the check last actually ran.</p>
+<hr />
+<p><a id="i-55"></a></p>
+<h2 id="i-55">I-55</h2>
+<p><strong>Two of <code>ABUNDANCE</code>'s six CoverM invocations feed no downstream process.</strong> P2. Closed — they
+are published for users, and stay.</p>
+<p><code>ABUNDANCE</code> runs <code>coverm contig</code> six times, once per method, each a separate pass over every
+BAM in the run:</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Channel</th>
+<th>Consumers</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>count</code></td>
+<td><code>ab_count_ch</code></td>
+<td><code>RESULTS_TSE</code></td>
+</tr>
+<tr>
+<td><code>tpm</code></td>
+<td><code>ab_tpm_ch</code></td>
+<td><code>RESULTS_TSE</code></td>
+</tr>
+<tr>
+<td><code>trimmed_mean</code></td>
+<td><code>ab_trmean_ch</code></td>
+<td><code>RESULTS_TSE</code></td>
+</tr>
+<tr>
+<td><code>covered_fraction</code></td>
+<td><code>ab_covfrac_ch</code></td>
+<td><code>RESULTS_TSE</code></td>
+</tr>
+<tr>
+<td><code>rpkm</code></td>
+<td><code>ab_rpkm_ch</code></td>
+<td><strong>none</strong></td>
+</tr>
+<tr>
+<td><code>reads_per_base</code></td>
+<td><code>ab_rpb_ch</code></td>
+<td><strong>none</strong></td>
+</tr>
+</tbody>
+</table>
+<p>The last two are emitted and published, and no workflow references either channel. The TSE is
+built from the first four; <code>bin/create_tse.r</code> has no argument that could take the other two.
+vpfkit's <code>rpb2bpb()</code> was the one function that consumed a <code>reads_per_base</code> table, and nothing
+calls it either — it is deprecated as of vpfkit <code>bfc3c9b</code>, because CoverM measures exactly the
+depth it was estimating.</p>
+<p>So a third of the abundance stage re-reads every BAM to produce two files that only ever reach
+<code>publishDir</code>. That is not free: each pass is I/O-bound over the full alignment set.</p>
+<p><strong>Both are kept, deliberately.</strong> They are published for users who want to do their own
+analysis with them — <code>rpkm</code> in particular is a normalization people ask for by name — and
+"no consumer inside the pipeline" is not the same as "no consumer". The cost is understood and
+accepted; what was wrong was that nothing recorded which outputs are for <code>RESULTS_TSE</code> and
+which are for the person reading <code>publishDir</code>.</p>
+<p>The optimization that remains available, and is separate from this decision: <code>coverm contig</code>
+accepts several <code>--methods</code> in one invocation, so all six could come from one pass over the
+BAMs instead of six. It is not free to adopt — the output becomes one wide table rather than
+one table per method, which changes <code>RESULTS_TSE</code>'s inputs and needs vpfkit's readers changed
+with it — so it is worth doing when something else is already touching that interface.</p>
+<hr />
+<p><a id="i-56"></a></p>
+<h2 id="i-56">I-56</h2>
+<p><strong>Neither PHAMB database could be built, and in both cases the guard turned the failure
+silent.</strong> P0. Fixed.</p>
+<p><a href="#i-30">I-30</a> recorded that <code>vog.hmm.tar.gz</code> moved its profiles from the archive root into
+<code>hmm/</code>, and fixed the consequence for DRAM by making <code>process_vogdb()</code>'s glob recursive. The
+same upstream change broke a second consumer that was never touched:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a>cat VOG*.hmm &gt; AllVOG.hmm
+</code></pre></div>
+<p>With the profiles at <code>hmm/VOG00001.hmm</code>, that glob matches nothing. Reproduced under the
+pipeline's own shell (<code>process.shell = ['/bin/bash', '-euo', 'pipefail']</code>):</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>cat</code></td>
+<td><code>cat: 'VOG*.hmm': No such file or directory</code>, exit 1</td>
+</tr>
+<tr>
+<td>Script</td>
+<td>Fails — but <code>&gt; AllVOG.hmm</code> already created the file</td>
+</tr>
+<tr>
+<td>Left behind</td>
+<td>A <strong>0-byte <code>AllVOG.hmm</code></strong> and the unpacked <code>hmm/</code> directory</td>
+</tr>
+</tbody>
+</table>
+<p>The failure is loud the first time. The second time it is silent, because the guard was
+<code>[ ! -d ${params.db}/vogdb ]</code> and the directory now exists: the process prints "VOGDB database
+already exists" and succeeds. <code>VOGDB</code> then runs <code>hmmsearch</code> against a 0-byte library, which
+returns no hits without erroring, and PHAMB's random forest is handed an empty VOG feature
+column — it still produces bin calls, from one fewer piece of evidence than it was fitted on.</p>
+<p>Nothing caught it because <code>--binning phamb</code> has never been run: this database is only ever
+built for that path.</p>
+<p>Fixed together with <a href="#i-09">I-09</a>. <code>DB_VOGDB</code> now finds profiles with
+<code>find -name 'VOG*.hmm'</code> regardless of archive layout, builds into the task work directory,
+and verifies the result by counting <code>HMMER3/</code> magic lines — the header every model in a HMMER3
+library begins with, so a count is a parse: a 0-byte concatenation, a truncated download and
+an HTML error page all give zero. It publishes only above 1000 profiles (vog236 has ~49000).</p>
+<p><strong><code>DB_MICOMPLETEDB</code> turned out to be broken too, independently, and identically.</strong> Running the
+fixed VOGDB logic end to end surfaced it: the miComplete step produced a zero-byte
+<code>Bact105.hmm</code>. Bitbucket answers <code>wget</code> with <strong>404</strong> and <code>curl</code> with <strong>200</strong>, for the same
+URL, with or without a browser User-Agent:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a>$ wget -O w.hmm  https://bitbucket.org/.../Bact105.hmm   -&gt;  ERROR 404: Not Found,  0 bytes
+<a id="__codelineno-36-2" name="__codelineno-36-2" href="#__codelineno-36-2"></a>$ curl -sSL -o c.hmm https://bitbucket.org/.../Bact105.hmm  -&gt;  http=200, 6716478 bytes
+</code></pre></div>
+<p>So the same shape as VOGDB: the download fails, <code>wget -O</code> has already created the file, the
+directory the process made beforehand now exists, and the next run's <code>[ ! -d ]</code> guard skips it
+and reports success — leaving MICOMPLETEDB to hmmsearch an empty library.</p>
+<p>Both PHAMB databases were therefore unbuildable, by two unrelated causes with one signature.
+<code>DB_MICOMPLETEDB</code> now uses <code>curl -fsSL</code> — <code>-f</code> being what turns an HTTP error into a non-zero
+exit rather than an error page written to the output file — and verifies that <code>Bact105.hmm</code>
+holds exactly 105 profiles before publishing. <code>curl</code> is now declared in
+<code>docker/viroprofiler-base/pixi.toml</code> rather than relied on transitively, which is
+<a href="#i-17">I-17</a>'s lesson; <code>pixi lock</code> reported the lockfile already up to date, so no package
+moved.</p>
+<p>Both databases have now been built with the fixed logic: vog236 gives 49116 profiles
+(4.4 GB), miComplete 105.</p>
+<p>Three lessons this repository already knew, all of which applied here:</p>
+<ul>
+<li><strong>An exit status proves nothing about a database.</strong> The second run's status was 0.</li>
+<li><strong><code>[ -d ]</code> is not a completeness check</strong> (<a href="#i-53">I-53</a>). Here it did not merely fail to
+  detect a missing bind; it actively converted a hard failure into a silent one.</li>
+<li><strong>When an upstream layout change breaks one consumer, look for the others.</strong> I-30 found the
+  cause and fixed one call site. The grep for the other one is cheap and was never done.</li>
+</ul>
+<h3 id="where-the-same-shape-still-is">Where the same shape still is</h3>
+<p>Auditing every <code>DB_*</code> process after this, by whether it checks the <em>content</em> of what it
+produced rather than by which idiom it uses:</p>
+<table>
+<thead>
+<tr>
+<th>Verifies its output</th>
+<th>Does not</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>DB_GENOMAD</code>, <code>DB_CHECKAMG</code>, <code>DB_DRAM</code>, <code>DB_VIBRANT</code>, <code>DB_VCONTACT3</code>, <code>DB_VITAP</code>, <code>DB_VOGDB</code>, <code>DB_MICOMPLETEDB</code></td>
+<td><code>DB_CHECKV</code>, <code>DB_VIRSORTER2</code>, <code>DB_IPHOP</code>, <code>DB_EGGNOG</code>, <code>DB_KRAKEN2</code></td>
+</tr>
+</tbody>
+</table>
+<p>Of the five, three — <code>DB_IPHOP</code>, <code>DB_EGGNOG</code>, <code>DB_KRAKEN2</code> — also download straight into
+<code>--db</code> rather than into the task work directory, so a failure leaves exactly the residue that
+makes the next run skip.</p>
+<p><strong><code>DB_IPHOP</code> has been run, on an HPC cluster, and it worked</strong> — so it is not in the position
+VOGDB was, despite looking similar here. It cannot run on this machine (iPHoP has no aarch64
+build), which is why nothing in this repository's own verification record covers it.</p>
+<p>That evidence still applies to the current code. <code>DB_IPHOP</code> was touched once during this
+modernization, by <code>88d9eb2</code>, which replaced a hardcoded <code>iPHoP_db_Sept21.tar.gz</code> with a
+<code>*.tar.gz</code> glob — the archive is deleted after a successful download, so the change affects
+cleanup and not the download. The <code>iphop download</code> call is byte-identical to the one that ran.</p>
+<p>What is <em>not</em> covered: it has no content check, so a partial download would leave a directory
+the guard then skips. It creates that directory before downloading into it, which is
+<a href="#i-57">I-57</a>'s shape — though I-57 itself does not bite here, because it is specific to
+Docker creating a missing bind-mount source, and the cluster runs Apptainer.</p>
+<p><code>DB_CHECKV</code> and <code>DB_VIRSORTER2</code> are lower risk only because they have run many times here and
+their outputs are in use; that is evidence about these particular downloads, not about the
+processes. <code>DB_EGGNOG</code> and <code>DB_KRAKEN2</code> serve modules that are off by default.</p>
+<hr />
+<p><a id="i-57"></a></p>
+<h2 id="i-57">I-57</h2>
+<p><strong>A <code>--db</code> path that does not exist yet is created by Docker, as root, and then nothing can
+write to it.</strong> P1. Fixed.</p>
+<p><code>--mode setup</code> exists to build databases into <code>--db</code>, so pointing it at an empty path is the
+obvious first thing to do. Under <code>-profile docker</code> it failed:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a>mkdir: cannot create directory &#39;/home/runner/work/.../phamb_db/vogdb&#39;: Permission denied
+</code></pre></div>
+<p>Docker creates a missing bind-mount source itself, and it creates it as <strong>root</strong>. The
+container, meanwhile, runs as the invoking user — <code>docker.runOptions = '-u $(id -u):$(id -g)'</code>
+in the <code>docker</code> profile — so the first <code>DB_*</code> process to reach a <code>mkdir</code> cannot write into the
+directory Docker just made for it.</p>
+<p>Three things made this hard to read:</p>
+<ul>
+<li>The message names neither Docker nor the mount. It looks like a filesystem permissions
+  problem on the host, where the path is in fact writable.</li>
+<li>It arrives <em>late</em>. <code>DB_VOGDB</code> downloads 554 MB, unpacks 49116 profiles and concatenates them
+  before it ever tries to publish, so the failure is minutes in and after a great deal of
+  apparently healthy output.</li>
+<li>It does not reproduce under Apptainer, which does not create missing bind sources and would
+  have refused up front. Every real run on the development machine uses Apptainer.</li>
+</ul>
+<p>Fixed by creating the directory on the host, in <code>SETUP</code>, before any container starts —
+Nextflow evaluates that as the invoking user, so the directory exists and is owned correctly
+by the time anything is mounted. <code>phamb_entry.nf</code> does the same for its <code>databases</code>
+stage, which does not go through <code>SETUP</code>.</p>
+<p>Found by running the PHAMB path in CI for the first time, which is also the first time this
+repository ran <code>--mode setup</code> under Docker rather than Apptainer.</p>
+<hr />
+<p><a id="i-58"></a></p>
+<h2 id="i-58">I-58</h2>
+<p><strong>The viewer image could not install vpfkit on amd64, because <code>here</code> was never declared.</strong>
+P0 on that platform. Fixed.</p>
+<p>The first amd64 build of <code>viroprofiler-viewer</code>, in CI, died in the <code>install_github()</code> layer:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a>ERROR: dependency &#39;here&#39; is not available for package &#39;vpfkit&#39;
+</code></pre></div>
+<p>vpfkit imports <code>here</code> and has since 0.6.0. The image's <code>pixi.toml</code> never listed it, and the
+aarch64 builds on the development machine passed anyway: their solve picked <code>r-golem</code> 0.5.1,
+which depends on <code>r-here</code>, so the package arrived as a side effect. The linux-64 half of the
+same lockfile resolves <code>r-golem</code> 1.0.1, which dropped that dependency, and the side effect
+with it. One lockfile, two platforms, two different package sets — 381 packages against 352,
+R 4.5 against R 4.3 — and a dependency that one of them had only by accident.</p>
+<p>Fixed by declaring <code>r-here</code> in <code>docker/viroprofiler-viewer/pixi.toml</code>. The re-lock adds
+exactly one package on linux-64 and changes nothing on linux-aarch64, so the local SIF built
+before the fix is the same image as the one the lock now describes.</p>
+<p>The general rule this leaves behind: every package vpfkit imports must be declared in the
+manifest by name. <code>install_github(dependencies = FALSE)</code> installs nothing on its own, and a
+dependency that is present only through another package's dependency list is one solver
+choice away from disappearing.</p>
+<p><a id="i-59"></a></p>
+<h2 id="i-59">I-59</h2>
+<p><strong><code>viroprofiler-host</code> could not be built by CI: the iPHoP fork it installs was private.</strong> P1.
+Fixed on 2026-09-20 by making the fork public; the image was published the same day.</p>
+<p>The Dockerfile fetches iPHoP from <code>https://github.com/rujinlong/iphop.git</code> at a pinned ref,
+because the bioconda package carries three defects the fork repairs (<a href="#i-27">I-27</a>). That
+repository was private. An unauthenticated GitHub Actions runner got</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a>fatal: could not read Username for &#39;https://github.com&#39;: No such device or address
+</code></pre></div>
+<p>on the first <code>git fetch</code>, before any layer of the image exists. The image on Docker Hub,
+<code>denglab/viroprofiler-host:v0.2.6</code>, dates from 2024-06 and predates the fork entirely.</p>
+<p>While it stood, <code>denglab/viroprofiler-host:v1.0.1</code> was the one tag <code>conf/modules.config</code>
+named that Docker Hub did not have, the <code>host</code> job was red on every Docker workflow run, and
+an amd64 run with the default <code>--use_iphop true</code> would have failed at <code>VIRALHOST_IPHOP</code>.</p>
+<p>Closed by making <code>rujinlong/iphop</code> public, which also lets anyone rebuild the image a
+published tag was made from — what the <code>org.opencontainers.image.source</code> label on it
+promises. The alternative, a fine-grained token in a repository secret passed to the build as
+a secret mount, would have built the image while leaving it reproducible by nobody outside the
+organization. After the change a manual run of <code>docker.yml</code> on <code>deng-lab/viroprofiler</code> <code>main</code>
+with <code>push</code> ticked built and pushed the image.</p>
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
+    </span>
+    2026-09-20
+  </span>
+
+    
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.1e8ae164.min.js"></script>
+      
+    
+  </body>
+</html>

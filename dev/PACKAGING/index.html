@@ -1,0 +1,1705 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../ARM64/">
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.17">
+    
+    
+      
+        <title>Packaging the images - ViroProfiler Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.bcfcd587.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="deep-purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#container-packaging" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="ViroProfiler Documentation" class="md-header__button md-logo" aria-label="ViroProfiler Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ViroProfiler Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Packaging the images
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/deng-lab/viroprofiler" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    deng-lab/viroprofiler
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="ViroProfiler Documentation" class="md-nav__button md-logo" aria-label="ViroProfiler Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    ViroProfiler Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/deng-lab/viroprofiler" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    deng-lab/viroprofiler
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../installation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Installation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quickstart/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quick start
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tutorial
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../usage/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Usage
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../output/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Outputs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../profiles/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Selecting NF profiles
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../config/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Config template
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Development
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            Development
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../KNOWN_ISSUES/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Known issues
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ARM64/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Building for arm64
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Packaging the images
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Packaging the images
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#where-this-stands" class="md-nav__link">
+    <span class="md-ellipsis">
+      Where this stands
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recommendation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Recommendation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-problem-is-the-missing-lock-not-the-package-manager" class="md-nav__link">
+    <span class="md-ellipsis">
+      The problem is the missing lock, not the package manager
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-pixi-rather-than-conda-lock" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why pixi rather than conda-lock
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#constraints-checked-against-this-repository" class="md-nav__link">
+    <span class="md-ellipsis">
+      Constraints checked against this repository
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Constraints checked against this repository">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tools-on-path-without-activation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tools on PATH without activation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multiple-environments-per-image" class="md-nav__link">
+    <span class="md-ellipsis">
+      Multiple environments per image
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#two-platforms" class="md-nav__link">
+    <span class="md-ellipsis">
+      Two platforms
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#image-size-and-build-time" class="md-nav__link">
+    <span class="md-ellipsis">
+      Image size and build time
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-this-does-not-fix" class="md-nav__link">
+    <span class="md-ellipsis">
+      What this does not fix
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-manifest-shape" class="md-nav__link">
+    <span class="md-ellipsis">
+      The manifest shape
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The manifest shape">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-pilot-and-what-it-established-viroprofiler-replicyc" class="md-nav__link">
+    <span class="md-ellipsis">
+      The pilot, and what it established: viroprofiler-replicyc
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-to-tell-whether-a-migrated-image-is-correct" class="md-nav__link">
+    <span class="md-ellipsis">
+      How to tell whether a migrated image is correct
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-the-migration-turned-up" class="md-nav__link">
+    <span class="md-ellipsis">
+      What the migration turned up
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#virsorter2-fork-freeze-or-replace" class="md-nav__link">
+    <span class="md-ellipsis">
+      VirSorter2: fork, freeze, or replace?
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="VirSorter2: fork, freeze, or replace?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-virsorter2-actually-does-in-this-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      What VirSorter2 actually does in this pipeline
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#forking-is-not-worth-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      Forking is not worth it
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-bioconda-pin-is-durable-enough-once-locked" class="md-nav__link">
+    <span class="md-ellipsis">
+      The bioconda pin is durable enough, once locked
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#genomad-cannot-take-over-the-load-bearing-role" class="md-nav__link">
+    <span class="md-ellipsis">
+      geNomad cannot take over the load-bearing role
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-tool-that-should-be-replaced-is-deepvirfinder" class="md-nav__link">
+    <span class="md-ellipsis">
+      The tool that should be replaced is DeepVirFinder
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verdict" class="md-nav__link">
+    <span class="md-ellipsis">
+      Verdict
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#appendix-verification" class="md-nav__link">
+    <span class="md-ellipsis">
+      Appendix: verification
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#where-this-stands" class="md-nav__link">
+    <span class="md-ellipsis">
+      Where this stands
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recommendation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Recommendation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-problem-is-the-missing-lock-not-the-package-manager" class="md-nav__link">
+    <span class="md-ellipsis">
+      The problem is the missing lock, not the package manager
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-pixi-rather-than-conda-lock" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why pixi rather than conda-lock
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#constraints-checked-against-this-repository" class="md-nav__link">
+    <span class="md-ellipsis">
+      Constraints checked against this repository
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Constraints checked against this repository">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tools-on-path-without-activation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tools on PATH without activation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multiple-environments-per-image" class="md-nav__link">
+    <span class="md-ellipsis">
+      Multiple environments per image
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#two-platforms" class="md-nav__link">
+    <span class="md-ellipsis">
+      Two platforms
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#image-size-and-build-time" class="md-nav__link">
+    <span class="md-ellipsis">
+      Image size and build time
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-this-does-not-fix" class="md-nav__link">
+    <span class="md-ellipsis">
+      What this does not fix
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-manifest-shape" class="md-nav__link">
+    <span class="md-ellipsis">
+      The manifest shape
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The manifest shape">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-pilot-and-what-it-established-viroprofiler-replicyc" class="md-nav__link">
+    <span class="md-ellipsis">
+      The pilot, and what it established: viroprofiler-replicyc
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-to-tell-whether-a-migrated-image-is-correct" class="md-nav__link">
+    <span class="md-ellipsis">
+      How to tell whether a migrated image is correct
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-the-migration-turned-up" class="md-nav__link">
+    <span class="md-ellipsis">
+      What the migration turned up
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#virsorter2-fork-freeze-or-replace" class="md-nav__link">
+    <span class="md-ellipsis">
+      VirSorter2: fork, freeze, or replace?
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="VirSorter2: fork, freeze, or replace?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-virsorter2-actually-does-in-this-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      What VirSorter2 actually does in this pipeline
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#forking-is-not-worth-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      Forking is not worth it
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-bioconda-pin-is-durable-enough-once-locked" class="md-nav__link">
+    <span class="md-ellipsis">
+      The bioconda pin is durable enough, once locked
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#genomad-cannot-take-over-the-load-bearing-role" class="md-nav__link">
+    <span class="md-ellipsis">
+      geNomad cannot take over the load-bearing role
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-tool-that-should-be-replaced-is-deepvirfinder" class="md-nav__link">
+    <span class="md-ellipsis">
+      The tool that should be replaced is DeepVirFinder
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verdict" class="md-nav__link">
+    <span class="md-ellipsis">
+      Verdict
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#appendix-verification" class="md-nav__link">
+    <span class="md-ellipsis">
+      Appendix: verification
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="container-packaging">Container Packaging</h1>
+<p>How the images in <code>docker/</code> declare and freeze their dependencies, and what to do about
+VirSorter2.</p>
+<h2 id="where-this-stands">Where this stands</h2>
+<p>Every image except <code>viroprofiler-host</code> is built by pixi from a committed <code>pixi.lock</code>. Each
+<code>docker/viroprofiler-*/</code> holds a <code>pixi.toml</code> stating the intent and a <code>pixi.lock</code> recording
+what was chosen; the Dockerfile installs with <code>pixi install --locked</code>, which fails the build
+if the two disagree, and ends with a smoke test under <code>env -i</code> — the environment
+<code>.command.sh</code> actually runs in.</p>
+<p><code>viroprofiler-host</code> stays on micromamba. Its conda specs come from <code>iphop_environment.yml</code>
+inside the iPHoP fork's own checkout, so there is no manifest in this repository to lock, and
+the image is amd64-only in any case.</p>
+<p>The conda side is locked; four things deliberately are not, and carry their own pins in the
+Dockerfile that installs them:</p>
+<table>
+<thead>
+<tr>
+<th>Image</th>
+<th>Outside the lock</th>
+<th>Pinned by</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>viroprofiler-geneannot</code></td>
+<td><code>DRAM-bio</code></td>
+<td><code>ARG DRAM_VERSION=1.4.6</code>, installed <code>--no-deps</code></td>
+</tr>
+<tr>
+<td><code>viroprofiler-checkamg</code></td>
+<td>torch, torch_scatter, checkamg</td>
+<td>version ARGs; torch needs PyTorch's CPU index and torch_scatter needs <code>--no-build-isolation</code></td>
+</tr>
+<tr>
+<td><code>viroprofiler-vitap</code>, <code>viroprofiler-vcontact3</code></td>
+<td>the tools themselves</td>
+<td><code>ARG *_REF</code> commit SHAs</td>
+</tr>
+<tr>
+<td><code>viroprofiler-viewer</code></td>
+<td>vpfkit</td>
+<td><code>ARG VPFKIT_REF</code>, a commit SHA rather than <code>main</code></td>
+</tr>
+<tr>
+<td><code>viroprofiler-binning</code></td>
+<td>phamb, the vRhyme model</td>
+<td>a git rev in <code>[pypi-dependencies]</code>; <code>ARG VRHYME_REF</code> for the model</td>
+</tr>
+</tbody>
+</table>
+<p>The rest of this document is why that shape was chosen, and what it does and does not buy.</p>
+<h2 id="recommendation">Recommendation</h2>
+<p><strong>Adopt lockfiles, and use pixi as the vehicle.</strong> The 2026 breakages recorded in
+<a href="../KNOWN_ISSUES/">KNOWN_ISSUES.md</a> (<a href="../KNOWN_ISSUES/#i-21">I-21</a>, <a href="../KNOWN_ISSUES/#i-22">I-22</a>,
+<a href="../KNOWN_ISSUES/#i-25">I-25</a>) were all one failure: a loose <code>env_*.yml</code> is a <em>request for a
+future solve</em>, not a record of a working environment, so every rebuild silently produces an
+untested environment. That diagnosis is about lockfiles, not about conda versus pixi — and if
+the choice of tool ever threatens to delay locking, lock first with whatever is at hand. Among
+the vehicles that can carry a lock, pixi is the right one for <em>this</em> repository on three
+specific grounds: it locks conda and PyPI dependencies in one file, which matters because six
+of the fourteen Dockerfiles install software outside any environment file today; per-feature
+<code>platforms</code> turns the aarch64 support matrix from prose in <a href="../ARM64/">ARM64.md</a> into a
+machine-checked declaration; and at the scale of nineteen environment files its speed is the
+difference between a routine <code>pixi lock</code> and a chore nobody runs. The two constraints that
+could have vetoed pixi both check out empirically: tools are callable from <code>PATH</code> with no
+activation, verified under both <code>docker run env -i</code> and <code>apptainer exec --no-home --cleanenv</code>,
+and image size and build time are a wash (1.86 GB / 84 s versus 1.84 GB / 87 s for the same
+two environments). The migration is per-image incremental — Nextflow cannot tell how an image
+was built — so it should be done one image at a time behind a pilot, not as a flag day. That
+the maintainer already uses pixi locally is a tiebreak, not a reason.</p>
+<h2 id="the-problem-is-the-missing-lock-not-the-package-manager">The problem is the missing lock, not the package manager</h2>
+<p>Every failure in the table below has the same shape: a spec that was satisfiable and correct in
+2022 is still satisfiable in 2026, but resolves to different packages.</p>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>What a 2026 re-solve chose</th>
+<th>Symptom</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>VirSorter2 2.2.4</td>
+<td>snakemake 8</td>
+<td><code>ImportError: cannot import name 'load_configfile'</code></td>
+</tr>
+<tr>
+<td>DRAM 1.3.5</td>
+<td>Python 3.14</td>
+<td><code>ModuleNotFoundError: No module named 'pkg_resources'</code></td>
+</tr>
+<tr>
+<td>vConTACT2 0.11.3</td>
+<td>Python 3.14 / setuptools 84</td>
+<td>same <code>pkg_resources</code> failure</td>
+</tr>
+<tr>
+<td>eggNOG-mapper 2.1.9</td>
+<td>Python 3.14</td>
+<td><code>ModuleNotFoundError: No module named 'distutils'</code></td>
+</tr>
+<tr>
+<td>bacphlip</td>
+<td>numpy 1.24</td>
+<td><code>AttributeError: module 'numpy' has no attribute 'float'</code></td>
+</tr>
+</tbody>
+</table>
+<p>None of these is a conda defect, and none would have been prevented by a different solver. Each
+was patched with a constraint (<code>python=3.10</code>, <code>setuptools&lt;81</code>, <code>numpy&lt;1.24</code>) inferred from the
+traceback. Those constraints are correct today and are worth keeping as <em>declared intent</em>, but
+they are upper bounds guessed from one failure each — the next incompatibility will arrive
+somewhere they do not cover, and the environments will drift again.</p>
+<p>A lockfile ends that class of failure outright, because the build stops solving. It also has a
+cost worth stating plainly: locking today freezes today's environment, which is the environment
+that a single end-to-end run has exercised, not a reconstruction of the 2022 one. That is
+acceptable — the point of the lock is that the thing that was tested is the thing that ships —
+but it means the lock must be regenerated deliberately and re-tested, never refreshed as a side
+effect of a rebuild.</p>
+<p>Two consequences follow for how the manifests should be written:</p>
+<ul>
+<li>The loose specs stay. <code>pandas&gt;=1.5,&lt;2</code>, <code>setuptools&lt;81</code>, <code>python=3.10</code> express <em>why</em> a bound
+  exists and survive a deliberate re-lock. The lockfile records <em>what</em> was chosen.</li>
+<li>A conda lock does not reach everything. The base image, the PyPI installs, the <code>git clone</code>
+  steps and the <code>wget</code> of reference data are all outside it. Those need their own pins.</li>
+</ul>
+<h2 id="why-pixi-rather-than-conda-lock">Why pixi rather than conda-lock</h2>
+<p><code>conda-lock</code> is the obvious lower-churn alternative: keep <code>env_*.yml</code>, keep micromamba, change
+one line per Dockerfile. It was tested rather than assumed, and it does not hold up at this
+repository's scale.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>pixi 0.73.0</th>
+<th>conda-lock 4.0.2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Lock <code>env_replidec.yml</code>, 2 platforms, cold cache</td>
+<td>9.4 s (with <code>env_bacphlip.yml</code> too)</td>
+<td>killed at 16 min, no lockfile, no output</td>
+</tr>
+<tr>
+<td>Same, warm cache</td>
+<td>2.1 s</td>
+<td>not reached</td>
+</tr>
+<tr>
+<td>Conda + PyPI in one lock</td>
+<td>yes</td>
+<td>conda only, in practice</td>
+</tr>
+<tr>
+<td>Per-environment platform restriction</td>
+<td>yes, in the manifest</td>
+<td>separate invocations</td>
+</tr>
+<tr>
+<td>Custom channels (<code>denglab</code>, <code>hcc</code>)</td>
+<td>resolved</td>
+<td>not reached</td>
+</tr>
+</tbody>
+</table>
+<p>Both tools were given the same two environment files from
+<code>docker/viroprofiler-replicyc/</code>, the same two platforms, and an empty cache. pixi produced a
+132 KB lockfile covering both environments and both platforms in 9.4 seconds; conda-lock,
+solving strictly less (one environment), had written nothing after 16 minutes while sitting at
+about 1% CPU — network-bound, not compute-bound.</p>
+<p>The gap is structural, not incidental: pixi fetches sharded repodata for the packages actually
+requested, while conda-lock pulls whole-channel repodata for bioconda and conda-forge on every
+platform. With nineteen environment files to lock and re-lock, that is the difference between a
+command that runs in CI on every pull request and one that does not.</p>
+<p>The decisive advantage, though, is PyPI. Six of the fourteen Dockerfiles install software that
+no conda lock can see:</p>
+<table>
+<thead>
+<tr>
+<th>Image</th>
+<th>Install outside any environment file</th>
+<th>Pinned today?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>viroprofiler-binning</code></td>
+<td><code>git clone</code> phamb at <code>master</code> + <code>pip install -e .</code>; <code>wget</code> of the vRhyme model from <code>raw/master</code></td>
+<td>no</td>
+</tr>
+<tr>
+<td><code>viroprofiler-viewer</code></td>
+<td><code>remotes::install_github('deng-lab/vpfkit', ref = 'main')</code></td>
+<td>no</td>
+</tr>
+<tr>
+<td><code>viroprofiler-geneannot</code></td>
+<td><code>pip install --no-deps DRAM-bio==1.4.6</code></td>
+<td>version only</td>
+</tr>
+<tr>
+<td><code>viroprofiler-host</code></td>
+<td><code>pip install .</code> of the iPHoP fork</td>
+<td>yes, <code>ARG IPHOP_REF</code></td>
+</tr>
+<tr>
+<td><code>viroprofiler-replicyc</code></td>
+<td><code>wget</code> of the Replidec database tarball</td>
+<td>yes, versioned URL</td>
+</tr>
+<tr>
+<td><code>viroprofiler-taxa</code></td>
+<td><code>wget</code> of three vConTACT2 reference files</td>
+<td>yes, by commit</td>
+</tr>
+</tbody>
+</table>
+<p>The top two can change under a rebuild without any file in this repository changing. The rest
+are pinned but invisible: nothing checks them, and nothing records what a given image actually
+contained.</p>
+<p>pixi resolves <code>DRAM-bio==1.4.6</code> into the same lockfile as its conda dependencies, recording the
+wheel's hashed <code>files.pythonhosted.org</code> URL for both platforms, and it accepts a git revision as
+a PyPI source, which covers phamb. Note one behavioral difference to validate during migration:
+the Dockerfile deliberately uses <code>pip install --no-deps</code>, whereas pixi's PyPI resolver honors
+DRAM's declared requirements — a manifest that moves DRAM into <code>[pypi-dependencies]</code> must be
+checked to confirm it does not pull PyPI copies of packages the conda solve already provides.</p>
+<p><code>remotes::install_github</code> for vpfkit is outside both tools. It should be pinned to a commit SHA
+rather than <code>main</code> regardless of what happens to the rest of this document.</p>
+<h2 id="constraints-checked-against-this-repository">Constraints checked against this repository</h2>
+<h3 id="tools-on-path-without-activation">Tools on <code>PATH</code> without activation</h3>
+<p>This is the constraint that produced the current hand-maintained <code>ENV PATH</code> lines, and the one
+most likely to have vetoed pixi. Nextflow writes a <code>.command.sh</code> and executes it inside the
+container: no activation hook runs, no entrypoint survives, and there is no opportunity to wrap
+a command in <code>pixi run</code>.</p>
+<p>pixi installs each named environment into <code>.pixi/envs/&lt;name&gt;/</code>, and each is an ordinary conda
+prefix. Putting the <code>bin/</code> directories on <code>PATH</code> works, with no activation and no wrapper. A
+two-environment pilot image resolved and ran both tools under <code>docker run --entrypoint
+/usr/bin/env … -i PATH=…</code> — a completely empty environment except <code>PATH</code> and <code>HOME</code> — and again
+under <code>apptainer exec --no-home --cleanenv</code>, which is how the pipeline actually runs.</p>
+<p>The mechanism that makes multiple environments coexist is worth understanding, because it is the
+same one micromamba relies on and it has the same limits. In the pilot, <code>python</code> on <code>PATH</code> is
+the <em>first</em> environment's Python 3.10, yet the second environment's <code>bacphlip</code> still runs,
+because its console script carries an absolute shebang
+(<code>#!/app/.pixi/envs/bacphlip/bin/python3.8</code>). That is robust for console scripts and for
+binaries with correct RPATHs. It is <em>not</em> robust for a tool that shells out to <code>python</code>,
+<code>perl</code>, <code>Rscript</code> or <code>samtools</code> by bare name and expects its own environment's copy — first on
+<code>PATH</code> wins. pixi does not improve this and does not make it worse; it is a property of merging
+several prefixes into one executable namespace, and the current images already live with it.</p>
+<p>Activation scripts deserve the same honesty. The pilot's environments do ship one
+(<code>etc/conda/activate.d/libxml2-split_activate.sh</code>), and it does not run — but it does not run
+under the present micromamba images either, for exactly the same reason. Nothing regresses. What
+does change is that pixi gives a supported way to <em>materialize</em> activation into the image:
+<code>pixi shell-hook</code> emits the variables an activated environment would set, and they can be baked
+in as <code>ENV</code> at build time instead of being hand-derived the way <code>ENV CHECKVDB=…</code> is today.</p>
+<p><strong>Verdict: compatible, with no wrapper.</strong> The multi-environment <code>ENV PATH</code> line remains; pixi
+does not abolish it, it just makes the environments behind it declarable and lockable.</p>
+<h3 id="multiple-environments-per-image">Multiple environments per image</h3>
+<p>Three images build more than one environment: <code>viroprofiler-base</code> (base + checkv),
+<code>viroprofiler-geneannot</code> (base/DRAM + emapper + abricate), <code>viroprofiler-replicyc</code> (replidec +
+bacphlip). The mapping onto pixi is direct: one <code>pixi.toml</code> per image, one <code>[feature.X]</code> per
+current <code>env_X.yml</code>, one entry in <code>[environments]</code> per prefix.</p>
+<p>The one thing to get right is solve groups. These environments exist precisely because their
+dependencies conflict — checkv wants numpy 1.23.1, which the rest of the base tools do not
+accept. Each environment must therefore be given its <strong>own</strong> <code>solve-group</code>, or pixi will try
+to co-solve them and reproduce the conflict the split was created to avoid.</p>
+<h3 id="two-platforms">Two platforms</h3>
+<p>A lockfile does not conjure a missing package, and it should not be sold as if it did. When a
+package has no <code>linux-aarch64</code> build, <code>pixi lock</code> fails:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>x failed to solve requirements of environment &#39;dvf&#39; for platform &#39;linux-aarch64&#39;
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>  ╰─▶ Cannot solve the request because of: No candidates were found for theano 1.0.3.*.
+</code></pre></div>
+<p>That is the same information <code>micromamba create --dry-run --platform linux-aarch64</code> already
+gives (the recipe <a href="../ARM64/">ARM64.md</a> documents), moved from build time to lock time. Earlier
+is better, but on its own it would not justify a migration.</p>
+<p>What does justify it is that pixi can <em>express the answer</em> rather than only report the problem.
+Adding <code>platforms = ["linux-64"]</code> to the offending feature makes the manifest lock cleanly and
+record that this environment exists on one platform only:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>default -&gt; []
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>dvf     -&gt; [&#39;linux-64&#39;]
+</code></pre></div>
+<p>Today that fact lives in prose in <a href="../ARM64/">ARM64.md</a>, in an array in <code>docker/build_arm64.sh</code>,
+and in <code>use_iphop = false</code> in <code>conf/arm64_local.config</code> — three places that can disagree, and
+which no tool checks. In a pixi manifest it is one declaration that
+<code>pixi lock --check --dry-run</code> verifies on every pull request. pixi still does not control which
+images CI publishes; the build matrix must skip amd64-only images on arm64 independently.</p>
+<p>One correction to the assumption behind this question: <strong><code>virsorter=2.2.4</code> does solve on
+<code>linux-aarch64</code>.</strong> It is a <code>noarch</code> package and its full dependency closure resolves (142 and 141
+packages on linux-64 and linux-aarch64 respectively). The genuinely arm64-impossible components
+are DeepVirFinder (theano 1.0.3, keras 2.2.4) and iPHoP (<code>tensorflow-decision-forests</code>), both
+already documented in <a href="../ARM64/">ARM64.md</a>.</p>
+<h3 id="image-size-and-build-time">Image size and build time</h3>
+<p>Neutral, measured on this host (aarch64, Docker 29.2.1), building the same two environments both
+ways with a package cache mount and a warm cache:</p>
+<table>
+<thead>
+<tr>
+<th>Build</th>
+<th>Time</th>
+<th>Image</th>
+<th>SIF</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>micromamba 1.5.8</td>
+<td>1 m 27 s</td>
+<td>1.84 GB</td>
+<td>604 MB</td>
+</tr>
+<tr>
+<td>pixi 0.73.0</td>
+<td>1 m 24 s</td>
+<td>1.86 GB</td>
+<td>619 MB</td>
+</tr>
+</tbody>
+</table>
+<p>The pixi image carries the 63 MB <code>pixi</code> binary; a multi-stage build that copies only
+<code>.pixi/envs</code> removes it, provided the prefix keeps the same absolute path, since conda packages
+embed it. That is an optional refinement, not a reason to migrate. <code>pixi install --locked</code>
+eliminates the solve but not the download, extraction or link steps, which dominate — so pixi is
+not a build-speed argument in either direction.</p>
+<h2 id="what-this-does-not-fix">What this does not fix</h2>
+<p>State these plainly so the lockfile is not oversold:</p>
+<ul>
+<li><strong>Missing aarch64 packages.</strong> DeepVirFinder and iPHoP remain unbuildable on arm64.</li>
+<li><strong>Tools that are already broken against a modern stack.</strong> A lock freezes the workaround; it
+  does not make DRAM 1.4.6 stop importing <code>pkg_resources</code>.</li>
+<li><strong>The base images.</strong> <code>mambaorg/micromamba:1.5.8</code> and <code>ghcr.io/prefix-dev/pixi:0.73.0</code> are
+  mutable tags. Pin them by <code>@sha256:</code> digest.</li>
+<li><strong>Conda post-link scripts.</strong> micromamba runs them, pixi does not, and the difference is
+  invisible in both the solve and the lockfile. <code>bioconductor-genomeinfodbdata</code> consists of
+  nothing <em>but</em> a post-link script that fetches the actual R data package, so the viewer image
+  installed cleanly and then could not load <code>GenomeInfoDb</code>
+  (<a href="../KNOWN_ISSUES/#i-42">I-42</a>). Run the script explicitly in the Dockerfile and assert its
+  result; do not set <code>run-post-link-scripts insecure</code>, which turns every future dependency's
+  script into silent build-time code execution. A package whose conda artifact contains only
+  scripts is the signature to watch for.</li>
+<li><strong>Databases.</strong> The multi-gigabyte downloads in <code>modules/local/setup_db.nf</code> are unversioned and
+  unverified (<a href="../KNOWN_ISSUES/#i-08">I-08</a>, <a href="../KNOWN_ISSUES/#i-09">I-09</a>,
+  <a href="../KNOWN_ISSUES/#i-10">I-10</a>). They are a larger reproducibility hole than the environments and
+  are untouched by any of this.</li>
+<li><strong>The <code>hcc</code> and <code>denglab</code> channels.</strong> Both resolve correctly under pixi, but a lockfile that
+  points at <code>conda.anaconda.org/hcc/noarch/deepvirfinder-2020.11.21-py36_0.tar.bz2</code> still depends
+  on that artifact continuing to be hosted.</li>
+<li><strong>CI.</strong> Every entry in the <code>.github/workflows/docker.yml</code> build matrix is commented out, so no
+  image is currently built by CI at all, on either architecture. A lock that nothing verifies is
+  a comment.</li>
+</ul>
+<h2 id="the-manifest-shape">The manifest shape</h2>
+<p>A pixi-built image and a micromamba-built image are indistinguishable to Nextflow, so
+<code>conf/modules.config</code> needs no coordinated change and the two styles coexist — which is what
+lets <code>viroprofiler-host</code> stay behind.</p>
+<h3 id="the-pilot-and-what-it-established-viroprofiler-replicyc">The pilot, and what it established: <code>viroprofiler-replicyc</code></h3>
+<p>The right pilot was the smallest image that exercises every risk at once:
+<code>viroprofiler-replicyc</code> has two environments in one image, a custom channel (<code>denglab</code>), a
+compatibility pin that was guessed from a traceback (<code>numpy&lt;1.24</code>), and a <code>wget</code> of reference
+data in the Dockerfile that no lock covers. It rebuilds in under a minute.</p>
+<p><code>docker/viroprofiler-replicyc/pixi.toml</code> — one feature per current <code>env_*.yml</code>, one solve group
+each:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">[workspace]</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;viroprofiler-replicyc&quot;</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="n">channels</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;denglab&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;conda-forge&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;bioconda&quot;</span><span class="p">]</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="n">platforms</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;linux-64&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;linux-aarch64&quot;</span><span class="p">]</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="k">[feature.replidec.dependencies]</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="n">procps-ng</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;4.0.0.*&quot;</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="n">replidec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;*&quot;</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="k">[feature.bacphlip.dependencies]</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="n">bacphlip</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;*&quot;</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="c1"># bacphlip&#39;s scikit-learn still uses np.float, which numpy 1.24 removed.</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="n">numpy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;&lt;1.24&quot;</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="k">[environments]</span>
+<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="n">replidec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">features</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;replidec&quot;</span><span class="p">],</span><span class="w"> </span><span class="n">solve-group</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;replidec&quot;</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="n">bacphlip</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">features</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;bacphlip&quot;</span><span class="p">],</span><span class="w"> </span><span class="n">solve-group</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;bacphlip&quot;</span><span class="w"> </span><span class="p">}</span>
+</code></pre></div>
+<p><code>pixi lock</code> produces <code>pixi.lock</code>, which is committed. The Dockerfile keeps its previous shape
+— the <code>ENV PATH</code> line survives verbatim apart from the prefix paths:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">FROM</span><span class="w"> </span><span class="s">ghcr.io/prefix-dev/pixi:0.73.0@sha256:&lt;digest&gt;</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="k">WORKDIR</span><span class="w"> </span><span class="s">/app</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="k">COPY</span><span class="w"> </span>./docker/viroprofiler-replicyc/pixi.toml<span class="w"> </span>./docker/viroprofiler-replicyc/pixi.lock<span class="w"> </span>/app/
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="k">RUN</span><span class="w"> </span>--mount<span class="o">=</span><span class="nv">type</span><span class="o">=</span>cache,target<span class="o">=</span>/root/.cache/rattler<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">    </span>pixi<span class="w"> </span>install<span class="w"> </span>--locked<span class="w"> </span>-e<span class="w"> </span>replidec<span class="w"> </span>-e<span class="w"> </span>bacphlip
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="c"># Nextflow does not activate an environment: every tool must resolve from PATH alone.</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="k">ENV</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span>/app/.pixi/envs/replidec/bin:/app/.pixi/envs/bacphlip/bin:<span class="nv">$PATH</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="c"># Smoke test in a stripped environment, because that is how .command.sh runs.</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="k">RUN</span><span class="w"> </span><span class="k">env</span><span class="w"> </span>-i<span class="w"> </span><span class="nv">HOME</span><span class="o">=</span>/tmp<span class="w"> </span><span class="nv">PATH</span><span class="o">=</span>/app/.pixi/envs/replidec/bin:/app/.pixi/envs/bacphlip/bin:/usr/bin:/bin<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="w">    </span>bash<span class="w"> </span>-c<span class="w"> </span><span class="s1">&#39;Replidec -h &gt;/dev/null &amp;&amp; bacphlip -h &gt;/dev/null &amp;&amp; mmseqs version &amp;&amp; ps -p 1 -o comm=&#39;</span>
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="k">ENTRYPOINT</span><span class="w"> </span><span class="p">[]</span>
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="k">CMD</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;/bin/bash&quot;</span><span class="p">]</span>
+</code></pre></div>
+<p>The Replidec database <code>wget</code> moves across unchanged, with <code>site-packages</code> located via the
+environment's own Python rather than a bare <code>python3</code>.</p>
+<h3 id="how-to-tell-whether-a-migrated-image-is-correct">How to tell whether a migrated image is correct</h3>
+<p>Not "the image built". All five must hold, and all five held for the pilot — bacphlip's
+predictions on four real phage genomes were byte-identical between the two builds, and
+Replidec's differed only in row order and in the last bit of one likelihood
+(max relative difference 2.06e-16), with every classification agreeing. The same comparison
+was later run on <code>viroprofiler-base</code>, the image the most processes share: CheckV's
+<code>quality_summary.tsv</code> and <code>checkv_qc_long.fasta</code>, and <code>CONTIGLIB_CLUSTER</code>'s
+<code>contigs_ANIclst.tsv</code>, were byte-identical between a micromamba-image run and a pixi-image
+run of the same two samples.</p>
+<ol>
+<li><strong><code>pixi lock --check --dry-run</code> is clean</strong> in CI on both platforms — the committed lock
+   matches the manifest, and <code>pixi install --locked</code> in the Dockerfile refuses to build if it
+   does not. Use <code>--dry-run</code>: plain <code>pixi lock --check</code> exits non-zero on drift but <em>rewrites</em>
+   <code>pixi.lock</code> while doing so, which would leave CI with a dirty working tree.</li>
+<li><strong>Every tool resolves and runs under <code>env -i</code></strong> with only <code>PATH</code> and <code>HOME</code> set. The
+   in-Dockerfile smoke test above enforces this at build time, which is where it belongs.</li>
+<li><strong>The same holds under <code>apptainer exec --no-home --cleanenv</code></strong> on the converted SIF, since
+   <code>--no-home</code> is what broke <code>virsorter setup</code> and would break anything else that assumes a
+   writable <code>$HOME</code>.</li>
+<li><strong><code>REPLIDEC</code> and <code>BACPHLIP</code> produce identical output</strong> to the micromamba image on a real
+   input — <code>-profile test</code>, not <code>test_stub</code>, since the stub blocks never invoke the tools. A
+   packaging change must not be a scientific change; if output differs, the lock captured
+   something the old solve did not, and that must be understood before proceeding.</li>
+<li><strong>A rebuild a week later yields the same package set.</strong> Diff <code>pixi list -e replidec</code> between
+   the two builds. This is the property being bought, so it should be the property that is
+   tested.</li>
+</ol>
+<h3 id="what-the-migration-turned-up">What the migration turned up</h3>
+<p>Three of the fifteen images needed more than a mechanical translation, and in each case the
+lock is what made the problem visible:</p>
+<ul>
+<li><strong><code>viroprofiler-binning</code>.</strong> Its second <code>vrhyme</code> prefix had drifted to Python 3.14, where
+  <code>vRhyme</code> no longer starts — and had never been on <code>PATH</code>, so nothing noticed
+  (<a href="../KNOWN_ISSUES/#i-39">I-39</a>). There is one environment now. phamb's PyPI metadata
+  requires <code>scikit-learn==1.0.2</code> exactly, which the conda solve has to agree with rather than
+  fight; declaring it is also correct on its own terms, because PHAMB's forest is a
+  joblib-serialised estimator of that version. VAMB is a <code>linux-64</code>-only feature.</li>
+<li><strong><code>viroprofiler-base</code>.</strong> <code>prodigal-gv</code> and <code>hmmsearch</code> are declared nowhere: GENEPRED,
+  MICOMPLETEDB and VOGDB call them by bare name and get CheckV's copies. The manifest records
+  that, and the smoke test asserts which prefix they resolve from, because adding them to the
+  base feature would silently take over CheckV's own internal calls too. The image no longer
+  carries a <code>virsorter2</code> environment: it had no consumer — every process that runs VirSorter2
+  carries the <code>viroprofiler_virsorter2</code> label — and was kept through the pixi migration only
+  so that the migration changed packaging and nothing else. Dropping it took about 1 GB off
+  the image.</li>
+<li><strong><code>viroprofiler-geneannot</code>.</strong> The <code>--no-deps</code> question is answered by keeping <code>--no-deps</code>:
+  pixi.lock already provides a dependency set that solves on both platforms, and letting pip
+  resolve DRAM's requirements would pull PyPI copies over conda ones.</li>
+</ul>
+<p><code>docker/viroprofiler-phamb/</code> was deleted rather than migrated: no label, config or script
+referred to it, and <code>viroprofiler-binning</code> provides phamb.</p>
+<p>Restoring the <code>.github/workflows/docker.yml</code> matrix, with <code>pixi lock --check --dry-run</code> as a
+gate, is what makes the lock mean anything on someone else's machine. Locking without CI
+verification only moves the drift from build time to the next person who runs <code>pixi lock</code>.
+Note the trap, verified in the appendix: plain <code>pixi lock --check</code> exits non-zero on drift but
+<em>rewrites</em> <code>pixi.lock</code> while doing so.</p>
+<h2 id="virsorter2-fork-freeze-or-replace">VirSorter2: fork, freeze, or replace?</h2>
+<p><strong>Recommendation: keep the bioconda package, lock it, and do not fork.</strong> Add a <code>--use_virsorter2</code>
+switch so runs that do not need DRAM-v can skip it. Introduce geNomad — but as a replacement for
+<strong>DeepVirFinder</strong>, not for VirSorter2.</p>
+<h3 id="what-virsorter2-actually-does-in-this-pipeline">What VirSorter2 actually does in this pipeline</h3>
+<p>The premise that VirSorter2 is a viral-detection dependency does not hold here. Detection is
+<code>VIRCONTIGS_PRE</code> (<code>modules/local/viral_detection.nf</code>), whose putative viral contig list is the
+union of the DeepVirFinder list, the CheckV quality calls, and the VIBRANT output — VirSorter2
+contributes nothing to it. <code>VIRSORTER2</code> runs <em>downstream</em>, on the already-selected
+<code>vContigs_and_vMAGs</code> (<code>workflows/viroprofiler.nf:249</code>), and only two of its outputs are consumed:</p>
+<ul>
+<li><code>viral-affi-contigs-for-dramv.tab</code> and <code>final-viral-combined-for-dramv.fa</code> feed <code>DRAMV</code>
+  (<code>workflows/viroprofiler.nf:254</code>).</li>
+<li><code>out_vs2/final-viral-score.tsv</code> becomes a score column in the TreeSummarizedExperiment
+  (<code>workflows/viroprofiler.nf:299</code>).</li>
+</ul>
+<p>So VirSorter2 is a DRAM-v feeder plus one score column. That reframes every option below.</p>
+<h3 id="forking-is-not-worth-it">Forking is not worth it</h3>
+<p>A snakemake 7 to 8 port is not one import. The removed <code>load_configfile</code> is the visible symptom;
+behind it are the programmatic <code>snakemake(...)</code> API, per-symbol changes in <code>snakemake.utils</code>,
+reliance on internals such as <code>workflow.snakefile</code>, the <code>--use-conda</code> to software-deployment
+transition, and the executor-plugin split. Then the real work starts: unpinning Python exposes
+pandas, numpy and scikit-learn serialization changes, and a workflow that <em>runs</em> is not a
+workflow that produces equivalent scores. The dangerous outcome is not a crash; it is a fork
+that completes successfully with shifted gene boundaries or categories, silently changing the
+DRAM-v auxiliary scores downstream. For a pipeline maintainer who is not a VirSorter2 developer,
+this buys nothing the bioconda pin does not already provide, and it transfers packaging,
+database distribution and user support to this repository permanently.</p>
+<h3 id="the-bioconda-pin-is-durable-enough-once-locked">The bioconda pin is durable enough, once locked</h3>
+<p>The snakemake constraint lives in the built package's dependency metadata, not merely in the
+recipe on GitHub, so a fresh solve cannot legally pick snakemake 8 while that constraint stands.
+A lock resolves <code>virsorter 2.2.4</code> together with <code>snakemake-minimal 5.26.0</code> and Python 3.10.0, on
+both platforms. The realistic failure mode is therefore not silent breakage but "the image no
+longer rebuilds", if old dependency builds disappear from current repodata — which is precisely
+what a lockfile with pinned artifact URLs defends against, and which nothing else does.</p>
+<p>The arm64 argument for abandoning VirSorter2 also does not stand: it locks cleanly for
+<code>linux-aarch64</code>.</p>
+<h3 id="genomad-cannot-take-over-the-load-bearing-role">geNomad cannot take over the load-bearing role</h3>
+<p>geNomad is the better modern detector and is unambiguously arm64-ready — <code>genomad 1.12.0</code> locks
+for both <code>linux-64</code> and <code>linux-aarch64</code> (144 packages, Python 3.12), with mmseqs2 and aragorn
+available on both. But it cannot produce VirSorter's <code>affi-contigs.tab</code>, and no other tool can.
+That file is not a contig list; it carries per-gene VirSorter category assignments, and DRAM-v
+consumes them to compute auxiliary scores.</p>
+<p>The consequence is concrete and checkable in DRAM 1.4.6. <code>-v/--virsorter_affi_contigs</code> is
+<em>optional</em> at the CLI, and <code>annotate_vgfs()</code> guards on it, so <code>DRAM-v.py annotate</code> will run
+without it — but <code>add_dramv_scores_and_flags()</code> only creates the <code>auxiliary_score</code> and
+<code>virsorter_category</code> columns inside <code>if virsorter_hits is not None</code>. <code>DRAM-v.py distill</code> then
+calls <code>filter_to_amgs()</code>, which indexes <code>annotations['auxiliary_score']</code> unconditionally. So
+<code>modules/local/annotation.nf:27</code> fails on a <code>KeyError</code> the moment VirSorter2 is removed. With
+<code>use_dram = true</code> by default, dropping VirSorter2 today breaks the default configuration.</p>
+<p>Producing a synthetic affi-contigs file from geNomad output would make DRAM-v execute while
+changing what the auxiliary score means. There is no lossless adapter, and a plausible-looking
+AMG table computed from fabricated VirSorter categories is worse than no AMG table.</p>
+<h3 id="the-tool-that-should-be-replaced-is-deepvirfinder">The tool that should be replaced is DeepVirFinder</h3>
+<p>Every argument aimed at VirSorter2 lands squarely on DeepVirFinder instead:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>VirSorter2 2.2.4</th>
+<th>DeepVirFinder</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Role here</td>
+<td>DRAM-v prep + one score column</td>
+<td>detection voter in <code>VIRCONTIGS_PRE</code></td>
+</tr>
+<tr>
+<td>Upstream</td>
+<td>unmaintained, but pinned by bioconda</td>
+<td>unmaintained</td>
+</tr>
+<tr>
+<td>Packaging</td>
+<td>bioconda</td>
+<td><code>hcc</code> channel only, last built 2020-11-21</td>
+</tr>
+<tr>
+<td>Stack</td>
+<td>snakemake 5.26, Python 3.10</td>
+<td>theano 1.0.3, keras 2.2.4 (2018)</td>
+</tr>
+<tr>
+<td>linux-aarch64</td>
+<td>solves</td>
+<td>impossible (<a href="../ARM64/">ARM64.md</a>)</td>
+</tr>
+<tr>
+<td>Replaceable by geNomad</td>
+<td>no — no affi-contigs</td>
+<td>yes, directly</td>
+</tr>
+</tbody>
+</table>
+<p>DeepVirFinder is a genuine detection voter, is the harder arm64 blocker, comes from a channel
+with a single maintainer, and does exactly the job geNomad was built to do better. Swapping
+geNomad in for it removes an arm64 blocker, removes a dead dependency, and improves the science,
+while VirSorter2 stays put doing the one job nothing else can do. <code>--use_dvf</code> already exists as
+the switch to turn DeepVirFinder off, so a <code>GENOMAD</code> process can be introduced alongside it and
+compared on real data before anything is removed.</p>
+<h3 id="verdict">Verdict</h3>
+<ol>
+<li>Keep <code>bioconda::virsorter=2.2.4</code>; lock it. Do not fork.</li>
+<li>Add <code>--use_virsorter2</code> (defaulting to <code>params.use_dram</code>, which is what actually needs it) so
+   runs that skip AMG annotation avoid an unmaintained tool and an 11 GB database.</li>
+<li><del>Add geNomad as a detection option and evaluate it against DeepVirFinder on real data. If it
+   holds up, retire DeepVirFinder and delete <code>docker/viroprofiler-dvf/</code>.</del> <strong>Done.</strong> <code>GENOMAD</code>
+   took DeepVirFinder's place in both workflows, <code>docker/viroprofiler-dvf/</code> is deleted, and
+   <code>--binning phamb</code> now errors out because PHAMB's random forest reads DeepVirFinder's score
+   table directly. See <a href="../ARM64/">ARM64.md</a>.</li>
+<li>Revisit VirSorter2 only when the DRAM-v auxiliary-score product is itself retired or
+   replaced — that is a scientific decision about the AMG deliverable, not a packaging one.</li>
+</ol>
+<p>This would change if DRAM-v's auxiliary scores stop being a required output, in which case
+VirSorter2 has no remaining role and should simply be dropped; or if bioconda's <code>virsorter</code>
+artifacts become unresolvable, in which case the frozen amd64 lock plus the base-image digest is
+the fallback, not a fork.</p>
+<h2 id="appendix-verification">Appendix: verification</h2>
+<p>Every empirical claim above, with the command that produced it. Run on aarch64 (NVIDIA GB10),
+pixi 0.73.0, conda-lock 4.0.2, Docker 29.2.1, Apptainer 1.5.2.</p>
+<p><strong>Tools on <code>PATH</code> with no activation, Docker, stripped environment.</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>$ docker run --rm --entrypoint /usr/bin/env &lt;pixi-image&gt; -i \
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>    PATH=/app/.pixi/envs/replidec/bin:/app/.pixi/envs/bacphlip/bin:/usr/bin:/bin HOME=/tmp \
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>    bash -c &#39;which Replidec bacphlip mmseqs ps; Replidec -h; bacphlip -h&#39;
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>/app/.pixi/envs/replidec/bin/Replidec
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>/app/.pixi/envs/bacphlip/bin/bacphlip
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>/app/.pixi/envs/replidec/bin/mmseqs
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>/app/.pixi/envs/replidec/bin/ps
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>Replidec OK
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>bacphlip OK
+</code></pre></div>
+<p><strong>Same, under Apptainer as the pipeline runs it.</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>$ apptainer exec --no-home --cleanenv vp-pilot-pixi.sif bash -c &#39;Replidec -h; bacphlip -h&#39;
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>Replidec OK
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>bacphlip OK
+</code></pre></div>
+<p><strong>Cross-environment shebang, which is why two prefixes coexist on one <code>PATH</code>.</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>$ head -1 /app/.pixi/envs/bacphlip/bin/bacphlip
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>#!/app/.pixi/envs/bacphlip/bin/python3.8
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>$ /app/.pixi/envs/replidec/bin/python -V   -&gt;  Python 3.10.20
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>$ /app/.pixi/envs/bacphlip/bin/python -V   -&gt;  Python 3.8.20
+</code></pre></div>
+<p><strong>Activation scripts exist and do not run — under either build system.</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>$ find /app/.pixi/envs -path &#39;*etc/conda/activate.d/*.sh&#39;
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>/app/.pixi/envs/replidec/etc/conda/activate.d/libxml2-split_activate.sh
+</code></pre></div>
+<p><strong>Lock speed, cold cache (<code>PIXI_CACHE_DIR</code> pointed at an empty directory), 2 environments x 2
+platforms, including the <code>denglab</code> channel.</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>$ time PIXI_CACHE_DIR=/tmp/coldcache pixi lock        -&gt;  9.4 s
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>$ time pixi lock                          (warm)      -&gt;  2.1 s
+</code></pre></div>
+<p><strong>conda-lock, same inputs and an equally cold cache, 1 environment x 2 platforms.</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>$ conda-lock lock -f env_replidec.yml -p linux-64 -p linux-aarch64
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>(killed at 16 min: zero bytes written, no lockfile, process alive at ~1% CPU = repodata-bound)
+</code></pre></div>
+<p><strong>The lock is actually enforced, and <code>--check</code> alone is the wrong CI gate.</strong> After adding one
+package to the manifest without re-locking:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>$ pixi install --locked          -&gt; exit 1, &quot;lock file not up-to-date with the workspace&quot;
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>                                    pixi.lock unchanged
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>$ pixi lock --check              -&gt; exit 1, but pixi.lock WAS rewritten
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>$ pixi lock --check --dry-run    -&gt; exit 1, pixi.lock unchanged        &lt;- use this in CI
+</code></pre></div>
+<p><strong>Custom channels resolve.</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>https://conda.anaconda.org/denglab/linux-64/replidec-0.2.3.1-py310_0.tar.bz2
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>https://conda.anaconda.org/denglab/linux-aarch64/replidec-0.2.3.1-py310_0.tar.bz2
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>https://conda.anaconda.org/hcc/noarch/deepvirfinder-2020.11.21-py36_0.tar.bz2
+</code></pre></div>
+<p><strong>PyPI and conda in one lock, both platforms.</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>$ pixi lock            # [pypi-dependencies] DRAM-bio = &quot;==1.4.6&quot;   -&gt;  5.4 s
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>linux-64       conda: 102  pypi: 15
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>linux-aarch64  conda: 100  pypi: 15
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>  https://files.pythonhosted.org/packages/4a/3e/.../DRAM_bio-1.4.6-py3-none-any.whl
+</code></pre></div>
+<p><strong>Unsatisfiable platform fails at lock time, and a feature-level restriction expresses the
+answer.</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>$ pixi lock          # theano 1.0.3 + keras 2.2.4, platforms = [linux-64, linux-aarch64]
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>x failed to solve requirements of environment &#39;dvf&#39; for platform &#39;linux-aarch64&#39;
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>  ╰─▶ Cannot solve the request because of: No candidates were found for theano 1.0.3.*.
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>                                                                        (exit 1)
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>
+<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>$ pixi lock          # after adding [feature.dvf] platforms = [&quot;linux-64&quot;]
+<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>                                                                        (exit 0)
+<a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>dvf -&gt; [&#39;linux-64&#39;]
+</code></pre></div>
+<p><strong>VirSorter2 solves on aarch64, and bioconda holds snakemake for us.</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>virsorter2  linux-64        142 pkgs   virsorter-2.2.4-pyhdfd78af_2, snakemake-minimal-5.26.0, python-3.10.0
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>virsorter2  linux-aarch64   141 pkgs   virsorter-2.2.4-pyhdfd78af_2, snakemake-minimal-5.26.0, python-3.10.0
+</code></pre></div>
+<p><strong>geNomad is arm64-ready.</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>genomad  linux-64        144 pkgs   genomad-1.12.0-pyhdfd78af_0, mmseqs2-18.8cc5c, aragorn-1.2.41, python-3.12.13
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>genomad  linux-aarch64   144 pkgs   genomad-1.12.0-pyhdfd78af_0, mmseqs2-18.8cc5c, aragorn-1.2.41, python-3.12.13
+</code></pre></div>
+<p><strong>Size and build time, same two environments, package cache mount, warm cache.</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>micromamba 1.5.8   1 m 27 s   1.84 GB image   604 MB SIF
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>pixi 0.73.0        1 m 24 s   1.86 GB image   619 MB SIF
+</code></pre></div>
+<p><strong>DRAM-v breaks without affi-contigs</strong> (DRAM-bio 1.4.6 source):</p>
+<ul>
+<li><code>mag_annotator/annotate_vgfs.py</code> — <code>def annotate_vgfs(input_fasta, virsorter_affi_contigs=None, ...)</code>;
+  <code>add_dramv_scores_and_flags()</code> creates <code>auxiliary_score</code> and <code>virsorter_category</code> only inside
+  <code>if virsorter_hits is not None:</code>.</li>
+<li><code>mag_annotator/summarize_vgfs.py</code> — <code>filter_to_amgs()</code> evaluates
+  <code>annotations['auxiliary_score'] &lt;= max_aux</code> unconditionally, so <code>DRAM-v.py distill</code> raises
+  <code>KeyError</code> when the column was never created.</li>
+</ul>
+<p><strong>Not tested.</strong> Whether geNomad's calls are an acceptable substitute for DeepVirFinder's on this
+pipeline's data — that requires a real comparison run, not a solve. Whether pixi's PyPI resolver
+produces the same DRAM installation as the current <code>pip install --no-deps</code>. Whether the remaining
+twelve images all pass the <code>env -i</code> smoke test; only the two-environment pilot was built.</p>
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
+    </span>
+    2026-09-20
+  </span>
+
+    
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.1e8ae164.min.js"></script>
+      
+    
+  </body>
+</html>
